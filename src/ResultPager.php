@@ -15,6 +15,7 @@ namespace Bitbucket;
 
 use Bitbucket\Api\ApiInterface;
 use Bitbucket\Exception\DecodingFailedException;
+use Bitbucket\Exception\InvalidArgumentException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 
 /**
@@ -122,9 +123,13 @@ class ResultPager implements ResultPagerInterface
      */
     public function postFetch()
     {
-        try {
-            $this->pagination = ResponseMediator::getPagination($this->client->getLastResponse());
-        } catch (DecodingFailedException $e) {
+        if ($response = $this->client->getLastResponse()) {
+            try {
+                $this->pagination = ResponseMediator::getPagination($response);
+            } catch (DecodingFailedException $e) {
+                $this->pagination = null;
+            }
+        } else {
             $this->pagination = null;
         }
     }
@@ -188,12 +193,12 @@ class ResultPager implements ResultPagerInterface
      *
      * @throws \Http\Client\Exception
      *
-     * @return array|null
+     * @return array
      */
     protected function get(string $key)
     {
         if (!$this->has($key)) {
-            return;
+            throw new InvalidArgumentException('No such link exists.');
         }
 
         $result = $this->client->getHttpClient()->get($this->pagination[$key]);
