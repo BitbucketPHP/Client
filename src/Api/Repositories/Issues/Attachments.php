@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Issues;
+
 use Http\Message\MultipartStream\MultipartStreamBuilder;
 
 /**
