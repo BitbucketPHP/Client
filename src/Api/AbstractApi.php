@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api;
 
 use Bitbucket\Client;
+use Bitbucket\Exception\InvalidArgumentException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 
 /**
@@ -279,13 +280,35 @@ abstract class AbstractApi implements ApiInterface
     }
 
     /**
+     * Build a URL path from the given parts.
+     *
+     * @param string[] $parts
+     *
+     * @throws \Bitbucket\Exception\InvalidArgumentException
+     *
+     * @return string
+     */
+    protected static function buildPath(string ...$parts)
+    {
+        $parts = array_map(function (string $part) {
+            if (!$part) {
+                throw new InvalidArgumentException('Missing required parameter.');
+            }
+
+            return self::urlEncode($part);
+        }, $parts);
+
+        return implode('/', $parts);
+    }
+
+    /**
      * Create a JSON encoded version of an array of params.
      *
      * @param array $params
      *
      * @return string|null
      */
-    protected static function createJsonBody(array $params)
+    private static function createJsonBody(array $params)
     {
         if ($params) {
             return json_encode($params);
@@ -299,7 +322,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @return array
      */
-    protected static function addJsonContentType(array $headers)
+    private static function addJsonContentType(array $headers)
     {
         return array_merge(['Content-Type' => 'application/json'], $headers);
     }
@@ -307,14 +330,14 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Encode the given string for a URL.
      *
-     * @param string $path
+     * @param string $str
      *
      * @return string
      */
-    protected static function urlEncode(string $path)
+    private static function urlEncode(string $str)
     {
-        $path = rawurlencode($path);
+        $str = rawurlencode($str);
 
-        return str_replace('.', '%2E', $path);
+        return str_replace('.', '%2E', $str);
     }
 }
