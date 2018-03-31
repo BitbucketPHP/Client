@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Teams;
 /**
  * The followers api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Followers extends AbstractTeamsApi
 {

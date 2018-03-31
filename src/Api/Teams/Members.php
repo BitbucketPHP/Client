@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Teams;
 /**
  * The members api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Members extends AbstractTeamsApi
 {

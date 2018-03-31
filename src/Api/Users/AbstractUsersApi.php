@@ -19,7 +19,7 @@ use Http\Client\Common\HttpMethodsClient;
 /**
  * The abstract user api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 abstract class AbstractUsersApi extends AbstractApi
 {

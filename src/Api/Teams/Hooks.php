@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Teams;
 /**
  * The hooks api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Hooks extends AbstractTeamsApi
 {

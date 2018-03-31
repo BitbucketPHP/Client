@@ -24,7 +24,7 @@ use Http\Client\Common\HttpMethodsClient;
 /**
  * The users api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Users extends AbstractApi
 {

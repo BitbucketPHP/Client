@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Teams;
 /**
  * The permissions api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Permissions extends AbstractTeamsApi
 {

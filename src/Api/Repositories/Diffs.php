@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories;
 /**
  * The diffs api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Diffs extends AbstractRepositoriesApi
 {

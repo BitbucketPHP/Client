@@ -16,12 +16,12 @@ namespace Bitbucket\Api\Repositories;
 /**
  * The file history api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class FileHistory extends AbstractRepositoriesApi
 {
     /**
-     * @param string $node
+     * @param string $commit
      * @param string $path
      * @param array  $params
      *
@@ -29,9 +29,9 @@ class FileHistory extends AbstractRepositoriesApi
      *
      * @return array
      */
-    public function list(string $node, string $path, array $params = [])
+    public function list(string $commit, string $path, array $params = [])
     {
-        $path = $this->buildFileHistoryPath($node, ...explode('/', $path));
+        $path = $this->buildFileHistoryPath($commit, ...explode('/', $path));
 
         return $this->get($path, $params);
     }

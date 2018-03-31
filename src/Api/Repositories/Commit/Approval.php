@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Commit;
 /**
  * The approval api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Approval extends AbstractCommitApi
 {

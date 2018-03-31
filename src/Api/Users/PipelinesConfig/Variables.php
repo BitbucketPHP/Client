@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Users\PipelinesConfig;
 /**
  * The variables api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Variables extends AbstractPipelinesConfigApi
 {

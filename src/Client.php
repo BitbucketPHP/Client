@@ -13,9 +13,11 @@ declare(strict_types=1);
 
 namespace Bitbucket;
 
+use Bitbucket\Api\Addon;
 use Bitbucket\Api\CurrentUser;
 use Bitbucket\Api\HookEvents;
 use Bitbucket\Api\Repositories;
+use Bitbucket\Api\Snippets;
 use Bitbucket\Api\Teams;
 use Bitbucket\Api\Users;
 use Bitbucket\HttpClient\Builder;
@@ -87,6 +89,14 @@ class Client
     }
 
     /**
+     * @return \Bitbucket\Api\Addon
+     */
+    public function addon()
+    {
+        return new Addon($this->getHttpClient());
+    }
+
+    /**
      * @return \Bitbucket\Api\CurrentUser
      */
     public function currentUser()
@@ -108,6 +118,14 @@ class Client
     public function repositories()
     {
         return new Repositories($this->getHttpClient());
+    }
+
+    /**
+     * @return \Bitbucket\Api\Snippets
+     */
+    public function snippets()
+    {
+        return new Snippets($this->getHttpClient());
     }
 
     /**

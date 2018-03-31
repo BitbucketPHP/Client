@@ -20,7 +20,7 @@ use Bitbucket\Api\Repositories\Commit\Comments;
 /**
  * The commit api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Commit extends AbstractRepositoriesApi
 {

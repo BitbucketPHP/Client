@@ -17,7 +17,7 @@ namespace Bitbucket\Api;
  * The bitbucket api interface.
  *
  * @author Joseph Bielawski <stloyd@gmail.com>
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 interface ApiInterface
 {

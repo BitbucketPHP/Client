@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Issues;
 /**
  * The comments api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Comments extends AbstractIssuesApi
 {

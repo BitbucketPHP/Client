@@ -21,7 +21,7 @@ use Http\Client\Common\HttpMethodsClient;
  * The abstract bitbucket api class.
  *
  * @author Joseph Bielawski <stloyd@gmail.com>
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 abstract class AbstractApi implements ApiInterface
 {

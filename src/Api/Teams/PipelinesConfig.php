@@ -18,7 +18,7 @@ use Bitbucket\Api\Teams\PipelinesConfig\Variables;
 /**
  * The pipelines config api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class PipelinesConfig extends AbstractTeamsApi
 {

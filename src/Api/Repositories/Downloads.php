@@ -13,12 +13,13 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Repositories;
 
+use Bitbucket\HttpClient\Message\FileResource;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
 
 /**
  * The downloads api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Downloads extends AbstractRepositoriesApi
 {
@@ -37,18 +38,16 @@ class Downloads extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string                                            $name
-     * @param string|resource|\Psr\Http\Message\StreamInterface $resource
-     * @param array                                             $options
+     * @param \Bitbucket\HttpClient\Message\FileResource $file
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function upload(string $name, $resource, array $options = [])
+    public function upload(FileResource $file)
     {
         $path = $this->buildDownloadsPath();
-        $builder = (new MultipartStreamBuilder())->addResource($name, $resource, $options);
+        $builder = (new MultipartStreamBuilder())->addResource($file->getName(), $file->getResource(), $file->getOptions());
         $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
         return $this->postRaw($path, $builder->build(), $headers);

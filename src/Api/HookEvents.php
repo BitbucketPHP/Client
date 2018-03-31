@@ -16,7 +16,7 @@ namespace Bitbucket\Api;
 /**
  * The hook events api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class HookEvents extends AbstractApi
 {

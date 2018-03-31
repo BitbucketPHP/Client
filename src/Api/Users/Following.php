@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Users;
 /**
  * The following api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Following extends AbstractUsersApi
 {

@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories;
 /**
  * The components api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Components extends AbstractRepositoriesApi
 {

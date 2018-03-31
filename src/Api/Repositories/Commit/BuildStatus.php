@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Commit;
 /**
  * The build status api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class BuildStatus extends AbstractCommitApi
 {

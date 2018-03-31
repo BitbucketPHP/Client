@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories;
 /**
  * The hooks api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Hooks extends AbstractRepositoriesApi
 {

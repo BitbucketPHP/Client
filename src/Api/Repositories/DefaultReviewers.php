@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories;
 /**
  * The default reviewers api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class DefaultReviewers extends AbstractRepositoriesApi
 {

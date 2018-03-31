@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories;
 /**
  * The branch restrictions api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Commits extends AbstractRepositoriesApi
 {

@@ -22,7 +22,7 @@ use Bitbucket\Api\Repositories\Issues\Watching;
 /**
  * The issues api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Issues extends AbstractRepositoriesApi
 {

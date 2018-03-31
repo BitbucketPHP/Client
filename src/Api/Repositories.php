@@ -30,7 +30,7 @@ use Bitbucket\Api\Repositories\Patches;
 /**
  * The repositories api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Repositories extends AbstractApi
 {

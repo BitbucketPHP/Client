@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Issues;
 /**
  * The voting class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Voting extends AbstractIssuesApi
 {

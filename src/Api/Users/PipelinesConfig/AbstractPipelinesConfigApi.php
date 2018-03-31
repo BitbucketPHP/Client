@@ -18,7 +18,7 @@ use Bitbucket\Api\Users\AbstractUsersApi;
 /**
  * The abstract pipelines config api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 abstract class AbstractPipelinesConfigApi extends AbstractUsersApi
 {

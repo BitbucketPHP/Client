@@ -19,7 +19,7 @@ use Http\Client\Common\HttpMethodsClient;
 /**
  * The abstract repository api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 abstract class AbstractRepositoriesApi extends AbstractApi
 {

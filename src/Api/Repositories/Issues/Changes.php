@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Issues;
 /**
  * The changes api class.
  *
- * @author Graham Campbell <graham@alt-thre.com>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Changes extends AbstractIssuesApi
 {
