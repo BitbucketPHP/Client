@@ -13,90 +13,17 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Repositories;
 
+use Bitbucket\Api\Repositories\Commit\Approval;
+use Bitbucket\Api\Repositories\Commit\BuildStatus;
+use Bitbucket\Api\Repositories\Commit\Comments;
+
 /**
  * The commit api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Commit extends AbstractRepositoryApi
+class Commit extends AbstractRepositoriesApi
 {
-    /**
-     * @param string $commit
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function approveChanges(string $commit, array $params = [])
-    {
-        $path = $this->buildCommitPath($commit, 'approve');
-
-        return $this->post($path, $params);
-    }
-
-    /**
-     * @param string $commit
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function redactApproval(string $commit, array $params = [])
-    {
-        $path = $this->buildCommitPath($commit, 'approve');
-
-        return $this->delete($path, $params);
-    }
-
-    /**
-     * @param string $commit
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function createBuildStatus(string $commit, array $params = [])
-    {
-        $path = $this->buildCommitPath($commit, 'statuses', 'build');
-
-        return $this->post($path, $params);
-    }
-
-    /**
-     * @param string $commit
-     * @param string $key
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function showBuildStatus(string $commit, string $key, array $params = [])
-    {
-        $path = $this->buildCommitPath($commit, 'statuses', 'build', $key);
-
-        return $this->get($path, $params);
-    }
-
-    /**
-     * @param string $commit
-     * @param string $key
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function updateBuildStatus(string $commit, string $key, array $params = [])
-    {
-        $path = $this->buildCommitPath($commit, 'statuses', 'build', $key);
-
-        return $this->put($path, $params);
-    }
-
     /**
      * @param string $commit
      * @param array  $params
@@ -114,33 +41,32 @@ class Commit extends AbstractRepositoryApi
 
     /**
      * @param string $commit
-     * @param array  $params
      *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
+     * @return \Bitbucket\Api\Repositories\Commit\Approval
      */
-    public function listComments(string $commit, array $params = [])
+    public function approval(string $commit)
     {
-        $path = $this->buildCommitPath($commit, 'comments');
-
-        return $this->get($path, $params);
+        return new Approval($this->getHttpClient(), $this->username, $this->repo, $commit);
     }
 
     /**
      * @param string $commit
-     * @param string $comment
-     * @param array  $params
      *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
+     * @return \Bitbucket\Api\Repositories\Commit\BuildStatus
      */
-    public function showComment(string $commit, string $comment, array $params = [])
+    public function buildStatus(string $commit)
     {
-        $path = $this->buildCommitPath($commit, 'comments', $comment);
+        return new BuildStatus($this->getHttpClient(), $this->username, $this->repo, $commit);
+    }
 
-        return $this->get($path, $params);
+    /**
+     * @param string $commit
+     *
+     * @return \Bitbucket\Api\Repositories\Commit\Comments
+     */
+    public function comments(string $commit)
+    {
+        return new Comments($this->getHttpClient(), $this->username, $this->repo, $commit);
     }
 
     /**

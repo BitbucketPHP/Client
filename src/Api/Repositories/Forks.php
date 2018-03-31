@@ -18,7 +18,7 @@ namespace Bitbucket\Api\Repositories;
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Forks extends AbstractRepositoryApi
+class Forks extends AbstractRepositoriesApi
 {
     /**
      * @param array $params

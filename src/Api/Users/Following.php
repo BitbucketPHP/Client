@@ -18,7 +18,7 @@ namespace Bitbucket\Api\Users;
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Following extends AbstractUserApi
+class Following extends AbstractUsersApi
 {
     /**
      * @param array $params

@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Teams;
+namespace Bitbucket\Api\Repositories\Commit;
 
 /**
- * The permissions api class.
+ * The comments api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Permissions extends AbstractTeamsApi
+class Comments extends AbstractCommitApi
 {
     /**
      * @param array $params
@@ -29,27 +29,28 @@ class Permissions extends AbstractTeamsApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildPermissionsPath();
+        $path = $this->buildCommentsPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param array $params
+     * @param string $comment
+     * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function listByRepository(array $params = [])
+    public function show(string $comment, array $params = [])
     {
-        $path = $this->buildPermissionsPath('repositories');
+        $path = $this->buildCommentsPath($comment);
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the permissions path from the given parts.
+     * Build the comments path from the given parts.
      *
      * @param string[] $parts
      *
@@ -57,8 +58,8 @@ class Permissions extends AbstractTeamsApi
      *
      * @return string
      */
-    protected function buildPermissionsPath(string ...$parts)
+    protected function buildCommentsPath(string ...$parts)
     {
-        return static::buildPath('teams', $this->username, 'permissions', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'commit', $this->commit, 'comments', ...$parts);
     }
 }

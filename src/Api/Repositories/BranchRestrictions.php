@@ -18,7 +18,7 @@ namespace Bitbucket\Api\Repositories;
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class BranchRestrictions extends AbstractRepositoryApi
+class BranchRestrictions extends AbstractRepositoriesApi
 {
     /**
      * @param array $params

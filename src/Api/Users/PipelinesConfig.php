@@ -13,84 +13,21 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Users;
 
+use Bitbucket\Api\Users\PipelinesConfig\Variables;
+
 /**
  * The pipelines config api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class PipelinesConfig extends AbstractUserApi
+class PipelinesConfig extends AbstractUsersApi
 {
     /**
-     * @param array $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
+     * @return \Bitbucket\Api\Users\PipelinesConfig\Variables
      */
-    public function listVariables(array $params = [])
+    public function variables()
     {
-        $path = $this->buildPipelinesConfigPath('variables');
-
-        return $this->get($path, $params);
-    }
-
-    /**
-     * @param array $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function createVariable(array $params = [])
-    {
-        $path = $this->buildPipelinesConfigPath('variables');
-
-        return $this->post($path, $params);
-    }
-
-    /**
-     * @param string $variable
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function showVariable(string $variable, array $params = [])
-    {
-        $path = $this->buildPipelinesConfigPath('variables', $variable);
-
-        return $this->get($path, $params);
-    }
-
-    /**
-     * @param string $variable
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function updateVariable(string $variable, array $params = [])
-    {
-        $path = $this->buildPipelinesConfigPath('variables', $variable);
-
-        return $this->put($path, $params);
-    }
-
-    /**
-     * @param string $variable
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function removeVariable(string $variable, array $params = [])
-    {
-        $path = $this->buildPipelinesConfigPath('variables', $variable);
-
-        return $this->delete($path, $params);
+        return new Variables($this->getHttpClient(), $this->username);
     }
 
     /**

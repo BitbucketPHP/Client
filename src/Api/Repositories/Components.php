@@ -18,7 +18,7 @@ namespace Bitbucket\Api\Repositories;
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Components extends AbstractRepositoryApi
+class Components extends AbstractRepositoriesApi
 {
     /**
      * @param array $params

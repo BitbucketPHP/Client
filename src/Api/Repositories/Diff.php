@@ -18,7 +18,7 @@ namespace Bitbucket\Api\Repositories;
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Diff extends AbstractRepositoryApi
+class Diff extends AbstractRepositoriesApi
 {
     /**
      * @param string $spec

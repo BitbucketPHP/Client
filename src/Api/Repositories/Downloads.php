@@ -20,7 +20,7 @@ use Http\Message\MultipartStream\MultipartStreamBuilder;
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Downloads extends AbstractRepositoryApi
+class Downloads extends AbstractRepositoriesApi
 {
     /**
      * @param array $params

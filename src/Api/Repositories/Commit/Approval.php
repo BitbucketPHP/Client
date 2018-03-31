@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Teams;
+namespace Bitbucket\Api\Repositories\Commit;
 
 /**
- * The permissions api class.
+ * The approval api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Permissions extends AbstractTeamsApi
+class Approval extends AbstractCommitApi
 {
     /**
      * @param array $params
@@ -27,11 +27,11 @@ class Permissions extends AbstractTeamsApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function approve(array $params = [])
     {
-        $path = $this->buildPermissionsPath();
+        $path = $this->buildApprovalPath();
 
-        return $this->get($path, $params);
+        return $this->post($path, $params);
     }
 
     /**
@@ -41,15 +41,15 @@ class Permissions extends AbstractTeamsApi
      *
      * @return array
      */
-    public function listByRepository(array $params = [])
+    public function redact(array $params = [])
     {
-        $path = $this->buildPermissionsPath('repositories');
+        $path = $this->buildApprovalPath();
 
-        return $this->get($path, $params);
+        return $this->delete($path, $params);
     }
 
     /**
-     * Build the permissions path from the given parts.
+     * Build the approval path from the given parts.
      *
      * @param string[] $parts
      *
@@ -57,8 +57,8 @@ class Permissions extends AbstractTeamsApi
      *
      * @return string
      */
-    protected function buildPermissionsPath(string ...$parts)
+    protected function buildApprovalPath(string ...$parts)
     {
-        return static::buildPath('teams', $this->username, 'permissions', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'commit', $this->commit, 'approve', ...$parts);
     }
 }

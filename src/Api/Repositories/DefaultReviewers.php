@@ -18,7 +18,7 @@ namespace Bitbucket\Api\Repositories;
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class DefaultReviewers extends AbstractRepositoryApi
+class DefaultReviewers extends AbstractRepositoriesApi
 {
     /**
      * @param array $params

@@ -18,7 +18,7 @@ namespace Bitbucket\Api\Repositories;
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class FileHistory extends AbstractRepositoryApi
+class FileHistory extends AbstractRepositoriesApi
 {
     /**
      * @param string $node

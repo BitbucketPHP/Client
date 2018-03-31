@@ -21,7 +21,7 @@ use Http\Client\Common\HttpMethodsClient;
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-abstract class AbstractUserApi extends AbstractApi
+abstract class AbstractUsersApi extends AbstractApi
 {
     /**
      * The username.

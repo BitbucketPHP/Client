@@ -18,7 +18,7 @@ namespace Bitbucket\Api\Teams;
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Projects extends AbstractTeamApi
+class Projects extends AbstractTeamsApi
 {
     /**
      * @param array $params

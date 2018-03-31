@@ -18,7 +18,7 @@ namespace Bitbucket\Api\Users;
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Hooks extends AbstractUserApi
+class Hooks extends AbstractUsersApi
 {
     /**
      * @param array $params
