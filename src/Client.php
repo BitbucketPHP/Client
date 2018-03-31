@@ -13,10 +13,11 @@ declare(strict_types=1);
 
 namespace Bitbucket;
 
+use Bitbucket\Api\CurrentUser;
 use Bitbucket\Api\HookEvents;
 use Bitbucket\Api\Repositories;
-use Bitbucket\Exception\BadMethodCallException;
-use Bitbucket\Exception\InvalidArgumentException;
+use Bitbucket\Api\Teams;
+use Bitbucket\Api\Users;
 use Bitbucket\HttpClient\Builder;
 use Bitbucket\HttpClient\Plugin\Authentication;
 use Bitbucket\HttpClient\Plugin\ExceptionThrower;
@@ -30,9 +31,6 @@ use Psr\Cache\CacheItemPoolInterface;
 
 /**
  * The Bitbucket API 2.0 client.
- *
- * @method HookEvents hookEvents()
- * @method Repositories repositories()
  *
  * @author Joseph Bielawski <stloyd@gmail.com>
  * @author Graham Campbell <graham@alt-three.com>
@@ -89,24 +87,47 @@ class Client
     }
 
     /**
-     * Get a named api instance.
-     *
-     * @param string $name
-     *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
-     * @return \Bitbucket\Api\ApiInterface
+     * @return \Bitbucket\Api\CurrentUser
      */
-    public function api(string $name)
+    public function currentUser()
     {
-        switch ($name) {
-            case 'hookEvents':
-                return new HookEvents($this);
-            case 'repositories':
-                return new Repositories($this);
-        }
+        return new CurrentUser($this->getHttpClient());
+    }
 
-        throw new InvalidArgumentException(sprintf('Undefined api instance called: "%s"', $name));
+    /**
+     * @return \Bitbucket\Api\HookEvents
+     */
+    public function hookEvents()
+    {
+        return new HookEvents($this->getHttpClient());
+    }
+
+    /**
+     * @return \Bitbucket\Api\Repositories
+     */
+    public function repositories()
+    {
+        return new Repositories($this->getHttpClient());
+    }
+
+    /**
+     * @param string $username
+     *
+     * @return \Bitbucket\Api\Teams
+     */
+    public function teams(string $username)
+    {
+        return new Teams($this->getHttpClient(), $username);
+    }
+
+    /**
+     * @param string $username
+     *
+     * @return \Bitbucket\Api\Users
+     */
+    public function users(string $username)
+    {
+        return new Users($this->getHttpClient(), $username);
     }
 
     /**
@@ -145,25 +166,6 @@ class Client
     public function removeCache()
     {
         $this->getHttpClientBuilder()->removeCache();
-    }
-
-    /**
-     * Dynamically get a named api instance.
-     *
-     * @param string $method
-     * @param array  $parameters
-     *
-     * @throws \Bitbucket\Exception\BadMethodCallException
-     *
-     * @return \Bitbucket\Api\ApiInterface
-     */
-    public function __call(string $method, array $parameters)
-    {
-        try {
-            return $this->api($method);
-        } catch (InvalidArgumentException $e) {
-            throw new BadMethodCallException(sprintf('Undefined method called: "%s"', $method));
-        }
     }
 
     /**

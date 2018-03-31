@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api;
 
-use Bitbucket\Client;
 use Bitbucket\Exception\InvalidArgumentException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
+use Http\Client\Common\HttpMethodsClient;
 
 /**
  * The abstract bitbucket api class.
@@ -26,27 +26,27 @@ use Bitbucket\HttpClient\Message\ResponseMediator;
 abstract class AbstractApi implements ApiInterface
 {
     /**
-     * The api client.
+     * The http methods client.
      *
-     * @var \Bitbucket\Client
+     * @var \Http\Client\Common\HttpMethodsClient
      */
-    protected $client;
+    private $client;
 
     /**
      * Number of items per page.
      *
      * @var int|null
      */
-    protected $perPage;
+    private $perPage;
 
     /**
      * Create a new api instance.
      *
-     * @param \Bitbucket\Client $client
+     * @param \Http\Client\Common\HttpMethodsClient $client
      *
      * @return void
      */
-    public function __construct(Client $client)
+    public function __construct(HttpMethodsClient $client)
     {
         $this->client = $client;
     }
@@ -74,6 +74,16 @@ abstract class AbstractApi implements ApiInterface
     }
 
     /**
+     * Get the http methods client.
+     *
+     * @return \Http\Client\Common\HttpMethodsClient
+     */
+    protected function getHttpClient()
+    {
+        return $this->client;
+    }
+
+    /**
      * Send a GET request with query params.
      *
      * @param string $path
@@ -94,7 +104,7 @@ abstract class AbstractApi implements ApiInterface
             $path .= '?'.http_build_query($params);
         }
 
-        $response = $this->client->getHttpClient()->get($path, $headers);
+        $response = $this->client->get($path, $headers);
 
         return ResponseMediator::getContent($response);
     }
@@ -116,7 +126,7 @@ abstract class AbstractApi implements ApiInterface
             $path .= '?'.http_build_query($params);
         }
 
-        return $this->client->getHttpClient()->head($path, $headers);
+        return $this->client->head($path, $headers);
     }
 
     /**
@@ -154,7 +164,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function postRaw(string $path, string $body, array $headers = [])
     {
-        $response = $this->client->getHttpClient()->post($path, $headers, $body);
+        $response = $this->client->post($path, $headers, $body);
 
         return ResponseMediator::getContent($response);
     }
@@ -194,7 +204,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function patchRaw(string $path, string $body, array $headers = [])
     {
-        $response = $this->client->getHttpClient()->patch($path, $headers, $body);
+        $response = $this->client->patch($path, $headers, $body);
 
         return ResponseMediator::getContent($response);
     }
@@ -234,7 +244,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function putRaw(string $path, string $body, array $headers = [])
     {
-        $response = $this->client->getHttpClient()->put($path, $headers, $body);
+        $response = $this->client->put($path, $headers, $body);
 
         return ResponseMediator::getContent($response);
     }
@@ -274,7 +284,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function deleteRaw(string $path, string $body, array $headers = [])
     {
-        $response = $this->client->getHttpClient()->delete($path, $headers, $body);
+        $response = $this->client->delete($path, $headers, $body);
 
         return ResponseMediator::getContent($response);
     }

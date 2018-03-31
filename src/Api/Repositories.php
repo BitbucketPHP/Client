@@ -125,7 +125,7 @@ class Repositories extends AbstractApi
      */
     public function branchRestrictions(string $username, string $repo)
     {
-        return new BranchRestrictions($this->client, $username, $repo);
+        return new BranchRestrictions($this->getHttpClient(), $username, $repo);
     }
 
     /**
@@ -136,7 +136,7 @@ class Repositories extends AbstractApi
      */
     public function commit(string $username, string $repo)
     {
-        return new Commit($this->client, $username, $repo);
+        return new Commit($this->getHttpClient(), $username, $repo);
     }
 
     /**
@@ -147,7 +147,7 @@ class Repositories extends AbstractApi
      */
     public function commits(string $username, string $repo)
     {
-        return new Commits($this->client, $username, $repo);
+        return new Commits($this->getHttpClient(), $username, $repo);
     }
 
     /**

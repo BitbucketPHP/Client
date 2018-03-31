@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api;
+namespace Bitbucket\Api\Team;
 
 /**
- * The hook events api class.
+ * The permissions api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class HookEvents extends AbstractApi
+class Permissions extends AbstractTeamApi
 {
     /**
      * @param array $params
@@ -27,9 +27,9 @@ class HookEvents extends AbstractApi
      *
      * @return array
      */
-    public function listUserEvents(array $params = [])
+    public function list(array $params = [])
     {
-        $path = $this->buildHookEventsPath('user');
+        $path = $this->buildPermissionsPath();
 
         return $this->get($path, $params);
     }
@@ -41,29 +41,15 @@ class HookEvents extends AbstractApi
      *
      * @return array
      */
-    public function listRepositoryEvents(array $params = [])
+    public function listByRepository(array $params = [])
     {
-        $path = $this->buildHookEventsPath('repository');
+        $path = $this->buildPermissionsPath('repositories');
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param array $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function listTeamEvents(array $params = [])
-    {
-        $path = $this->buildHookEventsPath('team');
-
-        return $this->get($path, $params);
-    }
-
-    /**
-     * Build the hook events path from the given parts.
+     * Build the permissions path from the given parts.
      *
      * @param string[] $parts
      *
@@ -71,8 +57,8 @@ class HookEvents extends AbstractApi
      *
      * @return string
      */
-    protected function buildHookEventsPath(string ...$parts)
+    protected function buildPermissionsPath(string ...$parts)
     {
-        return static::buildPath('hook_events', ...$parts);
+        return static::buildPath('teams', $this->username, 'permissions', ...$parts);
     }
 }
