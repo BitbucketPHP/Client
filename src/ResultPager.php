@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket;
 
 use Bitbucket\Api\ApiInterface;
+use Bitbucket\Exception\DecodingFailedException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 
 /**
@@ -117,7 +118,11 @@ class ResultPager implements ResultPagerInterface
      */
     public function postFetch()
     {
-        $this->pagination = ResponseMediator::getPagination($this->client->getLastResponse());
+        try {
+            $this->pagination = ResponseMediator::getPagination($this->client->getLastResponse());
+        } catch (DecodingFailedException $e) {
+            $this->pagination = null;
+        }
     }
 
     /**
