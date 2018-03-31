@@ -141,7 +141,7 @@ abstract class AbstractApi implements ApiInterface
         $body = self::createJsonBody($params);
 
         if ($body) {
-            $headers = static::addJsonContentType($headers);
+            $headers = self::addJsonContentType($headers);
         }
 
         return $this->postRaw($path, $body, $headers);
@@ -181,7 +181,7 @@ abstract class AbstractApi implements ApiInterface
         $body = self::createJsonBody($params);
 
         if ($body) {
-            $headers = static::addJsonContentType($headers);
+            $headers = self::addJsonContentType($headers);
         }
 
         return $this->patchRaw($path, $body, $headers);
@@ -221,7 +221,7 @@ abstract class AbstractApi implements ApiInterface
         $body = self::createJsonBody($params);
 
         if ($body) {
-            $headers = static::addJsonContentType($headers);
+            $headers = self::addJsonContentType($headers);
         }
 
         return $this->putRaw($path, $body, $headers);
@@ -261,7 +261,7 @@ abstract class AbstractApi implements ApiInterface
         $body = self::createJsonBody($params);
 
         if ($body) {
-            $headers = static::addJsonContentType($headers);
+            $headers = self::addJsonContentType($headers);
         }
 
         return $this->deleteRaw($path, $body, $headers);
