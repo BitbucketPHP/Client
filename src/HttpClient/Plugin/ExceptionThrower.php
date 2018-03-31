@@ -13,13 +13,13 @@ declare(strict_types=1);
 
 namespace Bitbucket\HttpClient\Plugin;
 
-use Gitlab\Exception\ApiLimitExceededException;
-use Gitlab\Exception\BadRequestException;
-use Gitlab\Exception\ClientErrorException;
-use Gitlab\Exception\DecodingException;
-use Gitlab\Exception\ServerErrorException;
-use Gitlab\Exception\ValidationException;
-use Gitlab\HttpClient\Message\ResponseMediator;
+use Bitbucket\Exception\ApiLimitExceededException;
+use Bitbucket\Exception\BadRequestException;
+use Bitbucket\Exception\ClientErrorException;
+use Bitbucket\Exception\DecodingFailedException;
+use Bitbucket\Exception\ServerErrorException;
+use Bitbucket\Exception\ValidationException;
+use Bitbucket\HttpClient\Message\ResponseMediator;
 use Http\Client\Common\Plugin;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -40,7 +40,7 @@ class ExceptionThrower implements Plugin
      * @param callable                           $next
      * @param callable                           $first
      *
-     * @throws \Gitlab\Exception\RuntimeException
+     * @throws \Bitbucket\Exception\RuntimeException
      *
      * @return \Http\Promise\Promise
      */
@@ -84,7 +84,7 @@ class ExceptionThrower implements Plugin
     {
         try {
             return ResponseMediator::getContent($response)['error']['message'] ?? null;
-        } catch (DecodingException $e) {
+        } catch (DecodingFailedException $e) {
             // return nothing
         }
     }

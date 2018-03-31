@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Bitbucket\HttpClient;
 
+use GrahamCampbell\CachePlugin\CachePlugin;
 use Http\Client\Common\HttpMethodsClient;
 use Http\Client\Common\Plugin;
 use Http\Client\Common\Plugin\HeaderAppendPlugin;
