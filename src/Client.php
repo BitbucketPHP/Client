@@ -121,9 +121,9 @@ class Client
      *
      * @return void
      */
-    public function addCache(CacheItemPoolInterface $cachePool, array $config = [])
+    public function addCache(CacheItemPoolInterface $cache, array $config = [])
     {
-        $this->getHttpClientBuilder()->addCache($cachePool, $config);
+        $this->getHttpClientBuilder()->addCache($cache, $config);
     }
 
     /**
@@ -139,7 +139,7 @@ class Client
     /**
      * Dynamically get a named api instance.
      *
-     * @param string $name
+     * @param string $method
      * @param array  $parameters
      *
      * @throws \Bitbucket\Exception\BadMethodCallException
