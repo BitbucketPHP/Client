@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Issues;
 
 /**
- * The watch class.
+ * The watching class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Watch extends AbstractIssuesApi
+class Watching extends AbstractIssuesApi
 {
     /**
      * @param array $params
@@ -29,7 +29,7 @@ class Watch extends AbstractIssuesApi
      */
     public function check(array $params = [])
     {
-        $path = $this->buildWatchPath();
+        $path = $this->buildWatchingPath();
 
         return $this->get($path, $params);
     }
@@ -43,7 +43,7 @@ class Watch extends AbstractIssuesApi
      */
     public function watch(array $params = [])
     {
-        $path = $this->buildWatchPath();
+        $path = $this->buildWatchingPath();
 
         return $this->put($path, $params);
     }
@@ -57,13 +57,13 @@ class Watch extends AbstractIssuesApi
      */
     public function ignore(array $params = [])
     {
-        $path = $this->buildWatchPath();
+        $path = $this->buildWatchingPath();
 
         return $this->delete($path, $params);
     }
 
     /**
-     * Build the watch path from the given parts.
+     * Build the watching path from the given parts.
      *
      * @param string[] $parts
      *
@@ -71,7 +71,7 @@ class Watch extends AbstractIssuesApi
      *
      * @return string
      */
-    protected function buildWatchPath(string ...$parts)
+    protected function buildWatchingPath(string ...$parts)
     {
         return static::buildPath('repositories', $this->username, 'issues', $this->issue, 'watch', ...$parts);
     }

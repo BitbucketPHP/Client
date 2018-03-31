@@ -16,8 +16,8 @@ namespace Bitbucket\Api\Repositories;
 use Bitbucket\Api\Repositories\Issues\Attachments;
 use Bitbucket\Api\Repositories\Issues\Changes;
 use Bitbucket\Api\Repositories\Issues\Comments;
-use Bitbucket\Api\Repositories\Issues\Vote;
-use Bitbucket\Api\Repositories\Issues\Watch;
+use Bitbucket\Api\Repositories\Issues\Voting;
+use Bitbucket\Api\Repositories\Issues\Watching;
 
 /**
  * The issues api class.
@@ -132,21 +132,21 @@ class Issues extends AbstractRepositoriesApi
     /**
      * @param string $issue
      *
-     * @return \Bitbucket\Api\Repositories\Issues\Vote
+     * @return \Bitbucket\Api\Repositories\Issues\Voting
      */
-    public function vote(string $issue)
+    public function voting(string $issue)
     {
-        return new Vote($this->getHttpClient(), $this->username, $this->repo, $issue);
+        return new Voting($this->getHttpClient(), $this->username, $this->repo, $issue);
     }
 
     /**
      * @param string $issue
      *
-     * @return \Bitbucket\Api\Repositories\Issues\Watch
+     * @return \Bitbucket\Api\Repositories\Issues\Watching
      */
-    public function watch(string $issue)
+    public function watching(string $issue)
     {
-        return new Watch($this->getHttpClient(), $this->username, $this->repo, $issue);
+        return new Watching($this->getHttpClient(), $this->username, $this->repo, $issue);
     }
 
     /**

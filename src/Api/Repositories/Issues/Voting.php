@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Issues;
 
 /**
- * The vote class.
+ * The voting class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Vote extends AbstractIssuesApi
+class Voting extends AbstractIssuesApi
 {
     /**
      * @param array $params
@@ -29,7 +29,7 @@ class Vote extends AbstractIssuesApi
      */
     public function check(array $params = [])
     {
-        $path = $this->buildVotePath();
+        $path = $this->buildVotingPath();
 
         return $this->get($path, $params);
     }
@@ -43,7 +43,7 @@ class Vote extends AbstractIssuesApi
      */
     public function vote(array $params = [])
     {
-        $path = $this->buildVotePath();
+        $path = $this->buildVotingPath();
 
         return $this->put($path, $params);
     }
@@ -57,13 +57,13 @@ class Vote extends AbstractIssuesApi
      */
     public function retract(array $params = [])
     {
-        $path = $this->buildVotePath();
+        $path = $this->buildVotingPath();
 
         return $this->delete($path, $params);
     }
 
     /**
-     * Build the vote path from the given parts.
+     * Build the voting path from the given parts.
      *
      * @param string[] $parts
      *
@@ -71,7 +71,7 @@ class Vote extends AbstractIssuesApi
      *
      * @return string
      */
-    protected function buildVotePath(string ...$parts)
+    protected function buildVotingPath(string ...$parts)
     {
         return static::buildPath('repositories', $this->username, 'issues', $this->issue, 'vote', ...$parts);
     }
