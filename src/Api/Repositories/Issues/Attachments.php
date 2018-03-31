@@ -11,16 +11,15 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories;
-
+namespace Bitbucket\Api\Repositories\Issues;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
 
 /**
- * The downloads api class.
+ * The attachments api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Downloads extends AbstractRepositoriesApi
+class Attachments extends AbstractIssuesApi
 {
     /**
      * @param array $params
@@ -31,7 +30,7 @@ class Downloads extends AbstractRepositoriesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildDownloadsPath();
+        $path = $this->buildAttachmentsPath();
 
         return $this->get($path, $params);
     }
@@ -47,7 +46,7 @@ class Downloads extends AbstractRepositoriesApi
      */
     public function upload(string $name, $resource, array $options = [])
     {
-        $path = $this->buildDownloadsPath();
+        $path = $this->buildAttachmentsPath();
         $builder = (new MultipartStreamBuilder())->addResource($name, $resource, $options);
         $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
@@ -64,7 +63,7 @@ class Downloads extends AbstractRepositoriesApi
      */
     public function download(string $filename, array $params = [])
     {
-        $path = $this->buildDownloadsPath($filename);
+        $path = $this->buildAttachmentsPath($filename);
 
         return $this->pureGet($path, $params, ['Accept' => '*/*'])->getBody();
     }
@@ -79,13 +78,13 @@ class Downloads extends AbstractRepositoriesApi
      */
     public function remove(string $filename, array $params = [])
     {
-        $path = $this->buildDownloadsPath($filename);
+        $path = $this->buildAttachmentsPath($filename);
 
         return $this->delete($path, $params);
     }
 
     /**
-     * Build the downloads path from the given parts.
+     * Build the attachments path from the given parts.
      *
      * @param string[] $parts
      *
@@ -93,8 +92,8 @@ class Downloads extends AbstractRepositoriesApi
      *
      * @return string
      */
-    protected function buildDownloadsPath(string ...$parts)
+    protected function buildAttachmentsPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'downloads', ...$parts);
+        return static::buildPath('repositories', $this->username, 'issues', $this->issue, 'attachments', ...$parts);
     }
 }

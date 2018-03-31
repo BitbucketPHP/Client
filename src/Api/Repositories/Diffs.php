@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories;
 
 /**
- * The diff api class.
+ * The diffs api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Diff extends AbstractRepositoriesApi
+class Diffs extends AbstractRepositoriesApi
 {
     /**
      * @param string $spec
@@ -30,7 +30,7 @@ class Diff extends AbstractRepositoriesApi
      */
     public function download(string $spec, array $params = [])
     {
-        $path = $this->buildDiffPath($spec);
+        $path = $this->buildDiffsPath($spec);
 
         return $this->pureGet($path, $params, ['Accept' => 'text/plain'])->getBody();
     }
@@ -44,7 +44,7 @@ class Diff extends AbstractRepositoriesApi
      *
      * @return string
      */
-    protected function buildDiffPath(string ...$parts)
+    protected function buildDiffsPath(string ...$parts)
     {
         return static::buildPath('repositories', $this->username, $this->repo, 'diff', ...$parts);
     }

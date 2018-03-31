@@ -18,11 +18,14 @@ use Bitbucket\Api\Repositories\Commit;
 use Bitbucket\Api\Repositories\Commits;
 use Bitbucket\Api\Repositories\Components;
 use Bitbucket\Api\Repositories\DefaultReviewers;
-use Bitbucket\Api\Repositories\Diff;
+use Bitbucket\Api\Repositories\Diffs;
 use Bitbucket\Api\Repositories\Downloads;
 use Bitbucket\Api\Repositories\FileHistory;
 use Bitbucket\Api\Repositories\Forks;
 use Bitbucket\Api\Repositories\Hooks;
+use Bitbucket\Api\Repositories\Issues;
+use Bitbucket\Api\Repositories\Milestones;
+use Bitbucket\Api\Repositories\Patches;
 
 /**
  * The repositories api class.
@@ -183,11 +186,11 @@ class Repositories extends AbstractApi
      * @param string $username
      * @param string $repo
      *
-     * @return \Bitbucket\Api\Repositories\Diff
+     * @return \Bitbucket\Api\Repositories\Diffs
      */
     public function diff(string $username, string $repo)
     {
-        return new Diff($this->getHttpClient(), $username, $repo);
+        return new Diffs($this->getHttpClient(), $username, $repo);
     }
 
     /**
@@ -232,6 +235,39 @@ class Repositories extends AbstractApi
     public function hooks(string $username, string $repo)
     {
         return new Hooks($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\Issues
+     */
+    public function issues(string $username, string $repo)
+    {
+        return new Issues($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\Milestones
+     */
+    public function milestones(string $username, string $repo)
+    {
+        return new Milestones($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\Patches
+     */
+    public function patches(string $username, string $repo)
+    {
+        return new Patches($this->getHttpClient(), $username, $repo);
     }
 
     /**
