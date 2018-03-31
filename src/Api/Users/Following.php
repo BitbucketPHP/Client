@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repository;
+namespace Bitbucket\Api\Users;
 
 /**
- * The components api class.
+ * The following api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Components extends AbstractRepositoryApi
+class Following extends AbstractUserApi
 {
     /**
      * @param array $params
@@ -29,28 +29,13 @@ class Components extends AbstractRepositoryApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildComponentsPath();
+        $path = $this->buildFollowingPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $component
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function show(string $component, array $params = [])
-    {
-        $path = $this->buildComponentsPath($component);
-
-        return $this->get($path, $params);
-    }
-
-    /**
-     * Build the components path from the given parts.
+     * Build the followers path from the given parts.
      *
      * @param string[] $parts
      *
@@ -58,8 +43,8 @@ class Components extends AbstractRepositoryApi
      *
      * @return string
      */
-    protected function buildComponentsPath(string ...$parts)
+    protected function buildFollowingPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'components', ...$parts);
+        return static::buildPath('users', $this->username, 'following', ...$parts);
     }
 }

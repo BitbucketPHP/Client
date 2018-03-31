@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repository;
+namespace Bitbucket\Api\Teams;
 
 /**
- * The hooks api class.
+ * The pipelines config api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Hooks extends AbstractRepositoryApi
+class PipelinesConfig extends AbstractTeamApi
 {
     /**
      * @param array $params
@@ -27,9 +27,9 @@ class Hooks extends AbstractRepositoryApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function listVariables(array $params = [])
     {
-        $path = $this->buildHooksPath();
+        $path = $this->buildPipelinesConfigPath('variables');
 
         return $this->get($path, $params);
     }
@@ -41,60 +41,60 @@ class Hooks extends AbstractRepositoryApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function createVariable(array $params = [])
     {
-        $path = $this->buildHooksPath();
+        $path = $this->buildPipelinesConfigPath('variables');
 
         return $this->post($path, $params);
     }
 
     /**
-     * @param string $hook
+     * @param string $variable
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function show(string $hook, array $params = [])
+    public function showVariable(string $variable, array $params = [])
     {
-        $path = $this->buildHooksPath($hook);
+        $path = $this->buildPipelinesConfigPath('variables', $variable);
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $hook
+     * @param string $variable
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function update(string $hook, array $params = [])
+    public function updateVariable(string $variable, array $params = [])
     {
-        $path = $this->buildHooksPath($hook);
+        $path = $this->buildPipelinesConfigPath('variables', $variable);
 
         return $this->put($path, $params);
     }
 
     /**
-     * @param string $hook
+     * @param string $variable
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function remove(string $hook, array $params = [])
+    public function removeVariable(string $variable, array $params = [])
     {
-        $path = $this->buildHooksPath($hook);
+        $path = $this->buildPipelinesConfigPath('variables', $variable);
 
         return $this->delete($path, $params);
     }
 
     /**
-     * Build the hooks path from the given parts.
+     * Build the pipelines config path from the given parts.
      *
      * @param string[] $parts
      *
@@ -102,8 +102,8 @@ class Hooks extends AbstractRepositoryApi
      *
      * @return string
      */
-    protected function buildHooksPath(string ...$parts)
+    protected function buildPipelinesConfigPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, 'hooks', ...$parts);
+        return static::buildPath('teams', $this->username, 'pipelines_config', ...$parts);
     }
 }

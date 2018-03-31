@@ -11,17 +11,17 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\User;
+namespace Bitbucket\Api\Teams;
 
 use Bitbucket\Api\AbstractApi;
 use Http\Client\Common\HttpMethodsClient;
 
 /**
- * The abstract user api class.
+ * The abstract team api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-abstract class AbstractUserApi extends AbstractApi
+abstract class AbstractTeamApi extends AbstractApi
 {
     /**
      * The username.

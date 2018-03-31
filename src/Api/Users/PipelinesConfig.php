@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Team;
+namespace Bitbucket\Api\Users;
 
 /**
  * The pipelines config api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class PipelinesConfig extends AbstractTeamApi
+class PipelinesConfig extends AbstractUserApi
 {
     /**
      * @param array $params
@@ -104,6 +104,6 @@ class PipelinesConfig extends AbstractTeamApi
      */
     protected function buildPipelinesConfigPath(string ...$parts)
     {
-        return static::buildPath('teams', $this->username, 'pipelines_config', ...$parts);
+        return static::buildPath('users', $this->username, 'pipelines_config', ...$parts);
     }
 }

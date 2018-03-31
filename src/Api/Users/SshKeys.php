@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repository;
+namespace Bitbucket\Api\Users;
 
 /**
- * The forks api class.
+ * The ssh keys api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Forks extends AbstractRepositoryApi
+class SshKeys extends AbstractUserApi
 {
     /**
      * @param array $params
@@ -29,7 +29,7 @@ class Forks extends AbstractRepositoryApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildForksPath();
+        $path = $this->buildSshKeysPath();
 
         return $this->get($path, $params);
     }
@@ -43,13 +43,13 @@ class Forks extends AbstractRepositoryApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildForksPath();
+        $path = $this->buildSshKeysPath();
 
         return $this->post($path, $params);
     }
 
     /**
-     * Build the forks path from the given parts.
+     * Build the ssh keys path from the given parts.
      *
      * @param string[] $parts
      *
@@ -57,8 +57,8 @@ class Forks extends AbstractRepositoryApi
      *
      * @return string
      */
-    protected function buildForksPath(string ...$parts)
+    protected function buildSshKeysPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'forks', ...$parts);
+        return static::buildPath('users', $this->username, 'ssh-keys', ...$parts);
     }
 }

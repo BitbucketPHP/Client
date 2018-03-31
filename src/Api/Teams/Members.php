@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Team;
+namespace Bitbucket\Api\Teams;
 
 /**
- * The followers api class.
+ * The members api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Followers extends AbstractTeamApi
+class Members extends AbstractTeamApi
 {
     /**
      * @param array $params
@@ -29,13 +29,13 @@ class Followers extends AbstractTeamApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildFollowersPath();
+        $path = $this->buildMembersPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the followers path from the given parts.
+     * Build the members path from the given parts.
      *
      * @param string[] $parts
      *
@@ -43,8 +43,8 @@ class Followers extends AbstractTeamApi
      *
      * @return string
      */
-    protected function buildFollowersPath(string ...$parts)
+    protected function buildMembersPath(string ...$parts)
     {
-        return static::buildPath('teams', $this->username, 'followers', ...$parts);
+        return static::buildPath('teams', $this->username, 'members', ...$parts);
     }
 }

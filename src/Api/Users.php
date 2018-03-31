@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api;
 
-use Bitbucket\Api\User\Followers;
-use Bitbucket\Api\User\Following;
-use Bitbucket\Api\User\Hooks;
-use Bitbucket\Api\User\PipelinesConfig;
-use Bitbucket\Api\User\Repositories as UsersRepositories;
-use Bitbucket\Api\User\SshKeys;
+use Bitbucket\Api\Users\Followers;
+use Bitbucket\Api\Users\Following;
+use Bitbucket\Api\Users\Hooks;
+use Bitbucket\Api\Users\PipelinesConfig;
+use Bitbucket\Api\Users\Repositories as UsersRepositories;
+use Bitbucket\Api\Users\SshKeys;
 use Http\Client\Common\HttpMethodsClient;
 
 /**
@@ -76,7 +76,7 @@ class Users extends AbstractApi
     }
 
     /**
-     * @return \Bitbucket\Api\User\Followers
+     * @return \Bitbucket\Api\Users\Followers
      */
     public function followers()
     {
@@ -84,7 +84,7 @@ class Users extends AbstractApi
     }
 
     /**
-     * @return \Bitbucket\Api\User\Following
+     * @return \Bitbucket\Api\Users\Following
      */
     public function following()
     {
@@ -92,7 +92,7 @@ class Users extends AbstractApi
     }
 
     /**
-     * @return \Bitbucket\Api\User\Hooks
+     * @return \Bitbucket\Api\Users\Hooks
      */
     public function hooks()
     {
@@ -100,7 +100,7 @@ class Users extends AbstractApi
     }
 
     /**
-     * @return \Bitbucket\Api\User\PipelinesConfig
+     * @return \Bitbucket\Api\Users\PipelinesConfig
      */
     public function pipelinesConfig()
     {
@@ -108,7 +108,7 @@ class Users extends AbstractApi
     }
 
     /**
-     * @return \Bitbucket\Api\User\Repositories
+     * @return \Bitbucket\Api\Users\Repositories
      */
     public function repositories()
     {
@@ -116,7 +116,7 @@ class Users extends AbstractApi
     }
 
     /**
-     * @return \Bitbucket\Api\User\SshKeys
+     * @return \Bitbucket\Api\Users\SshKeys
      */
     public function sshKeys()
     {

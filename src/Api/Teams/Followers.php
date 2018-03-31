@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\User;
+namespace Bitbucket\Api\Teams;
 
 /**
- * The repositories api class.
+ * The followers api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Repositories extends AbstractUserApi
+class Followers extends AbstractTeamApi
 {
     /**
      * @param array $params
@@ -29,13 +29,13 @@ class Repositories extends AbstractUserApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildRepositoriesPath();
+        $path = $this->buildFollowersPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the repositories path from the given parts.
+     * Build the followers path from the given parts.
      *
      * @param string[] $parts
      *
@@ -43,8 +43,8 @@ class Repositories extends AbstractUserApi
      *
      * @return string
      */
-    protected function buildRepositoriesPath(string ...$parts)
+    protected function buildFollowersPath(string ...$parts)
     {
-        return static::buildPath('users', $this->username, 'repositories', ...$parts);
+        return static::buildPath('teams', $this->username, 'followers', ...$parts);
     }
 }

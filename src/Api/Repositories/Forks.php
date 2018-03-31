@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Team;
+namespace Bitbucket\Api\Repositories;
 
 /**
- * The following api class.
+ * The forks api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Following extends AbstractTeamApi
+class Forks extends AbstractRepositoryApi
 {
     /**
      * @param array $params
@@ -29,13 +29,27 @@ class Following extends AbstractTeamApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildFollowingPath();
+        $path = $this->buildForksPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the followers path from the given parts.
+     * @param array $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function create(array $params = [])
+    {
+        $path = $this->buildForksPath();
+
+        return $this->post($path, $params);
+    }
+
+    /**
+     * Build the forks path from the given parts.
      *
      * @param string[] $parts
      *
@@ -43,8 +57,8 @@ class Following extends AbstractTeamApi
      *
      * @return string
      */
-    protected function buildFollowingPath(string ...$parts)
+    protected function buildForksPath(string ...$parts)
     {
-        return static::buildPath('teams', $this->username, 'following', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'forks', ...$parts);
     }
 }

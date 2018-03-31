@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\User;
+namespace Bitbucket\Api\Teams;
 
 /**
  * The following api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Following extends AbstractUserApi
+class Following extends AbstractTeamApi
 {
     /**
      * @param array $params
@@ -45,6 +45,6 @@ class Following extends AbstractUserApi
      */
     protected function buildFollowingPath(string ...$parts)
     {
-        return static::buildPath('users', $this->username, 'following', ...$parts);
+        return static::buildPath('teams', $this->username, 'following', ...$parts);
     }
 }

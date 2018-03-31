@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\User;
+namespace Bitbucket\Api\Repositories;
 
 /**
- * The pipelines config api class.
+ * The branch restrictions api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class PipelinesConfig extends AbstractUserApi
+class BranchRestrictions extends AbstractRepositoryApi
 {
     /**
      * @param array $params
@@ -27,9 +27,9 @@ class PipelinesConfig extends AbstractUserApi
      *
      * @return array
      */
-    public function listVariables(array $params = [])
+    public function list(array $params = [])
     {
-        $path = $this->buildPipelinesConfigPath('variables');
+        $path = $this->buildBranchRestrictionsPath();
 
         return $this->get($path, $params);
     }
@@ -41,60 +41,60 @@ class PipelinesConfig extends AbstractUserApi
      *
      * @return array
      */
-    public function createVariable(array $params = [])
+    public function create(array $params = [])
     {
-        $path = $this->buildPipelinesConfigPath('variables');
+        $path = $this->buildBranchRestrictionsPath();
 
         return $this->post($path, $params);
     }
 
     /**
-     * @param string $variable
+     * @param string $restriction
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function showVariable(string $variable, array $params = [])
+    public function show(string $restriction, array $params = [])
     {
-        $path = $this->buildPipelinesConfigPath('variables', $variable);
+        $path = $this->buildBranchRestrictionsPath($restriction);
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $variable
+     * @param string $restriction
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function updateVariable(string $variable, array $params = [])
+    public function update(string $restriction, array $params = [])
     {
-        $path = $this->buildPipelinesConfigPath('variables', $variable);
+        $path = $this->buildBranchRestrictionsPath($restriction);
 
         return $this->put($path, $params);
     }
 
     /**
-     * @param string $variable
+     * @param string $restriction
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function removeVariable(string $variable, array $params = [])
+    public function remove(string $restriction, array $params = [])
     {
-        $path = $this->buildPipelinesConfigPath('variables', $variable);
+        $path = $this->buildBranchRestrictionsPath($restriction);
 
         return $this->delete($path, $params);
     }
 
     /**
-     * Build the pipelines config path from the given parts.
+     * Build the branch restrictions path from the given parts.
      *
      * @param string[] $parts
      *
@@ -102,8 +102,8 @@ class PipelinesConfig extends AbstractUserApi
      *
      * @return string
      */
-    protected function buildPipelinesConfigPath(string ...$parts)
+    protected function buildBranchRestrictionsPath(string ...$parts)
     {
-        return static::buildPath('users', $this->username, 'pipelines_config', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'branch-restrictions', ...$parts);
     }
 }

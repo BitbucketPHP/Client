@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Team;
+namespace Bitbucket\Api\Users;
 
 /**
- * The permissions api class.
+ * The repositories api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Permissions extends AbstractTeamApi
+class Repositories extends AbstractUserApi
 {
     /**
      * @param array $params
@@ -29,27 +29,13 @@ class Permissions extends AbstractTeamApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildPermissionsPath();
+        $path = $this->buildRepositoriesPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param array $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function listByRepository(array $params = [])
-    {
-        $path = $this->buildPermissionsPath('repositories');
-
-        return $this->get($path, $params);
-    }
-
-    /**
-     * Build the permissions path from the given parts.
+     * Build the repositories path from the given parts.
      *
      * @param string[] $parts
      *
@@ -57,8 +43,8 @@ class Permissions extends AbstractTeamApi
      *
      * @return string
      */
-    protected function buildPermissionsPath(string ...$parts)
+    protected function buildRepositoriesPath(string ...$parts)
     {
-        return static::buildPath('teams', $this->username, 'permissions', ...$parts);
+        return static::buildPath('users', $this->username, 'repositories', ...$parts);
     }
 }

@@ -13,16 +13,16 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api;
 
-use Bitbucket\Api\Repository\BranchRestrictions;
-use Bitbucket\Api\Repository\Commit;
-use Bitbucket\Api\Repository\Commits;
-use Bitbucket\Api\Repository\Components;
-use Bitbucket\Api\Repository\DefaultReviewers;
-use Bitbucket\Api\Repository\Diff;
-use Bitbucket\Api\Repository\Downloads;
-use Bitbucket\Api\Repository\FileHistory;
-use Bitbucket\Api\Repository\Forks;
-use Bitbucket\Api\Repository\Hooks;
+use Bitbucket\Api\Repositories\BranchRestrictions;
+use Bitbucket\Api\Repositories\Commit;
+use Bitbucket\Api\Repositories\Commits;
+use Bitbucket\Api\Repositories\Components;
+use Bitbucket\Api\Repositories\DefaultReviewers;
+use Bitbucket\Api\Repositories\Diff;
+use Bitbucket\Api\Repositories\Downloads;
+use Bitbucket\Api\Repositories\FileHistory;
+use Bitbucket\Api\Repositories\Forks;
+use Bitbucket\Api\Repositories\Hooks;
 
 /**
  * The repositories api class.
@@ -128,7 +128,7 @@ class Repositories extends AbstractApi
      * @param string $username
      * @param string $repo
      *
-     * @return \Bitbucket\Api\Repository\BranchRestrictions
+     * @return \Bitbucket\Api\Repositories\BranchRestrictions
      */
     public function branchRestrictions(string $username, string $repo)
     {
@@ -139,7 +139,7 @@ class Repositories extends AbstractApi
      * @param string $username
      * @param string $repo
      *
-     * @return \Bitbucket\Api\Repository\Commit
+     * @return \Bitbucket\Api\Repositories\Commit
      */
     public function commit(string $username, string $repo)
     {
@@ -150,7 +150,7 @@ class Repositories extends AbstractApi
      * @param string $username
      * @param string $repo
      *
-     * @return \Bitbucket\Api\Repository\Commits
+     * @return \Bitbucket\Api\Repositories\Commits
      */
     public function commits(string $username, string $repo)
     {
@@ -161,7 +161,7 @@ class Repositories extends AbstractApi
      * @param string $username
      * @param string $repo
      *
-     * @return \Bitbucket\Api\Repository\Components
+     * @return \Bitbucket\Api\Repositories\Components
      */
     public function components(string $username, string $repo)
     {
@@ -172,7 +172,7 @@ class Repositories extends AbstractApi
      * @param string $username
      * @param string $repo
      *
-     * @return \Bitbucket\Api\Repository\DefaultReviewers
+     * @return \Bitbucket\Api\Repositories\DefaultReviewers
      */
     public function defaultReviewers(string $username, string $repo)
     {
@@ -183,7 +183,7 @@ class Repositories extends AbstractApi
      * @param string $username
      * @param string $repo
      *
-     * @return \Bitbucket\Api\Repository\Diff
+     * @return \Bitbucket\Api\Repositories\Diff
      */
     public function diff(string $username, string $repo)
     {
@@ -194,7 +194,7 @@ class Repositories extends AbstractApi
      * @param string $username
      * @param string $repo
      *
-     * @return \Bitbucket\Api\Repository\Downloads
+     * @return \Bitbucket\Api\Repositories\Downloads
      */
     public function downloads(string $username, string $repo)
     {
@@ -205,7 +205,7 @@ class Repositories extends AbstractApi
      * @param string $username
      * @param string $repo
      *
-     * @return \Bitbucket\Api\Repository\FileHistory
+     * @return \Bitbucket\Api\Repositories\FileHistory
      */
     public function fileHistory(string $username, string $repo)
     {
@@ -216,7 +216,7 @@ class Repositories extends AbstractApi
      * @param string $username
      * @param string $repo
      *
-     * @return \Bitbucket\Api\Repository\Forks
+     * @return \Bitbucket\Api\Repositories\Forks
      */
     public function forks(string $username, string $repo)
     {
@@ -227,7 +227,7 @@ class Repositories extends AbstractApi
      * @param string $username
      * @param string $repo
      *
-     * @return \Bitbucket\Api\Repository\Hooks
+     * @return \Bitbucket\Api\Repositories\Hooks
      */
     public function hooks(string $username, string $repo)
     {

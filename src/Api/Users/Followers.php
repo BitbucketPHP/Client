@@ -11,33 +11,31 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repository;
+namespace Bitbucket\Api\Users;
 
 /**
- * The file history api class.
+ * The followers api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class FileHistory extends AbstractRepositoryApi
+class Followers extends AbstractUserApi
 {
     /**
-     * @param string $node
-     * @param string $path
-     * @param array  $params
+     * @param array $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function list(string $node, string $path, array $params = [])
+    public function list(array $params = [])
     {
-        $path = $this->buildFileHistoryPath($node, ...explode('/', $path));
+        $path = $this->buildFollowersPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the file history path from the given parts.
+     * Build the followers path from the given parts.
      *
      * @param string[] $parts
      *
@@ -45,8 +43,8 @@ class FileHistory extends AbstractRepositoryApi
      *
      * @return string
      */
-    protected function buildFileHistoryPath(string ...$parts)
+    protected function buildFollowersPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'filehistory', ...$parts);
+        return static::buildPath('users', $this->username, 'followers', ...$parts);
     }
 }

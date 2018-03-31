@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repository;
+namespace Bitbucket\Api\Teams;
 
 /**
- * The default reviewers api class.
+ * The projects api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class DefaultReviewers extends AbstractRepositoryApi
+class Projects extends AbstractTeamApi
 {
     /**
      * @param array $params
@@ -29,58 +29,72 @@ class DefaultReviewers extends AbstractRepositoryApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildDefaultReviewersPath();
+        $path = $this->buildProjectsPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $reviewer
+     * @param array $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function create(array $params = [])
+    {
+        $path = $this->buildProjectsPath();
+
+        return $this->post($path, $params);
+    }
+
+    /**
+     * @param string $project
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function show(string $reviewer, array $params = [])
+    public function show(string $project, array $params = [])
     {
-        $path = $this->buildDefaultReviewersPath($reviewer);
+        $path = $this->buildProjectsPath($project);
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $reviewer
+     * @param string $project
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function add(string $reviewer, array $params = [])
+    public function update(string $project, array $params = [])
     {
-        $path = $this->buildDefaultReviewersPath($reviewer);
+        $path = $this->buildProjectsPath($project);
 
         return $this->put($path, $params);
     }
 
     /**
-     * @param string $reviewer
+     * @param string $project
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function remove(string $reviewer, array $params = [])
+    public function remove(string $project, array $params = [])
     {
-        $path = $this->buildDefaultReviewersPath($reviewer);
+        $path = $this->buildProjectsPath($project);
 
         return $this->delete($path, $params);
     }
 
     /**
-     * Build the default reviewers path from the given parts.
+     * Build the projects path from the given parts.
      *
      * @param string[] $parts
      *
@@ -88,8 +102,8 @@ class DefaultReviewers extends AbstractRepositoryApi
      *
      * @return string
      */
-    protected function buildDefaultReviewersPath(string ...$parts)
+    protected function buildProjectsPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'default-reviewers', ...$parts);
+        return static::buildPath('teams', $this->username, 'projects', ...$parts);
     }
 }

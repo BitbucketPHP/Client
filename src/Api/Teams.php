@@ -13,14 +13,14 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api;
 
-use Bitbucket\Api\Team\Followers;
-use Bitbucket\Api\Team\Following;
-use Bitbucket\Api\Team\Hooks;
-use Bitbucket\Api\Team\Members;
-use Bitbucket\Api\Team\Permissions;
-use Bitbucket\Api\Team\PipelinesConfig;
-use Bitbucket\Api\Team\Projects;
-use Bitbucket\Api\Team\Repositories as TeamsRepositories;
+use Bitbucket\Api\Teams\Followers;
+use Bitbucket\Api\Teams\Following;
+use Bitbucket\Api\Teams\Hooks;
+use Bitbucket\Api\Teams\Members;
+use Bitbucket\Api\Teams\Permissions;
+use Bitbucket\Api\Teams\PipelinesConfig;
+use Bitbucket\Api\Teams\Projects;
+use Bitbucket\Api\Teams\Repositories as TeamsRepositories;
 use Http\Client\Common\HttpMethodsClient;
 
 /**
@@ -78,7 +78,7 @@ class Teams extends AbstractApi
     }
 
     /**
-     * @return \Bitbucket\Api\Team\Followers
+     * @return \Bitbucket\Api\Teams\Followers
      */
     public function followers()
     {
@@ -86,7 +86,7 @@ class Teams extends AbstractApi
     }
 
     /**
-     * @return \Bitbucket\Api\Team\Following
+     * @return \Bitbucket\Api\Teams\Following
      */
     public function following()
     {
@@ -94,7 +94,7 @@ class Teams extends AbstractApi
     }
 
     /**
-     * @return \Bitbucket\Api\Team\Hooks
+     * @return \Bitbucket\Api\Teams\Hooks
      */
     public function hooks()
     {
@@ -102,7 +102,7 @@ class Teams extends AbstractApi
     }
 
     /**
-     * @return \Bitbucket\Api\Team\Members
+     * @return \Bitbucket\Api\Teams\Members
      */
     public function members()
     {
@@ -110,7 +110,7 @@ class Teams extends AbstractApi
     }
 
     /**
-     * @return \Bitbucket\Api\Team\Permissions
+     * @return \Bitbucket\Api\Teams\Permissions
      */
     public function permissions()
     {
@@ -118,7 +118,7 @@ class Teams extends AbstractApi
     }
 
     /**
-     * @return \Bitbucket\Api\Team\PipelinesConfig
+     * @return \Bitbucket\Api\Teams\PipelinesConfig
      */
     public function pipelinesConfig()
     {
@@ -126,7 +126,7 @@ class Teams extends AbstractApi
     }
 
     /**
-     * @return \Bitbucket\Api\Team\Projects
+     * @return \Bitbucket\Api\Teams\Projects
      */
     public function projects()
     {
@@ -134,7 +134,7 @@ class Teams extends AbstractApi
     }
 
     /**
-     * @return \Bitbucket\Api\Team\Repositories
+     * @return \Bitbucket\Api\Teams\Repositories
      */
     public function repositories()
     {

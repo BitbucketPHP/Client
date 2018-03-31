@@ -11,17 +11,17 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Team;
+namespace Bitbucket\Api\Repositories;
 
 use Bitbucket\Api\AbstractApi;
 use Http\Client\Common\HttpMethodsClient;
 
 /**
- * The abstract team api class.
+ * The abstract repository api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-abstract class AbstractTeamApi extends AbstractApi
+abstract class AbstractRepositoryApi extends AbstractApi
 {
     /**
      * The username.
@@ -31,14 +31,23 @@ abstract class AbstractTeamApi extends AbstractApi
     protected $username;
 
     /**
+     * The repo.
+     *
+     * @var string
+     */
+    protected $repo;
+
+    /**
      * Create a new api instance.
      *
      * @param \Http\Client\Common\HttpMethodsClient $client
      * @param string                                $username
+     * @param string                                $repo
      */
-    public function __construct(HttpMethodsClient $client, string $username)
+    public function __construct(HttpMethodsClient $client, string $username, string $repo)
     {
         parent::__construct($client);
         $this->username = $username;
+        $this->repo = $repo;
     }
 }

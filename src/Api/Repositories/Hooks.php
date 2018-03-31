@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\User;
+namespace Bitbucket\Api\Repositories;
 
 /**
  * The hooks api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Hooks extends AbstractUserApi
+class Hooks extends AbstractRepositoryApi
 {
     /**
      * @param array $params
@@ -104,6 +104,6 @@ class Hooks extends AbstractUserApi
      */
     protected function buildHooksPath(string ...$parts)
     {
-        return static::buildPath('users', $this->username, 'hooks', ...$parts);
+        return static::buildPath('repositories', $this->username, 'hooks', ...$parts);
     }
 }

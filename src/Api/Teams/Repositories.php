@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repository;
+namespace Bitbucket\Api\Teams;
 
 /**
- * The branch restrictions api class.
+ * The repositories api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class Commits extends AbstractRepositoryApi
+class Repositories extends AbstractTeamApi
 {
     /**
      * @param array $params
@@ -29,28 +29,13 @@ class Commits extends AbstractRepositoryApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildCommitsPath();
+        $path = $this->buildRepositoriesPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $commit
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function show(string $commit, array $params = [])
-    {
-        $path = $this->buildCommitsPath($commit);
-
-        return $this->get($path, $params);
-    }
-
-    /**
-     * Build the commits path from the given parts.
+     * Build the repositories path from the given parts.
      *
      * @param string[] $parts
      *
@@ -58,8 +43,8 @@ class Commits extends AbstractRepositoryApi
      *
      * @return string
      */
-    protected function buildCommitsPath(string ...$parts)
+    protected function buildRepositoriesPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'commits', ...$parts);
+        return static::buildPath('teams', $this->username, 'repositories', ...$parts);
     }
 }

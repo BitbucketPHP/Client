@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\User;
+namespace Bitbucket\Api\Repositories;
 
 /**
- * The ssh keys api class.
+ * The branch restrictions api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class SshKeys extends AbstractUserApi
+class Commits extends AbstractRepositoryApi
 {
     /**
      * @param array $params
@@ -29,27 +29,28 @@ class SshKeys extends AbstractUserApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildSshKeysPath();
+        $path = $this->buildCommitsPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param array $params
+     * @param string $commit
+     * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function show(string $commit, array $params = [])
     {
-        $path = $this->buildSshKeysPath();
+        $path = $this->buildCommitsPath($commit);
 
-        return $this->post($path, $params);
+        return $this->get($path, $params);
     }
 
     /**
-     * Build the ssh keys path from the given parts.
+     * Build the commits path from the given parts.
      *
      * @param string[] $parts
      *
@@ -57,8 +58,8 @@ class SshKeys extends AbstractUserApi
      *
      * @return string
      */
-    protected function buildSshKeysPath(string ...$parts)
+    protected function buildCommitsPath(string ...$parts)
     {
-        return static::buildPath('users', $this->username, 'ssh-keys', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'commits', ...$parts);
     }
 }
