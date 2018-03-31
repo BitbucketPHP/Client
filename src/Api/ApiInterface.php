@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api;
 
-use Bitbucket\Client;
-
 /**
  * The bitbucket api interface.
  *
@@ -23,15 +21,6 @@ use Bitbucket\Client;
  */
 interface ApiInterface
 {
-    /**
-     * Create a new api instance.
-     *
-     * @param \Bitbucket\Client $client
-     *
-     * @return void
-     */
-    public function __construct(Client $client);
-
     /**
      * Get the number of values to fetch per page.
      *
