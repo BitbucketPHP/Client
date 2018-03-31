@@ -20,7 +20,7 @@ use Bitbucket\Api\Team\Members;
 use Bitbucket\Api\Team\Permissions;
 use Bitbucket\Api\Team\PipelinesConfig;
 use Bitbucket\Api\Team\Projects;
-use Bitbucket\Api\Team\Repositories;
+use Bitbucket\Api\Team\Repositories as TeamsRepositories;
 use Http\Client\Common\HttpMethodsClient;
 
 /**
@@ -138,7 +138,7 @@ class Teams extends AbstractApi
      */
     public function repositories()
     {
-        return new Repositories($this->getHttpClient(), $this->username);
+        return new TeamsRepositories($this->getHttpClient(), $this->username);
     }
 
     /**

@@ -17,7 +17,7 @@ use Bitbucket\Api\User\Followers;
 use Bitbucket\Api\User\Following;
 use Bitbucket\Api\User\Hooks;
 use Bitbucket\Api\User\PipelinesConfig;
-use Bitbucket\Api\User\Repositories as UserRepositories;
+use Bitbucket\Api\User\Repositories as UsersRepositories;
 use Bitbucket\Api\User\SshKeys;
 use Http\Client\Common\HttpMethodsClient;
 
@@ -112,7 +112,7 @@ class Users extends AbstractApi
      */
     public function repositories()
     {
-        return new UserRepositories($this->getHttpClient(), $this->username);
+        return new UsersRepositories($this->getHttpClient(), $this->username);
     }
 
     /**

@@ -43,11 +43,15 @@ final class ResponseMediator
         if (json_last_error() !== JSON_ERROR_NONE) {
             $msg = json_last_error_msg();
 
-            throw new DecodingFailedException('Failed to decode the json response body.'.($msg ? " {$msg}." : ''));
+            throw new DecodingFailedException(
+                'Failed to decode the json response body.'.($msg ? " {$msg}." : '')
+            );
         }
 
         if (!is_array($content)) {
-            throw new DecodingFailedException('Failed to decode the json response body. Expected to decode to an array.');
+            throw new DecodingFailedException(
+                'Failed to decode the json response body. Expected to decode to an array.'
+            );
         }
 
         return $content;

@@ -138,7 +138,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function post(string $path, array $params = [], array $headers = [])
     {
-        $body = static::createJsonBody($params);
+        $body = self::createJsonBody($params);
 
         if ($body) {
             $headers = static::addJsonContentType($headers);
@@ -178,7 +178,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function patch(string $path, array $params = [], array $headers = [])
     {
-        $body = static::createJsonBody($params);
+        $body = self::createJsonBody($params);
 
         if ($body) {
             $headers = static::addJsonContentType($headers);
@@ -218,7 +218,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function put(string $path, array $params = [], array $headers = [])
     {
-        $body = static::createJsonBody($params);
+        $body = self::createJsonBody($params);
 
         if ($body) {
             $headers = static::addJsonContentType($headers);
@@ -258,7 +258,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function delete(string $path, array $params = [], array $headers = [])
     {
-        $body = static::createJsonBody($params);
+        $body = self::createJsonBody($params);
 
         if ($body) {
             $headers = static::addJsonContentType($headers);
