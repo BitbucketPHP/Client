@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api;
 
+use Bitbucket\Api\Snippets\Users as SnippetsUsers;
 use Bitbucket\HttpClient\Message\FileResource;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
-use Bitbucket\Api\Snippets\Users as SnippetsUsers;
 
 /**
  * The snippets api class.
