@@ -26,6 +26,8 @@ final class ResponseMediator
     /**
      * Get the decoded response content.
      *
+     * If the there is no response body, we will always return the empty array.
+     *
      * @param \Psr\Http\Message\ResponseInterface $response
      *
      * @throws \Bitbucket\Exception\DecodingFailedException
@@ -34,11 +36,35 @@ final class ResponseMediator
      */
     public static function getContent(ResponseInterface $response)
     {
+        if ($response->getStatusCode() === 204) {
+            return [];
+        }
+
+        $body = (string) $response->getBody();
+
+        if (!$body) {
+            return [];
+        }
+
         if (strpos($response->getHeaderLine('Content-Type'), 'application/json') !== 0) {
             throw new DecodingFailedException('The content type header was not application/json.');
         }
 
-        $content = json_decode((string) $response->getBody(), true);
+        return self::jsonDecode($body);
+    }
+
+    /**
+     * Decode the given JSON string to an array.
+     *
+     * @param string $body
+     *
+     * @throws \Bitbucket\Exception\DecodingFailedException
+     *
+     * @return array
+     */
+    private static function jsonDecode(string $body)
+    {
+        $content = json_decode($body, true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
             $msg = json_last_error_msg();
@@ -62,14 +88,16 @@ final class ResponseMediator
      *
      * @param \Psr\Http\Message\ResponseInterface $response
      *
-     * @throws \Bitbucket\Exception\DecodingFailedException
-     *
-     * @return string[]
+     * @return array
      */
     public static function getPagination(ResponseInterface $response)
     {
-        return array_filter(static::getContent($response), function ($key) {
-            return in_array($key, ['size', 'page', 'pagelen', 'next', 'previous'], true);
-        }, ARRAY_FILTER_USE_KEY);
+        try {
+            return array_filter(static::getContent($response), function ($key) {
+                return in_array($key, ['size', 'page', 'pagelen', 'next', 'previous'], true);
+            }, ARRAY_FILTER_USE_KEY);
+        } catch (DecodingFailedException $e) {
+            return [];
+        }
     }
 }
