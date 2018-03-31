@@ -19,7 +19,7 @@ use Http\Client\Common\Plugin;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * Add authentication to the request.
+ * A plugin to add authentication to the request.
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  * @author Graham Campbell <graham@alt-three.com>
@@ -27,25 +27,11 @@ use Psr\Http\Message\RequestInterface;
 class Authentication implements Plugin
 {
     /**
-     * The authentication method.
+     * The authorization header.
      *
      * @param string
      */
-    private $method;
-
-    /**
-     * The oauth token or username.
-     *
-     * @var string
-     */
-    private $token;
-
-    /**
-     * The password if required.
-     *
-     * @var string|null
-     */
-    private $password;
+    private $header;
 
     /**
      * Create a new authentication plugin instance.
@@ -58,9 +44,7 @@ class Authentication implements Plugin
      */
     public function __construct(string $method, string $token, string $password = null)
     {
-        $this->method = $method;
-        $this->token = $token;
-        $this->password = $password;
+        $this->header = static::buildAuthorizationHeader($method, $token, $password);
     }
 
     /**
@@ -74,25 +58,31 @@ class Authentication implements Plugin
      */
     public function handleRequest(RequestInterface $request, callable $next, callable $first)
     {
-        switch ($this->method) {
-            case Client::AUTH_HTTP_PASSWORD:
-                $request = $request->withHeader(
-                    'Authorization',
-                    sprintf('Basic %s', base64_encode($this->token.':'.$this->password))
-                );
-                break;
-
-            case Client::AUTH_OAUTH_TOKEN:
-                $request = $request->withHeader(
-                    'Authorization',
-                    sprintf('Bearer %s', $this->token)
-                );
-                break;
-
-            default:
-                throw new RuntimeException(sprintf('%s not yet implemented.', $this->method));
-        }
+        $request = $request->withHeader('Authorization', $this->header);
 
         return $next($request);
+    }
+
+    /**
+     * Build the authentication header to be attached to the request.
+     *
+     * @param string      $method
+     * @param string      $token
+     * @param string|null $password
+     *
+     * @throws \Bitbucket\Exception\RuntimeException
+     *
+     * @return string
+     */
+    protected static function buildAuthorizationHeader(string $method, string $token, string $password = null)
+    {
+        switch ($method) {
+            case Client::AUTH_HTTP_PASSWORD:
+                return sprintf('Basic %s', base64_encode($token.':'.$password));
+            case Client::AUTH_OAUTH_TOKEN:
+                return sprintf('Bearer %s', $token);
+        }
+
+        throw new RuntimeException(sprintf('Authentication method "%s" not implemented.', $method));
     }
 }

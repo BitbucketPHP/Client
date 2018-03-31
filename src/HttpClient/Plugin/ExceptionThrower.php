@@ -18,7 +18,7 @@ use Bitbucket\Exception\BadRequestException;
 use Bitbucket\Exception\ClientErrorException;
 use Bitbucket\Exception\DecodingFailedException;
 use Bitbucket\Exception\ServerErrorException;
-use Bitbucket\Exception\ValidationException;
+use Bitbucket\Exception\ValidationFailedException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 use Http\Client\Common\Plugin;
 use Psr\Http\Message\RequestInterface;
@@ -40,37 +40,50 @@ class ExceptionThrower implements Plugin
      * @param callable                           $next
      * @param callable                           $first
      *
-     * @throws \Bitbucket\Exception\RuntimeException
-     *
      * @return \Http\Promise\Promise
      */
     public function handleRequest(RequestInterface $request, callable $next, callable $first)
     {
         return $next($request)->then(function (ResponseInterface $response) {
-            if ($response->getStatusCode() >= 400 && $response->getStatusCode() < 600) {
-                $message = self::getMessage($response);
+            $status = $response->getStatusCode();
 
-                if ($response->getStatusCode() === 400) {
-                    throw new BadRequestException($message, $response->getStatusCode());
-                }
-
-                if ($response->getStatusCode() === 422) {
-                    throw new ValidationException($message, $response->getStatusCode());
-                }
-
-                if ($response->getStatusCode() === 429) {
-                    throw new ApiLimitExceededException($message, $response->getStatusCode());
-                }
-
-                if ($response->getStatusCode() < 500) {
-                    throw new ClientErrorException($message, $response->getStatusCode());
-                }
-
-                throw new ServerErrorException($message, $response->getStatusCode());
+            if ($status >= 400 && $status < 600) {
+                self::handleError($status, self::getMessage($response));
             }
 
             return $response;
         });
+    }
+
+    /**
+     * Handle an error response.
+     *
+     * @param int         $status
+     * @param string|null $message
+     *
+     * @throws \Bitbucket\Exception\RuntimeException
+     *
+     * @return void
+     */
+    private static function handleError(int $status, string $message = null)
+    {
+        if ($status === 400) {
+            throw new BadRequestException($message, $status);
+        }
+
+        if ($status === 422) {
+            throw new ValidationFailedException($message, $status);
+        }
+
+        if ($status === 429) {
+            throw new ApiLimitExceededException($message, $status);
+        }
+
+        if ($status < 500) {
+            throw new ClientErrorException($message, $status);
+        }
+
+        throw new ServerErrorException($message, $status);
     }
 
     /**
