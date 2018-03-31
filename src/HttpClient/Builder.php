@@ -58,7 +58,7 @@ class Builder
     /**
      * The HTTP stream factory.
      *
-     * @var Http\Message\StreamFactory
+     * @var \Http\Message\StreamFactory
      */
     private $streamFactory;
 
