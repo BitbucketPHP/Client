@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repository;
 
 /**
- * The branch restrictions api class.
+ * The default reviewers api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class BranchRestrictions extends AbstractRepositoryApi
+class DefaultReviewers extends AbstractRepositoryApi
 {
     /**
      * @param array $params
@@ -29,72 +29,58 @@ class BranchRestrictions extends AbstractRepositoryApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildBranchRestrictionsPath();
+        $path = $this->buildDefaultReviewersPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param array $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function create(array $params = [])
-    {
-        $path = $this->buildBranchRestrictionsPath();
-
-        return $this->post($path, $params);
-    }
-
-    /**
-     * @param string $restriction
+     * @param string $reviewer
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function show(string $restriction, array $params = [])
+    public function show(string $reviewer, array $params = [])
     {
-        $path = $this->buildBranchRestrictionsPath($restriction);
+        $path = $this->buildDefaultReviewersPath($reviewer);
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $restriction
+     * @param string $reviewer
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function update(string $restriction, array $params = [])
+    public function add(string $reviewer, array $params = [])
     {
-        $path = $this->buildBranchRestrictionsPath($restriction);
+        $path = $this->buildDefaultReviewersPath($reviewer);
 
         return $this->put($path, $params);
     }
 
     /**
-     * @param string $restriction
+     * @param string $reviewer
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function remove(string $restriction, array $params = [])
+    public function remove(string $reviewer, array $params = [])
     {
-        $path = $this->buildBranchRestrictionsPath($restriction);
+        $path = $this->buildDefaultReviewersPath($reviewer);
 
         return $this->delete($path, $params);
     }
 
     /**
-     * Build the branch restrictions path from the given parts.
+     * Build the default reviewers path from the given parts.
      *
      * @param string[] $parts
      *
@@ -102,8 +88,8 @@ class BranchRestrictions extends AbstractRepositoryApi
      *
      * @return string
      */
-    protected function buildBranchRestrictionsPath(string ...$parts)
+    protected function buildDefaultReviewersPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'branch-restrictions', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'default-reviewers', ...$parts);
     }
 }

@@ -96,21 +96,13 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function get(string $path, array $params = [], array $headers = [])
     {
-        if ($this->perPage !== null && !isset($params['pagelen'])) {
-            $params['pagelen'] = $this->perPage;
-        }
-
-        if ($params) {
-            $path .= '?'.http_build_query($params);
-        }
-
-        $response = $this->client->get($path, $headers);
+        $response = $this->pureGet($path, $params, $headers);
 
         return ResponseMediator::getContent($response);
     }
 
     /**
-     * Send a HEAD request with query params.
+     * Send a GET request with query params.
      *
      * @param string $path
      * @param array  $params
@@ -120,13 +112,17 @@ abstract class AbstractApi implements ApiInterface
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    protected function head(string $path, array $params = [], array $headers = [])
+    protected function pureGet(string $path, array $params = [], array $headers = [])
     {
+        if ($this->perPage !== null && !isset($params['pagelen'])) {
+            $params['pagelen'] = $this->perPage;
+        }
+
         if ($params) {
             $path .= '?'.http_build_query($params);
         }
 
-        return $this->client->head($path, $headers);
+        return $this->client->get($path, $headers);
     }
 
     /**
@@ -154,15 +150,15 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Send a POST request with raw data.
      *
-     * @param string $path
-     * @param string $body
-     * @param array  $headers
+     * @param string                                        $path
+     * @param string|\Psr\Http\Message\StreamInterface|null $body
+     * @param array                                         $headers
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    protected function postRaw(string $path, string $body, array $headers = [])
+    protected function postRaw(string $path, $body = null, array $headers = [])
     {
         $response = $this->client->post($path, $headers, $body);
 
@@ -194,15 +190,15 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Send a PATCH request with raw data.
      *
-     * @param string $path
-     * @param string $body
-     * @param array  $headers
+     * @param string                                        $path
+     * @param string|\Psr\Http\Message\StreamInterface|null $body
+     * @param array                                         $headers
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    protected function patchRaw(string $path, string $body, array $headers = [])
+    protected function patchRaw(string $path, $body = null, array $headers = [])
     {
         $response = $this->client->patch($path, $headers, $body);
 
@@ -234,15 +230,15 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Send a PUT request with raw data.
      *
-     * @param string $path
-     * @param string $body
-     * @param array  $headers
+     * @param string                                        $path
+     * @param string|\Psr\Http\Message\StreamInterface|null $body
+     * @param array                                         $headers
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    protected function putRaw(string $path, string $body, array $headers = [])
+    protected function putRaw(string $path, $body = null, array $headers = [])
     {
         $response = $this->client->put($path, $headers, $body);
 
@@ -274,15 +270,15 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Send a DELETE request with raw data.
      *
-     * @param string $path
-     * @param string $body
-     * @param array  $headers
+     * @param string                                        $path
+     * @param string|\Psr\Http\Message\StreamInterface|null $body
+     * @param array                                         $headers
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    protected function deleteRaw(string $path, string $body, array $headers = [])
+    protected function deleteRaw(string $path, $body = null, array $headers = [])
     {
         $response = $this->client->delete($path, $headers, $body);
 

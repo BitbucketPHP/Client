@@ -16,6 +16,13 @@ namespace Bitbucket\Api;
 use Bitbucket\Api\Repository\BranchRestrictions;
 use Bitbucket\Api\Repository\Commit;
 use Bitbucket\Api\Repository\Commits;
+use Bitbucket\Api\Repository\Components;
+use Bitbucket\Api\Repository\DefaultReviewers;
+use Bitbucket\Api\Repository\Diff;
+use Bitbucket\Api\Repository\Downloads;
+use Bitbucket\Api\Repository\FileHistory;
+use Bitbucket\Api\Repository\Forks;
+use Bitbucket\Api\Repository\Hooks;
 
 /**
  * The repositories api class.
@@ -148,6 +155,83 @@ class Repositories extends AbstractApi
     public function commits(string $username, string $repo)
     {
         return new Commits($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repository\Components
+     */
+    public function components(string $username, string $repo)
+    {
+        return new Components($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repository\DefaultReviewers
+     */
+    public function defaultReviewers(string $username, string $repo)
+    {
+        return new DefaultReviewers($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repository\Diff
+     */
+    public function diff(string $username, string $repo)
+    {
+        return new Diff($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repository\Downloads
+     */
+    public function downloads(string $username, string $repo)
+    {
+        return new Downloads($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repository\FileHistory
+     */
+    public function fileHistory(string $username, string $repo)
+    {
+        return new FileHistory($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repository\Forks
+     */
+    public function forks(string $username, string $repo)
+    {
+        return new Forks($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repository\Hooks
+     */
+    public function hooks(string $username, string $repo)
+    {
+        return new Hooks($this->getHttpClient(), $username, $repo);
     }
 
     /**

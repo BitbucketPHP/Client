@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repository;
 
 /**
- * The branch restrictions api class.
+ * The hooks api class.
  *
  * @author Graham Campbell <graham@alt-thre.com>
  */
-class BranchRestrictions extends AbstractRepositoryApi
+class Hooks extends AbstractRepositoryApi
 {
     /**
      * @param array $params
@@ -29,7 +29,7 @@ class BranchRestrictions extends AbstractRepositoryApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildBranchRestrictionsPath();
+        $path = $this->buildHooksPath();
 
         return $this->get($path, $params);
     }
@@ -43,58 +43,58 @@ class BranchRestrictions extends AbstractRepositoryApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildBranchRestrictionsPath();
+        $path = $this->buildHooksPath();
 
         return $this->post($path, $params);
     }
 
     /**
-     * @param string $restriction
+     * @param string $hook
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function show(string $restriction, array $params = [])
+    public function show(string $hook, array $params = [])
     {
-        $path = $this->buildBranchRestrictionsPath($restriction);
+        $path = $this->buildHooksPath($hook);
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $restriction
+     * @param string $hook
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function update(string $restriction, array $params = [])
+    public function update(string $hook, array $params = [])
     {
-        $path = $this->buildBranchRestrictionsPath($restriction);
+        $path = $this->buildHooksPath($hook);
 
         return $this->put($path, $params);
     }
 
     /**
-     * @param string $restriction
+     * @param string $hook
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function remove(string $restriction, array $params = [])
+    public function remove(string $hook, array $params = [])
     {
-        $path = $this->buildBranchRestrictionsPath($restriction);
+        $path = $this->buildHooksPath($hook);
 
         return $this->delete($path, $params);
     }
 
     /**
-     * Build the branch restrictions path from the given parts.
+     * Build the hooks path from the given parts.
      *
      * @param string[] $parts
      *
@@ -102,8 +102,8 @@ class BranchRestrictions extends AbstractRepositoryApi
      *
      * @return string
      */
-    protected function buildBranchRestrictionsPath(string ...$parts)
+    protected function buildHooksPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'branch-restrictions', ...$parts);
+        return static::buildPath('repositories', $this->username, 'hooks', ...$parts);
     }
 }

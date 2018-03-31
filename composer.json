@@ -17,7 +17,8 @@
         "php-http/httplug": "^1.1",
         "php-http/discovery": "^1.4",
         "php-http/client-implementation": "^1.0",
-        "php-http/client-common": "^1.7"
+        "php-http/client-common": "^1.7",
+        "php-http/multipart-stream-builder": "^1.0"
     },
     "require-dev": {
         "graham-campbell/analyzer": "^2.0",
