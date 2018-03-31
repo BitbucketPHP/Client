@@ -79,6 +79,8 @@ abstract class AbstractApi implements ApiInterface
      * @param array  $params
      * @param array  $headers
      *
+     * @throws \Http\Client\Exception
+     *
      * @return array
      */
     protected function get(string $path, array $params = [], array $headers = [])
@@ -103,6 +105,8 @@ abstract class AbstractApi implements ApiInterface
      * @param array  $params
      * @param array  $headers
      *
+     * @throws \Http\Client\Exception
+     *
      * @return \Psr\Http\Message\ResponseInterface
      */
     protected function head(string $path, array $params = [], array $headers = [])
@@ -121,11 +125,19 @@ abstract class AbstractApi implements ApiInterface
      * @param array  $params
      * @param array  $headers
      *
+     * @throws \Http\Client\Exception
+     *
      * @return array
      */
     protected function post(string $path, array $params = [], array $headers = [])
     {
-        return $this->postRaw($path, static::createJsonBody($params), $headers);
+        $body = static::createJsonBody($params);
+
+        if ($body) {
+            $headers = static::addJsonContentType($headers);
+        }
+
+        return $this->postRaw($path, $body, $headers);
     }
 
     /**
@@ -134,6 +146,8 @@ abstract class AbstractApi implements ApiInterface
      * @param string $path
      * @param string $body
      * @param array  $headers
+     *
+     * @throws \Http\Client\Exception
      *
      * @return array
      */
@@ -151,11 +165,35 @@ abstract class AbstractApi implements ApiInterface
      * @param array  $params
      * @param array  $headers
      *
+     * @throws \Http\Client\Exception
+     *
      * @return array
      */
     protected function patch(string $path, array $params = [], array $headers = [])
     {
-        $response = $this->client->getHttpClient()->patch($path, $headers, static::createJsonBody($params));
+        $body = static::createJsonBody($params);
+
+        if ($body) {
+            $headers = static::addJsonContentType($headers);
+        }
+
+        return $this->patchRaw($path, $body, $headers);
+    }
+
+    /**
+     * Send a PATCH request with raw data.
+     *
+     * @param string $path
+     * @param string $body
+     * @param array  $headers
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    protected function patchRaw(string $path, string $body, array $headers = [])
+    {
+        $response = $this->client->getHttpClient()->patch($path, $headers, $body);
 
         return ResponseMediator::getContent($response);
     }
@@ -167,11 +205,35 @@ abstract class AbstractApi implements ApiInterface
      * @param array  $params
      * @param array  $headers
      *
+     * @throws \Http\Client\Exception
+     *
      * @return array
      */
     protected function put(string $path, array $params = [], array $headers = [])
     {
-        $response = $this->client->getHttpClient()->put($path, $headers, static::createJsonBody($params));
+        $body = static::createJsonBody($params);
+
+        if ($body) {
+            $headers = static::addJsonContentType($headers);
+        }
+
+        return $this->putRaw($path, $body, $headers);
+    }
+
+    /**
+     * Send a PUT request with raw data.
+     *
+     * @param string $path
+     * @param string $body
+     * @param array  $headers
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    protected function putRaw(string $path, string $body, array $headers = [])
+    {
+        $response = $this->client->getHttpClient()->put($path, $headers, $body);
 
         return ResponseMediator::getContent($response);
     }
@@ -183,11 +245,35 @@ abstract class AbstractApi implements ApiInterface
      * @param array  $params
      * @param array  $headers
      *
+     * @throws \Http\Client\Exception
+     *
      * @return array
      */
     protected function delete(string $path, array $params = [], array $headers = [])
     {
-        $response = $this->client->getHttpClient()->delete($path, $headers, static::createJsonBody($params));
+        $body = static::createJsonBody($params);
+
+        if ($body) {
+            $headers = static::addJsonContentType($headers);
+        }
+
+        return $this->deleteRaw($path, $body, $headers);
+    }
+
+    /**
+     * Send a DELETE request with raw data.
+     *
+     * @param string $path
+     * @param string $body
+     * @param array  $headers
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    protected function deleteRaw(string $path, string $body, array $headers = [])
+    {
+        $response = $this->client->getHttpClient()->delete($path, $headers, $body);
 
         return ResponseMediator::getContent($response);
     }
@@ -204,5 +290,31 @@ abstract class AbstractApi implements ApiInterface
         if ($params) {
             return json_encode($params);
         }
+    }
+
+    /**
+     * Add the JSON content type to the headers if one is not already present.
+     *
+     * @param array $headers
+     *
+     * @return array
+     */
+    protected static function addJsonContentType(array $headers)
+    {
+        return array_merge(['Content-Type' => 'application/json'], $headers);
+    }
+
+    /**
+     * Encode the given string for a URL.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    protected static function urlEncode(string $path)
+    {
+        $path = rawurlencode($path);
+
+        return str_replace('.', '%2E', $path);
     }
 }
