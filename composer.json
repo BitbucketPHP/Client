@@ -1,0 +1,46 @@
+{
+    "name": "bitbucket/client",
+    "description": "A Modern Bitbucket API 2.0 Client",
+    "keywords": ["bitbucket", "bitbucket api", "Bitbucket API", "BitbucketAPI", "Bitbucket", "Bitbucket Client", "Bitbucket API Client", "Graham Campbell", "GrahamCampbell"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Graham Campbell",
+            "email": "graham@alt-three.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "graham-campbell/cache-plugin": "^1.0",
+        "psr/http-message": "^1.0",
+        "psr/cache": "^1.0",
+        "php-http/httplug": "^1.1",
+        "php-http/discovery": "^1.4",
+        "php-http/client-implementation": "^1.0",
+        "php-http/client-common": "^1.7"
+    },
+    "require-dev": {
+        "graham-campbell/analyzer": "^2.0",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bitbucket\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bitbucket\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
