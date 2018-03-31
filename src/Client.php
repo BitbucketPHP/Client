@@ -13,19 +13,16 @@ declare(strict_types=1);
 
 namespace Bitbucket;
 
-use Bitbucket\Api\ApiInterface;
 use Bitbucket\Exception\BadMethodCallException;
 use Bitbucket\Exception\InvalidArgumentException;
 use Bitbucket\HttpClient\Builder;
 use Bitbucket\HttpClient\Plugin\Authentication;
 use Bitbucket\HttpClient\Plugin\ExceptionThrower;
 use Bitbucket\HttpClient\Plugin\History;
-use Http\Client\Common\HttpMethodsClient;
-use Http\Client\Common\Plugin\HistoryPlugin;
-use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Client\Common\Plugin\AddHostPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
-use Http\Client\HttpClient;
+use Http\Client\Common\Plugin\HistoryPlugin;
+use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Discovery\UriFactoryDiscovery;
 use Psr\Cache\CacheItemPoolInterface;
 

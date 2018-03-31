@@ -10,7 +10,6 @@ use Http\Client\HttpClient;
 use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\MessageFactoryDiscovery;
 use Http\Discovery\StreamFactoryDiscovery;
-use Http\Message\MessageFactory;
 use Http\Message\RequestFactory;
 use Http\Message\StreamFactory;
 use Psr\Cache\CacheItemPoolInterface;

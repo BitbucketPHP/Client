@@ -106,7 +106,7 @@ class ResultPager implements ResultPagerInterface
             // restore the perPage
             $api->setPerPage($perPage);
         }
- 
+
         return $result;
     }
 
