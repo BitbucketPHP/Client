@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Bitbucket;
 
+use Bitbucket\Api\HookEvents;
+use Bitbucket\Api\Repositories;
 use Bitbucket\Exception\BadMethodCallException;
 use Bitbucket\Exception\InvalidArgumentException;
 use Bitbucket\HttpClient\Builder;
@@ -28,6 +30,9 @@ use Psr\Cache\CacheItemPoolInterface;
 
 /**
  * The Bitbucket API 2.0 client.
+ *
+ * @method HookEvents hookEvents()
+ * @method Repositories repositories()
  *
  * @author Joseph Bielawski <stloyd@gmail.com>
  * @author Graham Campbell <graham@alt-three.com>
@@ -94,7 +99,13 @@ class Client
      */
     public function api(string $name)
     {
-        // TODO
+        switch ($name) {
+            case 'hookEvents':
+                return new HookEvents($this);
+            case 'repositories':
+                return new Repositories($this);
+        }
+
         throw new InvalidArgumentException(sprintf('Undefined api instance called: "%s"', $name));
     }
 
