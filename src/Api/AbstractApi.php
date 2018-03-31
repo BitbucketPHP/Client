@@ -17,7 +17,7 @@ use Bitbucket\Client;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 
 /**
- * Abstract class for Api classes.
+ * The abstract bitbucket api class.
  *
  * @author Joseph Bielawski <stloyd@gmail.com>
  * @author Graham Campbell <graham@alt-thre.com>

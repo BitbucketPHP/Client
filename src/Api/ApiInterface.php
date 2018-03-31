@@ -16,7 +16,7 @@ namespace Bitbucket\Api;
 use Bitbucket\Client;
 
 /**
- * The api interface.
+ * The bitbucket api interface.
  *
  * @author Joseph Bielawski <stloyd@gmail.com>
  * @author Graham Campbell <graham@alt-thre.com>

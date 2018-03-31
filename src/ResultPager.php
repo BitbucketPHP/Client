@@ -28,14 +28,14 @@ class ResultPager implements ResultPagerInterface
     /**
      * The client to use for pagination.
      *
-     * @var \Github\Client
+     * @var \Bitbucket\Client
      */
     protected $client;
 
     /**
      * The pagination result from the API.
      *
-     * @var array
+     * @var array|null
      */
     protected $pagination;
 
@@ -162,6 +162,8 @@ class ResultPager implements ResultPagerInterface
 
     /**
      * @param string $key
+     *
+     * @return bool
      */
     protected function has(string $key)
     {
