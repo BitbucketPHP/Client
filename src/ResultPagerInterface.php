@@ -38,6 +38,8 @@ interface ResultPagerInterface
      * @param string                      $method
      * @param array                       $parameters
      *
+     * @throws \Http\Client\Exception
+     *
      * @return array
      */
     public function fetch(ApiInterface $api, $method, array $parameters = []);
@@ -48,6 +50,8 @@ interface ResultPagerInterface
      * @param \Bitbucket\Api\ApiInterface $api
      * @param string                      $method
      * @param array                       $parameters
+     *
+     * @throws \Http\Client\Exception
      *
      * @return array
      */
@@ -70,6 +74,8 @@ interface ResultPagerInterface
     /**
      * Fetch the next page.
      *
+     * @throws \Http\Client\Exception
+     *
      * @return array
      */
     public function fetchNext();
@@ -83,6 +89,8 @@ interface ResultPagerInterface
 
     /**
      * Fetch the previous page.
+     *
+     * @throws \Http\Client\Exception
      *
      * @return array
      */
