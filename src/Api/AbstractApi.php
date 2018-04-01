@@ -122,7 +122,7 @@ abstract class AbstractApi implements ApiInterface
             $path .= '?'.http_build_query($params);
         }
 
-        return $this->client->get($path, $headers);
+        return $this->client->get(self::computePath($path), $headers);
     }
 
     /**
@@ -160,7 +160,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function postRaw(string $path, $body = null, array $headers = [])
     {
-        $response = $this->client->post($path, $headers, $body);
+        $response = $this->client->post(self::computePath($path), $headers, $body);
 
         return ResponseMediator::getContent($response);
     }
@@ -200,7 +200,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function putRaw(string $path, $body = null, array $headers = [])
     {
-        $response = $this->client->put($path, $headers, $body);
+        $response = $this->client->put(self::computePath($path), $headers, $body);
 
         return ResponseMediator::getContent($response);
     }
@@ -240,7 +240,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function deleteRaw(string $path, $body = null, array $headers = [])
     {
-        $response = $this->client->delete($path, $headers, $body);
+        $response = $this->client->delete(self::computePath($path), $headers, $body);
 
         return ResponseMediator::getContent($response);
     }
@@ -265,6 +265,18 @@ abstract class AbstractApi implements ApiInterface
         }, $parts);
 
         return implode('/', $parts);
+    }
+
+    /**
+     * Compute the prefixed API path.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    private static function computePath(string $path)
+    {
+        return sprintf('/2.0/%s', $path);
     }
 
     /**
