@@ -21,7 +21,7 @@ namespace Bitbucket\Api\Repositories\Users\PullRequests;
 class Patch extends AbstractPullRequestsApi
 {
     /**
-     * @param array  $params
+     * @param array $params
      *
      * @throws \Http\Client\Exception
      *

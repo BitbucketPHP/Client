@@ -29,7 +29,6 @@ use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use Http\Client\Common\Plugin\HistoryPlugin;
 use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Discovery\UriFactoryDiscovery;
-use Psr\Cache\CacheItemPoolInterface;
 
 /**
  * The Bitbucket API 2.0 client.
