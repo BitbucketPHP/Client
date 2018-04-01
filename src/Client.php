@@ -40,18 +40,18 @@ use Psr\Cache\CacheItemPoolInterface;
 class Client
 {
     /**
-     * The http password authentication method.
-     *
-     * @var string
-     */
-    const AUTH_HTTP_PASSWORD = 'http_password';
-
-    /**
      * The oauth token authentication method.
      *
      * @var string
      */
     const AUTH_OAUTH_TOKEN = 'oauth_token';
+
+    /**
+     * The http password authentication method.
+     *
+     * @var string
+     */
+    const AUTH_HTTP_PASSWORD = 'http_password';
 
     /**
      * The bitbucket http client builder.
