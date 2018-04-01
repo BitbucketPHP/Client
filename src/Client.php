@@ -82,7 +82,7 @@ class Client
         $builder->addPlugin(new ExceptionThrower());
         $builder->addPlugin(new HistoryPlugin($this->responseHistory));
         $builder->addPlugin(new RedirectPlugin());
-        $builder->addPlugin(new AddHostPlugin(UriFactoryDiscovery::find()->createUri('https://bitbucket.org/api/2.0')));
+        $builder->addPlugin(new AddHostPlugin(UriFactoryDiscovery::find()->createUri('https://api.bitbucket.org/2.0')));
         $builder->addPlugin(new HeaderDefaultsPlugin(['User-Agent' => 'bitbucket-api-client/1.0']));
 
         $builder->addHeaderValue('Accept', 'application/json');
