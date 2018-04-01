@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories;
+namespace Bitbucket\Api\Repositories\PipelinesConfig\Schedules;
 
 /**
- * The milestones api class.
+ * The executions api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Milestones extends AbstractRepositoriesApi
+class Executions extends AbstractSchedulesApi
 {
     /**
      * @param array $params
@@ -29,28 +29,13 @@ class Milestones extends AbstractRepositoriesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildMilestonesPath();
+        $path = $this->buildExecutionsPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $milestone
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function show(string $milestone, array $params = [])
-    {
-        $path = $this->buildMilestonesPath($milestone);
-
-        return $this->get($path, $params);
-    }
-
-    /**
-     * Build the milestones path from the given parts.
+     * Build the executions path from the given parts.
      *
      * @param string[] $parts
      *
@@ -58,8 +43,8 @@ class Milestones extends AbstractRepositoriesApi
      *
      * @return string
      */
-    protected function buildMilestonesPath(string ...$parts)
+    protected function buildExecutionsPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'milestones', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'pipelines_config', 'schedules', $this->schedule, 'executions', ...$parts);
     }
 }

@@ -73,6 +73,6 @@ class Watching extends AbstractIssuesApi
      */
     protected function buildWatchingPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, 'issues', $this->issue, 'watch', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'issues', $this->issue, 'watch', ...$parts);
     }
 }

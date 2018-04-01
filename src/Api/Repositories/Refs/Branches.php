@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories;
+namespace Bitbucket\Api\Repositories\Refs;
 
 /**
- * The milestones api class.
+ * The branches api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Milestones extends AbstractRepositoriesApi
+class Branches extends AbstractRefsApi
 {
     /**
      * @param array $params
@@ -29,28 +29,28 @@ class Milestones extends AbstractRepositoriesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildMilestonesPath();
+        $path = $this->buildBranchesPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $milestone
+     * @param string $branch
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function show(string $milestone, array $params = [])
+    public function show(string $branch, array $params = [])
     {
-        $path = $this->buildMilestonesPath($milestone);
+        $path = $this->buildBranchesPath($branch);
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the milestones path from the given parts.
+     * Build the branches path from the given parts.
      *
      * @param string[] $parts
      *
@@ -58,8 +58,8 @@ class Milestones extends AbstractRepositoriesApi
      *
      * @return string
      */
-    protected function buildMilestonesPath(string ...$parts)
+    protected function buildBranchesPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'milestones', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'refs', 'branches', ...$parts);
     }
 }

@@ -11,32 +11,31 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories;
+namespace Bitbucket\Api\Repositories\PullRequests;
 
 /**
- * The patches api class.
+ * The patch api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Patches extends AbstractRepositoriesApi
+class Patch extends AbstractPullRequestsApi
 {
     /**
-     * @param string $spec
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return \Psr\Http\Message\StreamInterface
      */
-    public function download(string $spec, array $params = [])
+    public function download(array $params = [])
     {
-        $path = $this->buildPatchesPath($spec);
+        $path = $this->buildPatchPath();
 
         return $this->pureGet($path, $params, ['Accept' => 'text/plain'])->getBody();
     }
 
     /**
-     * Build the patches path from the given parts.
+     * Build the patch path from the given parts.
      *
      * @param string[] $parts
      *
@@ -44,8 +43,8 @@ class Patches extends AbstractRepositoriesApi
      *
      * @return string
      */
-    protected function buildPatchesPath(string ...$parts)
+    protected function buildPatchPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, $this->repo, 'patch', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'pullrequests', $this->pr, 'patch', ...$parts);
     }
 }

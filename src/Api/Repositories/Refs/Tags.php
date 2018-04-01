@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories;
+namespace Bitbucket\Api\Repositories\Refs;
 
 /**
- * The milestones api class.
+ * The tags api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Milestones extends AbstractRepositoriesApi
+class Tags extends AbstractRefsApi
 {
     /**
      * @param array $params
@@ -29,28 +29,42 @@ class Milestones extends AbstractRepositoriesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildMilestonesPath();
+        $path = $this->buildTagsPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $milestone
+     * @param array $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function create(array $params = [])
+    {
+        $path = $this->buildTagsPath();
+
+        return $this->post($path, $params);
+    }
+
+    /**
+     * @param string $tag
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function show(string $milestone, array $params = [])
+    public function show(string $tag, array $params = [])
     {
-        $path = $this->buildMilestonesPath($milestone);
+        $path = $this->buildTagsPath($tag);
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the milestones path from the given parts.
+     * Build the tags path from the given parts.
      *
      * @param string[] $parts
      *
@@ -58,8 +72,8 @@ class Milestones extends AbstractRepositoriesApi
      *
      * @return string
      */
-    protected function buildMilestonesPath(string ...$parts)
+    protected function buildTagsPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'milestones', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'refs', 'tags', ...$parts);
     }
 }

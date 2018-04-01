@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories;
+namespace Bitbucket\Api\Repositories\PipelinesConfig\Ssh;
 
 /**
- * The hooks api class.
+ * The known hosts api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Hooks extends AbstractRepositoriesApi
+class KnownHosts extends AbstractSshApi
 {
     /**
      * @param array $params
@@ -29,7 +29,7 @@ class Hooks extends AbstractRepositoriesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildHooksPath();
+        $path = $this->buildKnownHostsPath();
 
         return $this->get($path, $params);
     }
@@ -43,58 +43,58 @@ class Hooks extends AbstractRepositoriesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildHooksPath();
+        $path = $this->buildKnownHostsPath();
 
         return $this->post($path, $params);
     }
 
     /**
-     * @param string $hook
+     * @param string $host
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function show(string $hook, array $params = [])
+    public function show(string $host, array $params = [])
     {
-        $path = $this->buildHooksPath($hook);
+        $path = $this->buildKnownHostsPath($host);
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $hook
+     * @param string $host
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function update(string $hook, array $params = [])
+    public function update(string $host, array $params = [])
     {
-        $path = $this->buildHooksPath($hook);
+        $path = $this->buildKnownHostsPath($host);
 
         return $this->put($path, $params);
     }
 
     /**
-     * @param string $hook
+     * @param string $host
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function remove(string $hook, array $params = [])
+    public function remove(string $host, array $params = [])
     {
-        $path = $this->buildHooksPath($hook);
+        $path = $this->buildKnownHostsPath($host);
 
         return $this->delete($path, $params);
     }
 
     /**
-     * Build the hooks path from the given parts.
+     * Build the known hosts path from the given parts.
      *
      * @param string[] $parts
      *
@@ -102,8 +102,8 @@ class Hooks extends AbstractRepositoriesApi
      *
      * @return string
      */
-    protected function buildHooksPath(string ...$parts)
+    protected function buildKnownHostsPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'hooks', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'pipelines_config', 'ssh', 'known_hosts', ...$parts);
     }
 }

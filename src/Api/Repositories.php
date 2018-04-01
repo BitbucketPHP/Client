@@ -26,6 +26,14 @@ use Bitbucket\Api\Repositories\Hooks;
 use Bitbucket\Api\Repositories\Issues;
 use Bitbucket\Api\Repositories\Milestones;
 use Bitbucket\Api\Repositories\Patches;
+use Bitbucket\Api\Repositories\Pipelines;
+use Bitbucket\Api\Repositories\PipelinesConfig;
+use Bitbucket\Api\Repositories\Properties;
+use Bitbucket\Api\Repositories\PullRequests;
+use Bitbucket\Api\Repositories\Refs;
+use Bitbucket\Api\Repositories\Src;
+use Bitbucket\Api\Repositories\Versions;
+use Bitbucket\Api\Repositories\Watchers;
 
 /**
  * The repositories api class.
@@ -188,7 +196,7 @@ class Repositories extends AbstractApi
      *
      * @return \Bitbucket\Api\Repositories\Diffs
      */
-    public function diff(string $username, string $repo)
+    public function diffs(string $username, string $repo)
     {
         return new Diffs($this->getHttpClient(), $username, $repo);
     }
@@ -268,6 +276,94 @@ class Repositories extends AbstractApi
     public function patches(string $username, string $repo)
     {
         return new Patches($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\Pipelines
+     */
+    public function pipelines(string $username, string $repo)
+    {
+        return new Pipelines($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\PipelinesConfig
+     */
+    public function pipelinesConfig(string $username, string $repo)
+    {
+        return new PipelinesConfig($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\Properties
+     */
+    public function properties(string $username, string $repo)
+    {
+        return new Properties($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\PullRequests
+     */
+    public function pullRequests(string $username, string $repo)
+    {
+        return new PullRequests($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\Refs
+     */
+    public function refs(string $username, string $repo)
+    {
+        return new Refs($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\Src
+     */
+    public function src(string $username, string $repo)
+    {
+        return new Src($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\Versions
+     */
+    public function versions(string $username, string $repo)
+    {
+        return new Versions($this->getHttpClient(), $username, $repo);
+    }
+
+    /**
+     * @param string $username
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\Watchers
+     */
+    public function watchers(string $username, string $repo)
+    {
+        return new Watchers($this->getHttpClient(), $username, $repo);
     }
 
     /**

@@ -160,6 +160,6 @@ class Issues extends AbstractRepositoriesApi
      */
     protected function buildIssuesPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, 'issues', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'issues', ...$parts);
     }
 }

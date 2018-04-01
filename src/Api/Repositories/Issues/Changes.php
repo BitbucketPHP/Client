@@ -74,6 +74,6 @@ class Changes extends AbstractIssuesApi
      */
     protected function buildChangesPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, 'issues', $this->issue, 'changes', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'issues', $this->issue, 'changes', ...$parts);
     }
 }

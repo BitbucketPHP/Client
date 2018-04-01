@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories\Issues;
+namespace Bitbucket\Api\Repositories\PipelinesConfig\Ssh;
 
 /**
- * The voting class.
+ * The key pair api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Voting extends AbstractIssuesApi
+class KeyPair extends AbstractSshApi
 {
     /**
      * @param array $params
@@ -27,9 +27,9 @@ class Voting extends AbstractIssuesApi
      *
      * @return array
      */
-    public function check(array $params = [])
+    public function show(array $params = [])
     {
-        $path = $this->buildVotingPath();
+        $path = $this->buildKeyPairPath();
 
         return $this->get($path, $params);
     }
@@ -41,9 +41,9 @@ class Voting extends AbstractIssuesApi
      *
      * @return array
      */
-    public function vote(array $params = [])
+    public function update(array $params = [])
     {
-        $path = $this->buildVotingPath();
+        $path = $this->buildKeyPairPath();
 
         return $this->put($path, $params);
     }
@@ -55,15 +55,15 @@ class Voting extends AbstractIssuesApi
      *
      * @return array
      */
-    public function retract(array $params = [])
+    public function remove(array $params = [])
     {
-        $path = $this->buildVotingPath();
+        $path = $this->buildKeyPairPath();
 
         return $this->delete($path, $params);
     }
 
     /**
-     * Build the voting path from the given parts.
+     * Build the key pair path from the given parts.
      *
      * @param string[] $parts
      *
@@ -71,8 +71,8 @@ class Voting extends AbstractIssuesApi
      *
      * @return string
      */
-    protected function buildVotingPath(string ...$parts)
+    protected function buildKeyPairPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'issues', $this->issue, 'vote', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'pipelines_config', 'ssh', 'key_pair', ...$parts);
     }
 }

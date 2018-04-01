@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories;
+namespace Bitbucket\Api\Repositories\Pipelines;
 
 /**
- * The hooks api class.
+ * The steps api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Hooks extends AbstractRepositoriesApi
+class Steps extends AbstractPipelinesApi
 {
     /**
      * @param array $params
@@ -29,72 +29,58 @@ class Hooks extends AbstractRepositoriesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildHooksPath();
+        $path = $this->buildStepsPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param array $params
+     * @param string $step
+     * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function show(string $step, array $params = [])
     {
-        $path = $this->buildHooksPath();
+        $path = $this->buildStepsPath($step);
+
+        return $this->get($path, $params);
+    }
+
+    /**
+     * @param string $step
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function log(string $step, array $params = [])
+    {
+        $path = $this->buildStepsPath($step, 'log');
+
+        return $this->pureGet($path, $params, ['Accept' => 'application/octet-stream'])->getBody();
+    }
+
+    /**
+     * @param string $step
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function stop(string $step, array $params = [])
+    {
+        $path = $this->buildStepsPath($step, 'stopPipeline');
 
         return $this->post($path, $params);
     }
 
     /**
-     * @param string $hook
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function show(string $hook, array $params = [])
-    {
-        $path = $this->buildHooksPath($hook);
-
-        return $this->get($path, $params);
-    }
-
-    /**
-     * @param string $hook
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function update(string $hook, array $params = [])
-    {
-        $path = $this->buildHooksPath($hook);
-
-        return $this->put($path, $params);
-    }
-
-    /**
-     * @param string $hook
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function remove(string $hook, array $params = [])
-    {
-        $path = $this->buildHooksPath($hook);
-
-        return $this->delete($path, $params);
-    }
-
-    /**
-     * Build the hooks path from the given parts.
+     * Build the steps path from the given parts.
      *
      * @param string[] $parts
      *
@@ -102,8 +88,8 @@ class Hooks extends AbstractRepositoriesApi
      *
      * @return string
      */
-    protected function buildHooksPath(string ...$parts)
+    protected function buildStepsPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'hooks', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'pipelines', $this->pipeline, 'steps', ...$parts);
     }
 }

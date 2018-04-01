@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories\Issues;
+namespace Bitbucket\Api\Repositories;
 
 /**
- * The voting class.
+ * The src api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Voting extends AbstractIssuesApi
+class Src extends AbstractRepositoriesApi
 {
     /**
      * @param array $params
@@ -27,9 +27,9 @@ class Voting extends AbstractIssuesApi
      *
      * @return array
      */
-    public function check(array $params = [])
+    public function list(array $params = [])
     {
-        $path = $this->buildVotingPath();
+        $path = $this->buildSrcPath();
 
         return $this->get($path, $params);
     }
@@ -41,29 +41,31 @@ class Voting extends AbstractIssuesApi
      *
      * @return array
      */
-    public function vote(array $params = [])
+    public function create(array $params = [])
     {
-        $path = $this->buildVotingPath();
+        $path = $this->buildSrcPath();
 
-        return $this->put($path, $params);
+        return $this->post($path, $params);
     }
 
     /**
-     * @param array $params
+     * @param string $commit
+     * @param string $path
+     * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
-     * @return array
+     * @return \Psr\Http\Message\StreamInterface
      */
-    public function retract(array $params = [])
+    public function download(string $commit, string $path, array $params = [])
     {
-        $path = $this->buildVotingPath();
+        $path = $this->buildSrcPath($commit, ...explode('/', $path));
 
-        return $this->delete($path, $params);
+        return $this->pureGet($path, $params, ['Accept' => '*/*'])->getBody();
     }
 
     /**
-     * Build the voting path from the given parts.
+     * Build the src path from the given parts.
      *
      * @param string[] $parts
      *
@@ -71,8 +73,8 @@ class Voting extends AbstractIssuesApi
      *
      * @return string
      */
-    protected function buildVotingPath(string ...$parts)
+    protected function buildSrcPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'issues', $this->issue, 'vote', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'src', ...$parts);
     }
 }

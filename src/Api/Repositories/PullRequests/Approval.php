@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories;
+namespace Bitbucket\Api\Repositories\PullRequests;
 
 /**
- * The milestones api class.
+ * The approval api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Milestones extends AbstractRepositoriesApi
+class Approval extends AbstractPullRequestsApi
 {
     /**
      * @param array $params
@@ -27,30 +27,29 @@ class Milestones extends AbstractRepositoriesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function approve(array $params = [])
     {
-        $path = $this->buildMilestonesPath();
+        $path = $this->buildApprovalPath();
 
-        return $this->get($path, $params);
+        return $this->post($path, $params);
     }
 
     /**
-     * @param string $milestone
-     * @param array  $params
+     * @param array $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function show(string $milestone, array $params = [])
+    public function redact(array $params = [])
     {
-        $path = $this->buildMilestonesPath($milestone);
+        $path = $this->buildApprovalPath();
 
-        return $this->get($path, $params);
+        return $this->delete($path, $params);
     }
 
     /**
-     * Build the milestones path from the given parts.
+     * Build the approval path from the given parts.
      *
      * @param string[] $parts
      *
@@ -58,8 +57,8 @@ class Milestones extends AbstractRepositoriesApi
      *
      * @return string
      */
-    protected function buildMilestonesPath(string ...$parts)
+    protected function buildApprovalPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'milestones', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'pullrequests', $this->pr, 'approve', ...$parts);
     }
 }

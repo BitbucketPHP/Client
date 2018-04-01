@@ -11,14 +11,16 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories;
+namespace Bitbucket\Api\Repositories\PipelinesConfig;
+
+use Bitbucket\Api\Repositories\PipelinesConfig\Schedules\Executions;
 
 /**
- * The hooks api class.
+ * The schedules api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Hooks extends AbstractRepositoriesApi
+class Schedules extends AbstractPipelinesConfigApi
 {
     /**
      * @param array $params
@@ -29,7 +31,7 @@ class Hooks extends AbstractRepositoriesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildHooksPath();
+        $path = $this->buildSchedulesPath();
 
         return $this->get($path, $params);
     }
@@ -43,58 +45,68 @@ class Hooks extends AbstractRepositoriesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildHooksPath();
+        $path = $this->buildSchedulesPath();
 
         return $this->post($path, $params);
     }
 
     /**
-     * @param string $hook
+     * @param string $schedule
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function show(string $hook, array $params = [])
+    public function show(string $schedule, array $params = [])
     {
-        $path = $this->buildHooksPath($hook);
+        $path = $this->buildSchedulesPath($schedule);
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $hook
+     * @param string $schedule
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function update(string $hook, array $params = [])
+    public function update(string $schedule, array $params = [])
     {
-        $path = $this->buildHooksPath($hook);
+        $path = $this->buildSchedulesPath($schedule);
 
         return $this->put($path, $params);
     }
 
     /**
-     * @param string $hook
+     * @param string $schedule
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function remove(string $hook, array $params = [])
+    public function remove(string $schedule, array $params = [])
     {
-        $path = $this->buildHooksPath($hook);
+        $path = $this->buildSchedulesPath($schedule);
 
         return $this->delete($path, $params);
     }
 
     /**
-     * Build the hooks path from the given parts.
+     * @param string $schedule
+     *
+     * @return \Bitbucket\Api\Repositories\PipelinesConfig\Schedules\Executions
+     */
+    public function executions(string $schedule)
+    {
+        return new Executions($this->getHttpClient(), $this->username, $this->repo, $schedule);
+    }
+
+    /**
+     * Build the schedules path from the given parts.
      *
      * @param string[] $parts
      *
@@ -102,8 +114,8 @@ class Hooks extends AbstractRepositoriesApi
      *
      * @return string
      */
-    protected function buildHooksPath(string ...$parts)
+    protected function buildSchedulesPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'hooks', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'pipelines_config', 'schedules', ...$parts);
     }
 }

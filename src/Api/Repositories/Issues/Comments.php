@@ -60,6 +60,6 @@ class Comments extends AbstractIssuesApi
      */
     protected function buildCommentsPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, 'issues', $this->issue, 'comments', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'issues', $this->issue, 'comments', ...$parts);
     }
 }

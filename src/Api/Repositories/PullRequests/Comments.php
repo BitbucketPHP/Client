@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories;
+namespace Bitbucket\Api\Repositories\PullRequests;
 
 /**
- * The milestones api class.
+ * The comments api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Milestones extends AbstractRepositoriesApi
+class Comments extends AbstractPullRequestsApi
 {
     /**
      * @param array $params
@@ -29,28 +29,28 @@ class Milestones extends AbstractRepositoriesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildMilestonesPath();
+        $path = $this->buildCommentsPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $milestone
+     * @param string $comment
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function show(string $milestone, array $params = [])
+    public function show(string $comment, array $params = [])
     {
-        $path = $this->buildMilestonesPath($milestone);
+        $path = $this->buildCommentsPath($comment);
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the milestones path from the given parts.
+     * Build the comments path from the given parts.
      *
      * @param string[] $parts
      *
@@ -58,8 +58,8 @@ class Milestones extends AbstractRepositoriesApi
      *
      * @return string
      */
-    protected function buildMilestonesPath(string ...$parts)
+    protected function buildCommentsPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'milestones', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'pullrequests', $this->pr, 'comments', ...$parts);
     }
 }

@@ -94,6 +94,6 @@ class Attachments extends AbstractIssuesApi
      */
     protected function buildAttachmentsPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, 'issues', $this->issue, 'attachments', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'issues', $this->issue, 'attachments', ...$parts);
     }
 }

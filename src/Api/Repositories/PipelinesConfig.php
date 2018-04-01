@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories;
 
 /**
- * The milestones api class.
+ * The pipelines config api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Milestones extends AbstractRepositoriesApi
+class PipelinesConfig extends AbstractRepositoriesApi
 {
     /**
      * @param array $params
@@ -27,30 +27,29 @@ class Milestones extends AbstractRepositoriesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function show(array $params = [])
     {
-        $path = $this->buildMilestonesPath();
+        $path = $this->buildPipelinesConfigPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $milestone
-     * @param array  $params
+     * @param array $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function show(string $milestone, array $params = [])
+    public function update(array $params = [])
     {
-        $path = $this->buildMilestonesPath($milestone);
+        $path = $this->buildPipelinesConfigPath();
 
-        return $this->get($path, $params);
+        return $this->put($path, $params);
     }
 
     /**
-     * Build the milestones path from the given parts.
+     * Build the pipelines config path from the given parts.
      *
      * @param string[] $parts
      *
@@ -58,8 +57,8 @@ class Milestones extends AbstractRepositoriesApi
      *
      * @return string
      */
-    protected function buildMilestonesPath(string ...$parts)
+    protected function buildPipelinesConfigPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'milestones', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'pipelines_config', ...$parts);
     }
 }
