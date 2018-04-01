@@ -166,46 +166,6 @@ abstract class AbstractApi implements ApiInterface
     }
 
     /**
-     * Send a PATCH request with JSON-encoded params.
-     *
-     * @param string $path
-     * @param array  $params
-     * @param array  $headers
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    protected function patch(string $path, array $params = [], array $headers = [])
-    {
-        $body = self::createJsonBody($params);
-
-        if ($body) {
-            $headers = self::addJsonContentType($headers);
-        }
-
-        return $this->patchRaw($path, $body, $headers);
-    }
-
-    /**
-     * Send a PATCH request with raw data.
-     *
-     * @param string                                        $path
-     * @param string|\Psr\Http\Message\StreamInterface|null $body
-     * @param array                                         $headers
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    protected function patchRaw(string $path, $body = null, array $headers = [])
-    {
-        $response = $this->client->patch($path, $headers, $body);
-
-        return ResponseMediator::getContent($response);
-    }
-
-    /**
      * Send a PUT request with JSON-encoded params.
      *
      * @param string $path
