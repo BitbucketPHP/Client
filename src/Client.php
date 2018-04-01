@@ -164,29 +164,6 @@ class Client
     }
 
     /**
-     * Add a cache plugin to cache responses locally.
-     *
-     * @param \Psr\Cache\CacheItemPoolInterface $cache
-     * @param array                             $config
-     *
-     * @return void
-     */
-    public function addCache(CacheItemPoolInterface $cache, array $config = [])
-    {
-        $this->getHttpClientBuilder()->addCache($cache, $config);
-    }
-
-    /**
-     * Remove the cache plugin.
-     *
-     * @return void
-     */
-    public function removeCache()
-    {
-        $this->getHttpClientBuilder()->removeCache();
-    }
-
-    /**
      * Get the last response.
      *
      * @return \Psr\Http\Message\ResponseInterface|null
