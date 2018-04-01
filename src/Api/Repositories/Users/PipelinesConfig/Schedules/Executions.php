@@ -11,16 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api;
-
-use Bitbucket\Api\Repositories\Users as RepositoriesUsers;
+namespace Bitbucket\Api\Repositories\Users\PipelinesConfig\Schedules;
 
 /**
- * The repositories api class.
+ * The executions api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Repositories extends AbstractApi
+class Executions extends AbstractSchedulesApi
 {
     /**
      * @param array $params
@@ -31,23 +29,13 @@ class Repositories extends AbstractApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildRepositoriesPath();
+        $path = $this->buildExecutionsPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $username
-     *
-     * @return \Bitbucket\Api\Repositories\Users
-     */
-    public function users(string $username)
-    {
-        return new RepositoriesUsers($this->getHttpClient(), $username);
-    }
-
-    /**
-     * Build the repositories path from the given parts.
+     * Build the executions path from the given parts.
      *
      * @param string[] $parts
      *
@@ -55,8 +43,8 @@ class Repositories extends AbstractApi
      *
      * @return string
      */
-    protected function buildRepositoriesPath(string ...$parts)
+    protected function buildExecutionsPath(string ...$parts)
     {
-        return static::buildPath('repositories', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'pipelines_config', 'schedules', $this->schedule, 'executions', ...$parts);
     }
 }

@@ -11,16 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api;
-
-use Bitbucket\Api\Repositories\Users as RepositoriesUsers;
+namespace Bitbucket\Api\Repositories\Users\Refs;
 
 /**
- * The repositories api class.
+ * The branches api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Repositories extends AbstractApi
+class Branches extends AbstractRefsApi
 {
     /**
      * @param array $params
@@ -31,23 +29,28 @@ class Repositories extends AbstractApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildRepositoriesPath();
+        $path = $this->buildBranchesPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $username
+     * @param string $branch
+     * @param array  $params
      *
-     * @return \Bitbucket\Api\Repositories\Users
+     * @throws \Http\Client\Exception
+     *
+     * @return array
      */
-    public function users(string $username)
+    public function show(string $branch, array $params = [])
     {
-        return new RepositoriesUsers($this->getHttpClient(), $username);
+        $path = $this->buildBranchesPath($branch);
+
+        return $this->get($path, $params);
     }
 
     /**
-     * Build the repositories path from the given parts.
+     * Build the branches path from the given parts.
      *
      * @param string[] $parts
      *
@@ -55,8 +58,8 @@ class Repositories extends AbstractApi
      *
      * @return string
      */
-    protected function buildRepositoriesPath(string ...$parts)
+    protected function buildBranchesPath(string ...$parts)
     {
-        return static::buildPath('repositories', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'refs', 'branches', ...$parts);
     }
 }
