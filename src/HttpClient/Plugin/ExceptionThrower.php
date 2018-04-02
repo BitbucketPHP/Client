@@ -48,7 +48,7 @@ class ExceptionThrower implements Plugin
             $status = $response->getStatusCode();
 
             if ($status >= 400 && $status < 600) {
-                self::handleError($status, self::getMessage($response));
+                self::handleError($status, self::getMessage($response) ?: $response->getReasonPhrase());
             }
 
             return $response;
