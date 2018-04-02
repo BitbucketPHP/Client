@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Bitbucket\Api\Repositories\Users\PullRequests | Bitbucket API Client</title>
+
+            <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/sami.css">
+        <script src="../../../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../../../js/bootstrap.min.js"></script>
+        <script src="../../../../js/typeahead.min.js"></script>
+        <script src="../../../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:Bitbucket_Api_Repositories_Users_PullRequests" data-root-path="../../../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../../../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../../../index.html">Bitbucket API Client</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../../../classes.html">Classes</a></li>
+                                            <li><a href="../../../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../../traits.html">Traits</a></li>
+                    <li><a href="../../../../doc-index.html">Index</a></li>
+                    <li><a href="../../../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../../../Bitbucket.html">Bitbucket</a></li><li class="backslash">\</li><li><a href="../../../../Bitbucket/Api.html">Api</a></li><li class="backslash">\</li><li><a href="../../../../Bitbucket/Api/Repositories.html">Repositories</a></li><li class="backslash">\</li><li><a href="../../../../Bitbucket/Api/Repositories/Users.html">Users</a></li><li class="backslash">\</li><li>PullRequests</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            PullRequests
+                
+        </h1>
+    </div>
+
+    <p>    class
+    <strong>PullRequests</strong>        extends <a href="../../../../Bitbucket/Api/Repositories/Users/AbstractUsersApi.html"><abbr title="Bitbucket\Api\Repositories\Users\AbstractUsersApi">AbstractUsersApi</abbr></a>        (<a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php">View source</a>)
+</p>
+
+        
+    
+
+            <div class="description">
+            <p>The pull requests api class.</p>                                </div>
+    
+    
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_username">
+                                        protected                                        string
+                </td>
+                <td>$username</td>
+                <td class="last">The username.</td>
+                <td><small>from&nbsp;<a href="../../../../Bitbucket/Api/Repositories/AbstractRepositoriesApi.html#property_username"><abbr title="Bitbucket\Api\Repositories\AbstractRepositoriesApi">AbstractRepositoriesApi</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_repo">
+                                        protected                                        string
+                </td>
+                <td>$repo</td>
+                <td class="last">The repo.</td>
+                <td><small>from&nbsp;<a href="../../../../Bitbucket/Api/Repositories/Users/AbstractUsersApi.html#property_repo"><abbr title="Bitbucket\Api\Repositories\Users\AbstractUsersApi">AbstractUsersApi</abbr></a></small></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(<abbr title="Http\Client\Common\HttpMethodsClient">HttpMethodsClient</abbr> $client, string $username, string $repo)
+        
+                                            <p>Create a new api instance.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../../Bitbucket/Api/Repositories/Users/AbstractUsersApi.html#method___construct"><abbr title="Bitbucket\Api\Repositories\Users\AbstractUsersApi">AbstractUsersApi</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int|null
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getPerPage">getPerPage</a>()
+        
+                                            <p>Get the number of values to fetch per page.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../../Bitbucket/Api/AbstractApi.html#method_getPerPage"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setPerPage">setPerPage</a>(int $perPage = null)
+        
+                                            <p>Set the number of values to fetch per page.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../../Bitbucket/Api/AbstractApi.html#method_setPerPage"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Http\Client\Common\HttpMethodsClient">HttpMethodsClient</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getHttpClient">getHttpClient</a>()
+        
+                                            <p>Get the http methods client.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../../Bitbucket/Api/AbstractApi.html#method_getHttpClient"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_get">get</a>(string $path, array $params = [], array $headers = [])
+        
+                                            <p>Send a GET request with query params.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../../Bitbucket/Api/AbstractApi.html#method_get"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_pureGet">pureGet</a>(string $path, array $params = [], array $headers = [])
+        
+                                            <p>Send a GET request with query params.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../../Bitbucket/Api/AbstractApi.html#method_pureGet"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_post">post</a>(string $path, array $params = [], array $headers = [])
+        
+                                            <p>Send a POST request with JSON-encoded params.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../../Bitbucket/Api/AbstractApi.html#method_post"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_postRaw">postRaw</a>(string $path, string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null $body = null, array $headers = [])
+        
+                                            <p>Send a POST request with raw data.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../../Bitbucket/Api/AbstractApi.html#method_postRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_put">put</a>(string $path, array $params = [], array $headers = [])
+        
+                                            <p>Send a PUT request with JSON-encoded params.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../../Bitbucket/Api/AbstractApi.html#method_put"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_putRaw">putRaw</a>(string $path, string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null $body = null, array $headers = [])
+        
+                                            <p>Send a PUT request with raw data.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../../Bitbucket/Api/AbstractApi.html#method_putRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_delete">delete</a>(string $path, array $params = [], array $headers = [])
+        
+                                            <p>Send a DELETE request with JSON-encoded params.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../../Bitbucket/Api/AbstractApi.html#method_delete"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_deleteRaw">deleteRaw</a>(string $path, string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null $body = null, array $headers = [])
+        
+                                            <p>Send a DELETE request with raw data.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../../Bitbucket/Api/AbstractApi.html#method_deleteRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_buildPath">buildPath</a>(string ...$parts)
+        
+                                            <p>Build a URL path from the given parts.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../../Bitbucket/Api/AbstractApi.html#method_buildPath"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_list">list</a>(array $params = [])
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_activity">activity</a>(array $params = [])
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_create">create</a>(array $params = [])
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_show">show</a>(string $pr, array $params = [])
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_activityByPr">activityByPr</a>(string $pr, array $params = [])
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_update">update</a>(string $pr, array $params = [])
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_decline">decline</a>(string $pr, array $params = [])
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_merge">merge</a>(string $pr, array $params = [])
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Approval.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Approval">Approval</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_approval">approval</a>(string $pr)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Comments.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Comments">Comments</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_comments">comments</a>(string $pr)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Commits.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Commits">Commits</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_commits">commits</a>(string $pr)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Diff.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Diff">Diff</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_diff">diff</a>(string $pr)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Patch.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Patch">Patch</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_patch">patch</a>(string $pr)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Statuses.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Statuses">Statuses</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_statuses">statuses</a>(string $pr)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_buildPullRequestsPath">buildPullRequestsPath</a>(string ...$parts)
+        
+                                            <p>Build the pull requests path from the given parts.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">in <a href="../../../../Bitbucket/Api/Repositories/Users/AbstractUsersApi.html#method___construct"><abbr title="Bitbucket\Api\Repositories\Users\AbstractUsersApi">AbstractUsersApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/AbstractUsersApi.php#L40">line 40</a></div>
+        <code>                    void
+    <strong>__construct</strong>(<abbr title="Http\Client\Common\HttpMethodsClient">HttpMethodsClient</abbr> $client, string $username, string $repo)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Create a new api instance.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Common\HttpMethodsClient">HttpMethodsClient</abbr></td>
+                <td>$client</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$username</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$repo</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPerPage">
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_getPerPage"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L59">line 59</a></div>
+        <code>                    int|null
+    <strong>getPerPage</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get the number of values to fetch per page.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPerPage">
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_setPerPage"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L71">line 71</a></div>
+        <code>                    void
+    <strong>setPerPage</strong>(int $perPage = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Set the number of values to fetch per page.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$perPage</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getHttpClient">
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_getHttpClient"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L81">line 81</a></div>
+        <code>            protected        <abbr title="Http\Client\Common\HttpMethodsClient">HttpMethodsClient</abbr>
+    <strong>getHttpClient</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get the http methods client.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Http\Client\Common\HttpMethodsClient">HttpMethodsClient</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_get">
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_get"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L97">line 97</a></div>
+        <code>            protected        array
+    <strong>get</strong>(string $path, array $params = [], array $headers = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Send a GET request with query params.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$params</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$headers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_pureGet">
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_pureGet"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L115">line 115</a></div>
+        <code>            protected        <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>
+    <strong>pureGet</strong>(string $path, array $params = [], array $headers = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Send a GET request with query params.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$params</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$headers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_post">
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_post"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L139">line 139</a></div>
+        <code>            protected        array
+    <strong>post</strong>(string $path, array $params = [], array $headers = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Send a POST request with JSON-encoded params.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$params</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$headers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_postRaw">
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_postRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L161">line 161</a></div>
+        <code>            protected        array
+    <strong>postRaw</strong>(string $path, string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null $body = null, array $headers = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Send a POST request with raw data.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null</td>
+                <td>$body</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$headers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_put">
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_put"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L179">line 179</a></div>
+        <code>            protected        array
+    <strong>put</strong>(string $path, array $params = [], array $headers = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Send a PUT request with JSON-encoded params.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$params</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$headers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_putRaw">
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_putRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L201">line 201</a></div>
+        <code>            protected        array
+    <strong>putRaw</strong>(string $path, string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null $body = null, array $headers = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Send a PUT request with raw data.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null</td>
+                <td>$body</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$headers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_delete">
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_delete"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L219">line 219</a></div>
+        <code>            protected        array
+    <strong>delete</strong>(string $path, array $params = [], array $headers = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Send a DELETE request with JSON-encoded params.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$params</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$headers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_deleteRaw">
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_deleteRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L241">line 241</a></div>
+        <code>            protected        array
+    <strong>deleteRaw</strong>(string $path, string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null $body = null, array $headers = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Send a DELETE request with raw data.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null</td>
+                <td>$body</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$headers</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_buildPath">
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_buildPath"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L257">line 257</a></div>
+        <code>        static    protected        string
+    <strong>buildPath</strong>(string ...$parts)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Build a URL path from the given parts.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>...$parts</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../../Bitbucket/Exception/InvalidArgumentException.html"><abbr title="Bitbucket\Exception\InvalidArgumentException">InvalidArgumentException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_list">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L37">line 37</a></div>
+        <code>                    array
+    <strong>list</strong>(array $params = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$params</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_activity">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L51">line 51</a></div>
+        <code>                    array
+    <strong>activity</strong>(array $params = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$params</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_create">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L65">line 65</a></div>
+        <code>                    array
+    <strong>create</strong>(array $params = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$params</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_show">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L80">line 80</a></div>
+        <code>                    array
+    <strong>show</strong>(string $pr, array $params = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$pr</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$params</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_activityByPr">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L95">line 95</a></div>
+        <code>                    array
+    <strong>activityByPr</strong>(string $pr, array $params = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$pr</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$params</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_update">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L110">line 110</a></div>
+        <code>                    array
+    <strong>update</strong>(string $pr, array $params = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$pr</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$params</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_decline">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L125">line 125</a></div>
+        <code>                    array
+    <strong>decline</strong>(string $pr, array $params = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$pr</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$params</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_merge">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L140">line 140</a></div>
+        <code>                    array
+    <strong>merge</strong>(string $pr, array $params = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$pr</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$params</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_approval">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L152">line 152</a></div>
+        <code>                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Approval.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Approval">Approval</abbr></a>
+    <strong>approval</strong>(string $pr)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$pr</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Approval.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Approval">Approval</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_comments">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L162">line 162</a></div>
+        <code>                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Comments.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Comments">Comments</abbr></a>
+    <strong>comments</strong>(string $pr)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$pr</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Comments.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Comments">Comments</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_commits">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L172">line 172</a></div>
+        <code>                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Commits.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Commits">Commits</abbr></a>
+    <strong>commits</strong>(string $pr)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$pr</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Commits.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Commits">Commits</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_diff">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L182">line 182</a></div>
+        <code>                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Diff.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Diff">Diff</abbr></a>
+    <strong>diff</strong>(string $pr)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$pr</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Diff.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Diff">Diff</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_patch">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L192">line 192</a></div>
+        <code>                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Patch.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Patch">Patch</abbr></a>
+    <strong>patch</strong>(string $pr)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$pr</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Patch.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Patch">Patch</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_statuses">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L202">line 202</a></div>
+        <code>                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Statuses.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Statuses">Statuses</abbr></a>
+    <strong>statuses</strong>(string $pr)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$pr</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Statuses.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Statuses">Statuses</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_buildPullRequestsPath">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L216">line 216</a></div>
+        <code>            protected        string
+    <strong>buildPullRequestsPath</strong>(string ...$parts)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Build the pull requests path from the given parts.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>...$parts</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../../Bitbucket/Exception/InvalidArgumentException.html"><abbr title="Bitbucket\Exception\InvalidArgumentException">InvalidArgumentException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>

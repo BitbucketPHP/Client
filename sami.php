@@ -16,7 +16,7 @@ $iterator = Finder::create()
 
 return new Sami($iterator, array(
     'title' => 'Bitbucket API Client',
-    'build_dir' => __DIR__.'/sami/build',
+    'build_dir' => __DIR__.'/docs',
     'cache_dir' => __DIR__.'/sami/cache',
     'remote_repository' => new GitHubRemoteRepository('BitbucketAPI/Client', __DIR__),
     'default_opened_level' => 2,
