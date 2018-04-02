@@ -22,7 +22,24 @@ $ composer require bitbucket/client
 
 ## Usage
 
-Usage documentation is coming soon!
+The main point of entry is the `Bitbucket\Client` class. Simply create a new instance of that, and you're good to go!
+
+Practically, you will also want to set authentication details before calling any of the endpoint, however, this is not required to call endpoints for which authentication is not needed. We support logging in with an OAuth2 token, or with a username and password.
+
+```php
+<?php
+
+use Bitbucket\Client;
+
+$c = new Client();
+
+$c->authenticate(Client::AUTH_OAUTH_TOKEN, 'your-token-here');
+// $c->authenticate(Client::AUTH_HTTP_PASSWORD, 'your-username', 'your-password');
+
+var_dump($c->currentUser()->show());
+```
+
+As of time of writing (Monday 2nd April 2018), every endpoint available on the Bitbucket API 2.O is also available through this PHP client. I'd recommend looking through the Bitbucket documentation, and also the generated documentation available at https://bitbucketapi.github.io/Client/index.html.
 
 
 ## Security
