@@ -96,7 +96,15 @@ class ExceptionThrower implements Plugin
     private static function getMessage(ResponseInterface $response)
     {
         try {
-            return ResponseMediator::getContent($response)['error']['message'] ?? null;
+            if ($error = ResponseMediator::getContent($response)['error'] ?? null) {
+                if ($message = $error['message'] ?? null) {
+                    if ($detail = $error['detail'] ?? null) {
+                        return sprintf('%s: %s', $message, strtok($detail, "\n"));
+                    } else {
+                        return $message;
+                    }
+                }
+            }
         } catch (DecodingFailedException $e) {
             // return nothing
         }
