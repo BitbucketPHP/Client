@@ -44,7 +44,7 @@ class BuildStatus extends AbstractCommitApi
      */
     public function show(string $key, array $params = [])
     {
-        $path = $this->buildBuildStatusPath($key);
+        $path = $this->buildBuildStatusPath(...explode('/', $key));
 
         return $this->get($path, $params);
     }
@@ -59,7 +59,7 @@ class BuildStatus extends AbstractCommitApi
      */
     public function update(string $key, array $params = [])
     {
-        $path = $this->buildBuildStatusPath($key);
+        $path = $this->buildBuildStatusPath(...explode('/', $key));
 
         return $this->put($path, $params);
     }
