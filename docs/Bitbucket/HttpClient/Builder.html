@@ -140,36 +140,6 @@
                     void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_clearHeaders">clearHeaders</a>()
-        
-                                            <p>Clears used headers.</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    void
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_addHeaders">addHeaders</a>(array $headers)
-        
-                                            <p>Add the given headers to each request.</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    void
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_addHeaderValue">addHeaderValue</a>(string $header, string $headerValue)
-        
-                                            <p>Append to the given headers in each request.</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    void
-                </div>
-                <div class="col-md-8 type">
                     <a href="#method_addCache">addCache</a>(<abbr title="Psr\Cache\CacheItemPoolInterface">CacheItemPoolInterface</abbr> $cachePool, array $config = [])
         
                                             <p>Add a cache plugin to cache responses locally.</p>                </div>
@@ -193,7 +163,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L100">line 100</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L92">line 92</a></div>
         <code>                    
     <strong>__construct</strong>(<abbr title="Http\Client\HttpClient">HttpClient</abbr> $httpClient = null, <abbr title="Http\Message\RequestFactory">RequestFactory</abbr> $requestFactory = null, <abbr title="Http\Message\StreamFactory">StreamFactory</abbr> $streamFactory = null)
         </code>
@@ -234,7 +204,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getHttpClient">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L113">line 113</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L105">line 105</a></div>
         <code>                    <abbr title="Http\Client\Common\HttpMethodsClient">HttpMethodsClient</abbr>
     <strong>getHttpClient</strong>()
         </code>
@@ -262,7 +232,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addPlugin">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L137">line 137</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L129">line 129</a></div>
         <code>                    
     <strong>addPlugin</strong>(<abbr title="Http\Client\Common\Plugin">Plugin</abbr> $plugin)
         </code>
@@ -293,7 +263,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_removePlugin">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L150">line 150</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L142">line 142</a></div>
         <code>                    void
     <strong>removePlugin</strong>(string $fqcn)
         </code>
@@ -332,123 +302,8 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_clearHeaders">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L165">line 165</a></div>
-        <code>                    void
-    <strong>clearHeaders</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Clears used headers.</p>                                                </div>
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>void</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_addHeaders">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L180">line 180</a></div>
-        <code>                    void
-    <strong>addHeaders</strong>(array $headers)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Add the given headers to each request.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>array</td>
-                <td>$headers</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>void</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_addHeaderValue">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L196">line 196</a></div>
-        <code>                    void
-    <strong>addHeaderValue</strong>(string $header, string $headerValue)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Append to the given headers in each request.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$header</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$headerValue</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>void</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_addCache">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L216">line 216</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L160">line 160</a></div>
         <code>                    void
     <strong>addCache</strong>(<abbr title="Psr\Cache\CacheItemPoolInterface">CacheItemPoolInterface</abbr> $cachePool, array $config = [])
         </code>
@@ -493,7 +348,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_removeCache">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L233">line 233</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L177">line 177</a></div>
         <code>                    void
     <strong>removeCache</strong>()
         </code>
