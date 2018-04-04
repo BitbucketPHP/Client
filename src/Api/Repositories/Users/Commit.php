@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Users;
 
 use Bitbucket\Api\Repositories\Users\Commit\Approval;
-use Bitbucket\Api\Repositories\Users\Commit\BuildStatus;
 use Bitbucket\Api\Repositories\Users\Commit\Comments;
+use Bitbucket\Api\Repositories\Users\Commit\Statuses;
 
 /**
  * The commit api class.
@@ -52,21 +52,21 @@ class Commit extends AbstractUsersApi
     /**
      * @param string $commit
      *
-     * @return \Bitbucket\Api\Repositories\Users\Commit\BuildStatus
-     */
-    public function buildStatus(string $commit)
-    {
-        return new BuildStatus($this->getHttpClient(), $this->username, $this->repo, $commit);
-    }
-
-    /**
-     * @param string $commit
-     *
      * @return \Bitbucket\Api\Repositories\Users\Commit\Comments
      */
     public function comments(string $commit)
     {
         return new Comments($this->getHttpClient(), $this->username, $this->repo, $commit);
+    }
+
+    /**
+     * @param string $commit
+     *
+     * @return \Bitbucket\Api\Repositories\Users\Commit\Statuses
+     */
+    public function statuses(string $commit)
+    {
+        return new Statuses($this->getHttpClient(), $this->username, $this->repo, $commit);
     }
 
     /**

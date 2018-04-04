@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories\Users\Commit;
+namespace Bitbucket\Api\Repositories\Users\Commit\Statuses;
 
 /**
- * The build status api class.
+ * The build api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class BuildStatus extends AbstractCommitApi
+class Build extends AbstractStatusesApi
 {
     /**
      * @param array $params
@@ -29,7 +29,7 @@ class BuildStatus extends AbstractCommitApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildBuildStatusPath();
+        $path = $this->buildBuildPath();
 
         return $this->post($path, $params);
     }
@@ -44,7 +44,7 @@ class BuildStatus extends AbstractCommitApi
      */
     public function show(string $key, array $params = [])
     {
-        $path = $this->buildBuildStatusPath(...explode('/', $key));
+        $path = $this->buildBuildPath(...explode('/', $key));
 
         return $this->get($path, $params);
     }
@@ -59,13 +59,13 @@ class BuildStatus extends AbstractCommitApi
      */
     public function update(string $key, array $params = [])
     {
-        $path = $this->buildBuildStatusPath(...explode('/', $key));
+        $path = $this->buildBuildPath(...explode('/', $key));
 
         return $this->put($path, $params);
     }
 
     /**
-     * Build the build status path from the given parts.
+     * Build the build path from the given parts.
      *
      * @param string[] $parts
      *
@@ -73,7 +73,7 @@ class BuildStatus extends AbstractCommitApi
      *
      * @return string
      */
-    protected function buildBuildStatusPath(string ...$parts)
+    protected function buildBuildPath(string ...$parts)
     {
         return static::buildPath('repositories', $this->username, $this->repo, 'commit', $this->commit, 'statuses', 'build', ...$parts);
     }
