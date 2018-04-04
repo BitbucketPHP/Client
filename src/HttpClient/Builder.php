@@ -16,7 +16,6 @@ namespace Bitbucket\HttpClient;
 use GrahamCampbell\CachePlugin\CachePlugin;
 use Http\Client\Common\HttpMethodsClient;
 use Http\Client\Common\Plugin;
-use Http\Client\Common\Plugin\HeaderAppendPlugin;
 use Http\Client\Common\PluginClientFactory;
 use Http\Client\HttpClient;
 use Http\Discovery\HttpClientDiscovery;
@@ -84,13 +83,6 @@ class Builder
     private $cachePlugin;
 
     /**
-     * Http headers.
-     *
-     * @var array
-     */
-    private $headers = [];
-
-    /**
      * Create a new http client builder instance.
      *
      * @param \Http\Client\HttpClient|null      $httpClient
@@ -155,54 +147,6 @@ class Builder
                 $this->httpClientModified = true;
             }
         }
-    }
-
-    /**
-     * Clears used headers.
-     *
-     * @return void
-     */
-    public function clearHeaders()
-    {
-        $this->headers = [];
-
-        $this->removePlugin(HeaderAppendPlugin::class);
-        $this->addPlugin(new HeaderAppendPlugin($this->headers));
-    }
-
-    /**
-     * Add the given headers to each request.
-     *
-     * @param array $headers
-     *
-     * @return void
-     */
-    public function addHeaders(array $headers)
-    {
-        $this->headers = array_merge($this->headers, $headers);
-
-        $this->removePlugin(HeaderAppendPlugin::class);
-        $this->addPlugin(new HeaderAppendPlugin($this->headers));
-    }
-
-    /**
-     * Append to the given headers in each request.
-     *
-     * @param string $header
-     * @param string $headerValue
-     *
-     * @return void
-     */
-    public function addHeaderValue(string $header, string $headerValue)
-    {
-        if (!isset($this->headers[$header])) {
-            $this->headers[$header] = $headerValue;
-        } else {
-            $this->headers[$header] = array_merge((array) $this->headers[$header], [$headerValue]);
-        }
-
-        $this->removePlugin(HeaderAppendPlugin::class);
-        $this->addPlugin(new HeaderAppendPlugin($this->headers));
     }
 
     /**

@@ -81,10 +81,13 @@ class Client
         $builder->addPlugin(new ExceptionThrower());
         $builder->addPlugin(new HistoryPlugin($this->responseHistory));
         $builder->addPlugin(new RedirectPlugin());
-        $builder->addPlugin(new AddHostPlugin(UriFactoryDiscovery::find()->createUri('https://api.bitbucket.org')));
-        $builder->addPlugin(new HeaderDefaultsPlugin(['User-Agent' => 'bitbucket-api-client/1.0']));
 
-        $builder->addHeaderValue('Accept', 'application/json');
+        $builder->addPlugin(new HeaderDefaultsPlugin([
+            'Accept'     => 'application/json',
+            'User-Agent' => 'bitbucket-api-client/1.0',
+        ]));
+
+        $this->setUrl('https://api.bitbucket.org');
     }
 
     /**
@@ -160,6 +163,19 @@ class Client
     {
         $this->getHttpClientBuilder()->removePlugin(Authentication::class);
         $this->getHttpClientBuilder()->addPlugin(new Authentication($method, $token, $password));
+    }
+
+    /**
+     * Set the base URL.
+     *
+     * @param string $url
+     *
+     * @return void
+     */
+    public function setUrl(string $url)
+    {
+        $this->httpClientBuilder->removePlugin(AddHostPlugin::class);
+        $this->httpClientBuilder->addPlugin(new AddHostPlugin(UriFactoryDiscovery::find()->createUri($url)));
     }
 
     /**
