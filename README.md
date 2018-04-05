@@ -44,7 +44,7 @@ As of time of writing (Monday 4th April 2018), every endpoint available on the B
 
 ## Security
 
-If you discover a security vulnerability within this package, please e-mail us at support@alt-three.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this package, please send an e-mail to Graham Campbell at graham@alt-three.com. All security vulnerabilities will be promptly addressed.
 
 
 ## License
