@@ -31,7 +31,7 @@ class Pipelines extends AbstractUsersApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildPipelinesPath() . '/';
+        $path = $this->buildPipelinesPath().'/';
 
         return $this->get($path, $params);
     }
