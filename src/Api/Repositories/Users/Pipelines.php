@@ -31,7 +31,7 @@ class Pipelines extends AbstractUsersApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildPipelinesPath();
+        $path = $this->buildPipelinesPath() . '/';
 
         return $this->get($path, $params);
     }
@@ -86,6 +86,6 @@ class Pipelines extends AbstractUsersApi
      */
     protected function buildPipelinesPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'pipelines/', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'pipelines', ...$parts);
     }
 }
