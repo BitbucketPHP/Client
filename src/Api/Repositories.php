@@ -38,6 +38,22 @@ class Repositories extends AbstractApi
 
     /**
      * @param string $username
+     * @param string $repo_name
+     * @param array $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function create(string $username, string $repo_name, array $params = [])
+    {
+        $path = $this->buildRepositoriesPath($username, $repo_name);
+
+        return $this->post($path, $params);
+    }
+
+    /**
+     * @param string $username
      *
      * @return \Bitbucket\Api\Repositories\Users
      */
