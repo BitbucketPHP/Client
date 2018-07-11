@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Repositories\Users;
 
+use Http\Message\MultipartStream\MultipartStreamBuilder;
+
 /**
  * The src api class.
  *
@@ -36,16 +38,29 @@ class Src extends AbstractUsersApi
 
     /**
      * @param array $params
+     * @param array $files
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = [], array $files = [])
     {
         $path = $this->buildSrcPath();
 
-        return $this->post($path, $params);
+        $builder = new MultipartStreamBuilder();
+
+        foreach ($params as $name => $value) {
+            $builder->addResource($name, $value);
+        }
+
+        foreach ($files as $file) {
+            $builder->addResource($file->getName(), $file->getResource(), $file->getOptions());
+        }
+
+        $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
+
+        return $this->postRaw($path, $builder->build(), $headers);
     }
 
     /**
