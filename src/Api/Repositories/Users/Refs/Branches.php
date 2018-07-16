@@ -36,6 +36,28 @@ class Branches extends AbstractRefsApi
 
     /**
      * @param string $branch
+     * @param string $target
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function create(string $branch, string $target)
+    {
+        $path = $this->buildBranchesPath();
+
+        $params = [
+            'name' => $branch,
+            'target' => [
+                'hash' => $target,
+            ],
+        ];
+
+        return $this->post($path, $params);
+    }
+
+    /**
+     * @param string $branch
      * @param array  $params
      *
      * @throws \Http\Client\Exception
