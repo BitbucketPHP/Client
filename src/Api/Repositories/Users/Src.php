@@ -55,6 +55,10 @@ class Src extends AbstractUsersApi
         }
 
         foreach ($files as $file) {
+            if ($file->getResource() == '') {
+                $builder->addResource('files', $file->getName());
+                continue;
+            }
             $builder->addResource($file->getName(), $file->getResource(), $file->getOptions());
         }
 
