@@ -47,7 +47,7 @@ class Branches extends AbstractRefsApi
         $path = $this->buildBranchesPath();
 
         $params = [
-            'name' => $branch,
+            'name'   => $branch,
             'target' => [
                 'hash' => $target,
             ],
