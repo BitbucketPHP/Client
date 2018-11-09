@@ -17,6 +17,7 @@ use Bitbucket\Api\Repositories\Users\PullRequests\Approval;
 use Bitbucket\Api\Repositories\Users\PullRequests\Comments;
 use Bitbucket\Api\Repositories\Users\PullRequests\Commits as PullRequestsCommits;
 use Bitbucket\Api\Repositories\Users\PullRequests\Diff;
+use Bitbucket\Api\Repositories\Users\PullRequests\Diffstats;
 use Bitbucket\Api\Repositories\Users\PullRequests\Patch;
 use Bitbucket\Api\Repositories\Users\PullRequests\Statuses;
 
@@ -182,6 +183,16 @@ class PullRequests extends AbstractUsersApi
     public function diff(string $pr)
     {
         return new Diff($this->getHttpClient(), $this->username, $this->repo, $pr);
+    }
+
+    /**
+     * @param string $pr
+     *
+     * @return \Bitbucket\Api\Repositories\Users\PullRequests\Diffstats
+     */
+    public function diffstats(string $pr)
+    {
+        return new Diffstats($this->getHttpClient(), $this->username, $this->repo, $pr);
     }
 
     /**
