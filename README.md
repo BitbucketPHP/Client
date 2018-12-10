@@ -13,10 +13,10 @@ This is strongly based on [php-github-api](https://github.com/KnpLabs/php-github
 
 This version requires [PHP](https://php.net) 7.1 or 7.2.
 
-To get the latest version, simply require the project using [Composer](https://getcomposer.org):
+To get the latest version, simply require the project using [Composer](https://getcomposer.org). You will need to install any package that "provides" `php-http/client-implementation`. Most users will want:
 
 ```bash
-$ composer require bitbucket/client
+$ composer require bitbucket/client php-http/guzzle6-adapter:^1.1
 ```
 
 
