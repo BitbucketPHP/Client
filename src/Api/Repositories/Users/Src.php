@@ -35,6 +35,22 @@ class Src extends AbstractUsersApi
     }
 
     /**
+     * @param string $commit
+     * @param string $path
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function listPath(string $commit, string $path, array $params = [])
+    {
+        $srcPath = $this->buildSrcPath($commit, $path);
+
+        return $this->get($srcPath, $params);
+    }
+
+    /**
      * @param array $params
      *
      * @throws \Http\Client\Exception
