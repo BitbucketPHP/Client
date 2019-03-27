@@ -50,6 +50,35 @@ class Comments extends AbstractPullRequestsApi
     }
 
     /**
+     * @param string $comment
+     * @param array $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function update(string $comment, array $params = [])
+    {
+        $path = $this->buildCommentsPath($comment);
+
+        return $this->put($path, $params);
+    }
+
+    /**
+     * @param string $comment
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function remove(string $comment)
+    {
+        $path = $this->buildCommentsPath($comment);
+
+        return $this->delete($path);
+    }
+
+    /**
      * Build the comments path from the given parts.
      *
      * @param string[] $parts
