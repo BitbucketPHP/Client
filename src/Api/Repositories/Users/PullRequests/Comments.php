@@ -51,7 +51,7 @@ class Comments extends AbstractPullRequestsApi
 
     /**
      * @param string $comment
-     * @param array $params
+     * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
