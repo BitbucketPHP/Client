@@ -49,46 +49,46 @@ class DeployKeys extends AbstractUsersApi
     }
 
     /**
-     * @param string $hook
+     * @param string $id
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function show(string $hook, array $params = [])
+    public function show(string $id, array $params = [])
     {
-        $path = $this->buildDeployKeysPath($hook);
+        $path = $this->buildDeployKeysPath($id);
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $hook
+     * @param string $id
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function update(string $hook, array $params = [])
+    public function update(string $id, array $params = [])
     {
-        $path = $this->buildDeployKeysPath($hook);
+        $path = $this->buildDeployKeysPath($id);
 
         return $this->put($path, $params);
     }
 
     /**
-     * @param string $hook
+     * @param string $id
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function remove(string $hook, array $params = [])
+    public function remove(string $id, array $params = [])
     {
-        $path = $this->buildDeployKeysPath($hook);
+        $path = $this->buildDeployKeysPath($id);
 
         return $this->delete($path, $params);
     }
