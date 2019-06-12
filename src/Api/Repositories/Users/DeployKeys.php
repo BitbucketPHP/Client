@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Users;
 
 /**
- * The hooks api class.
+ * The deploy-keys api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -94,7 +94,7 @@ class DeployKeys extends AbstractUsersApi
     }
 
     /**
-     * Build the hooks path from the given parts.
+     * Build the deploy-keys path from the given parts.
      *
      * @param string[] $parts
      *
