@@ -18,6 +18,7 @@ use Bitbucket\Api\Repositories\Users\Commit;
 use Bitbucket\Api\Repositories\Users\Commits;
 use Bitbucket\Api\Repositories\Users\Components;
 use Bitbucket\Api\Repositories\Users\DefaultReviewers;
+use Bitbucket\Api\Repositories\Users\DeployKeys;
 use Bitbucket\Api\Repositories\Users\Diffs;
 use Bitbucket\Api\Repositories\Users\Downloads;
 use Bitbucket\Api\Repositories\Users\FileHistory;
@@ -164,6 +165,16 @@ class Users extends AbstractRepositoriesApi
     public function defaultReviewers(string $repo)
     {
         return new DefaultReviewers($this->getHttpClient(), $this->username, $repo);
+    }
+
+    /**
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\Users\DeployKeys
+     */
+    public function deployKeys(string $repo)
+    {
+        return new DeployKeys($this->getHttpClient(), $this->username, $repo);
     }
 
     /**
