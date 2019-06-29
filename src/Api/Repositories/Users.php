@@ -190,6 +190,7 @@ class Users extends AbstractRepositoriesApi
     {
         return new DeployKeys($this->getHttpClient(), $this->username, $repo);
     }
+
     /**
      * @param string $repo
      *
