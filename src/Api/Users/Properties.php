@@ -69,7 +69,7 @@ class Properties extends AbstractUsersApi
     }
 
     /**
-     * Build the repositories path from the given parts.
+     * Build the properties path from the given parts.
      *
      * @param string[] $parts
      *
@@ -77,7 +77,7 @@ class Properties extends AbstractUsersApi
      *
      * @return string
      */
-    protected function buildRepositoriesPath(string ...$parts)
+    protected function buildPropertiesPath(string ...$parts)
     {
         return static::buildPath('users', $this->username, 'properties', ...$parts);
     }
