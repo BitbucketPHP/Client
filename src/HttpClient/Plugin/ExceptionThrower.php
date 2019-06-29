@@ -99,7 +99,7 @@ class ExceptionThrower implements Plugin
             if ($error = ResponseMediator::getContent($response)['error'] ?? null) {
                 if ($message = $error['message'] ?? null) {
                     if ($detail = $error['detail'] ?? null) {
-                        return sprintf('%s: %s', $message, strtok($detail, "\n"));
+                        return sprintf('%s: %s', $message, strtok(is_string($detail) ? $detail : json_encode($detail), "\n"));
                     } else {
                         return $message;
                     }
