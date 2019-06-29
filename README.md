@@ -39,7 +39,7 @@ $c->authenticate(Client::AUTH_OAUTH_TOKEN, 'your-token-here');
 var_dump($c->currentUser()->show());
 ```
 
-As of time of writing (Monday 29th June 2019), every endpoint (excluding issue export and import) available on the Bitbucket API 2.0 is also available through this PHP client. I'd recommend looking through the [Bitbucket documentation](https://developer.atlassian.com/bitbucket/api/2/reference/), and also the [generated documentation](https://bitbucketapi.github.io/Client/).
+As of time of writing (Saturday 29th June 2019), every endpoint (excluding issue export and import) available on the Bitbucket API 2.0 is also available through this PHP client. I'd recommend looking through the [Bitbucket documentation](https://developer.atlassian.com/bitbucket/api/2/reference/), and also the [generated documentation](https://bitbucketapi.github.io/Client/).
 
 
 ## Security
