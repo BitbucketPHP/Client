@@ -19,7 +19,7 @@ use Bitbucket\Api\Repositories\Users\PullRequests\Commits as PullRequestsCommits
 use Bitbucket\Api\Repositories\Users\PullRequests\Diff;
 use Bitbucket\Api\Repositories\Users\PullRequests\DiffStat;
 use Bitbucket\Api\Repositories\Users\PullRequests\Patch;
-use Bitbucket\Api\Repositories\Users\PullRequests\Properties;
+use Bitbucket\Api\Repositories\Users\PullRequests\Properties as PullRequestsProperties;
 use Bitbucket\Api\Repositories\Users\PullRequests\Statuses;
 
 /**
@@ -213,7 +213,7 @@ class PullRequests extends AbstractUsersApi
      */
     public function properties(string $pr)
     {
-        return new Properties($this->getHttpClient(), $this->username, $this->repo, $pr);
+        return new PullRequestsProperties($this->getHttpClient(), $this->username, $this->repo, $pr);
     }
 
     /**
