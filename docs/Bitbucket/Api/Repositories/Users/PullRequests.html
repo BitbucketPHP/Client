@@ -89,6 +89,18 @@
             <p>The pull requests api class.</p>                                </div>
     
     
+            <h2>Constants</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td>URI_SEPARATOR</td>
+                <td class="last">
+                    <p><em>The URI path separator.</em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
     
             <h2>Properties</h2>
 
@@ -379,10 +391,32 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
+                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/DiffStat.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\DiffStat">DiffStat</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_diffstat">diffstat</a>(string $pr)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Patch.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Patch">Patch</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_patch">patch</a>(string $pr)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Properties.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Properties">Properties</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_properties">properties</a>(string $pr)
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -467,7 +501,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getPerPage">
-        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_getPerPage"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L59">line 59</a></div>
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_getPerPage"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L66">line 66</a></div>
         <code>                    int|null
     <strong>getPerPage</strong>()
         </code>
@@ -497,7 +531,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setPerPage">
-        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_setPerPage"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L71">line 71</a></div>
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_setPerPage"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L78">line 78</a></div>
         <code>                    void
     <strong>setPerPage</strong>(int $perPage = null)
         </code>
@@ -537,7 +571,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getHttpClient">
-        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_getHttpClient"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L81">line 81</a></div>
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_getHttpClient"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L88">line 88</a></div>
         <code>            protected        <abbr title="Http\Client\Common\HttpMethodsClient">HttpMethodsClient</abbr>
     <strong>getHttpClient</strong>()
         </code>
@@ -567,7 +601,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_get">
-        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_get"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L97">line 97</a></div>
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_get"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L104">line 104</a></div>
         <code>            protected        array
     <strong>get</strong>(string $path, array $params = [], array $headers = [])
         </code>
@@ -626,7 +660,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_pureGet">
-        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_pureGet"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L115">line 115</a></div>
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_pureGet"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L122">line 122</a></div>
         <code>            protected        <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>
     <strong>pureGet</strong>(string $path, array $params = [], array $headers = [])
         </code>
@@ -685,7 +719,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_post">
-        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_post"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L139">line 139</a></div>
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_post"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L146">line 146</a></div>
         <code>            protected        array
     <strong>post</strong>(string $path, array $params = [], array $headers = [])
         </code>
@@ -744,7 +778,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_postRaw">
-        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_postRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L161">line 161</a></div>
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_postRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L168">line 168</a></div>
         <code>            protected        array
     <strong>postRaw</strong>(string $path, string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null $body = null, array $headers = [])
         </code>
@@ -803,7 +837,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_put">
-        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_put"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L179">line 179</a></div>
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_put"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L186">line 186</a></div>
         <code>            protected        array
     <strong>put</strong>(string $path, array $params = [], array $headers = [])
         </code>
@@ -862,7 +896,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_putRaw">
-        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_putRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L201">line 201</a></div>
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_putRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L208">line 208</a></div>
         <code>            protected        array
     <strong>putRaw</strong>(string $path, string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null $body = null, array $headers = [])
         </code>
@@ -921,7 +955,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_delete">
-        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_delete"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L219">line 219</a></div>
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_delete"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L226">line 226</a></div>
         <code>            protected        array
     <strong>delete</strong>(string $path, array $params = [], array $headers = [])
         </code>
@@ -980,7 +1014,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_deleteRaw">
-        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_deleteRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L241">line 241</a></div>
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_deleteRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L248">line 248</a></div>
         <code>            protected        array
     <strong>deleteRaw</strong>(string $path, string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null $body = null, array $headers = [])
         </code>
@@ -1039,7 +1073,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_buildPath">
-        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_buildPath"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L257">line 257</a></div>
+        <div class="location">in <a href="../../../../Bitbucket/Api/AbstractApi.html#method_buildPath"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L264">line 264</a></div>
         <code>        static    protected        string
     <strong>buildPath</strong>(string ...$parts)
         </code>
@@ -1088,7 +1122,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_list">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L37">line 37</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L39">line 39</a></div>
         <code>                    array
     <strong>list</strong>(array $params = [])
         </code>
@@ -1135,7 +1169,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_activity">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L51">line 51</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L53">line 53</a></div>
         <code>                    array
     <strong>activity</strong>(array $params = [])
         </code>
@@ -1182,7 +1216,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_create">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L65">line 65</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L67">line 67</a></div>
         <code>                    array
     <strong>create</strong>(array $params = [])
         </code>
@@ -1229,7 +1263,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_show">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L80">line 80</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L82">line 82</a></div>
         <code>                    array
     <strong>show</strong>(string $pr, array $params = [])
         </code>
@@ -1281,7 +1315,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_activityByPr">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L95">line 95</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L97">line 97</a></div>
         <code>                    array
     <strong>activityByPr</strong>(string $pr, array $params = [])
         </code>
@@ -1333,7 +1367,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_update">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L110">line 110</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L112">line 112</a></div>
         <code>                    array
     <strong>update</strong>(string $pr, array $params = [])
         </code>
@@ -1385,7 +1419,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_decline">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L125">line 125</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L127">line 127</a></div>
         <code>                    array
     <strong>decline</strong>(string $pr, array $params = [])
         </code>
@@ -1437,7 +1471,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_merge">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L140">line 140</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L142">line 142</a></div>
         <code>                    array
     <strong>merge</strong>(string $pr, array $params = [])
         </code>
@@ -1489,7 +1523,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_approval">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L152">line 152</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L154">line 154</a></div>
         <code>                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Approval.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Approval">Approval</abbr></a>
     <strong>approval</strong>(string $pr)
         </code>
@@ -1527,7 +1561,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_comments">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L162">line 162</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L164">line 164</a></div>
         <code>                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Comments.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Comments">Comments</abbr></a>
     <strong>comments</strong>(string $pr)
         </code>
@@ -1565,7 +1599,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_commits">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L172">line 172</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L174">line 174</a></div>
         <code>                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Commits.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Commits">Commits</abbr></a>
     <strong>commits</strong>(string $pr)
         </code>
@@ -1603,7 +1637,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_diff">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L182">line 182</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L184">line 184</a></div>
         <code>                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Diff.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Diff">Diff</abbr></a>
     <strong>diff</strong>(string $pr)
         </code>
@@ -1640,8 +1674,46 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_diffstat">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L194">line 194</a></div>
+        <code>                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/DiffStat.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\DiffStat">DiffStat</abbr></a>
+    <strong>diffstat</strong>(string $pr)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$pr</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/DiffStat.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\DiffStat">DiffStat</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_patch">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L192">line 192</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L204">line 204</a></div>
         <code>                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Patch.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Patch">Patch</abbr></a>
     <strong>patch</strong>(string $pr)
         </code>
@@ -1678,8 +1750,46 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_properties">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L214">line 214</a></div>
+        <code>                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Properties.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Properties">Properties</abbr></a>
+    <strong>properties</strong>(string $pr)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$pr</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Properties.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Properties">Properties</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_statuses">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L202">line 202</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L224">line 224</a></div>
         <code>                    <a href="../../../../Bitbucket/Api/Repositories/Users/PullRequests/Statuses.html"><abbr title="Bitbucket\Api\Repositories\Users\PullRequests\Statuses">Statuses</abbr></a>
     <strong>statuses</strong>(string $pr)
         </code>
@@ -1717,7 +1827,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_buildPullRequestsPath">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L216">line 216</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/PullRequests.php#L238">line 238</a></div>
         <code>            protected        string
     <strong>buildPullRequestsPath</strong>(string ...$parts)
         </code>

@@ -89,6 +89,18 @@
             <p>The addon api class.</p>                                </div>
     
     
+            <h2>Constants</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td>URI_SEPARATOR</td>
+                <td class="last">
+                    <p><em>The URI path separator.</em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
     
     
             <h2>Methods</h2>
@@ -259,6 +271,17 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
+                    <a href="../../Bitbucket/Api/Addon/Users.html"><abbr title="Bitbucket\Api\Addon\Users">Users</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_users">users</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     string
                 </div>
                 <div class="col-md-8 type">
@@ -275,7 +298,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method___construct"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L49">line 49</a></div>
+        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method___construct"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L56">line 56</a></div>
         <code>                    void
     <strong>__construct</strong>(<abbr title="Http\Client\Common\HttpMethodsClient">HttpMethodsClient</abbr> $client)
         </code>
@@ -315,7 +338,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getPerPage">
-        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_getPerPage"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L59">line 59</a></div>
+        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_getPerPage"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L66">line 66</a></div>
         <code>                    int|null
     <strong>getPerPage</strong>()
         </code>
@@ -345,7 +368,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setPerPage">
-        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_setPerPage"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L71">line 71</a></div>
+        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_setPerPage"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L78">line 78</a></div>
         <code>                    void
     <strong>setPerPage</strong>(int $perPage = null)
         </code>
@@ -385,7 +408,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getHttpClient">
-        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_getHttpClient"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L81">line 81</a></div>
+        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_getHttpClient"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L88">line 88</a></div>
         <code>            protected        <abbr title="Http\Client\Common\HttpMethodsClient">HttpMethodsClient</abbr>
     <strong>getHttpClient</strong>()
         </code>
@@ -415,7 +438,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_get">
-        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_get"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L97">line 97</a></div>
+        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_get"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L104">line 104</a></div>
         <code>            protected        array
     <strong>get</strong>(string $path, array $params = [], array $headers = [])
         </code>
@@ -474,7 +497,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_pureGet">
-        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_pureGet"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L115">line 115</a></div>
+        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_pureGet"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L122">line 122</a></div>
         <code>            protected        <abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>
     <strong>pureGet</strong>(string $path, array $params = [], array $headers = [])
         </code>
@@ -533,7 +556,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_post">
-        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_post"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L139">line 139</a></div>
+        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_post"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L146">line 146</a></div>
         <code>            protected        array
     <strong>post</strong>(string $path, array $params = [], array $headers = [])
         </code>
@@ -592,7 +615,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_postRaw">
-        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_postRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L161">line 161</a></div>
+        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_postRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L168">line 168</a></div>
         <code>            protected        array
     <strong>postRaw</strong>(string $path, string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null $body = null, array $headers = [])
         </code>
@@ -651,7 +674,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_put">
-        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_put"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L179">line 179</a></div>
+        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_put"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L186">line 186</a></div>
         <code>            protected        array
     <strong>put</strong>(string $path, array $params = [], array $headers = [])
         </code>
@@ -710,7 +733,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_putRaw">
-        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_putRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L201">line 201</a></div>
+        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_putRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L208">line 208</a></div>
         <code>            protected        array
     <strong>putRaw</strong>(string $path, string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null $body = null, array $headers = [])
         </code>
@@ -769,7 +792,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_delete">
-        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_delete"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L219">line 219</a></div>
+        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_delete"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L226">line 226</a></div>
         <code>            protected        array
     <strong>delete</strong>(string $path, array $params = [], array $headers = [])
         </code>
@@ -828,7 +851,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_deleteRaw">
-        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_deleteRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L241">line 241</a></div>
+        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_deleteRaw"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L248">line 248</a></div>
         <code>            protected        array
     <strong>deleteRaw</strong>(string $path, string|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|null $body = null, array $headers = [])
         </code>
@@ -887,7 +910,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_buildPath">
-        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_buildPath"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L257">line 257</a></div>
+        <div class="location">in <a href="../../Bitbucket/Api/AbstractApi.html#method_buildPath"><abbr title="Bitbucket\Api\AbstractApi">AbstractApi</abbr></a> at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/AbstractApi.php#L264">line 264</a></div>
         <code>        static    protected        string
     <strong>buildPath</strong>(string ...$parts)
         </code>
@@ -936,7 +959,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_update">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Addon.php#L32">line 32</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Addon.php#L33">line 33</a></div>
         <code>                    array
     <strong>update</strong>(array $params = [])
         </code>
@@ -983,7 +1006,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_remove">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Addon.php#L46">line 46</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Addon.php#L47">line 47</a></div>
         <code>                    array
     <strong>remove</strong>(array $params = [])
         </code>
@@ -1030,7 +1053,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_linkers">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Addon.php#L56">line 56</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Addon.php#L57">line 57</a></div>
         <code>                    <a href="../../Bitbucket/Api/Addon/Linkers.html"><abbr title="Bitbucket\Api\Addon\Linkers">Linkers</abbr></a>
     <strong>linkers</strong>()
         </code>
@@ -1057,8 +1080,36 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_users">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Addon.php#L65">line 65</a></div>
+        <code>                    <a href="../../Bitbucket/Api/Addon/Users.html"><abbr title="Bitbucket\Api\Addon\Users">Users</abbr></a>
+    <strong>users</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Bitbucket/Api/Addon/Users.html"><abbr title="Bitbucket\Api\Addon\Users">Users</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_buildAddonPath">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Addon.php#L70">line 70</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Addon.php#L79">line 79</a></div>
         <code>            protected        string
     <strong>buildAddonPath</strong>(string ...$parts)
         </code>

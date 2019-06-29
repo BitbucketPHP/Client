@@ -89,6 +89,18 @@
             <p>The Bitbucket HTTP client builder class.</p>                                </div>
     
     
+            <h2>Constants</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td>DEFAULT_CACHE_LIFETIME</td>
+                <td class="last">
+                    <p><em>The default cache lifetime of 48 hours.</em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
     
     
             <h2>Methods</h2>
@@ -163,7 +175,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L92">line 92</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L103">line 103</a></div>
         <code>                    
     <strong>__construct</strong>(<abbr title="Http\Client\HttpClient">HttpClient</abbr> $httpClient = null, <abbr title="Http\Message\RequestFactory">RequestFactory</abbr> $requestFactory = null, <abbr title="Http\Message\StreamFactory">StreamFactory</abbr> $streamFactory = null)
         </code>
@@ -204,7 +216,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getHttpClient">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L105">line 105</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L116">line 116</a></div>
         <code>                    <abbr title="Http\Client\Common\HttpMethodsClient">HttpMethodsClient</abbr>
     <strong>getHttpClient</strong>()
         </code>
@@ -232,7 +244,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addPlugin">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L129">line 129</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L140">line 140</a></div>
         <code>                    
     <strong>addPlugin</strong>(<abbr title="Http\Client\Common\Plugin">Plugin</abbr> $plugin)
         </code>
@@ -263,7 +275,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_removePlugin">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L142">line 142</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L153">line 153</a></div>
         <code>                    void
     <strong>removePlugin</strong>(string $fqcn)
         </code>
@@ -303,7 +315,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addCache">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L160">line 160</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L171">line 171</a></div>
         <code>                    void
     <strong>addCache</strong>(<abbr title="Psr\Cache\CacheItemPoolInterface">CacheItemPoolInterface</abbr> $cachePool, array $config = [])
         </code>
@@ -348,7 +360,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_removeCache">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L177">line 177</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Builder.php#L203">line 203</a></div>
         <code>                    void
     <strong>removeCache</strong>()
         </code>
