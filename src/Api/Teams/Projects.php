@@ -29,7 +29,7 @@ class Projects extends AbstractTeamsApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildProjectsPath();
+        $path = $this->buildProjectsPath().static::URI_SEPARATOR;
 
         return $this->get($path, $params);
     }
@@ -43,7 +43,7 @@ class Projects extends AbstractTeamsApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildProjectsPath();
+        $path = $this->buildProjectsPath().static::URI_SEPARATOR;
 
         return $this->post($path, $params);
     }

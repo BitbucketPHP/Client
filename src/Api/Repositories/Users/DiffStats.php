@@ -11,31 +11,32 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories\Users\PipelinesConfig\Schedules;
+namespace Bitbucket\Api\Repositories\Users;
 
 /**
- * The executions api class.
+ * The diffs stats api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Executions extends AbstractSchedulesApi
+class DiffStats extends AbstractUsersApi
 {
     /**
-     * @param array $params
+     * @param string $spec
+     * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function download(string $spec, array $params = [])
     {
-        $path = $this->buildExecutionsPath().static::URI_SEPARATOR;
+        $path = $this->buildDiffStatssPath($spec);
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the executions path from the given parts.
+     * Build the diff stats path from the given parts.
      *
      * @param string[] $parts
      *
@@ -43,8 +44,8 @@ class Executions extends AbstractSchedulesApi
      *
      * @return string
      */
-    protected function buildExecutionsPath(string ...$parts)
+    protected function buildDiffStatssPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'pipelines_config', 'schedules', $this->schedule, 'executions', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'diffstats', ...$parts);
     }
 }

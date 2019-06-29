@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories\Users\PipelinesConfig\Schedules;
+namespace Bitbucket\Api\Repositories\Users\Commit;
 
 /**
- * The executions api class.
+ * The pull requests api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Executions extends AbstractSchedulesApi
+class PullRequests extends AbstractCommitApi
 {
     /**
      * @param array $params
@@ -29,13 +29,13 @@ class Executions extends AbstractSchedulesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildExecutionsPath().static::URI_SEPARATOR;
+        $path = $this->buildPullRequestsPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the executions path from the given parts.
+     * Build the pull requests path from the given parts.
      *
      * @param string[] $parts
      *
@@ -43,8 +43,8 @@ class Executions extends AbstractSchedulesApi
      *
      * @return string
      */
-    protected function buildExecutionsPath(string ...$parts)
+    protected function buildPullRequestsPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'pipelines_config', 'schedules', $this->schedule, 'executions', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'commit', $this->commit, 'pullrequests', ...$parts);
     }
 }

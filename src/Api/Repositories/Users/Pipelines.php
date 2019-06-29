@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Repositories\Users;
 
+use Bitbucket\Api\Repositories\Users\Pipelines\RemoteTriggers;
 use Bitbucket\Api\Repositories\Users\Pipelines\Steps;
 
 /**
@@ -31,7 +32,7 @@ class Pipelines extends AbstractUsersApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildPipelinesPath();
+        $path = $this->buildPipelinesPath().static::URI_SEPARATOR;
 
         return $this->get($path, $params);
     }
@@ -45,7 +46,7 @@ class Pipelines extends AbstractUsersApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildPipelinesPath();
+        $path = $this->buildPipelinesPath().static::URI_SEPARATOR;
 
         return $this->post($path, $params);
     }
@@ -63,6 +64,31 @@ class Pipelines extends AbstractUsersApi
         $path = $this->buildPipelinesPath($pipeline);
 
         return $this->get($path, $params);
+    }
+
+    /**
+     * @param string $pipeline
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function stop(string $pipeline, array $params = [])
+    {
+        $path = $this->buildPipelinesPath($pipeline, 'stopPipeline');
+
+        return $this->post($path, $params);
+    }
+
+    /**
+     * @param string $pipeline
+     *
+     * @return \Bitbucket\Api\Repositories\Users\Pipelines\RemoteTriggers
+     */
+    public function remoteTriggers(string $pipeline)
+    {
+        return new RemoteTriggers($this->getHttpClient(), $this->username, $this->repo, $pipeline);
     }
 
     /**

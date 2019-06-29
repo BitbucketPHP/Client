@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api;
 
 use Bitbucket\Api\Addon\Linkers;
+use Bitbucket\Api\Addon\Users;
 
 /**
  * The addon api class.
@@ -56,6 +57,14 @@ class Addon extends AbstractApi
     public function linkers()
     {
         return new Linkers($this->getHttpClient());
+    }
+
+    /**
+     * @return \Bitbucket\Api\Addon\Users
+     */
+    public function users()
+    {
+        return new Users($this->getHttpClient());
     }
 
     /**

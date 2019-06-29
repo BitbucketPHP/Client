@@ -26,6 +26,13 @@ use Http\Client\Common\HttpMethodsClient;
 abstract class AbstractApi implements ApiInterface
 {
     /**
+     * The URI path separator.
+     *
+     * @var string
+     */
+    const URI_SEPARATOR = '/';
+
+    /**
      * The http methods client.
      *
      * @var \Http\Client\Common\HttpMethodsClient
@@ -264,7 +271,7 @@ abstract class AbstractApi implements ApiInterface
             return self::urlEncode($part);
         }, $parts);
 
-        return implode('/', $parts);
+        return implode(static::URI_SEPARATOR, $parts);
     }
 
     /**

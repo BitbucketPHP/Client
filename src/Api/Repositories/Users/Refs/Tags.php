@@ -64,6 +64,21 @@ class Tags extends AbstractRefsApi
     }
 
     /**
+     * @param string $tag
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function remove(string $tag, array $params = [])
+    {
+        $path = $this->buildTagsPath($tag);
+
+        return $this->delete($path, $params);
+    }
+
+    /**
      * Build the tags path from the given parts.
      *
      * @param string[] $parts

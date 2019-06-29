@@ -29,7 +29,7 @@ class Values extends AbstractLinkersApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildValuesPath();
+        $path = $this->buildValuesPath().static::URI_SEPARATOR;
 
         return $this->get($path, $params);
     }
@@ -43,35 +43,52 @@ class Values extends AbstractLinkersApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildValuesPath();
+        $path = $this->buildValuesPath().static::URI_SEPARATOR;
 
         return $this->post($path, $params);
     }
 
     /**
-     * @param array $params
+     * @param string $id
+     * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function update(array $params = [])
+    public function show(string $id, array $params = [])
     {
-        $path = $this->buildValuesPath();
+        $path = $this->buildValuesPath($id);
+
+        return $this->get($path, $params);
+    }
+
+    /**
+     * @param string $id
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function update(string $id, array $params = [])
+    {
+        $path = $this->buildValuesPath($id);
 
         return $this->put($path, $params);
     }
 
     /**
-     * @param array $params
+     * @param string $id
+     * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function remove(array $params = [])
+    public function remove(string $id, array $params = [])
     {
-        $path = $this->buildValuesPath();
+        $path = $this->buildValuesPath($id);
 
         return $this->delete($path, $params);
     }

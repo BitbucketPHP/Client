@@ -29,7 +29,7 @@ class SshKeys extends AbstractUsersApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildSshKeysPath();
+        $path = $this->buildSshKeysPath().static::URI_SEPARATOR;
 
         return $this->get($path, $params);
     }
@@ -43,9 +43,54 @@ class SshKeys extends AbstractUsersApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildSshKeysPath();
+        $path = $this->buildSshKeysPath().static::URI_SEPARATOR;
 
         return $this->post($path, $params);
+    }
+
+    /**
+     * @param string $id
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function show(string $id, array $params = [])
+    {
+        $path = $this->buildSshKeysPath($id);
+
+        return $this->get($path, $params);
+    }
+
+    /**
+     * @param string $id
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function update(string $id, array $params = [])
+    {
+        $path = $this->buildSshKeysPath($id);
+
+        return $this->put($path, $params);
+    }
+
+    /**
+     * @param string $id
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function remove(string $id, array $params = [])
+    {
+        $path = $this->buildSshKeysPath($id);
+
+        return $this->delete($path, $params);
     }
 
     /**

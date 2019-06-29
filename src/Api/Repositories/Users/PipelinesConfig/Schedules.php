@@ -31,7 +31,7 @@ class Schedules extends AbstractPipelinesConfigApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildSchedulesPath();
+        $path = $this->buildSchedulesPath().static::URI_SEPARATOR;
 
         return $this->get($path, $params);
     }
@@ -45,7 +45,7 @@ class Schedules extends AbstractPipelinesConfigApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildSchedulesPath();
+        $path = $this->buildSchedulesPath().static::URI_SEPARATOR;
 
         return $this->post($path, $params);
     }

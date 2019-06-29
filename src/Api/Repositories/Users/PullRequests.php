@@ -17,7 +17,9 @@ use Bitbucket\Api\Repositories\Users\PullRequests\Approval;
 use Bitbucket\Api\Repositories\Users\PullRequests\Comments;
 use Bitbucket\Api\Repositories\Users\PullRequests\Commits as PullRequestsCommits;
 use Bitbucket\Api\Repositories\Users\PullRequests\Diff;
+use Bitbucket\Api\Repositories\Users\PullRequests\DiffStat;
 use Bitbucket\Api\Repositories\Users\PullRequests\Patch;
+use Bitbucket\Api\Repositories\Users\PullRequests\Properties;
 use Bitbucket\Api\Repositories\Users\PullRequests\Statuses;
 
 /**
@@ -187,11 +189,31 @@ class PullRequests extends AbstractUsersApi
     /**
      * @param string $pr
      *
+     * @return \Bitbucket\Api\Repositories\Users\PullRequests\DiffStat
+     */
+    public function diffstat(string $pr)
+    {
+        return new DiffStat($this->getHttpClient(), $this->username, $this->repo, $pr);
+    }
+
+    /**
+     * @param string $pr
+     *
      * @return \Bitbucket\Api\Repositories\Users\PullRequests\Patch
      */
     public function patch(string $pr)
     {
         return new Patch($this->getHttpClient(), $this->username, $this->repo, $pr);
+    }
+
+    /**
+     * @param string $pr
+     *
+     * @return \Bitbucket\Api\Repositories\Users\PullRequests\Properties
+     */
+    public function properties(string $pr)
+    {
+        return new Properties($this->getHttpClient(), $this->username, $this->repo, $pr);
     }
 
     /**

@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories\Users\PullRequests;
+namespace Bitbucket\Api\Repositories\Users;
 
 /**
- * The comments api class.
+ * The environments api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Comments extends AbstractPullRequestsApi
+class Environments extends AbstractUsersApi
 {
     /**
      * @param array $params
@@ -29,22 +29,22 @@ class Comments extends AbstractPullRequestsApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildCommentsPath();
+        $path = $this->buildEnvironmentsPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $comment
+     * @param string $env
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function show(string $comment, array $params = [])
+    public function show(string $env, array $params = [])
     {
-        $path = $this->buildCommentsPath($comment);
+        $path = $this->buildEnvironmentsPath($env);
 
         return $this->get($path, $params);
     }
@@ -58,42 +58,42 @@ class Comments extends AbstractPullRequestsApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildCommentsPath();
+        $path = $this->buildEnvironmentsPath();
 
         return $this->post($path, $params);
     }
 
     /**
-     * @param string $comment
+     * @param string $env
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function update(string $comment, array $params = [])
+    public function update(string $env, array $params = [])
     {
-        $path = $this->buildCommentsPath($comment);
+        $path = $this->buildEnvironmentsPath($env, 'changes').static::URI_SEPARATOR;
 
         return $this->put($path, $params);
     }
 
     /**
-     * @param string $comment
+     * @param string $env
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function remove(string $comment)
+    public function remove(string $env)
     {
-        $path = $this->buildCommentsPath($comment);
+        $path = $this->buildEnvironmentsPath($env);
 
         return $this->delete($path);
     }
 
     /**
-     * Build the comments path from the given parts.
+     * Build the environments path from the given parts.
      *
      * @param string[] $parts
      *
@@ -101,8 +101,8 @@ class Comments extends AbstractPullRequestsApi
      *
      * @return string
      */
-    protected function buildCommentsPath(string ...$parts)
+    protected function buildEnvironmentsPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'pullrequests', $this->pr, 'comments', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'environments', ...$parts);
     }
 }

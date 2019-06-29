@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories\Users\Commit;
+namespace Bitbucket\Api\Repositories\Users;
 
 /**
- * The comments api class.
+ * The branching model api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Comments extends AbstractCommitApi
+class BranchingModel extends AbstractUsersApi
 {
     /**
      * @param array $params
@@ -27,44 +27,43 @@ class Comments extends AbstractCommitApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function show(array $params = [])
     {
-        $path = $this->buildCommentsPath();
+        $path = $this->buildBranchingModelPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param array  $params
+     * @param array $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function showSettings(array $params = [])
     {
-        $path = $this->buildCommentsPath();
-
-        return $this->post($path, $params);
-    }
-
-    /**
-     * @param string $comment
-     * @param array  $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function show(string $comment, array $params = [])
-    {
-        $path = $this->buildCommentsPath($comment);
+        $path = $this->buildBranchingModelPath('settings');
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the comments path from the given parts.
+     * @param array $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function updateSettings(array $params = [])
+    {
+        $path = $this->buildBranchingModelPath('settings');
+
+        return $this->put($path, $params);
+    }
+
+    /**
+     * Build the branching model path from the given parts.
      *
      * @param string[] $parts
      *
@@ -72,8 +71,8 @@ class Comments extends AbstractCommitApi
      *
      * @return string
      */
-    protected function buildCommentsPath(string ...$parts)
+    protected function buildBranchingModelPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'commit', $this->commit, 'comments', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'branching-model', ...$parts);
     }
 }

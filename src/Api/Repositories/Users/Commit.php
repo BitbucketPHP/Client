@@ -15,6 +15,8 @@ namespace Bitbucket\Api\Repositories\Users;
 
 use Bitbucket\Api\Repositories\Users\Commit\Approval;
 use Bitbucket\Api\Repositories\Users\Commit\Comments;
+use Bitbucket\Api\Repositories\Users\Commit\Properties;
+use Bitbucket\Api\Repositories\Users\Commit\PullRequests;
 use Bitbucket\Api\Repositories\Users\Commit\Statuses;
 
 /**
@@ -57,6 +59,26 @@ class Commit extends AbstractUsersApi
     public function comments(string $commit)
     {
         return new Comments($this->getHttpClient(), $this->username, $this->repo, $commit);
+    }
+
+    /**
+     * @param string $commit
+     *
+     * @return \Bitbucket\Api\Repositories\Users\Commit\Properties
+     */
+    public function properties(string $commit)
+    {
+        return new Properties($this->getHttpClient(), $this->username, $this->repo, $commit);
+    }
+
+    /**
+     * @param string $commit
+     *
+     * @return \Bitbucket\Api\Repositories\Users\Commit\PullRequests
+     */
+    public function pullRequests(string $commit)
+    {
+        return new PullRequests($this->getHttpClient(), $this->username, $this->repo, $commit);
     }
 
     /**

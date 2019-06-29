@@ -13,14 +13,18 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Repositories;
 
+use Bitbucket\Api\Repositories\Users\BranchingModel;
 use Bitbucket\Api\Repositories\Users\BranchRestrictions;
 use Bitbucket\Api\Repositories\Users\Commit;
 use Bitbucket\Api\Repositories\Users\Commits;
 use Bitbucket\Api\Repositories\Users\Components;
 use Bitbucket\Api\Repositories\Users\DefaultReviewers;
 use Bitbucket\Api\Repositories\Users\DeployKeys;
+use Bitbucket\Api\Repositories\Users\Deployments;
 use Bitbucket\Api\Repositories\Users\Diffs;
+use Bitbucket\Api\Repositories\Users\DiffStats;
 use Bitbucket\Api\Repositories\Users\Downloads;
+use Bitbucket\Api\Repositories\Users\Environments;
 use Bitbucket\Api\Repositories\Users\FileHistory;
 use Bitbucket\Api\Repositories\Users\Forks;
 use Bitbucket\Api\Repositories\Users\Hooks;
@@ -120,6 +124,16 @@ class Users extends AbstractRepositoriesApi
     /**
      * @param string $repo
      *
+     * @return \Bitbucket\Api\Repositories\Users\BranchingModel
+     */
+    public function branchingModel(string $repo)
+    {
+        return new BranchingModel($this->getHttpClient(), $this->username, $repo);
+    }
+
+    /**
+     * @param string $repo
+     *
      * @return \Bitbucket\Api\Repositories\Users\BranchRestrictions
      */
     public function branchRestrictions(string $repo)
@@ -176,6 +190,15 @@ class Users extends AbstractRepositoriesApi
     {
         return new DeployKeys($this->getHttpClient(), $this->username, $repo);
     }
+    /**
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\Users\Deployments
+     */
+    public function deployments(string $repo)
+    {
+        return new Deployments($this->getHttpClient(), $this->username, $repo);
+    }
 
     /**
      * @param string $repo
@@ -190,11 +213,31 @@ class Users extends AbstractRepositoriesApi
     /**
      * @param string $repo
      *
+     * @return \Bitbucket\Api\Repositories\Users\DiffStats
+     */
+    public function diffStats(string $repo)
+    {
+        return new DiffStats($this->getHttpClient(), $this->username, $repo);
+    }
+
+    /**
+     * @param string $repo
+     *
      * @return \Bitbucket\Api\Repositories\Users\Downloads
      */
     public function downloads(string $repo)
     {
         return new Downloads($this->getHttpClient(), $this->username, $repo);
+    }
+
+    /**
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\Users\Environments
+     */
+    public function environments(string $repo)
+    {
+        return new Environments($this->getHttpClient(), $this->username, $repo);
     }
 
     /**

@@ -35,6 +35,20 @@ class Branches extends AbstractRefsApi
     }
 
     /**
+     * @param array $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function create(array $params = [])
+    {
+        $path = $this->buildBranchesPath();
+
+        return $this->post($path, $params);
+    }
+
+    /**
      * @param string $branch
      * @param array  $params
      *
@@ -47,6 +61,21 @@ class Branches extends AbstractRefsApi
         $path = $this->buildBranchesPath($branch);
 
         return $this->get($path, $params);
+    }
+
+    /**
+     * @param string $branch
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function remove(string $branch, array $params = [])
+    {
+        $path = $this->buildBranchesPath($branch);
+
+        return $this->delete($path, $params);
     }
 
     /**

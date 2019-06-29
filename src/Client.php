@@ -16,6 +16,7 @@ namespace Bitbucket;
 use Bitbucket\Api\Addon;
 use Bitbucket\Api\CurrentUser;
 use Bitbucket\Api\HookEvents;
+use Bitbucket\Api\PullRequests;
 use Bitbucket\Api\Repositories;
 use Bitbucket\Api\Snippets;
 use Bitbucket\Api\Teams;
@@ -112,6 +113,14 @@ class Client
     public function hookEvents()
     {
         return new HookEvents($this->getHttpClient());
+    }
+
+    /**
+     * @return \Bitbucket\Api\PullRequests
+     */
+    public function pullRequests()
+    {
+        return new PullRequests($this->getHttpClient());
     }
 
     /**

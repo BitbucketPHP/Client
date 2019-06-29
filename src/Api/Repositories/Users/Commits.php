@@ -31,7 +31,7 @@ class Commits extends AbstractUsersApi
     {
         $path = $this->buildCommitsPath();
 
-        return $this->get($path, $params);
+        return $this->post($path, $params);
     }
 
     /**
@@ -46,7 +46,7 @@ class Commits extends AbstractUsersApi
     {
         $path = $this->buildCommitsPath($commit);
 
-        return $this->get($path, $params);
+        return $this->post($path, $params);
     }
 
     /**

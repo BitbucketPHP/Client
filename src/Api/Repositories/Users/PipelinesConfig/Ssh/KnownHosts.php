@@ -29,7 +29,7 @@ class KnownHosts extends AbstractSshApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildKnownHostsPath();
+        $path = $this->buildKnownHostsPath().static::URI_SEPARATOR;
 
         return $this->get($path, $params);
     }
@@ -43,7 +43,7 @@ class KnownHosts extends AbstractSshApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildKnownHostsPath();
+        $path = $this->buildKnownHostsPath().static::URI_SEPARATOR;
 
         return $this->post($path, $params);
     }
