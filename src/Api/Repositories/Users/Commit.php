@@ -15,7 +15,7 @@ namespace Bitbucket\Api\Repositories\Users;
 
 use Bitbucket\Api\Repositories\Users\Commit\Approval;
 use Bitbucket\Api\Repositories\Users\Commit\Comments;
-use Bitbucket\Api\Repositories\Users\Commit\Properties as CommitPullProperties;
+use Bitbucket\Api\Repositories\Users\Commit\Properties as CommitProperties;
 use Bitbucket\Api\Repositories\Users\Commit\PullRequests as CommitPullRequests;
 use Bitbucket\Api\Repositories\Users\Commit\Statuses;
 
