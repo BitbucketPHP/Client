@@ -35,7 +35,7 @@ class Comments extends AbstractCommitApi
     }
 
     /**
-     * @param array  $params
+     * @param array $params
      *
      * @throws \Http\Client\Exception
      *
