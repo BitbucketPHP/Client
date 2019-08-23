@@ -8,6 +8,8 @@ matrix:
         - PHP_VERSION=7.2
     - env:
         - PHP_VERSION=7.3
+    - env:
+        - PHP_VERSION=7.4
 
 before_install:
   - travis_retry docker pull registry.gitlab.com/grahamcampbell/php:$PHP_VERSION
