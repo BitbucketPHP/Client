@@ -4,15 +4,32 @@ matrix:
   include:
     - env:
         - PHP_VERSION=7.1
+        - HTTPPLUG_VERSION=^1.1
+    - env:
+        - PHP_VERSION=7.1
+        - HTTPPLUG_VERSION=^2.0
     - env:
         - PHP_VERSION=7.2
+        - HTTPPLUG_VERSION=^1.1
+    - env:
+        - PHP_VERSION=7.2
+        - HTTPPLUG_VERSION=^2.0
     - env:
         - PHP_VERSION=7.3
+        - HTTPPLUG_VERSION=^1.1
+    - env:
+        - PHP_VERSION=7.3
+        - HTTPPLUG_VERSION=^2.0
     - env:
         - PHP_VERSION=7.4
+        - HTTPPLUG_VERSION=^1.1
+    - env:
+        - PHP_VERSION=7.4
+        - HTTPPLUG_VERSION=^2.0
 
 before_install:
   - travis_retry docker pull registry.gitlab.com/grahamcampbell/php:$PHP_VERSION
+  - docker run -it -w /data -v ${PWD}:/data:delegated --entrypoint composer registry.gitlab.com/grahamcampbell/php:$PHP_VERSION require "php-http/httplug:${HTTPPLUG_VERSION}" --no-update -n
 
 install:
   - travis_retry docker run -it -w /data -v ${PWD}:/data:delegated --entrypoint composer registry.gitlab.com/grahamcampbell/php:$PHP_VERSION install --no-suggest --prefer-dist -n -o

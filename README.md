@@ -16,9 +16,10 @@ This version requires [PHP](https://php.net) 7.1-7.4.
 To get the latest version, simply require the project using [Composer](https://getcomposer.org). You will need to install any package that "provides" `php-http/client-implementation`. Most users will want:
 
 ```bash
-$ composer require bitbucket/client php-http/guzzle6-adapter:^1.1
+$ composer require bitbucket/client php-http/guzzle6-adapter:^2.0
 ```
 
+There is also a Laravel bridge for this package: [`graham-campbell/bitbucket`](https://github.com/GrahamCampbell/Laravel-Bitbucket).
 
 ## Usage
 

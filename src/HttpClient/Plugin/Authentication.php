@@ -26,6 +26,8 @@ use Psr\Http\Message\RequestInterface;
  */
 class Authentication implements Plugin
 {
+    use Plugin\VersionBridgePlugin;
+
     /**
      * The authorization header.
      *
@@ -56,7 +58,7 @@ class Authentication implements Plugin
      *
      * @return \Http\Promise\Promise
      */
-    public function handleRequest(RequestInterface $request, callable $next, callable $first)
+    public function doHandleRequest(RequestInterface $request, callable $next, callable $first)
     {
         $request = $request->withHeader('Authorization', $this->header);
 
