@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Tests;
 
 use GrahamCampbell\Analyzer\AnalysisTrait;
+use Http\Client\Common\HttpMethodsClientInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -36,5 +37,15 @@ class AnalysisTest extends TestCase
             realpath(__DIR__.'/../src'),
             realpath(__DIR__),
         ];
+    }
+
+    /**
+     * Get the classes to ignore not existing.
+     *
+     * @return string[]
+     */
+    protected function getIgnored()
+    {
+        return [HttpMethodsClientInterface::class];
     }
 }
