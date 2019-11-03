@@ -16,6 +16,7 @@ namespace Bitbucket\Tests;
 use GrahamCampbell\Analyzer\AnalysisTrait;
 use Http\Client\Common\HttpMethodsClientInterface;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Client\ClientExceptionInterface;
 
 /**
  * This is the analysis test class.
@@ -46,6 +47,6 @@ class AnalysisTest extends TestCase
      */
     protected function getIgnored()
     {
-        return [HttpMethodsClientInterface::class];
+        return [ClientExceptionInterface::class, HttpMethodsClientInterface::class];
     }
 }
