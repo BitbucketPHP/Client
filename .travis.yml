@@ -2,28 +2,36 @@ dist: xenial
 
 matrix:
   include:
-    - env:
+    - name: PHP 7.1; HTTPlug 1
+      env:
         - PHP_VERSION=7.1
         - HTTPPLUG_VERSION=^1.1
-    - env:
+    - name: PHP 7.1; HTTPlug 2
+      env:
         - PHP_VERSION=7.1
         - HTTPPLUG_VERSION=^2.0
-    - env:
+    - name: PHP 7.2; HTTPlug 1
+      env:
         - PHP_VERSION=7.2
         - HTTPPLUG_VERSION=^1.1
-    - env:
+    - name: PHP 7.2; HTTPlug 2
+      env:
         - PHP_VERSION=7.2
         - HTTPPLUG_VERSION=^2.0
-    - env:
+    - name: PHP 7.3; HTTPlug 1
+      env:
         - PHP_VERSION=7.3
         - HTTPPLUG_VERSION=^1.1
-    - env:
+    - name: PHP 7.3; HTTPlug 2
+      env:
         - PHP_VERSION=7.3
         - HTTPPLUG_VERSION=^2.0
-    - env:
+    - name: PHP 7.4; HTTPlug 1
+      env:
         - PHP_VERSION=7.4
         - HTTPPLUG_VERSION=^1.1
-    - env:
+    - name: PHP 7.4; HTTPlug 2
+      env:
         - PHP_VERSION=7.4
         - HTTPPLUG_VERSION=^2.0
 
