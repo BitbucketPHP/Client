@@ -46,6 +46,6 @@ class Patches extends AbstractUsersApi
      */
     protected function buildPatchesPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, $this->repo, 'patch', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'patch', ...$parts);
     }
 }
