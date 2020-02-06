@@ -35,6 +35,23 @@ class Repositories extends AbstractApi
 
         return $this->get($path, $params);
     }
+    
+    /**
+     * Lists repositories in Bitbucket workspace
+     * 
+     * @param string $workspaceName - workspace name (for a common user his workspace name = his account name)
+     * @param array $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function listWorkspace(string $workspaceName, array $params = [])
+    {
+        $path = $this->buildRepositoriesPath($workspaceName);
+
+        return $this->get($path, $params);
+    }
 
     /**
      * @param string $username
