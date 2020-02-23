@@ -21,8 +21,8 @@
         "php-http/multipart-stream-builder": "^1.0"
     },
     "require-dev": {
-        "graham-campbell/analyzer": "^2.1",
-        "phpunit/phpunit": "^7.0|^8.0",
+        "graham-campbell/analyzer": "^2.4",
+        "phpunit/phpunit": "^7.5|^8.5|^9.0",
         "php-http/guzzle6-adapter": "^1.1|^2.0"
     },
     "autoload": {
