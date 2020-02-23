@@ -7,7 +7,6 @@ We present a modern [Bitbucket](https://bitbucket.org/) API 2.0 client, by [Grah
 <p align="center">
 <a href="https://styleci.io/repos/127466560"><img src="https://styleci.io/repos/127466560/shield" alt="StyleCI Status"></img></a>
 <a href="https://github.com/BitbucketAPI/Client/actions?query=workflow%3ATests"><img src="https://img.shields.io/github/workflow/status/BitbucketAPI/Client/Tests?style=flat-square" alt="Build Status"></img></a>
-<a href="https://scrutinizer-ci.com/g/BitbucketAPI/Client/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/BitbucketAPI/Client.svg?style=flat-square" alt="Coverage Status"></img></a>
 <a href="https://scrutinizer-ci.com/g/BitbucketAPI/Client"><img src="https://img.shields.io/scrutinizer/g/BitbucketAPI/Client.svg?style=flat-square" alt="Quality Score"></img></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
 <a href="https://github.com/BitbucketAPI/Client/releases"><img src="https://img.shields.io/github/release/BitbucketAPI/Client.svg?style=flat-square" alt="Latest Version"></img></a>

@@ -27,6 +27,4 @@ jobs:
     - name: Run Composer
       run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} install --no-suggest --prefer-dist -n -o
     - name: Run PHPUnit
-      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint vendor/bin/phpunit registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} --coverage-clover build/logs/clover.xml
-    - name: Upload Coverage
-      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint ocular registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} code-coverage:upload --format=php-clover build/logs/clover.xml
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint vendor/bin/phpunit registry.gitlab.com/grahamcampbell/php:${{ matrix.php }}
