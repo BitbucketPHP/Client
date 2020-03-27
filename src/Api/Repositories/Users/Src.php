@@ -45,7 +45,7 @@ class Src extends AbstractUsersApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildSrcPath();
+        $path = $this->buildSrcPath(...$params);
 
         return $this->post($path, $params);
     }
