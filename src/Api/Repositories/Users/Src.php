@@ -31,7 +31,7 @@ class Src extends AbstractUsersApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildSrcPath();
+        $path = $this->buildSrcPath(...$params);
 
         return $this->get($path, $params);
     }
@@ -45,7 +45,7 @@ class Src extends AbstractUsersApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildSrcPath(...$params);
+        $path = $this->buildSrcPath();
 
         return $this->post($path, $params);
     }
