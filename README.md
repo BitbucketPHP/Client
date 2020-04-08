@@ -45,7 +45,7 @@ use Bitbucket\Client;
 $c = new Client();
 
 $c->authenticate(Client::AUTH_OAUTH_TOKEN, 'your-token-here');
-// $c->authenticate(Client::AUTH_HTTP_PASSWORD, 'your-username', 'your-password');
+// $c->authenticate(Client::AUTH_HTTP_PASSWORD, 'your-username', 'your-passwords');
 
 var_dump($c->currentUser()->show());
 ```
