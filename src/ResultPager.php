@@ -98,7 +98,7 @@ class ResultPager implements ResultPagerInterface
         $perPage = $api->getPerPage();
 
         // set parameters per_page to max to minimize number of requests
-        $api->setPerPage(100);
+        $api->setPerPage(50);
 
         try {
             $result = $this->fetch($api, $method, $parameters)['values'];
