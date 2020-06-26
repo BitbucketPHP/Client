@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api;
 
 use Bitbucket\Api\Repositories\Users as RepositoriesUsers;
+use Bitbucket\Api\Repositories\Workspaces as RepositoriesWorkspaces;
 
 /**
  * The repositories api class.
@@ -44,6 +45,16 @@ class Repositories extends AbstractApi
     public function users(string $username)
     {
         return new RepositoriesUsers($this->getHttpClient(), $username);
+    }
+
+    /**
+     * @param string $username
+     *
+     * @return \Bitbucket\Api\Repositories\Workspaces
+     */
+    public function workspaces(string $username)
+    {
+        return new RepositoriesWorkspaces($this->getHttpClient(), $username);
     }
 
     /**

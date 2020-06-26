@@ -105,6 +105,8 @@ abstract class AbstractApi implements ApiInterface
     {
         $response = $this->pureGet($path, $params, $headers);
 
+        dd($response);
+
         return ResponseMediator::getContent($response);
     }
 
@@ -136,12 +138,11 @@ abstract class AbstractApi implements ApiInterface
      * Send a POST request with JSON-encoded params.
      *
      * @param string $path
-     * @param array  $params
-     * @param array  $headers
-     *
-     * @throws \Http\Client\Exception
+     * @param array $params
+     * @param array $headers
      *
      * @return array
+     * @throws \Http\Client\Exception
      */
     protected function post(string $path, array $params = [], array $headers = [])
     {

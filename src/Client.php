@@ -21,6 +21,7 @@ use Bitbucket\Api\Repositories;
 use Bitbucket\Api\Snippets;
 use Bitbucket\Api\Teams;
 use Bitbucket\Api\Users;
+use Bitbucket\Api\Workspaces;
 use Bitbucket\HttpClient\Builder;
 use Bitbucket\HttpClient\Plugin\Authentication;
 use Bitbucket\HttpClient\Plugin\ExceptionThrower;
@@ -129,6 +130,14 @@ class Client
     public function repositories()
     {
         return new Repositories($this->getHttpClient());
+    }
+
+    /**
+     * @return \Bitbucket\Api\Workspaces
+     */
+    public function workspaces()
+    {
+        return new Workspaces($this->getHttpClient());
     }
 
     /**

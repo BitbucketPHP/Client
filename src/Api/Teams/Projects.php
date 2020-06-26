@@ -35,14 +35,49 @@ class Projects extends AbstractTeamsApi
     }
 
     /**
-     * @param array $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function all()
     {
+        $projects = [];
+        $page = 1;
+
+        do {
+            $project = $this->list(['page' => $page]);
+            $projects = array_merge($projects, $project['values']);
+            $page++;
+        } while (isset($project['next']));
+
+        return $projects;
+    }
+
+    /**
+     * @param string $name
+     * @param string $key
+     * @param string $description
+     * @param string $links
+     * @param bool $is_private
+     *
+     * @return array
+     * @throws \Http\Client\Exception
+     */
+    public function create(string $name, string $key, string $description, string $links, bool $is_private)
+    {
+        $params = [
+            'name' => $name,
+            'key' => $key,
+            'description' => $description,
+            'links' => (object)[
+                'avatar' => (object)[
+                    'href' => $links
+                ]
+            ],
+            'is_private' => $is_private
+        ];
+
         $path = $this->buildProjectsPath().static::URI_SEPARATOR;
 
         return $this->post($path, $params);
@@ -104,6 +139,6 @@ class Projects extends AbstractTeamsApi
      */
     protected function buildProjectsPath(string ...$parts)
     {
-        return static::buildPath('teams', $this->username, 'projects', ...$parts);
+        return static::buildPath('workspaces', $this->username, 'projects', ...$parts);
     }
 }

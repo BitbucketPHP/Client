@@ -35,6 +35,26 @@ class Repositories extends AbstractTeamsApi
     }
 
     /**
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function all()
+    {
+        $repos = [];
+        $page = 1;
+
+        do {
+            $repo = $this->list(['page' => $page]);
+            $repos = array_merge($repos, $repo['values']);
+            $page++;
+        } while (isset($repo['next']));
+
+        return $repos;
+    }
+
+    /**
      * Build the repositories path from the given parts.
      *
      * @param string[] $parts
@@ -45,6 +65,6 @@ class Repositories extends AbstractTeamsApi
      */
     protected function buildRepositoriesPath(string ...$parts)
     {
-        return static::buildPath('teams', $this->username, 'repositories', ...$parts);
+        return static::buildPath('repositories', $this->username);
     }
 }
