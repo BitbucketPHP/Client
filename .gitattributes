@@ -7,4 +7,5 @@
 /.gitignore export-ignore
 /phpunit.xml.dist export-ignore
 /sami.php export-ignore
+/CHANGELOG.md export-ignore
 /README.md export-ignore

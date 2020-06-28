@@ -22,7 +22,7 @@ use Bitbucket\Api\Repositories\Users\DefaultReviewers;
 use Bitbucket\Api\Repositories\Users\DeployKeys;
 use Bitbucket\Api\Repositories\Users\Deployments;
 use Bitbucket\Api\Repositories\Users\Diffs;
-use Bitbucket\Api\Repositories\Users\DiffStats;
+use Bitbucket\Api\Repositories\Users\DiffStat;
 use Bitbucket\Api\Repositories\Users\Downloads;
 use Bitbucket\Api\Repositories\Users\Environments;
 use Bitbucket\Api\Repositories\Users\FileHistory;
@@ -214,11 +214,11 @@ class Users extends AbstractRepositoriesApi
     /**
      * @param string $repo
      *
-     * @return \Bitbucket\Api\Repositories\Users\DiffStats
+     * @return \Bitbucket\Api\Repositories\Users\DiffStat
      */
-    public function diffStats(string $repo)
+    public function diffStat(string $repo)
     {
-        return new DiffStats($this->getHttpClient(), $this->username, $repo);
+        return new DiffStat($this->getHttpClient(), $this->username, $repo);
     }
 
     /**
