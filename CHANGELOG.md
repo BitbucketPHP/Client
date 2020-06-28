@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V3.0 (Upcoming)
+
+* Drop PHP 7.1 support
+
+
 ## V2.1.4 (28/06/2020)
 
 * Fixed repository diffstat
