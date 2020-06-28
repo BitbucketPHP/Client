@@ -25,16 +25,16 @@ Feel free to check out the [change log](CHANGELOG.md), [releases](https://github
 
 This version requires [PHP](https://php.net) 7.2-7.4.
 
-To get the latest version, simply require the project using [Composer](https://getcomposer.org). You will need to install any package that "provides" `php-http/client-implementation`. Pure PHP users will want something like:
+To get the latest version, simply require the project using [Composer](https://getcomposer.org). You will need to install any package that "provides" `psr/http-client-implementation`. Pure PHP users will want something like:
 
 ```bash
-$ composer require bitbucket/client php-http/guzzle6-adapter:^2.0
+$ composer require bitbucket/client guzzlehttp/guzzle:^7.0.1
 ```
 
 Laravel users will want something like:
 
 ```bash
-$ composer require graham-campbell/bitbucket php-http/guzzle6-adapter:^2.0
+$ composer require graham-campbell/bitbucket guzzlehttp/guzzle:^7.0.1
 ```
 
 We are decoupled from any HTTP messaging client with help by [HTTPlug](http://httplug.io). You can visit [HTTPlug for library users](https://docs.php-http.org/en/latest/httplug/users.html) to get more information about installing HTTPlug related packages. [`graham-campbell/bitbucket`](https://github.com/GrahamCampbell/Laravel-Bitbucket) is also maintained by [Graham Campbell](https://github.com/GrahamCampbell).

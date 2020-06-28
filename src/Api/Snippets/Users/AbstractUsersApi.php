@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Snippets\Users;
 
 use Bitbucket\Api\Snippets\AbstractSnippetsApi;
-use Http\Client\Common\HttpMethodsClient;
+use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
  * The abstract users api class.
@@ -33,11 +33,11 @@ abstract class AbstractUsersApi extends AbstractSnippetsApi
     /**
      * Create a new api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClient $client
-     * @param string                                $username
-     * @param string                                $snippet
+     * @param \Http\Client\Common\HttpMethodsClientInterface $client
+     * @param string                                         $username
+     * @param string                                         $snippet
      */
-    public function __construct(HttpMethodsClient $client, string $username, string $snippet)
+    public function __construct(HttpMethodsClientInterface $client, string $username, string $snippet)
     {
         parent::__construct($client, $username);
         $this->snippet = $snippet;

@@ -21,6 +21,7 @@ use Bitbucket\Exception\ServerErrorException;
 use Bitbucket\Exception\ValidationFailedException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 use Http\Client\Common\Plugin;
+use Http\Promise\Promise;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -33,8 +34,6 @@ use Psr\Http\Message\ResponseInterface;
  */
 class ExceptionThrower implements Plugin
 {
-    use Plugin\VersionBridgePlugin;
-
     /**
      * Handle the request and return the response coming from the next callable.
      *
@@ -44,7 +43,7 @@ class ExceptionThrower implements Plugin
      *
      * @return \Http\Promise\Promise
      */
-    public function doHandleRequest(RequestInterface $request, callable $next, callable $first)
+    public function handleRequest(RequestInterface $request, callable $next, callable $first): Promise
     {
         return $next($request)->then(function (ResponseInterface $response) {
             $status = $response->getStatusCode();

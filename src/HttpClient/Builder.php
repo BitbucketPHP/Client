@@ -19,13 +19,13 @@ use Http\Client\Common\Plugin\Cache\Generator\CacheKeyGenerator;
 use Http\Client\Common\Plugin\Cache\Generator\HeaderCacheKeyGenerator;
 use Http\Client\Common\Plugin\CachePlugin;
 use Http\Client\Common\PluginClientFactory;
-use Http\Client\HttpClient;
-use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\MessageFactoryDiscovery;
+use Http\Discovery\Psr18ClientDiscovery;
 use Http\Discovery\StreamFactoryDiscovery;
 use Http\Message\RequestFactory;
 use Http\Message\StreamFactory;
 use Psr\Cache\CacheItemPoolInterface;
+use Psr\Http\Client\ClientInterface;
 
 /**
  * The Bitbucket HTTP client builder class.
@@ -45,21 +45,21 @@ final class Builder
     /**
      * The object that sends HTTP messages.
      *
-     * @var \Http\Client\HttpClient
+     * @var \Psr\Http\Client\ClientInterface
      */
     private $httpClient;
 
     /**
      * A HTTP client with all our plugins.
      *
-     * @var \Http\Client\Common\HttpMethodsClient
+     * @var \Http\Client\Common\HttpMethodsClientInterface
      */
     private $pluginClient;
 
     /**
      * The HTTP request factory.
      *
-     * @var \Http\Message\MessageFactory
+     * @var \Http\Message\RequestFactory
      */
     private $requestFactory;
 
@@ -96,22 +96,22 @@ final class Builder
     /**
      * Create a new http client builder instance.
      *
-     * @param \Http\Client\HttpClient|null      $httpClient
-     * @param \Http\Message\RequestFactory|null $requestFactory
-     * @param \Http\Message\StreamFactory|null  $streamFactory
+     * @param \Psr\Http\Client\ClientInterface|null $httpClient
+     * @param \Http\Message\RequestFactory|null     $requestFactory
+     * @param \Http\Message\StreamFactory|null      $streamFactory
      */
     public function __construct(
-        HttpClient $httpClient = null,
+        ClientInterface $httpClient = null,
         RequestFactory $requestFactory = null,
         StreamFactory $streamFactory = null
     ) {
-        $this->httpClient = $httpClient ?: HttpClientDiscovery::find();
+        $this->httpClient = $httpClient ?: Psr18ClientDiscovery::find();
         $this->requestFactory = $requestFactory ?: MessageFactoryDiscovery::find();
         $this->streamFactory = $streamFactory ?: StreamFactoryDiscovery::find();
     }
 
     /**
-     * @return \Http\Client\Common\HttpMethodsClient
+     * @return \Http\Client\Common\HttpMethodsClientInterface
      */
     public function getHttpClient()
     {
