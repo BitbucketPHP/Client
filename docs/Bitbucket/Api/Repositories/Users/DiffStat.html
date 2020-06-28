@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bitbucket\Api\Repositories\Users\Patches | Bitbucket API Client</title>
+    <title>Bitbucket\Api\Repositories\Users\DiffStat | Bitbucket API Client</title>
 
             <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:Bitbucket_Api_Repositories_Users_Patches" data-root-path="../../../../">
+    <body id="class" data-name="class:Bitbucket_Api_Repositories_Users_DiffStat" data-root-path="../../../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -66,27 +66,27 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                        <li><a href="../../../../Bitbucket.html">Bitbucket</a></li><li class="backslash">\</li><li><a href="../../../../Bitbucket/Api.html">Api</a></li><li class="backslash">\</li><li><a href="../../../../Bitbucket/Api/Repositories.html">Repositories</a></li><li class="backslash">\</li><li><a href="../../../../Bitbucket/Api/Repositories/Users.html">Users</a></li><li class="backslash">\</li><li>Patches</li>
+                        <li><a href="../../../../Bitbucket.html">Bitbucket</a></li><li class="backslash">\</li><li><a href="../../../../Bitbucket/Api.html">Api</a></li><li class="backslash">\</li><li><a href="../../../../Bitbucket/Api/Repositories.html">Repositories</a></li><li class="backslash">\</li><li><a href="../../../../Bitbucket/Api/Repositories/Users.html">Users</a></li><li class="backslash">\</li><li>DiffStat</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            Patches
+            DiffStat
                 
         </h1>
     </div>
 
     <p>    class
-    <strong>Patches</strong>        extends <a href="../../../../Bitbucket/Api/Repositories/Users/AbstractUsersApi.html"><abbr title="Bitbucket\Api\Repositories\Users\AbstractUsersApi">AbstractUsersApi</abbr></a>        (<a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/Patches.php">View source</a>)
+    <strong>DiffStat</strong>        extends <a href="../../../../Bitbucket/Api/Repositories/Users/AbstractUsersApi.html"><abbr title="Bitbucket\Api\Repositories\Users\AbstractUsersApi">AbstractUsersApi</abbr></a>        (<a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/DiffStat.php">View source</a>)
 </p>
 
         
     
 
             <div class="description">
-            <p>The patches api class.</p>                                </div>
+            <p>The diffs stat api class.</p>                                </div>
     
     
             <h2>Constants</h2>
@@ -259,7 +259,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>
+                    array
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_download">download</a>(string $spec, array $params = [])
@@ -273,9 +273,9 @@
                     string
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_buildPatchesPath">buildPatchesPath</a>(string ...$parts)
+                    <a href="#method_buildDiffStatPath">buildDiffStatPath</a>(string ...$parts)
         
-                                            <p>Build the patches path from the given parts.</p>                </div>
+                                            <p>Build the diff stat path from the given parts.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -957,8 +957,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_download">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/Patches.php#L31">line 31</a></div>
-        <code>                    <abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/DiffStat.php#L31">line 31</a></div>
+        <code>                    array
     <strong>download</strong>(string $spec, array $params = [])
         </code>
     </h3>
@@ -987,7 +987,7 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td><abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr></td>
+            <td>array</td>
             <td></td>
         </tr>
     </table>
@@ -1008,10 +1008,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_buildPatchesPath">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/Patches.php#L47">line 47</a></div>
+                    <h3 id="method_buildDiffStatPath">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/Api/Repositories/Users/DiffStat.php#L47">line 47</a></div>
         <code>            protected        string
-    <strong>buildPatchesPath</strong>(string ...$parts)
+    <strong>buildDiffStatPath</strong>(string ...$parts)
         </code>
     </h3>
     <div class="details">
@@ -1019,7 +1019,7 @@
     
 
                     <div class="method-description">
-                                    <p>Build the patches path from the given parts.</p>                                                </div>
+                                    <p>Build the diff stat path from the given parts.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 

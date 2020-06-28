@@ -89,6 +89,20 @@
             <div class="description">
             <p>A plugin to add authentication to the request.</p>                                </div>
     
+            <h2>Traits</h2>
+
+        
+    <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                                            <abbr title="Http\Client\Common\Plugin\VersionBridgePlugin">VersionBridgePlugin</abbr>
+                                            
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+            </div>
     
     
     
@@ -110,7 +124,7 @@
                     <abbr title="Http\Promise\Promise">Promise</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_handleRequest">handleRequest</a>(<abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, callable $next, callable $first)
+                    <a href="#method_doHandleRequest">doHandleRequest</a>(<abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, callable $next, callable $first)
         
                                             <p>Handle the request and return the response coming from the next callable.</p>                </div>
                 <div class="col-md-2"></div>
@@ -133,7 +147,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Plugin/Authentication.php#L45">line 45</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Plugin/Authentication.php#L47">line 47</a></div>
         <code>                    void
     <strong>__construct</strong>(string $method, string $token, string $password = null)
         </code>
@@ -182,10 +196,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_handleRequest">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Plugin/Authentication.php#L59">line 59</a></div>
+                    <h3 id="method_doHandleRequest">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Plugin/Authentication.php#L61">line 61</a></div>
         <code>                    <abbr title="Http\Promise\Promise">Promise</abbr>
-    <strong>handleRequest</strong>(<abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, callable $next, callable $first)
+    <strong>doHandleRequest</strong>(<abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, callable $next, callable $first)
         </code>
     </h3>
     <div class="details">
@@ -233,7 +247,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_buildAuthorizationHeader">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Plugin/Authentication.php#L77">line 77</a></div>
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Plugin/Authentication.php#L79">line 79</a></div>
         <code>        static    protected        string
     <strong>buildAuthorizationHeader</strong>(string $method, string $token, string $password = null)
         </code>
