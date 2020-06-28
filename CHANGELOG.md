@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V2.1.4 (Upcoming)
+## V2.1.4 (28/06/2020)
 
 * Fixed repository diffstat
 
