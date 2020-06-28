@@ -37,7 +37,7 @@ Laravel users will want something like:
 $ composer require graham-campbell/bitbucket php-http/guzzle6-adapter:^2.0
 ```
 
-We are decoupled from any HTTP messaging client with help by [HTTPlug](http://httplug.io). You can visit [HTTPlug for library users](https://docs.php-http.org/en/latest/httplug/users.html) to get more information about installing HTTPlug related packages. [`graham-campbell/bitbucket`](https://github.com/GrahamCampbell/Laravel-Bitbucket) is by [Graham Campbell](https://github.com/GrahamCampbell)
+We are decoupled from any HTTP messaging client with help by [HTTPlug](http://httplug.io). You can visit [HTTPlug for library users](https://docs.php-http.org/en/latest/httplug/users.html) to get more information about installing HTTPlug related packages. [`graham-campbell/bitbucket`](https://github.com/GrahamCampbell/Laravel-Bitbucket) is also maintained by [Graham Campbell](https://github.com/GrahamCampbell).
 
 
 ## Usage

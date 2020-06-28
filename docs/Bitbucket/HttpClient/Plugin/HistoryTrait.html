@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Bitbucket\HttpClient\Plugin\ExceptionThrower | Bitbucket API Client</title>
+    <title>Bitbucket\HttpClient\Plugin\HistoryTrait | Bitbucket API Client</title>
 
             <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:Bitbucket_HttpClient_Plugin_ExceptionThrower" data-root-path="../../../">
+    <body id="class" data-name="class:Bitbucket_HttpClient_Plugin_HistoryTrait" data-root-path="../../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -65,44 +65,27 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
-                        <li><a href="../../../Bitbucket.html">Bitbucket</a></li><li class="backslash">\</li><li><a href="../../../Bitbucket/HttpClient.html">HttpClient</a></li><li class="backslash">\</li><li><a href="../../../Bitbucket/HttpClient/Plugin.html">Plugin</a></li><li class="backslash">\</li><li>ExceptionThrower</li>
+                <li><span class="label label-default">trait</span></li>
+                        <li><a href="../../../Bitbucket.html">Bitbucket</a></li><li class="backslash">\</li><li><a href="../../../Bitbucket/HttpClient.html">HttpClient</a></li><li class="backslash">\</li><li><a href="../../../Bitbucket/HttpClient/Plugin.html">Plugin</a></li><li class="backslash">\</li><li>HistoryTrait</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            ExceptionThrower
+            HistoryTrait
                 
         </h1>
     </div>
 
-    <p>    class
-    <strong>ExceptionThrower</strong>        implements
-        <abbr title="Http\Client\Common\Plugin">Plugin</abbr>        (<a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Plugin/ExceptionThrower.php">View source</a>)
+    <p>    trait
+    <strong>HistoryTrait</strong>        (<a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Plugin/HistoryTrait.php">View source</a>)
 </p>
 
         
     
 
-            <div class="description">
-            <p>A plugin to throw bitbucket exceptions.</p>                                </div>
     
-            <h2>Traits</h2>
-
-        
-    <div class="container-fluid underlined">
-                    <div class="row">
-                <div class="col-md-6">
-                                            <abbr title="Http\Client\Common\Plugin\VersionBridgePlugin">VersionBridgePlugin</abbr>
-                                            
-                </div>
-                <div class="col-md-6">
-                    
-                </div>
-            </div>
-            </div>
     
     
     
@@ -111,12 +94,13 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    <abbr title="Http\Promise\Promise">Promise</abbr>
+                    
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_doHandleRequest">doHandleRequest</a>(<abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, callable $next, callable $first)
+                    <a href="#method_addFailure">addFailure</a>(<abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, <abbr title="Http\Client\Exception">Exception</abbr> $exception)
         
-                                            <p>Handle the request and return the response coming from the next callable.</p>                </div>
+                                            <p class="no-description">No description</p>
+                                    </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -126,18 +110,16 @@
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method_doHandleRequest">
-        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Plugin/ExceptionThrower.php#L47">line 47</a></div>
-        <code>                    <abbr title="Http\Promise\Promise">Promise</abbr>
-    <strong>doHandleRequest</strong>(<abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, callable $next, callable $first)
+                    <h3 id="method_addFailure">
+        <div class="location">at         <a href="https://github.com/BitbucketAPI/Client/blob/master/src/HttpClient/Plugin/HistoryTrait.php#L31">line 31</a></div>
+        <code>                    
+    <strong>addFailure</strong>(<abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, <abbr title="Http\Client\Exception">Exception</abbr> $exception)
         </code>
     </h3>
     <div class="details">
             
     
 
-                    <div class="method-description">
-                                    <p>Handle the request and return the response coming from the next callable.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -148,27 +130,13 @@
                 <td></td>
             </tr>
                     <tr>
-                <td>callable</td>
-                <td>$next</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>callable</td>
-                <td>$first</td>
+                <td><abbr title="Http\Client\Exception">Exception</abbr></td>
+                <td>$exception</td>
                 <td></td>
             </tr>
             </table>
 
             
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><abbr title="Http\Promise\Promise">Promise</abbr></td>
-            <td></td>
-        </tr>
-    </table>
-
             
             
                     </div>
