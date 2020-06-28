@@ -21,7 +21,7 @@ This is strongly based on [php-github-api](https://github.com/KnpLabs/php-github
 
 ## Installation
 
-This version requires [PHP](https://php.net) 7.1-7.4.
+This version requires [PHP](https://php.net) 7.2-7.4.
 
 To get the latest version, simply require the project using [Composer](https://getcomposer.org). You will need to install any package that "provides" `php-http/client-implementation`. Most users will want:
 
