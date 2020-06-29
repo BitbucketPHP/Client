@@ -20,7 +20,6 @@ namespace Bitbucket\Api\Repositories\Workspaces;
  */
 class Repositories extends AbstractWorkspacesApi
 {
-
     /**
      * @param string $repo
      * @param array  $params

@@ -1,13 +1,12 @@
 <?php
 
-
 namespace Bitbucket\Tests\responses;
-
 
 class BaseResponse
 {
     /**
      * @param $path
+     *
      * @return string
      */
     protected function packagePath($path)
@@ -17,6 +16,7 @@ class BaseResponse
 
     /**
      * @param string $path
+     *
      * @return false|string
      */
     protected function getJsonContent(string $path)

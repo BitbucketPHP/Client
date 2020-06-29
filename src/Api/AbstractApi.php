@@ -136,11 +136,12 @@ abstract class AbstractApi implements ApiInterface
      * Send a POST request with JSON-encoded params.
      *
      * @param string $path
-     * @param array $params
-     * @param array $headers
+     * @param array  $params
+     * @param array  $headers
+     *
+     * @throws \Http\Client\Exception
      *
      * @return array
-     * @throws \Http\Client\Exception
      */
     protected function post(string $path, array $params = [], array $headers = [])
     {

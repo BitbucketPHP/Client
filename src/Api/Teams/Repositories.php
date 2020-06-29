@@ -35,7 +35,6 @@ class Repositories extends AbstractTeamsApi
     }
 
     /**
-     *
      * @throws \Http\Client\Exception
      *
      * @return array

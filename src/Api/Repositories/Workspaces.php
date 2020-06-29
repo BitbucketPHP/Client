@@ -34,11 +34,11 @@ class Workspaces extends AbstractRepositoriesApi
 
     /**
      * @param string $repo
-     * @param array $params
-     *
-     * @return array
+     * @param array  $params
      *
      * @throws \Http\Client\Exception
+     *
+     * @return array
      */
     public function createRepository(string $repo, array $params = [])
     {
@@ -49,9 +49,11 @@ class Workspaces extends AbstractRepositoriesApi
 
     /**
      * @param string $repo
-     * @param array $params
-     * @return array
+     * @param array  $params
+     *
      * @throws \Http\Client\Exception
+     *
+     * @return array
      */
     public function showRepositories(string $repo, array $params = [])
     {
@@ -62,6 +64,7 @@ class Workspaces extends AbstractRepositoriesApi
 
     /**
      * @param string ...$parts
+     *
      * @return string
      */
     protected function buildRepositoriesPath(string ...$parts)

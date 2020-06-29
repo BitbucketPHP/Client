@@ -45,11 +45,11 @@ class Workspaces extends AbstractApi
 
     /**
      * @param string $workspace
-     * @param array $params
-     *
-     * @return array
+     * @param array  $params
      *
      * @throws \Http\Client\Exception
+     *
+     * @return array
      */
     public function show(string $workspace, array $params = [])
     {
