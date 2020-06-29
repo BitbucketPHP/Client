@@ -86,30 +86,14 @@ class Projects extends AbstractTeamsApi
 
     /**
      * @param string $project
-     * @param string $name
-     * @param string $key
-     * @param string $description
-     * @param string $links
-     * @param bool $is_private
+     * @param array $params
      *
      * @throws Exception
      *
      * @return array
      */
-    public function update(string $project, string $name, string $key, string $description, string $links, bool $is_private)
+    public function update(string $project, array $params)
     {
-        $params = [
-            'name' => $name,
-            'key' => $key,
-            'description' => $description,
-            'links' => (object)[
-                'avatar' => (object)[
-                    'href' => $links
-                ]
-            ],
-            'is_private' => $is_private
-        ];
-
         $path = $this->buildProjectsPath($project);
 
         return $this->put($path, $params);

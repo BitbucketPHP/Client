@@ -42,12 +42,21 @@ class ProjectsTest extends TestCase
     {
         $response = new ProjectCreateResponse();
         $client = $this->getClient($response);
+
+        $params = [
+            'name' => 'name',
+            'key' => 'key',
+            'description' => 'description',
+            'links' => (object)[
+                'avatar' => (object)[
+                    'href' => ''
+                ]
+            ],
+            'is_private' => true,
+        ];
+
         $project = $client->teams('john_doe')->projects()->create(
-            'name',
-            'key',
-            'description',
-            'links',
-            true
+            $params
         );
 
         $this->assertCount(11, $project);
@@ -58,13 +67,21 @@ class ProjectsTest extends TestCase
         $response = new ProjectUpdateResponse();
         $client = $this->getClient($response);
 
+        $params = [
+            'name' => 'name-updated',
+            'key' => 'Atlassian1',
+            'description' => 'description-updated',
+            'links' => (object)[
+                'avatar' => (object)[
+                    'href' => ''
+                ]
+            ],
+            'is_private' => true,
+        ];
+
         $project = $client->teams('john_doe')->projects()->update(
             'Atlassian1',
-            'name-updated',
-            'Atlassian1',
-            'description-updated',
-            '',
-            true
+            $params
         );
 
         $this->assertCount(11, $project);
