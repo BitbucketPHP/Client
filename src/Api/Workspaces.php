@@ -29,6 +29,35 @@ class Workspaces extends AbstractApi
         return $this->get($path, $params);
     }
 
+    public function all()
+    {
+        $workspaces = [];
+        $page = 1;
+
+        do {
+            $workspace = $this->list(['page' => $page]);
+            $workspaces = array_merge($workspaces, $workspace['values']);
+            $page++;
+        } while (isset($workspace['next']));
+
+        return $workspaces;
+    }
+
+    /**
+     * @param string $workspace
+     * @param array $params
+     *
+     * @return array
+     *
+     * @throws \Http\Client\Exception
+     */
+    public function show(string $workspace, array $params = [])
+    {
+        $path = $this->buildWorkspacePath($workspace);
+
+        return $this->get($path, $params);
+    }
+
     /**
      * Build the workspaces path from the given parts.
      *

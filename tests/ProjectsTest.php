@@ -2,41 +2,82 @@
 
 namespace Bitbucket\Tests;
 
-use Bitbucket\Tests\responses\WorkspacesListResponse;
+use Bitbucket\Tests\responses\ProjectCreateResponse;
+use Bitbucket\Tests\responses\ProjectsAllResponse;
+use Bitbucket\Tests\responses\ProjectsListResponse;
+use Bitbucket\Tests\responses\ProjectsShowResponse;
+use Bitbucket\Tests\responses\ProjectUpdateResponse;
 
 class ProjectsTest extends TestCase
 {
-    public function test_workspaces_all()
+    public function test_projects_all()
     {
-        $response = new WorkspacesListResponse();
+        $response = new ProjectsAllResponse();
         $client = $this->getClient($response);
-        $projects = $client->teams('test')->projects()->all();
+        $projects = $client->teams('john_doe')->projects()->all();
 
-        $this->assertCount(5, $projects);
+        $this->assertCount(11, $projects);
     }
 
-    public function test_workspaces_list()
+    public function test_projects_list() //TODO sistemare
     {
-        //
+        $response = new ProjectsListResponse();
+        $client = $this->getClient($response);
+        $projects = $client->teams('john_doe')->projects()->list();
+
+        $this->assertCount(9, $projects);
     }
 
-    public function test_workspaces_show()
+    public function test_project_show()
     {
-        //
+        $response = new ProjectsShowResponse();
+        $client = $this->getClient($response);
+        $project = $client->teams('john_doe')->projects()->show('Atlassian1');
+
+        $this->assertCount(11, $project); //TODO aggiungere check
     }
 
-    public function test_workspaces_create()
+    public function test_project_create()
     {
-        //
+        $response = new ProjectCreateResponse();
+        $client = $this->getClient($response);
+        $project = $client->teams('john_doe')->projects()->create(
+            'name',
+            'key',
+            'description',
+            'links',
+            true
+        );
+
+        $this->assertCount(11, $project); //TODO aggiungere check
     }
 
-    public function test_workspaces_update()
+    public function test_project_update()
     {
-        //
+        $response = new ProjectUpdateResponse();
+        $client = $this->getClient($response);
+
+        $project = $client->teams('john_doe')->projects()->update(
+            'Atlassian1',
+            'name-updated',
+            'Atlassian1',
+            'description-updated',
+            '',
+            true
+        );
+
+        $this->assertCount(11, $project); //TODO aggiungere check e response
     }
 
-    public function test_workspaces_remove()
+    public function test_project_remove()
     {
-        //
+        $response = new ProjectUpdateResponse();
+        $client = $this->getClient($response);
+
+        $project = $client->teams('john_doe')->projects()->remove(
+            'Atlassian1'
+        );
+
+        $this->assertCount(11, $project); //TODO aggiungere check e response
     }
 }
