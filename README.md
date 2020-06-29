@@ -42,7 +42,7 @@ We are decoupled from any HTTP messaging client with help by [HTTPlug](http://ht
 
 ## Usage
 
-The main point of entry is the `Bitbucket\Client` class. Simply create a new instance of that, authenticate, and you're good to go! As of time of writing (Saturday 29th June 2019), every endpoint (excluding issue export and import) available on the Bitbucket API 2.0 is also available through this PHP client. We'd recommend looking through the [Bitbucket documentation](https://developer.atlassian.com/bitbucket/api/2/reference/), and also the [source code](https://github.com/BitbucketAPI/Client/tree/3.0/src) to get a full picture of what is available to use.
+The main point of entry is the `Bitbucket\Client` class. Simply create a new instance of that, authenticate, and you're good to go! As of time of writing (Tuesday 29th June 2020), every endpoint (excluding issue export and import, and various deprecated endpoints) available on the Bitbucket API 2.0 is also available through this PHP client. We'd recommend looking through the [Bitbucket documentation](https://developer.atlassian.com/bitbucket/api/2/reference/), and also the [source code](https://github.com/BitbucketAPI/Client/tree/3.0/src) to get a full picture of what is available to use.
 
 ### Authentication
 
