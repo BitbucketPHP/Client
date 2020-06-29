@@ -13,22 +13,22 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Snippets;
 
-use Bitbucket\Api\Snippets\Users\Comments;
-use Bitbucket\Api\Snippets\Users\Commits;
-use Bitbucket\Api\Snippets\Users\Diffs;
-use Bitbucket\Api\Snippets\Users\Files;
-use Bitbucket\Api\Snippets\Users\Patches;
-use Bitbucket\Api\Snippets\Users\Watchers;
-use Bitbucket\Api\Snippets\Users\Watching;
+use Bitbucket\Api\Snippets\Workspaces\Comments;
+use Bitbucket\Api\Snippets\Workspaces\Commits;
+use Bitbucket\Api\Snippets\Workspaces\Diffs;
+use Bitbucket\Api\Snippets\Workspaces\Files;
+use Bitbucket\Api\Snippets\Workspaces\Patches;
+use Bitbucket\Api\Snippets\Workspaces\Watchers;
+use Bitbucket\Api\Snippets\Workspaces\Watching;
 use Bitbucket\HttpClient\Message\FileResource;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
 
 /**
- * The users api class.
+ * The workspaces api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Users extends AbstractSnippetsApi
+class Workspaces extends AbstractSnippetsApi
 {
     /**
      * @param array $params
@@ -39,7 +39,7 @@ class Users extends AbstractSnippetsApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildUsersPath();
+        $path = $this->buildWorkspacesPath();
 
         return $this->get($path, $params);
     }
@@ -53,7 +53,7 @@ class Users extends AbstractSnippetsApi
      */
     public function create(FileResource $file)
     {
-        $path = $this->buildUsersPath();
+        $path = $this->buildWorkspacesPath();
         $builder = (new MultipartStreamBuilder())->addResource($file->getName(), $file->getResource(), $file->getOptions());
         $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
@@ -70,7 +70,7 @@ class Users extends AbstractSnippetsApi
      */
     public function show(string $snippet, array $params = [])
     {
-        $path = $this->buildUsersPath($snippet);
+        $path = $this->buildWorkspacesPath($snippet);
 
         return $this->get($path, $params);
     }
@@ -85,7 +85,7 @@ class Users extends AbstractSnippetsApi
      */
     public function update(string $snippet, array $params = [])
     {
-        $path = $this->buildUsersPath($snippet);
+        $path = $this->buildWorkspacesPath($snippet);
 
         return $this->post($path, $params);
     }
@@ -100,7 +100,7 @@ class Users extends AbstractSnippetsApi
      */
     public function updateFiles(string $snippet, array $files)
     {
-        $path = $this->buildUsersPath($snippet);
+        $path = $this->buildWorkspacesPath($snippet);
 
         $builder = new MultipartStreamBuilder();
 
@@ -123,7 +123,7 @@ class Users extends AbstractSnippetsApi
      */
     public function remove(string $snippet, array $params = [])
     {
-        $path = $this->buildUsersPath($snippet);
+        $path = $this->buildWorkspacesPath($snippet);
 
         return $this->delete($path, $params);
     }
@@ -131,75 +131,75 @@ class Users extends AbstractSnippetsApi
     /**
      * @param string $snippet
      *
-     * @return \Bitbucket\Api\Snippets\Users\Comments
+     * @return \Bitbucket\Api\Snippets\Workspaces\Comments
      */
     public function comments(string $snippet)
     {
-        return new Comments($this->getHttpClient(), $this->username, $snippet);
+        return new Comments($this->getHttpClient(), $this->workspace, $snippet);
     }
 
     /**
      * @param string $snippet
      *
-     * @return \Bitbucket\Api\Snippets\Users\Commits
+     * @return \Bitbucket\Api\Snippets\Workspaces\Commits
      */
     public function commits(string $snippet)
     {
-        return new Commits($this->getHttpClient(), $this->username, $snippet);
+        return new Commits($this->getHttpClient(), $this->workspace, $snippet);
     }
 
     /**
      * @param string $snippet
      *
-     * @return \Bitbucket\Api\Snippets\Users\Diffs
+     * @return \Bitbucket\Api\Snippets\Workspaces\Diffs
      */
     public function diffs(string $snippet)
     {
-        return new Diffs($this->getHttpClient(), $this->username, $snippet);
+        return new Diffs($this->getHttpClient(), $this->workspace, $snippet);
     }
 
     /**
      * @param string $snippet
      *
-     * @return \Bitbucket\Api\Snippets\Users\Files
+     * @return \Bitbucket\Api\Snippets\Workspaces\Files
      */
     public function files(string $snippet)
     {
-        return new Files($this->getHttpClient(), $this->username, $snippet);
+        return new Files($this->getHttpClient(), $this->workspace, $snippet);
     }
 
     /**
      * @param string $snippet
      *
-     * @return \Bitbucket\Api\Snippets\Users\Patches
+     * @return \Bitbucket\Api\Snippets\Workspaces\Patches
      */
     public function patches(string $snippet)
     {
-        return new Patches($this->getHttpClient(), $this->username, $snippet);
+        return new Patches($this->getHttpClient(), $this->workspace, $snippet);
     }
 
     /**
      * @param string $snippet
      *
-     * @return \Bitbucket\Api\Snippets\Users\Watchers
+     * @return \Bitbucket\Api\Snippets\Workspaces\Watchers
      */
     public function watchers(string $snippet)
     {
-        return new Watchers($this->getHttpClient(), $this->username, $snippet);
+        return new Watchers($this->getHttpClient(), $this->workspace, $snippet);
     }
 
     /**
      * @param string $snippet
      *
-     * @return \Bitbucket\Api\Snippets\Users\Watching
+     * @return \Bitbucket\Api\Snippets\Workspaces\Watching
      */
     public function watching(string $snippet)
     {
-        return new Watching($this->getHttpClient(), $this->username, $snippet);
+        return new Watching($this->getHttpClient(), $this->workspace, $snippet);
     }
 
     /**
-     * Build the users path from the given parts.
+     * Build the workspaces path from the given parts.
      *
      * @param string[] $parts
      *
@@ -207,8 +207,8 @@ class Users extends AbstractSnippetsApi
      *
      * @return string
      */
-    protected function buildUsersPath(string ...$parts)
+    protected function buildWorkspacesPath(string ...$parts)
     {
-        return static::buildPath('snippets', $this->username, ...$parts);
+        return static::buildPath('snippets', $this->workspace, ...$parts);
     }
 }

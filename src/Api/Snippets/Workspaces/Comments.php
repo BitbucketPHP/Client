@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Snippets\Users;
+namespace Bitbucket\Api\Snippets\Workspaces;
 
 /**
  * The comments api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Comments extends AbstractUsersApi
+class Comments extends AbstractWorkspacesApi
 {
     /**
      * @param array $params
@@ -104,6 +104,6 @@ class Comments extends AbstractUsersApi
      */
     protected function buildCommentsPath(string ...$parts)
     {
-        return static::buildPath('snippets', $this->username, $this->snippet, 'comments', ...$parts);
+        return static::buildPath('snippets', $this->workspace, $this->snippet, 'comments', ...$parts);
     }
 }

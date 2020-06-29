@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Snippets\Users;
+namespace Bitbucket\Api\Snippets\Workspaces;
 
 /**
  * The diffs api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Diffs extends AbstractUsersApi
+class Diffs extends AbstractWorkspacesApi
 {
     /**
      * @param string $commit
@@ -46,6 +46,6 @@ class Diffs extends AbstractUsersApi
      */
     protected function buildDiffsPath(string ...$parts)
     {
-        return static::buildPath('snippets', $this->username, $this->snippet, ...$parts);
+        return static::buildPath('snippets', $this->workspace, $this->snippet, ...$parts);
     }
 }

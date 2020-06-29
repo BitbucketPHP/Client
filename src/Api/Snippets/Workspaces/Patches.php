@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Snippets\Users;
+namespace Bitbucket\Api\Snippets\Workspaces;
 
 /**
  * The patches api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Patches extends AbstractUsersApi
+class Patches extends AbstractWorkspacesApi
 {
     /**
      * @param string $commit
@@ -46,6 +46,6 @@ class Patches extends AbstractUsersApi
      */
     protected function buildPatchesPath(string ...$parts)
     {
-        return static::buildPath('snippets', $this->username, $this->snippet, ...$parts);
+        return static::buildPath('snippets', $this->workspace, $this->snippet, ...$parts);
     }
 }
