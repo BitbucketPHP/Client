@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Repositories\Workspaces;
 
+use Bitbucket\Api\Repositories\Workspaces\Deployments\EnvironmentVariables;
+
 /**
  * The deployments api class.
  *
@@ -47,6 +49,16 @@ class Deployments extends AbstractWorkspacesApi
         $path = $this->buildDeploymentsPath($deployments);
 
         return $this->get($path, $params);
+    }
+
+    /**
+     * @param string $environment
+     *
+     * @return \Bitbucket\Api\Repositories\Workspaces\Deployments\EnvironmentVariables
+     */
+    public function environmentVariables(string $environment)
+    {
+        return new EnvironmentVariables($this->getHttpClient(), $this->workspace, $this->repo, $environment);
     }
 
     /**

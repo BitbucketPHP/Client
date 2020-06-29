@@ -17,6 +17,7 @@ use Bitbucket\Api\Repositories\Workspaces\Commit\Approval;
 use Bitbucket\Api\Repositories\Workspaces\Commit\Comments;
 use Bitbucket\Api\Repositories\Workspaces\Commit\Properties as CommitProperties;
 use Bitbucket\Api\Repositories\Workspaces\Commit\PullRequests as CommitPullRequests;
+use Bitbucket\Api\Repositories\Workspaces\Commit\Reports;
 use Bitbucket\Api\Repositories\Workspaces\Commit\Statuses;
 
 /**
@@ -79,6 +80,16 @@ class Commit extends AbstractWorkspacesApi
     public function pullRequests(string $commit)
     {
         return new CommitPullRequests($this->getHttpClient(), $this->workspace, $this->repo, $commit);
+    }
+
+    /**
+     * @param string $commit
+     *
+     * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Reports
+     */
+    public function reports(string $commit)
+    {
+        return new Reports($this->getHttpClient(), $this->workspace, $this->repo, $commit);
     }
 
     /**
