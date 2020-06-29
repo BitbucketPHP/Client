@@ -29,6 +29,7 @@ use Bitbucket\Api\Repositories\Workspaces\FileHistory;
 use Bitbucket\Api\Repositories\Workspaces\Forks;
 use Bitbucket\Api\Repositories\Workspaces\Hooks;
 use Bitbucket\Api\Repositories\Workspaces\Issues;
+use Bitbucket\Api\Repositories\Workspaces\MergeBases;
 use Bitbucket\Api\Repositories\Workspaces\Milestones;
 use Bitbucket\Api\Repositories\Workspaces\Patches;
 use Bitbucket\Api\Repositories\Workspaces\Pipelines;
@@ -279,6 +280,16 @@ class Workspaces extends AbstractRepositoriesApi
     public function issues(string $repo)
     {
         return new Issues($this->getHttpClient(), $this->workspace, $repo);
+    }
+
+    /**
+     * @param string $repo
+     *
+     * @return \Bitbucket\Api\Repositories\Workspaces\Patches
+     */
+    public function mergeBases(string $repo)
+    {
+        return new MergeBases($this->getHttpClient(), $this->workspace, $repo);
     }
 
     /**

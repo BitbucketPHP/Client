@@ -148,6 +148,22 @@ class PullRequests extends AbstractWorkspacesApi
 
     /**
      * @param string $pr
+     * @param string $task
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function mergeTaskStatus(string $pr, string $task, array $params = [])
+    {
+        $path = $this->buildPullRequestsPath($pr, 'merge', 'task-status', $task);
+
+        return $this->get($path, $params);
+    }
+
+    /**
+     * @param string $pr
      *
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Approval
      */
