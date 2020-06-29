@@ -10,8 +10,6 @@ use PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
-    //use CreatesApplication;
-
     /**
      * @param BaseResponse $response
      * @return Client
