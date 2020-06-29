@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Snippets\Users;
+namespace Bitbucket\Api\Snippets\Workspaces;
 
 use Http\Message\MultipartStream\MultipartStreamBuilder;
 
@@ -20,7 +20,7 @@ use Http\Message\MultipartStream\MultipartStreamBuilder;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Files extends AbstractUsersApi
+class Files extends AbstractWorkspacesApi
 {
     /**
      * @param string $commit
@@ -117,6 +117,6 @@ class Files extends AbstractUsersApi
      */
     protected function buildFilesPath(string ...$parts)
     {
-        return static::buildPath('snippets', $this->username, $this->snippet, ...$parts);
+        return static::buildPath('snippets', $this->workspace, $this->snippet, ...$parts);
     }
 }

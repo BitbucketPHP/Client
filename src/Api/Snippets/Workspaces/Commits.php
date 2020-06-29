@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Snippets\Users;
+namespace Bitbucket\Api\Snippets\Workspaces;
 
 /**
- * The watchers api class.
+ * The commits api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Watchers extends AbstractUsersApi
+class Commits extends AbstractWorkspacesApi
 {
     /**
      * @param array $params
@@ -29,13 +29,28 @@ class Watchers extends AbstractUsersApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildWatchersPath();
+        $path = $this->buildCommitsPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the watchers path from the given parts.
+     * @param string $commit
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function show(string $commit, array $params = [])
+    {
+        $path = $this->buildCommitsPath($commit);
+
+        return $this->get($path, $params);
+    }
+
+    /**
+     * Build the commits path from the given parts.
      *
      * @param string[] $parts
      *
@@ -43,8 +58,8 @@ class Watchers extends AbstractUsersApi
      *
      * @return string
      */
-    protected function buildWatchersPath(string ...$parts)
+    protected function buildCommitsPath(string ...$parts)
     {
-        return static::buildPath('snippets', $this->username, $this->snippet, 'watchers', ...$parts);
+        return static::buildPath('snippets', $this->workspace, $this->snippet, 'commits', ...$parts);
     }
 }

@@ -11,17 +11,17 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Snippets\Users;
+namespace Bitbucket\Api\Snippets\Workspaces;
 
 use Bitbucket\Api\Snippets\AbstractSnippetsApi;
 use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
- * The abstract users api class.
+ * The abstract workspaces api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-abstract class AbstractUsersApi extends AbstractSnippetsApi
+abstract class AbstractWorkspacesApi extends AbstractSnippetsApi
 {
     /**
      * The snippet.
@@ -34,12 +34,12 @@ abstract class AbstractUsersApi extends AbstractSnippetsApi
      * Create a new api instance.
      *
      * @param \Http\Client\Common\HttpMethodsClientInterface $client
-     * @param string                                         $username
+     * @param string                                         $workspace
      * @param string                                         $snippet
      */
-    public function __construct(HttpMethodsClientInterface $client, string $username, string $snippet)
+    public function __construct(HttpMethodsClientInterface $client, string $workspace, string $snippet)
     {
-        parent::__construct($client, $username);
+        parent::__construct($client, $workspace);
         $this->snippet = $snippet;
     }
 }

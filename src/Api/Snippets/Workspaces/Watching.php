@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Snippets\Users;
+namespace Bitbucket\Api\Snippets\Workspaces;
 
 /**
  * The watching api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Watching extends AbstractUsersApi
+class Watching extends AbstractWorkspacesApi
 {
     /**
      * @param array $params
@@ -73,6 +73,6 @@ class Watching extends AbstractUsersApi
      */
     protected function buildWatchingPath(string ...$parts)
     {
-        return static::buildPath('snippets', $this->username, $this->snippet, 'watch', ...$parts);
+        return static::buildPath('snippets', $this->workspace, $this->snippet, 'watch', ...$parts);
     }
 }
