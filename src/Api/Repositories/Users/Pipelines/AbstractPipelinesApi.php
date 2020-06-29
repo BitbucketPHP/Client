@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Users\Pipelines;
 
 use Bitbucket\Api\Repositories\Users\AbstractUsersApi;
-use Http\Client\Common\HttpMethodsClient;
+use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
  * The abstract pipelines api class.
@@ -33,12 +33,12 @@ abstract class AbstractPipelinesApi extends AbstractUsersApi
     /**
      * Create a new api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClient $client
-     * @param string                                $username
-     * @param string                                $repo
-     * @param string                                $pipeline
+     * @param \Http\Client\Common\HttpMethodsClientInterface $client
+     * @param string                                         $username
+     * @param string                                         $repo
+     * @param string                                         $pipeline
      */
-    public function __construct(HttpMethodsClient $client, string $username, string $repo, string $pipeline)
+    public function __construct(HttpMethodsClientInterface $client, string $username, string $repo, string $pipeline)
     {
         parent::__construct($client, $username, $repo);
         $this->pipeline = $pipeline;

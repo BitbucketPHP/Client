@@ -16,6 +16,7 @@ namespace Bitbucket\HttpClient\Plugin;
 use Bitbucket\Client;
 use Bitbucket\Exception\RuntimeException;
 use Http\Client\Common\Plugin;
+use Http\Promise\Promise;
 use Psr\Http\Message\RequestInterface;
 
 /**
@@ -26,8 +27,6 @@ use Psr\Http\Message\RequestInterface;
  */
 class Authentication implements Plugin
 {
-    use Plugin\VersionBridgePlugin;
-
     /**
      * The authorization header.
      *
@@ -58,7 +57,7 @@ class Authentication implements Plugin
      *
      * @return \Http\Promise\Promise
      */
-    public function doHandleRequest(RequestInterface $request, callable $next, callable $first)
+    public function handleRequest(RequestInterface $request, callable $next, callable $first): Promise
     {
         $request = $request->withHeader('Authorization', $this->header);
 

@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Addon\Linkers;
 
 use Bitbucket\Api\Addon\AbstractAddonApi;
-use Http\Client\Common\HttpMethodsClient;
+use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
  * The abstract linkers api class.
@@ -33,10 +33,10 @@ abstract class AbstractLinkersApi extends AbstractAddonApi
     /**
      * Create a new api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClient $client
-     * @param string                                $linker
+     * @param \Http\Client\Common\HttpMethodsClientInterface $client
+     * @param string                                         $linker
      */
-    public function __construct(HttpMethodsClient $client, string $linker)
+    public function __construct(HttpMethodsClientInterface $client, string $linker)
     {
         parent::__construct($client);
         $this->linker = $linker;

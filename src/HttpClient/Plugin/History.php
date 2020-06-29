@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\HttpClient\Plugin;
 
 use Http\Client\Common\Plugin\Journal;
+use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -25,8 +26,6 @@ use Psr\Http\Message\ResponseInterface;
  */
 class History implements Journal
 {
-    use HistoryTrait;
-
     /**
      * The last response.
      *
@@ -55,5 +54,9 @@ class History implements Journal
     public function addSuccess(RequestInterface $request, ResponseInterface $response)
     {
         $this->lastResponse = $response;
+    }
+
+    public function addFailure(RequestInterface $request, ClientExceptionInterface $exception)
+    {
     }
 }

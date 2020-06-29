@@ -20,7 +20,7 @@ use Bitbucket\Api\Users\PipelinesConfig;
 use Bitbucket\Api\Users\Properties;
 use Bitbucket\Api\Users\Repositories as UsersRepositories;
 use Bitbucket\Api\Users\SshKeys;
-use Http\Client\Common\HttpMethodsClient;
+use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
  * The users api class.
@@ -39,10 +39,10 @@ class Users extends AbstractApi
     /**
      * Create a new users api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClient $client
-     * @param string                                $username
+     * @param \Http\Client\Common\HttpMethodsClientInterface $client
+     * @param string                                         $username
      */
-    public function __construct(HttpMethodsClient $client, string $username)
+    public function __construct(HttpMethodsClientInterface $client, string $username)
     {
         parent::__construct($client);
         $this->username = $username;
