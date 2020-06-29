@@ -6,6 +6,7 @@ class BaseResponse
 {
     /**
      * @param string $path
+     *
      * @return string
      */
     protected function packagePath(string $path)
@@ -15,6 +16,7 @@ class BaseResponse
 
     /**
      * @param string $path
+     *
      * @return false|string
      */
     protected function getJsonContent(string $path)
