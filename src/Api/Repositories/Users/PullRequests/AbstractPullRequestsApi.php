@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Users\PullRequests;
 
 use Bitbucket\Api\Repositories\Users\AbstractUsersApi;
-use Http\Client\Common\HttpMethodsClient;
+use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
  * The abstract pull requests api class.
@@ -33,12 +33,12 @@ abstract class AbstractPullRequestsApi extends AbstractUsersApi
     /**
      * Create a new api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClient $client
-     * @param string                                $username
-     * @param string                                $repo
-     * @param string                                $pr
+     * @param \Http\Client\Common\HttpMethodsClientInterface $client
+     * @param string                                         $username
+     * @param string                                         $repo
+     * @param string                                         $pr
      */
-    public function __construct(HttpMethodsClient $client, string $username, string $repo, string $pr)
+    public function __construct(HttpMethodsClientInterface $client, string $username, string $repo, string $pr)
     {
         parent::__construct($client, $username, $repo);
         $this->pr = $pr;

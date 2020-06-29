@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Users;
 
 /**
- * The diffs stats api class.
+ * The diffs stat api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class DiffStats extends AbstractUsersApi
+class DiffStat extends AbstractUsersApi
 {
     /**
      * @param string $spec
@@ -30,13 +30,13 @@ class DiffStats extends AbstractUsersApi
      */
     public function download(string $spec, array $params = [])
     {
-        $path = $this->buildDiffStatssPath($spec);
+        $path = $this->buildDiffStatPath($spec);
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the diff stats path from the given parts.
+     * Build the diff stat path from the given parts.
      *
      * @param string[] $parts
      *
@@ -44,8 +44,8 @@ class DiffStats extends AbstractUsersApi
      *
      * @return string
      */
-    protected function buildDiffStatssPath(string ...$parts)
+    protected function buildDiffStatPath(string ...$parts)
     {
-        return static::buildPath('repositories', $this->username, $this->repo, 'diffstats', ...$parts);
+        return static::buildPath('repositories', $this->username, $this->repo, 'diffstat', ...$parts);
     }
 }

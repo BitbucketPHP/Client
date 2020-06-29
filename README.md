@@ -18,18 +18,27 @@ This is strongly based on [php-github-api](https://github.com/KnpLabs/php-github
 * [GitLab](https://gitlab.com/) - [m4tthumphrey/php-gitlab-api](https://packagist.org/packages/m4tthumphrey/php-gitlab-api) by [Matt Humphrey](https://github.com/m4tthumphrey) et al.
 * [Bitbucket](https://bitbucket.org/) - [bitbucket/client](https://packagist.org/packages/bitbucket/client) which is this package!
 
+Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BitbucketAPI/Client/releases), [security policy](https://github.com/BitbucketAPI/Client/security/policy), [license](LICENSE), [code of conduct](.github/CODE_OF_CONDUCT.md), and [contribution guidelines](.github/CONTRIBUTING.md).
+
 
 ## Installation
 
-This version requires [PHP](https://php.net) 7.1-7.4.
+This version requires [PHP](https://php.net) 7.2-7.4.
 
-To get the latest version, simply require the project using [Composer](https://getcomposer.org). You will need to install any package that "provides" `php-http/client-implementation`. Most users will want:
+To get the latest version, simply require the project using [Composer](https://getcomposer.org). You will need to install any package that "provides" `psr/http-client-implementation`. Pure PHP users will want something like:
 
 ```bash
-$ composer require bitbucket/client php-http/guzzle6-adapter:^2.0
+$ composer require bitbucket/client guzzlehttp/guzzle:^7.0.1
 ```
 
-There is also a Laravel bridge for this package: [`graham-campbell/bitbucket`](https://github.com/GrahamCampbell/Laravel-Bitbucket).
+Laravel users will want something like:
+
+```bash
+$ composer require graham-campbell/bitbucket guzzlehttp/guzzle:^7.0.1
+```
+
+We are decoupled from any HTTP messaging client with help by [HTTPlug](http://httplug.io). You can visit [HTTPlug for library users](https://docs.php-http.org/en/latest/httplug/users.html) to get more information about installing HTTPlug related packages. [`graham-campbell/bitbucket`](https://github.com/GrahamCampbell/Laravel-Bitbucket) is also maintained by [Graham Campbell](https://github.com/GrahamCampbell).
+
 
 ## Usage
 

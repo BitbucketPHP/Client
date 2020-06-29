@@ -15,7 +15,7 @@ namespace Bitbucket\Api;
 
 use Bitbucket\Exception\InvalidArgumentException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
-use Http\Client\Common\HttpMethodsClient;
+use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
  * The abstract bitbucket api class.
@@ -35,7 +35,7 @@ abstract class AbstractApi implements ApiInterface
     /**
      * The http methods client.
      *
-     * @var \Http\Client\Common\HttpMethodsClient
+     * @var \Http\Client\Common\HttpMethodsClientInterface
      */
     private $client;
 
@@ -49,11 +49,11 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Create a new api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClient $client
+     * @param \Http\Client\Common\HttpMethodsClientInterface $client
      *
      * @return void
      */
-    public function __construct(HttpMethodsClient $client)
+    public function __construct(HttpMethodsClientInterface $client)
     {
         $this->client = $client;
     }
@@ -83,7 +83,7 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Get the http methods client.
      *
-     * @return \Http\Client\Common\HttpMethodsClient
+     * @return \Http\Client\Common\HttpMethodsClientInterface
      */
     protected function getHttpClient()
     {

@@ -209,7 +209,7 @@ class Client
     /**
      * Get the http client.
      *
-     * @return \Http\Client\Common\HttpMethodsClient
+     * @return \Http\Client\Common\HttpMethodsClientInterface
      */
     public function getHttpClient()
     {

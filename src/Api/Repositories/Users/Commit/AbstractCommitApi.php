@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Users\Commit;
 
 use Bitbucket\Api\Repositories\Users\AbstractUsersApi;
-use Http\Client\Common\HttpMethodsClient;
+use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
  * The abstract commit api class.
@@ -33,12 +33,12 @@ abstract class AbstractCommitApi extends AbstractUsersApi
     /**
      * Create a new api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClient $client
-     * @param string                                $username
-     * @param string                                $repo
-     * @param string                                $commit
+     * @param \Http\Client\Common\HttpMethodsClientInterface $client
+     * @param string                                         $username
+     * @param string                                         $repo
+     * @param string                                         $commit
      */
-    public function __construct(HttpMethodsClient $client, string $username, string $repo, string $commit)
+    public function __construct(HttpMethodsClientInterface $client, string $username, string $repo, string $commit)
     {
         parent::__construct($client, $username, $repo);
         $this->commit = $commit;

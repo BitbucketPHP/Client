@@ -21,7 +21,7 @@ use Bitbucket\Api\Teams\Permissions;
 use Bitbucket\Api\Teams\PipelinesConfig;
 use Bitbucket\Api\Teams\Projects;
 use Bitbucket\Api\Teams\Repositories as TeamsRepositories;
-use Http\Client\Common\HttpMethodsClient;
+use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
  * The teams api class.
@@ -40,10 +40,10 @@ class Teams extends AbstractApi
     /**
      * Create a new teams api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClient $client
-     * @param string                                $username
+     * @param \Http\Client\Common\HttpMethodsClientInterface $client
+     * @param string                                         $username
      */
-    public function __construct(HttpMethodsClient $client, string $username)
+    public function __construct(HttpMethodsClientInterface $client, string $username)
     {
         parent::__construct($client);
         $this->username = $username;
