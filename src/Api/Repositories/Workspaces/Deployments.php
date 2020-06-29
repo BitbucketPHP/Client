@@ -11,16 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api;
-
-use Bitbucket\Api\Repositories\Workspaces as RepositoriesWorkspaces;
+namespace Bitbucket\Api\Repositories\Workspaces;
 
 /**
- * The repositories api class.
+ * The deployments api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Repositories extends AbstractApi
+class Deployments extends AbstractWorkspacesApi
 {
     /**
      * @param array $params
@@ -31,23 +29,28 @@ class Repositories extends AbstractApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildRepositoriesPath();
+        $path = $this->buildDeploymentsPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $workspace
+     * @param string $deployments
+     * @param array  $params
      *
-     * @return \Bitbucket\Api\Repositories\Workspaces
+     * @throws \Http\Client\Exception
+     *
+     * @return array
      */
-    public function workspaces(string $workspace)
+    public function show(string $deployments, array $params = [])
     {
-        return new RepositoriesWorkspaces($this->getHttpClient(), $workspace);
+        $path = $this->buildDeploymentsPath($deployments);
+
+        return $this->get($path, $params);
     }
 
     /**
-     * Build the repositories path from the given parts.
+     * Build the deployments path from the given parts.
      *
      * @param string[] $parts
      *
@@ -55,8 +58,8 @@ class Repositories extends AbstractApi
      *
      * @return string
      */
-    protected function buildRepositoriesPath(string ...$parts)
+    protected function buildDeploymentsPath(string ...$parts)
     {
-        return static::buildPath('repositories', ...$parts);
+        return static::buildPath('repositories', $this->workspace, $this->repo, 'deployments', ...$parts);
     }
 }

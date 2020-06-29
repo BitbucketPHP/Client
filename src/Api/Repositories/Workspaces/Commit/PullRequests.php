@@ -11,16 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api;
-
-use Bitbucket\Api\Repositories\Workspaces as RepositoriesWorkspaces;
+namespace Bitbucket\Api\Repositories\Workspaces\Commit;
 
 /**
- * The repositories api class.
+ * The pull requests api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Repositories extends AbstractApi
+class PullRequests extends AbstractCommitApi
 {
     /**
      * @param array $params
@@ -31,23 +29,13 @@ class Repositories extends AbstractApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildRepositoriesPath();
+        $path = $this->buildPullRequestsPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $workspace
-     *
-     * @return \Bitbucket\Api\Repositories\Workspaces
-     */
-    public function workspaces(string $workspace)
-    {
-        return new RepositoriesWorkspaces($this->getHttpClient(), $workspace);
-    }
-
-    /**
-     * Build the repositories path from the given parts.
+     * Build the pull requests path from the given parts.
      *
      * @param string[] $parts
      *
@@ -55,8 +43,8 @@ class Repositories extends AbstractApi
      *
      * @return string
      */
-    protected function buildRepositoriesPath(string ...$parts)
+    protected function buildPullRequestsPath(string ...$parts)
     {
-        return static::buildPath('repositories', ...$parts);
+        return static::buildPath('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'pullrequests', ...$parts);
     }
 }

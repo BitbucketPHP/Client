@@ -11,16 +11,16 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api;
+namespace Bitbucket\Api\Repositories\Workspaces\Commit;
 
-use Bitbucket\Api\Repositories\Workspaces as RepositoriesWorkspaces;
+use Bitbucket\Api\Repositories\Workspaces\Commit\Statuses\Build;
 
 /**
- * The repositories api class.
+ * The statuses api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Repositories extends AbstractApi
+class Statuses extends AbstractCommitApi
 {
     /**
      * @param array $params
@@ -31,23 +31,21 @@ class Repositories extends AbstractApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildRepositoriesPath();
+        $path = $this->buildStatusesPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * @param string $workspace
-     *
-     * @return \Bitbucket\Api\Repositories\Workspaces
+     * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Statuses\Build
      */
-    public function workspaces(string $workspace)
+    public function build()
     {
-        return new RepositoriesWorkspaces($this->getHttpClient(), $workspace);
+        return new Build($this->getHttpClient(), $this->workspace, $this->repo, $this->commit);
     }
 
     /**
-     * Build the repositories path from the given parts.
+     * Build the statuses path from the given parts.
      *
      * @param string[] $parts
      *
@@ -55,8 +53,8 @@ class Repositories extends AbstractApi
      *
      * @return string
      */
-    protected function buildRepositoriesPath(string ...$parts)
+    protected function buildStatusesPath(string ...$parts)
     {
-        return static::buildPath('repositories', ...$parts);
+        return static::buildPath('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'statuses', ...$parts);
     }
 }

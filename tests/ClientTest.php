@@ -38,7 +38,7 @@ class ClientTest extends TestCase
 
         $response = $client
             ->repositories()
-            ->users('atlassian')
+            ->workspaces('atlassian')
             ->show('stash-example-plugin');
 
         $this->assertIsArray($response);

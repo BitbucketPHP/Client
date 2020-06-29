@@ -11,34 +11,36 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories;
+namespace Bitbucket\Api\Repositories\Workspaces\Commit;
 
-use Bitbucket\Api\AbstractApi;
+use Bitbucket\Api\Repositories\Workspaces\AbstractWorkspacesApi;
 use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
- * The abstract repository api class.
+ * The abstract commit api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-abstract class AbstractRepositoriesApi extends AbstractApi
+abstract class AbstractCommitApi extends AbstractWorkspacesApi
 {
     /**
-     * The workspace.
+     * The commit.
      *
      * @var string
      */
-    protected $workspace;
+    protected $commit;
 
     /**
      * Create a new api instance.
      *
      * @param \Http\Client\Common\HttpMethodsClientInterface $client
      * @param string                                         $workspace
+     * @param string                                         $repo
+     * @param string                                         $commit
      */
-    public function __construct(HttpMethodsClientInterface $client, string $workspace)
+    public function __construct(HttpMethodsClientInterface $client, string $workspace, string $repo, string $commit)
     {
-        parent::__construct($client);
-        $this->workspace = $workspace;
+        parent::__construct($client, $workspace, $repo);
+        $this->commit = $commit;
     }
 }
