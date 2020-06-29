@@ -3,6 +3,7 @@
 namespace Bitbucket\Tests;
 
 use Bitbucket\Tests\responses\ProjectCreateResponse;
+use Bitbucket\Tests\responses\ProjectRemoveResponse;
 use Bitbucket\Tests\responses\ProjectsAllResponse;
 use Bitbucket\Tests\responses\ProjectsListResponse;
 use Bitbucket\Tests\responses\ProjectsShowResponse;
@@ -19,7 +20,7 @@ class ProjectsTest extends TestCase
         $this->assertCount(11, $projects);
     }
 
-    public function test_projects_list() //TODO sistemare
+    public function test_projects_list()
     {
         $response = new ProjectsListResponse();
         $client = $this->getClient($response);
@@ -34,7 +35,7 @@ class ProjectsTest extends TestCase
         $client = $this->getClient($response);
         $project = $client->teams('john_doe')->projects()->show('Atlassian1');
 
-        $this->assertCount(11, $project); //TODO aggiungere check
+        $this->assertCount(11, $project);
     }
 
     public function test_project_create()
@@ -49,7 +50,7 @@ class ProjectsTest extends TestCase
             true
         );
 
-        $this->assertCount(11, $project); //TODO aggiungere check
+        $this->assertCount(11, $project);
     }
 
     public function test_project_update()
@@ -66,18 +67,18 @@ class ProjectsTest extends TestCase
             true
         );
 
-        $this->assertCount(11, $project); //TODO aggiungere check e response
+        $this->assertCount(11, $project);
     }
 
     public function test_project_remove()
     {
-        $response = new ProjectUpdateResponse();
+        $response = new ProjectRemoveResponse();
         $client = $this->getClient($response);
 
         $project = $client->teams('john_doe')->projects()->remove(
             'Atlassian1'
         );
 
-        $this->assertCount(11, $project); //TODO aggiungere check e response
+        $this->assertCount(0, $project);
     }
 }
