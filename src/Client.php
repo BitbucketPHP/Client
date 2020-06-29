@@ -40,18 +40,25 @@ use Http\Discovery\UriFactoryDiscovery;
 class Client
 {
     /**
-     * The oauth token authentication method.
+     * The OAuth token authentication method.
      *
      * @var string
      */
-    const AUTH_OAUTH_TOKEN = 'oauth_token';
+    public const AUTH_OAUTH_TOKEN = 'oauth_token';
 
     /**
-     * The http password authentication method.
+     * The HTTP password authentication method.
      *
      * @var string
      */
-    const AUTH_HTTP_PASSWORD = 'http_password';
+    public const AUTH_HTTP_PASSWORD = 'http_password';
+
+    /**
+     * The JSON Web Token authentication method.
+     *
+     * @var string
+     */
+    public const AUTH_JWT = 'jwt';
 
     /**
      * The bitbucket http client builder.

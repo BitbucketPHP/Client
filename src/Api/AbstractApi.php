@@ -30,7 +30,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @var string
      */
-    const URI_SEPARATOR = '/';
+    protected const URI_SEPARATOR = '/';
 
     /**
      * The http methods client.
