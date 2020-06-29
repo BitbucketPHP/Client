@@ -18,7 +18,6 @@
         "php-http/cache-plugin": "^1.6",
         "php-http/client-implementation": "^1.0",
         "php-http/client-common": "^1.9|^2.0",
-        "illuminate/support": "^5.8|^6.0",
         "php-http/multipart-stream-builder": "^1.0",
         "php-http/mock-client": "^1.3"
     },
@@ -37,6 +36,9 @@
         "psr-4": {
             "Bitbucket\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     },
     "config": {
         "preferred-install": "dist"
