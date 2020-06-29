@@ -85,7 +85,7 @@ class Client
 
         $builder->addPlugin(new HeaderDefaultsPlugin([
             'Accept'     => 'application/json',
-            'User-Agent' => 'bitbucket-api-client/1.1',
+            'User-Agent' => 'bitbucket-api-client/2.1',
         ]));
 
         $this->setUrl('https://api.bitbucket.org');
