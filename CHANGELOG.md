@@ -7,6 +7,11 @@ CHANGE LOG
 * Drop PHP 7.1 support
 
 
+## V2.1.5 (29/06/2020)
+
+* Fixed User-Agent version
+
+
 ## V2.1.4 (28/06/2020)
 
 * Fixed repository diffstat
