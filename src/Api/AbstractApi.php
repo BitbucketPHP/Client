@@ -105,8 +105,6 @@ abstract class AbstractApi implements ApiInterface
     {
         $response = $this->pureGet($path, $params, $headers);
 
-        dd($response);
-
         return ResponseMediator::getContent($response);
     }
 

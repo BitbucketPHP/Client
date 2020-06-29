@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Teams;
 
+use Http\Client\Exception;
+
 /**
  * The projects api class.
  *
@@ -23,7 +25,7 @@ class Projects extends AbstractTeamsApi
     /**
      * @param array $params
      *
-     * @throws \Http\Client\Exception
+     * @throws Exception
      *
      * @return array
      */
@@ -36,7 +38,7 @@ class Projects extends AbstractTeamsApi
 
     /**
      *
-     * @throws \Http\Client\Exception
+     * @throws Exception
      *
      * @return array
      */
@@ -62,7 +64,7 @@ class Projects extends AbstractTeamsApi
      * @param bool $is_private
      *
      * @return array
-     * @throws \Http\Client\Exception
+     * @throws Exception
      */
     public function create(string $name, string $key, string $description, string $links, bool $is_private)
     {
@@ -87,7 +89,7 @@ class Projects extends AbstractTeamsApi
      * @param string $project
      * @param array  $params
      *
-     * @throws \Http\Client\Exception
+     * @throws Exception
      *
      * @return array
      */
@@ -102,7 +104,7 @@ class Projects extends AbstractTeamsApi
      * @param string $project
      * @param array  $params
      *
-     * @throws \Http\Client\Exception
+     * @throws Exception
      *
      * @return array
      */
@@ -117,7 +119,7 @@ class Projects extends AbstractTeamsApi
      * @param string $project
      * @param array  $params
      *
-     * @throws \Http\Client\Exception
+     * @throws Exception
      *
      * @return array
      */
