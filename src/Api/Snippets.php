@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api;
 
-use Bitbucket\Api\Snippets\Workspaces as SnippetsUsers;
+use Bitbucket\Api\Snippets\Workspaces as SnippetsWorkspaces;
 use Bitbucket\HttpClient\Message\FileResource;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
 
@@ -55,13 +55,13 @@ class Snippets extends AbstractApi
     }
 
     /**
-     * @param string $username
+     * @param string $workspace
      *
      * @return \Bitbucket\Api\Snippets\Workspaces
      */
-    public function users(string $username)
+    public function workspaces(string $workspace)
     {
-        return new SnippetsUsers($this->getHttpClient(), $username);
+        return new SnippetsWorkspaces($this->getHttpClient(), $workspace);
     }
 
     /**
