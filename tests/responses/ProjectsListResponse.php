@@ -19,6 +19,6 @@ class ProjectsListResponse extends BaseResponse implements ResponseFactory
     public function createResponse($statusCode = 200, $reasonPhrase = null, array $headers = [], $body = null, $protocolVersion = '1.1')
     {
         $json = $this->getJsonContent('stubs/projects-list-success.json');
-        return new Response($statusCode, ['Content-Type' => 'application/json'], $json);
+        return new Response(200, ['Content-Type' => 'application/json'], $json);
     }
 }
