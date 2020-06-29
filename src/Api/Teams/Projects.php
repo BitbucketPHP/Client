@@ -37,7 +37,7 @@ class Projects extends AbstractTeamsApi
     }
 
     /**
-     * @throws Exception
+     * @throws \Http\Client\Exception
      *
      * @return array
      */
@@ -58,7 +58,7 @@ class Projects extends AbstractTeamsApi
     /**
      * @param array $params
      *
-     * @throws Exception
+     * @throws \Http\Client\Exception
      *
      * @return array
      */
@@ -73,7 +73,7 @@ class Projects extends AbstractTeamsApi
      * @param string $project
      * @param array  $params
      *
-     * @throws Exception
+     * @throws \Http\Client\Exception
      *
      * @return array
      */
@@ -88,7 +88,7 @@ class Projects extends AbstractTeamsApi
      * @param string $project
      * @param array  $params
      *
-     * @throws Exception
+     * @throws \Http\Client\Exception
      *
      * @return array
      */
@@ -103,7 +103,7 @@ class Projects extends AbstractTeamsApi
      * @param string $project
      * @param array  $params
      *
-     * @throws Exception
+     * @throws \Http\Client\Exception
      *
      * @return array
      */
