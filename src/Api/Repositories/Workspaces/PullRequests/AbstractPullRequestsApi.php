@@ -11,34 +11,36 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Repositories;
+namespace Bitbucket\Api\Repositories\Workspaces\PullRequests;
 
-use Bitbucket\Api\AbstractApi;
+use Bitbucket\Api\Repositories\Workspaces\AbstractWorkspacesApi;
 use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
- * The abstract repository api class.
+ * The abstract pull requests api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-abstract class AbstractRepositoriesApi extends AbstractApi
+abstract class AbstractPullRequestsApi extends AbstractWorkspacesApi
 {
     /**
-     * The workspace.
+     * The pr.
      *
      * @var string
      */
-    protected $workspace;
+    protected $pr;
 
     /**
      * Create a new api instance.
      *
      * @param \Http\Client\Common\HttpMethodsClientInterface $client
      * @param string                                         $workspace
+     * @param string                                         $repo
+     * @param string                                         $pr
      */
-    public function __construct(HttpMethodsClientInterface $client, string $workspace)
+    public function __construct(HttpMethodsClientInterface $client, string $workspace, string $repo, string $pr)
     {
-        parent::__construct($client);
-        $this->workspace = $workspace;
+        parent::__construct($client, $workspace, $repo);
+        $this->pr = $pr;
     }
 }
