@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Teams;
+namespace Bitbucket\Api\Workspaces;
 
 /**
  * The projects api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Projects extends AbstractTeamsApi
+class Projects extends AbstractWorkspacesApi
 {
     /**
      * @param array $params
@@ -104,6 +104,6 @@ class Projects extends AbstractTeamsApi
      */
     protected function buildProjectsPath(string ...$parts)
     {
-        return static::buildPath('teams', $this->username, 'projects', ...$parts);
+        return static::buildPath('workspaces', $this->username, 'projects', ...$parts);
     }
 }

@@ -63,6 +63,20 @@ class HookEvents extends AbstractApi
     }
 
     /**
+     * @param array $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function listWorkspaceEvents(array $params = [])
+    {
+        $path = $this->buildHookEventsPath('workspace');
+
+        return $this->get($path, $params);
+    }
+
+    /**
      * Build the hook events path from the given parts.
      *
      * @param string[] $parts

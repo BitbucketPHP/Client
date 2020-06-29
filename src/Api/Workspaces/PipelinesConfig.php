@@ -11,19 +11,19 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Users;
+namespace Bitbucket\Api\Workspaces;
 
-use Bitbucket\Api\Users\PipelinesConfig\Variables;
+use Bitbucket\Api\Workspaces\PipelinesConfig\Variables;
 
 /**
  * The pipelines config api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class PipelinesConfig extends AbstractUsersApi
+class PipelinesConfig extends AbstractWorkspacesApi
 {
     /**
-     * @return \Bitbucket\Api\Users\PipelinesConfig\Variables
+     * @return \Bitbucket\Api\Workspaces\PipelinesConfig\Variables
      */
     public function variables()
     {
@@ -41,6 +41,6 @@ class PipelinesConfig extends AbstractUsersApi
      */
     protected function buildPipelinesConfigPath(string ...$parts)
     {
-        return static::buildPath('users', $this->username, 'pipelines_config', ...$parts);
+        return static::buildPath('workspaces', $this->username, 'pipelines_config', ...$parts);
     }
 }

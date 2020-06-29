@@ -13,10 +13,6 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api;
 
-use Bitbucket\Api\Users\Followers;
-use Bitbucket\Api\Users\Following;
-use Bitbucket\Api\Users\Hooks;
-use Bitbucket\Api\Users\PipelinesConfig;
 use Bitbucket\Api\Users\Properties;
 use Bitbucket\Api\Users\Repositories as UsersRepositories;
 use Bitbucket\Api\Users\SshKeys;
@@ -46,66 +42,6 @@ class Users extends AbstractApi
     {
         parent::__construct($client);
         $this->username = $username;
-    }
-
-    /**
-     * @param array $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function show(array $params = [])
-    {
-        $path = $this->buildUsersPath();
-
-        return $this->get($path, $params);
-    }
-
-    /**
-     * @param array $params
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function codeSearch(array $params = [])
-    {
-        $path = $this->buildUsersPath('search', 'code');
-
-        return $this->get($path, $params);
-    }
-
-    /**
-     * @return \Bitbucket\Api\Users\Followers
-     */
-    public function followers()
-    {
-        return new Followers($this->getHttpClient(), $this->username);
-    }
-
-    /**
-     * @return \Bitbucket\Api\Users\Following
-     */
-    public function following()
-    {
-        return new Following($this->getHttpClient(), $this->username);
-    }
-
-    /**
-     * @return \Bitbucket\Api\Users\Hooks
-     */
-    public function hooks()
-    {
-        return new Hooks($this->getHttpClient(), $this->username);
-    }
-
-    /**
-     * @return \Bitbucket\Api\Users\PipelinesConfig
-     */
-    public function pipelinesConfig()
-    {
-        return new PipelinesConfig($this->getHttpClient(), $this->username);
     }
 
     /**

@@ -19,8 +19,8 @@ use Bitbucket\Api\HookEvents;
 use Bitbucket\Api\PullRequests;
 use Bitbucket\Api\Repositories;
 use Bitbucket\Api\Snippets;
-use Bitbucket\Api\Teams;
 use Bitbucket\Api\Users;
+use Bitbucket\Api\Workspaces;
 use Bitbucket\HttpClient\Builder;
 use Bitbucket\HttpClient\Plugin\Authentication;
 use Bitbucket\HttpClient\Plugin\ExceptionThrower;
@@ -149,21 +149,21 @@ class Client
     /**
      * @param string $username
      *
-     * @return \Bitbucket\Api\Teams
-     */
-    public function teams(string $username)
-    {
-        return new Teams($this->getHttpClient(), $username);
-    }
-
-    /**
-     * @param string $username
-     *
      * @return \Bitbucket\Api\Users
      */
     public function users(string $username)
     {
         return new Users($this->getHttpClient(), $username);
+    }
+
+    /**
+     * @param string $workspace
+     *
+     * @return \Bitbucket\Api\Workspaces
+     */
+    public function workspaces(string $workspace)
+    {
+        return new Workspaces($this->getHttpClient(), $workspace);
     }
 
     /**

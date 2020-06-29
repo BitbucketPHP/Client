@@ -11,34 +11,34 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Teams;
+namespace Bitbucket\Api\Workspaces;
 
 use Bitbucket\Api\AbstractApi;
 use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
- * The abstract team api class.
+ * The abstract workspace api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-abstract class AbstractTeamsApi extends AbstractApi
+abstract class AbstractWorkspacesApi extends AbstractApi
 {
     /**
-     * The username.
+     * The workspace.
      *
      * @var string
      */
-    protected $username;
+    protected $workspace;
 
     /**
      * Create a new api instance.
      *
      * @param \Http\Client\Common\HttpMethodsClientInterface $client
-     * @param string                                         $username
+     * @param string                                         $workspace
      */
-    public function __construct(HttpMethodsClientInterface $client, string $username)
+    public function __construct(HttpMethodsClientInterface $client, string $workspace)
     {
         parent::__construct($client);
-        $this->username = $username;
+        $this->workspace = $workspace;
     }
 }

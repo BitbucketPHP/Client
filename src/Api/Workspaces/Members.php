@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Teams;
+namespace Bitbucket\Api\Workspaces;
 
 /**
- * The repositories api class.
+ * The members api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Repositories extends AbstractTeamsApi
+class Members extends AbstractWorkspacesApi
 {
     /**
      * @param array $params
@@ -29,13 +29,28 @@ class Repositories extends AbstractTeamsApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildRepositoriesPath();
+        $path = $this->buildMembersPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the repositories path from the given parts.
+     * @param string $member
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function show(string $member, array $params = [])
+    {
+        $path = $this->buildMembersPath($member);
+
+        return $this->get($path, $params);
+    }
+
+    /**
+     * Build the members path from the given parts.
      *
      * @param string[] $parts
      *
@@ -43,8 +58,8 @@ class Repositories extends AbstractTeamsApi
      *
      * @return string
      */
-    protected function buildRepositoriesPath(string ...$parts)
+    protected function buildMembersPath(string ...$parts)
     {
-        return static::buildPath('teams', $this->username, 'repositories', ...$parts);
+        return static::buildPath('workspaces', $this->username, 'members', ...$parts);
     }
 }
