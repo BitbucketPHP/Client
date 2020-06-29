@@ -26,7 +26,7 @@ class ProjectsTest extends TestCase
         $client = $this->getClient($response);
         $projects = $client->teams('john_doe')->projects()->list();
 
-        $this->assertCount(9, $projects);
+        $this->assertCount(9, $projects['values']);
     }
 
     public function test_project_show()
@@ -34,7 +34,7 @@ class ProjectsTest extends TestCase
         $response = new ProjectsShowResponse();
         $client = $this->getClient($response);
         $project = $client->teams('john_doe')->projects()->show('Atlassian1');
-
+        
         $this->assertCount(11, $project);
     }
 
