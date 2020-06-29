@@ -5,18 +5,16 @@ namespace Bitbucket\Tests\responses;
 class BaseResponse
 {
     /**
-     * @param $path
-     *
+     * @param string $path
      * @return string
      */
-    protected function packagePath($path)
+    protected function packagePath(string $path)
     {
         return __DIR__.'/../'.$path;
     }
 
     /**
      * @param string $path
-     *
      * @return false|string
      */
     protected function getJsonContent(string $path)
