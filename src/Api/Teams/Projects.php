@@ -37,7 +37,6 @@ class Projects extends AbstractTeamsApi
     }
 
     /**
-     *
      * @throws Exception
      *
      * @return array
@@ -59,8 +58,9 @@ class Projects extends AbstractTeamsApi
     /**
      * @param array $params
      *
-     * @return array
      * @throws Exception
+     *
+     * @return array
      */
     public function create(array $params = [])
     {
@@ -86,7 +86,7 @@ class Projects extends AbstractTeamsApi
 
     /**
      * @param string $project
-     * @param array $params
+     * @param array  $params
      *
      * @throws Exception
      *

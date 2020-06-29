@@ -34,7 +34,7 @@ class ProjectsTest extends TestCase
         $response = new ProjectsShowResponse();
         $client = $this->getClient($response);
         $project = $client->teams('john_doe')->projects()->show('Atlassian1');
-        
+
         $this->assertCount(11, $project);
     }
 
@@ -44,13 +44,13 @@ class ProjectsTest extends TestCase
         $client = $this->getClient($response);
 
         $params = [
-            'name' => 'name',
-            'key' => 'key',
+            'name'        => 'name',
+            'key'         => 'key',
             'description' => 'description',
-            'links' => (object)[
-                'avatar' => (object)[
-                    'href' => ''
-                ]
+            'links'       => (object) [
+                'avatar' => (object) [
+                    'href' => '',
+                ],
             ],
             'is_private' => true,
         ];
@@ -68,13 +68,13 @@ class ProjectsTest extends TestCase
         $client = $this->getClient($response);
 
         $params = [
-            'name' => 'name-updated',
-            'key' => 'Atlassian1',
+            'name'        => 'name-updated',
+            'key'         => 'Atlassian1',
             'description' => 'description-updated',
-            'links' => (object)[
-                'avatar' => (object)[
-                    'href' => ''
-                ]
+            'links'       => (object) [
+                'avatar' => (object) [
+                    'href' => '',
+                ],
             ],
             'is_private' => true,
         ];
