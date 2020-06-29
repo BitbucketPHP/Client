@@ -40,7 +40,7 @@ use Http\Discovery\UriFactoryDiscovery;
 class Client
 {
     /**
-     * The OAuth token authentication method.
+     * The OAuth 2 token authentication method.
      *
      * @var string
      */
@@ -54,7 +54,7 @@ class Client
     public const AUTH_HTTP_PASSWORD = 'http_password';
 
     /**
-     * The JSON Web Token authentication method.
+     * The JSON web token authentication method.
      *
      * @var string
      */

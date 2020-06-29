@@ -42,24 +42,89 @@ We are decoupled from any HTTP messaging client with help by [HTTPlug](http://ht
 
 ## Usage
 
-The main point of entry is the `Bitbucket\Client` class. Simply create a new instance of that, and you're good to go!
+The main point of entry is the `Bitbucket\Client` class. Simply create a new instance of that, authenticate, and you're good to go! As of time of writing (Saturday 29th June 2019), every endpoint (excluding issue export and import) available on the Bitbucket API 2.0 is also available through this PHP client. We'd recommend looking through the [Bitbucket documentation](https://developer.atlassian.com/bitbucket/api/2/reference/), and also the [source code](https://github.com/BitbucketAPI/Client/tree/3.0/src) to get a full picture of what is available to use.
 
-Practically, you will also want to set authentication details before calling any of the endpoint, however, this is not required to call endpoints for which authentication is not needed. We support logging in with an OAuth2 token, or with a username and password.
+### Authentication
+
+There are three ways to authenticate our client:
+
+#### OAuth 2 Token
+
+The most common way to authenticate is using an OAuth 2 token. You will need to generate this by some means outside of the library, and then provide it as below:
 
 ```php
-<?php
+$c = new Bitbucket\Client();
 
-use Bitbucket\Client;
-
-$c = new Client();
-
-$c->authenticate(Client::AUTH_OAUTH_TOKEN, 'your-token-here');
-// $c->authenticate(Client::AUTH_HTTP_PASSWORD, 'your-username', 'your-password');
-
-var_dump($c->currentUser()->show());
+$c->authenticate(
+    Bitbucket\Client::AUTH_OAUTH_TOKEN,
+    'your-token-here'
+);
 ```
 
-As of time of writing (Saturday 29th June 2019), every endpoint (excluding issue export and import) available on the Bitbucket API 2.0 is also available through this PHP client. I'd recommend looking through the [Bitbucket documentation](https://developer.atlassian.com/bitbucket/api/2/reference/), and also the [source code](https://github.com/BitbucketAPI/Client/tree/3.0/src) to get a full picture of what is available to use.
+#### HTTP Password
+
+It is possible to login using a username and password combination. This method is not recommended for production use, however you find it useful never the less:
+
+```php
+$c = new Bitbucket\Client();
+
+$c->authenticate(
+    Bitbucket\Client::AUTH_HTTP_PASSWORD,
+    'your-username-here',
+    'your-password-here'
+);
+```
+
+#### JSON Web Token
+
+Finally, we support logging in using JSON web tokens (JWTs). This method is exclusively required by some of Bitbucket's API endpoints, such as the addons API. Generate your JWT, perahps using [lcobucci/jwt](https://github.com/lcobucci/jwt/tree/3.3.2), then provide it as below:
+
+
+```php
+$c = new Bitbucket\Client();
+
+$c->authenticate(
+    Bitbucket\Client::AUTH_jwt,
+    'your-jwt-here'
+);
+```
+
+### Examples
+
+In the following examples, `$client` will be an authenticated client, as above.
+
+#### Example 1
+
+It is possible to show basic information about the currently logged in user:
+
+```php
+$currentUser = $client->currentUser()->show();
+```
+
+#### Example 2
+
+It is possible to grab a repository as follows:
+
+```php
+$repository = $client->repositories()
+    ->workspaces('atlassian')
+    ->show('stash-example-plugin');
+```
+
+#### Example 3
+
+We support automatic pagination without you having to lift a finger. The following example gets all branches of a repository:
+
+```php
+$paginator = new Bitbucket\ResultPager($client);
+
+$branchesClient = $client->repositories()
+    ->workspaces('atlassianlabs')
+    ->refs('stash-log-parser'])
+    ->branches();
+
+$branches = $paginator->fetchAll($branchesClient, 'list');
+```
 
 
 ## Security
