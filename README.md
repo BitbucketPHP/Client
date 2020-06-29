@@ -53,9 +53,9 @@ There are three ways to authenticate our client:
 The most common way to authenticate is using an OAuth 2 token. You will need to generate this by some means outside of the library, and then provide it as below:
 
 ```php
-$c = new Bitbucket\Client();
+$client = new Bitbucket\Client();
 
-$c->authenticate(
+$client->authenticate(
     Bitbucket\Client::AUTH_OAUTH_TOKEN,
     'your-token-here'
 );
@@ -66,9 +66,9 @@ $c->authenticate(
 It is possible to login using a username and password combination. This method is not recommended for production use, however you find it useful never the less:
 
 ```php
-$c = new Bitbucket\Client();
+$client = new Bitbucket\Client();
 
-$c->authenticate(
+$client->authenticate(
     Bitbucket\Client::AUTH_HTTP_PASSWORD,
     'your-username-here',
     'your-password-here'
@@ -81,10 +81,10 @@ Finally, we support logging in using JSON web tokens (JWTs). This method is excl
 
 
 ```php
-$c = new Bitbucket\Client();
+$client = new Bitbucket\Client();
 
-$c->authenticate(
-    Bitbucket\Client::AUTH_jwt,
+$client->authenticate(
+    Bitbucket\Client::AUTH_JWT,
     'your-jwt-here'
 );
 ```
