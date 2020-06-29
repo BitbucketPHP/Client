@@ -34,24 +34,14 @@ class Workspaces extends AbstractRepositoriesApi
 
     /**
      * @param string $repo
-     * @param $scm
-     * @param $project_key
-     * @param $is_private
+     * @param array $params
      *
      * @return array
      *
      * @throws \Http\Client\Exception
      */
-    public function createRepository(string $repo, $scm, $project_key, $is_private)
+    public function createRepository(string $repo, array $params = [])
     {
-        $params = [
-            'scm' => $scm,
-            'project' => (object)[
-                'key' => $project_key
-            ],
-            'is_private' => $is_private
-        ];
-
         $path = $this->buildRepositoriesPath($repo).static::URI_SEPARATOR;
 
         return $this->post($path, $params);
