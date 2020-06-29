@@ -11,14 +11,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Teams;
+namespace Bitbucket\Api\Workspaces;
 
 /**
- * The following api class.
+ * The permissions api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Following extends AbstractTeamsApi
+class Permissions extends AbstractWorkspacesApi
 {
     /**
      * @param array $params
@@ -29,13 +29,13 @@ class Following extends AbstractTeamsApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildFollowingPath();
+        $path = $this->buildPermissionsPath();
 
         return $this->get($path, $params);
     }
 
     /**
-     * Build the followers path from the given parts.
+     * Build the permissions path from the given parts.
      *
      * @param string[] $parts
      *
@@ -43,8 +43,8 @@ class Following extends AbstractTeamsApi
      *
      * @return string
      */
-    protected function buildFollowingPath(string ...$parts)
+    protected function buildPermissionsPath(string ...$parts)
     {
-        return static::buildPath('teams', $this->username, 'following', ...$parts);
+        return static::buildPath('workspaces', $this->username, 'permissions', ...$parts);
     }
 }

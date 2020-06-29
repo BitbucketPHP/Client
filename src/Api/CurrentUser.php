@@ -98,9 +98,23 @@ class CurrentUser extends AbstractApi
      *
      * @return array
      */
-    public function listTeams(array $params = [])
+    public function listWorkspacePermissions(array $params = [])
     {
-        $path = static::buildPath('teams');
+        $path = $this->buildCurrentUserPath('permissions', 'workspaces');
+
+        return $this->get($path, $params);
+    }
+
+    /**
+     * @param array $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
+    public function listWorkspaces(array $params = [])
+    {
+        $path = static::buildPath('workspaces');
 
         return $this->get($path, $params);
     }

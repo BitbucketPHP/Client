@@ -11,16 +11,16 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Teams\PipelinesConfig;
+namespace Bitbucket\Api\Workspaces\PipelinesConfig;
 
-use Bitbucket\Api\Teams\AbstractTeamsApi;
+use Bitbucket\Api\Workspaces\AbstractWorkspacesApi;
 
 /**
  * The abstract pipelines config api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-abstract class AbstractPipelinesConfigApi extends AbstractTeamsApi
+abstract class AbstractPipelinesConfigApi extends AbstractWorkspacesApi
 {
     //
 }
