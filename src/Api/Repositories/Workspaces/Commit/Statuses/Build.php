@@ -67,7 +67,7 @@ class Build extends AbstractStatusesApi
     /**
      * Build the build path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

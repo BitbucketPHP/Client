@@ -39,7 +39,7 @@ class FileHistory extends AbstractWorkspacesApi
     /**
      * Build the file history path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

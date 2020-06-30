@@ -30,7 +30,7 @@ final class Authentication implements Plugin
     /**
      * The authorization header.
      *
-     * @param string
+     * @var string
      */
     private $header;
 
@@ -45,7 +45,7 @@ final class Authentication implements Plugin
      */
     public function __construct(string $method, string $token, string $password = null)
     {
-        $this->header = static::buildAuthorizationHeader($method, $token, $password);
+        $this->header = self::buildAuthorizationHeader($method, $token, $password);
     }
 
     /**
@@ -75,7 +75,7 @@ final class Authentication implements Plugin
      *
      * @return string
      */
-    protected static function buildAuthorizationHeader(string $method, string $token, string $password = null)
+    private static function buildAuthorizationHeader(string $method, string $token, string $password = null)
     {
         switch ($method) {
             case Client::AUTH_HTTP_PASSWORD:

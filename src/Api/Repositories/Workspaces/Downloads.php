@@ -86,7 +86,7 @@ class Downloads extends AbstractWorkspacesApi
     /**
      * Build the downloads path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

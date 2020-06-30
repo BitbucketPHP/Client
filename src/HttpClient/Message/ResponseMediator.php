@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\HttpClient\Message;
 
 use Bitbucket\Exception\DecodingFailedException;
+use Bitbucket\JsonArray;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -42,7 +43,7 @@ final class ResponseMediator
 
         $body = (string) $response->getBody();
 
-        if (!$body) {
+        if ($body === '') {
             return [];
         }
 
@@ -50,37 +51,7 @@ final class ResponseMediator
             throw new DecodingFailedException('The content type header was not application/json.');
         }
 
-        return self::jsonDecode($body);
-    }
-
-    /**
-     * Decode the given JSON string to an array.
-     *
-     * @param string $body
-     *
-     * @throws \Bitbucket\Exception\DecodingFailedException
-     *
-     * @return array
-     */
-    private static function jsonDecode(string $body)
-    {
-        $content = json_decode($body, true);
-
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            $msg = json_last_error_msg();
-
-            throw new DecodingFailedException(
-                'Failed to decode the json response body.'.($msg ? " {$msg}." : '')
-            );
-        }
-
-        if (!is_array($content)) {
-            throw new DecodingFailedException(
-                'Failed to decode the json response body. Expected to decode to an array.'
-            );
-        }
-
-        return $content;
+        return JsonArray::decode($body);
     }
 
     /**
@@ -93,7 +64,7 @@ final class ResponseMediator
     public static function getPagination(ResponseInterface $response)
     {
         try {
-            return array_filter(static::getContent($response), function ($key) {
+            return array_filter(self::getContent($response), function ($key) {
                 return in_array($key, ['size', 'page', 'pagelen', 'next', 'previous'], true);
             }, ARRAY_FILTER_USE_KEY);
         } catch (DecodingFailedException $e) {

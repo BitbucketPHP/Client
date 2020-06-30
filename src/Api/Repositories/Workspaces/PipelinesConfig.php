@@ -51,7 +51,7 @@ class PipelinesConfig extends AbstractWorkspacesApi
     /**
      * Build the pipelines config path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

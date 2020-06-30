@@ -109,7 +109,7 @@ class Files extends AbstractWorkspacesApi
     /**
      * Build the files path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

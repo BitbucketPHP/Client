@@ -96,7 +96,7 @@ class DeployKeys extends AbstractWorkspacesApi
     /**
      * Build the deploy keys path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

@@ -1,0 +1,27 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Anonymous function should have native return typehint \"string\"\\.$#"
+			count: 1
+			path: src/Api/AbstractApi.php
+
+		-
+			message: "#^Anonymous function should have native return typehint \"bool\"\\.$#"
+			count: 1
+			path: src/HttpClient/Message/ResponseMediator.php
+
+		-
+			message: "#^Anonymous function should have native return typehint \"Psr\\\\Http\\\\Message\\\\ResponseInterface\"\\.$#"
+			count: 1
+			path: src/HttpClient/Plugin/ExceptionThrower.php
+
+		-
+			message: "#^Variable method call on Bitbucket\\\\Api\\\\ApiInterface\\.$#"
+			count: 1
+			path: src/ResultPager.php
+
+		-
+			message: "#^Offset string does not exist on array\\|null\\.$#"
+			count: 1
+			path: src/ResultPager.php
+

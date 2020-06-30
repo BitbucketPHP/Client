@@ -105,9 +105,9 @@ final class Builder
         RequestFactory $requestFactory = null,
         StreamFactory $streamFactory = null
     ) {
-        $this->httpClient = $httpClient ?: Psr18ClientDiscovery::find();
-        $this->requestFactory = $requestFactory ?: MessageFactoryDiscovery::find();
-        $this->streamFactory = $streamFactory ?: StreamFactoryDiscovery::find();
+        $this->httpClient = $httpClient ?? Psr18ClientDiscovery::find();
+        $this->requestFactory = $requestFactory ?? MessageFactoryDiscovery::find();
+        $this->streamFactory = $streamFactory ?? StreamFactoryDiscovery::find();
     }
 
     /**
@@ -119,7 +119,7 @@ final class Builder
             $this->httpClientModified = false;
 
             $plugins = $this->plugins;
-            if ($this->cachePlugin) {
+            if ($this->cachePlugin !== null) {
                 $plugins[] = $this->cachePlugin;
             }
 
@@ -136,6 +136,8 @@ final class Builder
      * Add a new plugin to the end of the plugin chain.
      *
      * @param \Http\Client\Common\Plugin $plugin
+     *
+     * @return void
      */
     public function addPlugin(Plugin $plugin)
     {

@@ -56,6 +56,14 @@ final class History implements Journal
         $this->lastResponse = $response;
     }
 
+    /**
+     * Record a failed call.
+     *
+     * @param \Psr\Http\Message\RequestInterface        $request
+     * @param \Psr\Http\Client\ClientExceptionInterface $exception
+     *
+     * @return void
+     */
     public function addFailure(RequestInterface $request, ClientExceptionInterface $exception)
     {
     }

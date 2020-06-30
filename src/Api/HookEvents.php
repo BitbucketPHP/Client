@@ -79,7 +79,7 @@ class HookEvents extends AbstractApi
     /**
      * Build the hook events path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

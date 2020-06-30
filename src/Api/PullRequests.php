@@ -38,7 +38,7 @@ class PullRequests extends AbstractApi
     /**
      * Build the pull requests path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

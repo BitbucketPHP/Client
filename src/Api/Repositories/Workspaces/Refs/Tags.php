@@ -81,7 +81,7 @@ class Tags extends AbstractRefsApi
     /**
      * Build the tags path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

@@ -95,7 +95,7 @@ class Environments extends AbstractWorkspacesApi
     /**
      * Build the environments path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

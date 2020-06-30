@@ -120,7 +120,7 @@ class Src extends AbstractWorkspacesApi
     /**
      * Build the src path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

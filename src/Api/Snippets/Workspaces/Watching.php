@@ -65,7 +65,7 @@ class Watching extends AbstractWorkspacesApi
     /**
      * Build the watching path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

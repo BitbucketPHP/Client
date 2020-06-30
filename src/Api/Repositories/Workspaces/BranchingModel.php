@@ -65,7 +65,7 @@ class BranchingModel extends AbstractWorkspacesApi
     /**
      * Build the branching model path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

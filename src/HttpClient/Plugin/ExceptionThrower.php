@@ -20,6 +20,7 @@ use Bitbucket\Exception\DecodingFailedException;
 use Bitbucket\Exception\ServerErrorException;
 use Bitbucket\Exception\ValidationFailedException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
+use Bitbucket\JsonArray;
 use Http\Client\Common\Plugin;
 use Http\Promise\Promise;
 use Psr\Http\Message\RequestInterface;
@@ -49,7 +50,7 @@ final class ExceptionThrower implements Plugin
             $status = $response->getStatusCode();
 
             if ($status >= 400 && $status < 600) {
-                self::handleError($status, self::getMessage($response) ?: $response->getReasonPhrase());
+                self::handleError($status, self::getMessage($response) ?? $response->getReasonPhrase());
             }
 
             return $response;
@@ -59,14 +60,14 @@ final class ExceptionThrower implements Plugin
     /**
      * Handle an error response.
      *
-     * @param int         $status
-     * @param string|null $message
+     * @param int    $status
+     * @param string $message
      *
      * @throws \Bitbucket\Exception\RuntimeException
      *
      * @return void
      */
-    private static function handleError(int $status, string $message = null)
+    private static function handleError(int $status, string $message)
     {
         if ($status === 400) {
             throw new BadRequestException($message, $status);
@@ -97,17 +98,43 @@ final class ExceptionThrower implements Plugin
     private static function getMessage(ResponseInterface $response)
     {
         try {
-            if ($error = ResponseMediator::getContent($response)['error'] ?? null) {
-                if ($message = $error['message'] ?? null) {
-                    if ($detail = $error['detail'] ?? null) {
-                        return sprintf('%s: %s', $message, strtok(is_string($detail) ? $detail : json_encode($detail), "\n"));
-                    } else {
-                        return $message;
-                    }
-                }
-            }
+            $error = ResponseMediator::getContent($response)['error'] ?? null;
         } catch (DecodingFailedException $e) {
-            // return nothing
+            return null;
         }
+
+        return is_array($error) ? self::getMessageFromError($error) : null;
+    }
+
+    /**
+     * Get the error message from the error array if present.
+     *
+     * @param array $error
+     *
+     * @return string|null
+     */
+    private static function getMessageFromError(array $error)
+    {
+        $message = $error['message'] ?? '';
+
+        if (!is_string($message)) {
+            return null;
+        }
+
+        /** @var string|array $detail */
+        $detail = $error['detail'] ?? '';
+
+        /** @var string $detail */
+        $detail = strtok(is_string($detail) ? $detail : JsonArray::encode($detail), "\n");
+
+        if ($message !== '') {
+            return $detail !== '' ? sprintf('%s: %s', $message, $detail) : $message;
+        }
+
+        if ($detail !== '') {
+            return $detail;
+        }
+
+        return null;
     }
 }

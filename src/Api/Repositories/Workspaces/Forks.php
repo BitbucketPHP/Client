@@ -51,7 +51,7 @@ class Forks extends AbstractWorkspacesApi
     /**
      * Build the forks path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

@@ -122,7 +122,7 @@ class CurrentUser extends AbstractApi
     /**
      * Build the current user path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

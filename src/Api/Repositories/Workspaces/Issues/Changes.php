@@ -66,7 +66,7 @@ class Changes extends AbstractIssuesApi
     /**
      * Build the changes path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

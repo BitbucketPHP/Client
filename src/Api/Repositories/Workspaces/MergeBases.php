@@ -26,7 +26,7 @@ class MergeBases extends AbstractWorkspacesApi
      *
      * @throws \Http\Client\Exception
      *
-     * @return \Psr\Http\Message\StreamInterface
+     * @return array
      */
     public function show(string $spec, array $params = [])
     {
@@ -38,7 +38,7 @@ class MergeBases extends AbstractWorkspacesApi
     /**
      * Build the merge base path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

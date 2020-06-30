@@ -86,7 +86,7 @@ class Attachments extends AbstractIssuesApi
     /**
      * Build the attachments path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

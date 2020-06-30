@@ -15,6 +15,7 @@ namespace Bitbucket\Api;
 
 use Bitbucket\Exception\InvalidArgumentException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
+use Bitbucket\JsonArray;
 use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
@@ -125,7 +126,7 @@ abstract class AbstractApi implements ApiInterface
             $params['pagelen'] = $this->perPage;
         }
 
-        if ($params) {
+        if (count($params) === 0) {
             $path .= '?'.http_build_query($params);
         }
 
@@ -147,7 +148,7 @@ abstract class AbstractApi implements ApiInterface
     {
         $body = self::createJsonBody($params);
 
-        if ($body) {
+        if ($body !== null) {
             $headers = self::addJsonContentType($headers);
         }
 
@@ -187,7 +188,7 @@ abstract class AbstractApi implements ApiInterface
     {
         $body = self::createJsonBody($params);
 
-        if ($body) {
+        if ($body !== null) {
             $headers = self::addJsonContentType($headers);
         }
 
@@ -227,7 +228,7 @@ abstract class AbstractApi implements ApiInterface
     {
         $body = self::createJsonBody($params);
 
-        if ($body) {
+        if ($body !== null) {
             $headers = self::addJsonContentType($headers);
         }
 
@@ -255,7 +256,7 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Build a URL path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *
@@ -263,8 +264,8 @@ abstract class AbstractApi implements ApiInterface
      */
     protected static function buildPath(string ...$parts)
     {
-        $parts = array_map(function (string $part) {
-            if (!$part) {
+        $parts = array_map(function (string $part)  {
+            if ($part === '') {
                 throw new InvalidArgumentException('Missing required parameter.');
             }
 
@@ -295,17 +296,19 @@ abstract class AbstractApi implements ApiInterface
      */
     private static function createJsonBody(array $params)
     {
-        if ($params) {
-            return json_encode($params);
+        if (count($params) === 0) {
+            return JsonArray::encode($params);
         }
+
+        return null;
     }
 
     /**
      * Add the JSON content type to the headers if one is not already present.
      *
-     * @param array $headers
+     * @param array<string,string> $headers
      *
-     * @return array
+     * @return array<string,string>
      */
     private static function addJsonContentType(array $headers)
     {

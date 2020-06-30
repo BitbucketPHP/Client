@@ -96,7 +96,7 @@ class Values extends AbstractLinkersApi
     /**
      * Build the values path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

@@ -96,7 +96,7 @@ class Hooks extends AbstractWorkspacesApi
     /**
      * Build the hooks path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

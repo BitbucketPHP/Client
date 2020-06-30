@@ -83,7 +83,7 @@ class Client
      */
     public function __construct(Builder $httpClientBuilder = null)
     {
-        $this->httpClientBuilder = $builder = $httpClientBuilder ?: new Builder();
+        $this->httpClientBuilder = $builder = $httpClientBuilder ?? new Builder();
         $this->responseHistory = new History();
 
         $builder->addPlugin(new ExceptionThrower());

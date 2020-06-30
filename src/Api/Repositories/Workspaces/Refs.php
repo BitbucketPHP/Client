@@ -56,7 +56,7 @@ class Refs extends AbstractWorkspacesApi
     /**
      * Build the refs path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

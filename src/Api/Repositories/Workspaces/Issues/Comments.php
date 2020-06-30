@@ -95,7 +95,7 @@ class Comments extends AbstractIssuesApi
     /**
      * Build the comments path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

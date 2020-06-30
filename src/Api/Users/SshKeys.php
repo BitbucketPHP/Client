@@ -96,7 +96,7 @@ class SshKeys extends AbstractUsersApi
     /**
      * Build the ssh keys path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

@@ -122,10 +122,12 @@ class ResultPager implements ResultPagerInterface
      */
     public function postFetch()
     {
-        if ($response = $this->client->getLastResponse()) {
-            $this->pagination = ResponseMediator::getPagination($response);
-        } else {
+        $response = $this->client->getLastResponse();
+
+        if ($response === null) {
             $this->pagination = null;
+        } else {
+            $this->pagination = ResponseMediator::getPagination($response);
         }
     }
 

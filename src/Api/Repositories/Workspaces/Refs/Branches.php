@@ -81,7 +81,7 @@ class Branches extends AbstractRefsApi
     /**
      * Build the branches path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

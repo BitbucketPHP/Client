@@ -285,7 +285,7 @@ class Workspaces extends AbstractRepositoriesApi
     /**
      * @param string $repo
      *
-     * @return \Bitbucket\Api\Repositories\Workspaces\Patches
+     * @return \Bitbucket\Api\Repositories\Workspaces\MergeBases
      */
     public function mergeBases(string $repo)
     {
@@ -395,7 +395,7 @@ class Workspaces extends AbstractRepositoriesApi
     /**
      * Build the workspaces path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

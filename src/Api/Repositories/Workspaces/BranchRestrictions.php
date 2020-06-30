@@ -96,7 +96,7 @@ class BranchRestrictions extends AbstractWorkspacesApi
     /**
      * Build the branch restrictions path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *

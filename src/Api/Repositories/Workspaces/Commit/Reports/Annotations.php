@@ -96,7 +96,7 @@ class Annotations extends AbstractReportsApi
     /**
      * Annotations the build path from the given parts.
      *
-     * @param string[] $parts
+     * @param string ...$parts
      *
      * @throws \Bitbucket\Exception\InvalidArgumentException
      *
