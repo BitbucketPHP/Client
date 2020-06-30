@@ -60,6 +60,6 @@ class Members extends AbstractWorkspacesApi
      */
     protected function buildMembersPath(string ...$parts)
     {
-        return static::buildPath('workspaces', $this->username, 'members', ...$parts);
+        return static::buildPath('workspaces', $this->workspace, 'members', ...$parts);
     }
 }

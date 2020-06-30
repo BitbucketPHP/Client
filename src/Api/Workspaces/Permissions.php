@@ -45,6 +45,6 @@ class Permissions extends AbstractWorkspacesApi
      */
     protected function buildPermissionsPath(string ...$parts)
     {
-        return static::buildPath('workspaces', $this->username, 'permissions', ...$parts);
+        return static::buildPath('workspaces', $this->workspace, 'permissions', ...$parts);
     }
 }

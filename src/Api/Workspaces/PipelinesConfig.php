@@ -27,7 +27,7 @@ class PipelinesConfig extends AbstractWorkspacesApi
      */
     public function variables()
     {
-        return new Variables($this->getHttpClient(), $this->username);
+        return new Variables($this->getHttpClient(), $this->workspace);
     }
 
     /**
@@ -41,6 +41,6 @@ class PipelinesConfig extends AbstractWorkspacesApi
      */
     protected function buildPipelinesConfigPath(string ...$parts)
     {
-        return static::buildPath('workspaces', $this->username, 'pipelines_config', ...$parts);
+        return static::buildPath('workspaces', $this->workspace, 'pipelines_config', ...$parts);
     }
 }

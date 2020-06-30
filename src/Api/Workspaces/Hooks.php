@@ -104,6 +104,6 @@ class Hooks extends AbstractWorkspacesApi
      */
     protected function buildHooksPath(string ...$parts)
     {
-        return static::buildPath('workspaces', $this->username, 'hooks', ...$parts);
+        return static::buildPath('workspaces', $this->workspace, 'hooks', ...$parts);
     }
 }

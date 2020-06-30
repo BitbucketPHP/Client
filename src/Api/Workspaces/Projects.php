@@ -104,6 +104,6 @@ class Projects extends AbstractWorkspacesApi
      */
     protected function buildProjectsPath(string ...$parts)
     {
-        return static::buildPath('workspaces', $this->username, 'projects', ...$parts);
+        return static::buildPath('workspaces', $this->workspace, 'projects', ...$parts);
     }
 }

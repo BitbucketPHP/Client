@@ -104,6 +104,6 @@ class Variables extends AbstractPipelinesConfigApi
      */
     protected function buildVariablesPath(string ...$parts)
     {
-        return static::buildPath('workspaces', $this->username, 'pipelines_config', 'variables', ...$parts);
+        return static::buildPath('workspaces', $this->workspace, 'pipelines_config', 'variables', ...$parts);
     }
 }
