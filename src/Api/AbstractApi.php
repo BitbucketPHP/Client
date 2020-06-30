@@ -264,7 +264,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected static function buildPath(string ...$parts)
     {
-        $parts = array_map(function (string $part)  {
+        $parts = array_map(function (string $part) {
             if ($part === '') {
                 throw new InvalidArgumentException('Missing required parameter.');
             }
