@@ -1,0 +1,529 @@
+{
+  "pagelen":10,
+  "values":[
+    {
+      "description": "",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/john_doe/projects/Atlassian1"
+        },
+        "html": {
+          "href": "https://bitbucket.org/john_doe/workspace/projects/Atlassian1"
+        },
+        "repositories": {
+          "href": "https://api.bitbucket.org/2.0/repositories/john_doe?q=project.key=\"Atlassian1\""
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/user/john_doe/projects/Atlassian1/avatar/32?ts=1592993838"
+        }
+      },
+      "uuid": "{f38daeea-d64f-44f7-afc8-f972d09b1d08}",
+      "created_on": "2020-06-24T10:17:18.875720+00:00",
+      "workspace": {
+        "slug": "john_doe",
+        "type": "workspace",
+        "name": "john-doe",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/workspaces/john_doe"
+          },
+          "html": {
+            "href": "https://bitbucket.org/john_doe/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/workspaces/john_doe/avatar/?ts=1571998380"
+          }
+        },
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}"
+      },
+      "key": "Atlassian1",
+      "owner": {
+        "username": "john_doe",
+        "display_name": "john-doe",
+        "type": "team",
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D"
+          },
+          "html": {
+            "href": "https://bitbucket.org/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/john_doe/avatar/"
+          }
+        }
+      },
+      "updated_on": "2020-06-24T10:17:18.875739+00:00",
+      "type": "project",
+      "is_private": true,
+      "name": "Atlassian1"
+    },
+    {
+      "description": null,
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/john_doe/projects/Atlassian2"
+        },
+        "html": {
+          "href": "https://bitbucket.org/john_doe/workspace/projects/Atlassian2"
+        },
+        "repositories": {
+          "href": "https://api.bitbucket.org/2.0/repositories/john_doe?q=project.key=\"Atlassian2\""
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/user/john_doe/projects/Atlassian2/avatar/32?ts=1589292488"
+        }
+      },
+      "uuid": "{320ae6b5-04a2-495e-8ef2-642cd50817ba}",
+      "created_on": "2020-05-12T14:08:08.062102+00:00",
+      "workspace": {
+        "slug": "john_doe",
+        "type": "workspace",
+        "name": "john-doe",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/workspaces/john_doe"
+          },
+          "html": {
+            "href": "https://bitbucket.org/john_doe/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/workspaces/john_doe/avatar/?ts=1571998380"
+          }
+        },
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}"
+      },
+      "key": "Atlassian2",
+      "owner": {
+        "username": "john_doe",
+        "display_name": "john-doe",
+        "type": "team",
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D"
+          },
+          "html": {
+            "href": "https://bitbucket.org/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/john_doe/avatar/"
+          }
+        }
+      },
+      "updated_on": "2020-05-12T14:08:08.062141+00:00",
+      "type": "project",
+      "is_private": false,
+      "name": "Atlassian2"
+    },
+    {
+      "description": null,
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/john_doe/projects/Atlassian3"
+        },
+        "html": {
+          "href": "https://bitbucket.org/john_doe/workspace/projects/Atlassian3"
+        },
+        "repositories": {
+          "href": "https://api.bitbucket.org/2.0/repositories/john_doe?q=project.key=\"Atlassian3\""
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/user/john_doe/projects/Atlassian3/avatar/32?ts=1588922476"
+        }
+      },
+      "uuid": "{fa26f90b-26bb-4ce5-9253-1ba44c5307df}",
+      "created_on": "2020-05-08T07:21:16.638095+00:00",
+      "workspace": {
+        "slug": "john_doe",
+        "type": "workspace",
+        "name": "john-doe",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/workspaces/john_doe"
+          },
+          "html": {
+            "href": "https://bitbucket.org/john_doe/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/workspaces/john_doe/avatar/?ts=1571998380"
+          }
+        },
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}"
+      },
+      "key": "Atlassian3",
+      "owner": {
+        "username": "john_doe",
+        "display_name": "john-doe",
+        "type": "team",
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D"
+          },
+          "html": {
+            "href": "https://bitbucket.org/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/john_doe/avatar/"
+          }
+        }
+      },
+      "updated_on": "2020-05-08T07:21:16.638109+00:00",
+      "type": "project",
+      "is_private": false,
+      "name": "Atlassian3"
+    },
+    {
+      "description": "",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/john_doe/projects/Atlassian4"
+        },
+        "html": {
+          "href": "https://bitbucket.org/john_doe/workspace/projects/Atlassian4"
+        },
+        "repositories": {
+          "href": "https://api.bitbucket.org/2.0/repositories/john_doe?q=project.key=\"Atlassian4\""
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/user/john_doe/projects/Atlassian4/avatar/32?ts=1582298430"
+        }
+      },
+      "uuid": "{6a489fd0-08a4-4915-9e64-4add52c0b1e6}",
+      "created_on": "2020-02-21T15:19:50.594200+00:00",
+      "workspace": {
+        "slug": "john_doe",
+        "type": "workspace",
+        "name": "john-doe",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/workspaces/john_doe"
+          },
+          "html": {
+            "href": "https://bitbucket.org/john_doe/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/workspaces/john_doe/avatar/?ts=1571998380"
+          }
+        },
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}"
+      },
+      "key": "Atlassian4",
+      "owner": {
+        "username": "john_doe",
+        "display_name": "john-doe",
+        "type": "team",
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D"
+          },
+          "html": {
+            "href": "https://bitbucket.org/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/john_doe/avatar/"
+          }
+        }
+      },
+      "updated_on": "2020-02-21T15:20:30.301162+00:00",
+      "type": "project",
+      "is_private": false,
+      "name": "Atlassian4"
+    },
+    {
+      "description": "",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/john_doe/projects/Atlassian5"
+        },
+        "html": {
+          "href": "https://bitbucket.org/john_doe/workspace/projects/Atlassian5"
+        },
+        "repositories": {
+          "href": "https://api.bitbucket.org/2.0/repositories/john_doe?q=project.key=\"Atlassian5\""
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/user/john_doe/projects/Atlassian5/avatar/32?ts=1580310154"
+        }
+      },
+      "uuid": "{a04d2b8e-04b5-4dbb-abad-a10517d9f418}",
+      "created_on": "2020-01-29T15:02:34.818938+00:00",
+      "workspace": {
+        "slug": "john_doe",
+        "type": "workspace",
+        "name": "john-doe",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/workspaces/john_doe"
+          },
+          "html": {
+            "href": "https://bitbucket.org/john_doe/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/workspaces/john_doe/avatar/?ts=1571998380"
+          }
+        },
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}"
+      },
+      "key": "Atlassian5",
+      "owner": {
+        "username": "john_doe",
+        "display_name": "john-doe",
+        "type": "team",
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D"
+          },
+          "html": {
+            "href": "https://bitbucket.org/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/john_doe/avatar/"
+          }
+        }
+      },
+      "updated_on": "2020-01-29T15:02:34.818955+00:00",
+      "type": "project",
+      "is_private": true,
+      "name": "Atlassian5"
+    },
+    {
+      "description": "",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/john_doe/projects/Atlassian6"
+        },
+        "html": {
+          "href": "https://bitbucket.org/john_doe/workspace/projects/Atlassian6"
+        },
+        "repositories": {
+          "href": "https://api.bitbucket.org/2.0/repositories/john_doe?q=project.key=\"Atlassian6\""
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/user/john_doe/projects/Atlassian6/avatar/32?ts=1574078583"
+        }
+      },
+      "uuid": "{81f98281-973f-4cf2-a6a9-8a31e3872211}",
+      "created_on": "2019-11-18T11:59:29.084414+00:00",
+      "workspace": {
+        "slug": "john_doe",
+        "type": "workspace",
+        "name": "john-doe",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/workspaces/john_doe"
+          },
+          "html": {
+            "href": "https://bitbucket.org/john_doe/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/workspaces/john_doe/avatar/?ts=1571998380"
+          }
+        },
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}"
+      },
+      "key": "Atlassian6",
+      "owner": {
+        "username": "john_doe",
+        "display_name": "john-doe",
+        "type": "team",
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D"
+          },
+          "html": {
+            "href": "https://bitbucket.org/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/john_doe/avatar/"
+          }
+        }
+      },
+      "updated_on": "2019-11-18T12:03:03.696455+00:00",
+      "type": "project",
+      "is_private": true,
+      "name": "Atlassian6"
+    },
+    {
+      "description": "",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/john_doe/projects/Atlassian7"
+        },
+        "html": {
+          "href": "https://bitbucket.org/john_doe/workspace/projects/Atlassian7"
+        },
+        "repositories": {
+          "href": "https://api.bitbucket.org/2.0/repositories/john_doe?q=project.key=\"Atlassian7\""
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/user/john_doe/projects/Atlassian7/avatar/32?ts=1593011466"
+        }
+      },
+      "uuid": "{95d40011-a2ef-4e27-ba05-899e0fa9b3bd}",
+      "created_on": "2019-11-06T14:25:50.773844+00:00",
+      "workspace": {
+        "slug": "john_doe",
+        "type": "workspace",
+        "name": "john-doe",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/workspaces/john_doe"
+          },
+          "html": {
+            "href": "https://bitbucket.org/john_doe/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/workspaces/john_doe/avatar/?ts=1571998380"
+          }
+        },
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}"
+      },
+      "key": "Atlassian7",
+      "owner": {
+        "username": "john_doe",
+        "display_name": "john-doe",
+        "type": "team",
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D"
+          },
+          "html": {
+            "href": "https://bitbucket.org/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/john_doe/avatar/"
+          }
+        }
+      },
+      "updated_on": "2020-06-24T15:11:06.066911+00:00",
+      "type": "project",
+      "is_private": false,
+      "name": "Atlassian7"
+    },
+    {
+      "description": null,
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/john_doe/projects/Atlassian8"
+        },
+        "html": {
+          "href": "https://bitbucket.org/john_doe/workspace/projects/Atlassian8"
+        },
+        "repositories": {
+          "href": "https://api.bitbucket.org/2.0/repositories/john_doe?q=project.key=\"Atlassian8\""
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/user/john_doe/projects/Atlassian8/avatar/32?ts=1572018611"
+        }
+      },
+      "uuid": "{07be1185-daff-4879-b75e-9f9d1a10fcb1}",
+      "created_on": "2019-10-25T15:50:11.938768+00:00",
+      "workspace": {
+        "slug": "john_doe",
+        "type": "workspace",
+        "name": "john-doe",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/workspaces/john_doe"
+          },
+          "html": {
+            "href": "https://bitbucket.org/john_doe/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/workspaces/john_doe/avatar/?ts=1571998380"
+          }
+        },
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}"
+      },
+      "key": "Atlassian8",
+      "owner": {
+        "username": "john_doe",
+        "display_name": "john-doe",
+        "type": "team",
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D"
+          },
+          "html": {
+            "href": "https://bitbucket.org/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/john_doe/avatar/"
+          }
+        }
+      },
+      "updated_on": "2019-10-25T15:50:11.938787+00:00",
+      "type": "project",
+      "is_private": false,
+      "name": "Atlassian8"
+    },
+    {
+      "description": "",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/john_doe/projects/Atlassian9"
+        },
+        "html": {
+          "href": "https://bitbucket.org/john_doe/workspace/projects/Atlassian9"
+        },
+        "repositories": {
+          "href": "https://api.bitbucket.org/2.0/repositories/john_doe?q=project.key=\"Atlassian9\""
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/user/john_doe/projects/Atlassian9/avatar/32?ts=1571998444"
+        }
+      },
+      "uuid": "{9b15c9a7-6d6f-4639-ae23-c86307e19a89}",
+      "created_on": "2019-10-25T10:14:04.450212+00:00",
+      "workspace": {
+        "slug": "john_doe",
+        "type": "workspace",
+        "name": "john-doe",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/workspaces/john_doe"
+          },
+          "html": {
+            "href": "https://bitbucket.org/john_doe/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/workspaces/john_doe/avatar/?ts=1571998380"
+          }
+        },
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}"
+      },
+      "key": "Atlassian9",
+      "owner": {
+        "username": "john_doe",
+        "display_name": "john-doe",
+        "type": "team",
+        "uuid": "{eaf34f99-08d3-4888-ac79-b806e8927edd}",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/teams/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D"
+          },
+          "html": {
+            "href": "https://bitbucket.org/%7Beaf34f99-08d3-4888-ac79-b806e8927edd%7D/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/john_doe/avatar/"
+          }
+        }
+      },
+      "updated_on": "2019-10-25T10:14:04.450232+00:00",
+      "type": "project",
+      "is_private": true,
+      "name": "Atlassian9"
+    }
+  ],
+  "page":1,
+  "size":9
+}
