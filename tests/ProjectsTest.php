@@ -4,7 +4,6 @@ namespace Bitbucket\Tests;
 
 use Bitbucket\Tests\responses\ProjectCreateResponse;
 use Bitbucket\Tests\responses\ProjectRemoveResponse;
-use Bitbucket\Tests\responses\ProjectsAllResponse;
 use Bitbucket\Tests\responses\ProjectsListResponse;
 use Bitbucket\Tests\responses\ProjectsShowResponse;
 use Bitbucket\Tests\responses\ProjectUpdateResponse;
