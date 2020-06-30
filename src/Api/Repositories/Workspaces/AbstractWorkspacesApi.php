@@ -17,7 +17,7 @@ use Bitbucket\Api\Repositories\AbstractRepositoriesApi;
 use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
- * The abstract users api class.
+ * The abstract workspaces api class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -34,12 +34,12 @@ abstract class AbstractWorkspacesApi extends AbstractRepositoriesApi
      * Create a new api instance.
      *
      * @param \Http\Client\Common\HttpMethodsClientInterface $client
-     * @param string                                         $username
+     * @param string                                         $workspace
      * @param string                                         $repo
      */
-    public function __construct(HttpMethodsClientInterface $client, string $username, string $repo)
+    public function __construct(HttpMethodsClientInterface $client, string $workspace, string $repo)
     {
-        parent::__construct($client, $username);
+        parent::__construct($client, $workspace);
         $this->repo = $repo;
     }
 }

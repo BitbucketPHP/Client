@@ -19,7 +19,6 @@ use Bitbucket\Api\HookEvents;
 use Bitbucket\Api\PullRequests;
 use Bitbucket\Api\Repositories;
 use Bitbucket\Api\Snippets;
-use Bitbucket\Api\Teams;
 use Bitbucket\Api\Users;
 use Bitbucket\Api\Workspaces;
 use Bitbucket\HttpClient\Builder;
@@ -41,18 +40,25 @@ use Http\Discovery\UriFactoryDiscovery;
 class Client
 {
     /**
-     * The oauth token authentication method.
+     * The OAuth 2 token authentication method.
      *
      * @var string
      */
-    const AUTH_OAUTH_TOKEN = 'oauth_token';
+    public const AUTH_OAUTH_TOKEN = 'oauth_token';
 
     /**
-     * The http password authentication method.
+     * The HTTP password authentication method.
      *
      * @var string
      */
-    const AUTH_HTTP_PASSWORD = 'http_password';
+    public const AUTH_HTTP_PASSWORD = 'http_password';
+
+    /**
+     * The JSON web token authentication method.
+     *
+     * @var string
+     */
+    public const AUTH_JWT = 'jwt';
 
     /**
      * The bitbucket http client builder.
@@ -86,7 +92,7 @@ class Client
 
         $builder->addPlugin(new HeaderDefaultsPlugin([
             'Accept'     => 'application/json',
-            'User-Agent' => 'bitbucket-api-client/1.1',
+            'User-Agent' => 'bitbucket-api-client/3.0',
         ]));
 
         $this->setUrl('https://api.bitbucket.org');
@@ -151,21 +157,21 @@ class Client
     /**
      * @param string $username
      *
-     * @return \Bitbucket\Api\Teams
-     */
-    public function teams(string $username)
-    {
-        return new Teams($this->getHttpClient(), $username);
-    }
-
-    /**
-     * @param string $username
-     *
      * @return \Bitbucket\Api\Users
      */
     public function users(string $username)
     {
         return new Users($this->getHttpClient(), $username);
+    }
+
+    /**
+     * @param string $workspace
+     *
+     * @return \Bitbucket\Api\Workspaces
+     */
+    public function workspaces(string $workspace)
+    {
+        return new Workspaces($this->getHttpClient(), $workspace);
     }
 
     /**

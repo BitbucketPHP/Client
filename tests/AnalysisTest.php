@@ -21,7 +21,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class AnalysisTest extends TestCase
+final class AnalysisTest extends TestCase
 {
     use AnalysisTrait;
 

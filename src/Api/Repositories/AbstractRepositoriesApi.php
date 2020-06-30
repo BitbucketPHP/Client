@@ -24,21 +24,21 @@ use Http\Client\Common\HttpMethodsClientInterface;
 abstract class AbstractRepositoriesApi extends AbstractApi
 {
     /**
-     * The username.
+     * The workspace.
      *
      * @var string
      */
-    protected $username;
+    protected $workspace;
 
     /**
      * Create a new api instance.
      *
      * @param \Http\Client\Common\HttpMethodsClientInterface $client
-     * @param string                                         $username
+     * @param string                                         $workspace
      */
-    public function __construct(HttpMethodsClientInterface $client, string $username)
+    public function __construct(HttpMethodsClientInterface $client, string $workspace)
     {
         parent::__construct($client);
-        $this->username = $username;
+        $this->workspace = $workspace;
     }
 }

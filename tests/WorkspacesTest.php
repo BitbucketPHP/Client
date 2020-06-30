@@ -32,6 +32,6 @@ class WorkspacesTest extends TestCase
         $client = $this->getClient($response);
         $workspace = $client->workspaces()->show('john_doe');
 
-        $this->assertCount(7, $workspace); //TODO fare ulteriori check
+        $this->assertCount(7, $workspace);
     }
 }

@@ -24,7 +24,7 @@ use Psr\Http\Message\ResponseInterface;
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  * @author Graham Campbell <graham@alt-three.com>
  */
-class History implements Journal
+final class History implements Journal
 {
     /**
      * The last response.

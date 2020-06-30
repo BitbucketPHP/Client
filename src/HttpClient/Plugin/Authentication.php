@@ -25,7 +25,7 @@ use Psr\Http\Message\RequestInterface;
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  * @author Graham Campbell <graham@alt-three.com>
  */
-class Authentication implements Plugin
+final class Authentication implements Plugin
 {
     /**
      * The authorization header.
@@ -82,6 +82,8 @@ class Authentication implements Plugin
                 return sprintf('Basic %s', base64_encode($token.':'.$password));
             case Client::AUTH_OAUTH_TOKEN:
                 return sprintf('Bearer %s', $token);
+            case Client::AUTH_JWT:
+                return sprintf('JWT %s', $token);
         }
 
         throw new RuntimeException(sprintf('Authentication method "%s" not implemented.', $method));

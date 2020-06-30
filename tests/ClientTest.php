@@ -22,7 +22,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class ClientTest extends TestCase
+final class ClientTest extends TestCase
 {
     public function testCreateClient()
     {
@@ -38,7 +38,7 @@ class ClientTest extends TestCase
 
         $response = $client
             ->repositories()
-            ->users('atlassian')
+            ->workspaces('atlassian')
             ->show('stash-example-plugin');
 
         $this->assertIsArray($response);
