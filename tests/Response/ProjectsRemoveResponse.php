@@ -27,7 +27,7 @@ final class ProjectsRemoveResponse
     /**
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function create()
+    public static function create()
     {
         $body = Resource::get('projects-remove-success.json');
 

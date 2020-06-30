@@ -28,8 +28,8 @@ final class ClientTest extends TestCase
     {
         $client = new Client();
 
-        $this->assertInstanceOf(Client::class, $client);
-        $this->assertInstanceOf(HttpMethodsClient::class, $client->getHttpClient());
+        self::assertInstanceOf(Client::class, $client);
+        self::assertInstanceOf(HttpMethodsClient::class, $client->getHttpClient());
     }
 
     public function testShowRepo()
@@ -41,8 +41,8 @@ final class ClientTest extends TestCase
             ->workspaces('atlassian')
             ->show('stash-example-plugin');
 
-        $this->assertIsArray($response);
-        $this->assertTrue(isset($response['uuid']));
-        $this->assertSame('{7dd600e6-0d9c-4801-b967-cb4cc17359ff}', $response['uuid']);
+        self::assertIsArray($response);
+        self::assertTrue(isset($response['uuid']));
+        self::assertSame('{7dd600e6-0d9c-4801-b967-cb4cc17359ff}', $response['uuid']);
     }
 }

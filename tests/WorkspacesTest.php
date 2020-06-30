@@ -32,7 +32,7 @@ final class WorkspacesTest extends TestCase
 
         $response = $client->workspaces('my-workspace')->show();
 
-        $this->assertIsArray($response);
-        $this->assertCount(7, $response);
+        self::assertIsArray($response);
+        self::assertCount(7, $response);
     }
 }

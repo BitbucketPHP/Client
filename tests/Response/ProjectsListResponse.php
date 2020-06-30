@@ -27,7 +27,7 @@ final class ProjectsListResponse
     /**
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function create()
+    public static function create()
     {
         $body = Resource::get('projects-list-success.json');
 

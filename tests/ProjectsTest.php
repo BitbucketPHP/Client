@@ -39,8 +39,8 @@ final class ProjectsTest extends TestCase
             ->projects()
             ->list();
 
-        $this->assertIsArray($response);
-        $this->assertCount(9, $response['values']);
+        self::assertIsArray($response);
+        self::assertCount(9, $response['values']);
     }
 
     public function testProjectShow()
@@ -54,8 +54,8 @@ final class ProjectsTest extends TestCase
             ->projects()
             ->show('Atlassian1');
 
-        $this->assertIsArray($response);
-        $this->assertCount(11, $response);
+        self::assertIsArray($response);
+        self::assertCount(11, $response);
     }
 
     public function testProjectCreate()
@@ -81,8 +81,8 @@ final class ProjectsTest extends TestCase
             ->projects()
             ->create($params);
 
-        $this->assertIsArray($response);
-        $this->assertCount(11, $response);
+        self::assertIsArray($response);
+        self::assertCount(11, $response);
     }
 
     public function testProjectUpdate()
@@ -108,8 +108,8 @@ final class ProjectsTest extends TestCase
             ->projects()
             ->update('Atlassian1', $params);
 
-        $this->assertIsArray($response);
-        $this->assertCount(11, $response);
+        self::assertIsArray($response);
+        self::assertCount(11, $response);
     }
 
     public function testProjectRemove()
@@ -123,7 +123,7 @@ final class ProjectsTest extends TestCase
             ->projects()
             ->remove('Atlassian1');
 
-        $this->assertIsArray($response);
-        $this->assertCount(0, $response);
+        self::assertIsArray($response);
+        self::assertCount(0, $response);
     }
 }
