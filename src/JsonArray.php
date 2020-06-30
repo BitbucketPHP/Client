@@ -28,9 +28,9 @@ final class JsonArray
      *
      * @param string $json
      *
-     * @return array
-     *
      * @throws \Bitbucket\Exception\DecodingFailedException
+     *
+     * @return array
      */
     public static function decode(string $json)
     {
@@ -44,7 +44,7 @@ final class JsonArray
 
         if (!\is_array($data)) {
             throw new DecodingFailedException(
-                sprintf('json_decode error: Expected JSON of type array, %s given.', get_debug_type($data)) 
+                sprintf('json_decode error: Expected JSON of type array, %s given.', get_debug_type($data))
             );
         }
 
@@ -56,9 +56,9 @@ final class JsonArray
      *
      * @param array $value
      *
-     * @return string
-     *
      * @throws \Bitbucket\Exception\EncodingFailedException
+     *
+     * @return string
      */
     public static function encode(array $value)
     {
