@@ -1,0 +1,34 @@
+{
+  "uuid":"{eaf34f99-08d3-4888-ac79-b806e8927edd}",
+  "links":{
+    "owners":{
+      "href":"https://api.bitbucket.org/2.0/workspaces/john_doe/members?q=permission%3D%22owner%22"
+    },
+    "self":{
+      "href":"https://api.bitbucket.org/2.0/workspaces/john_doe"
+    },
+    "repositories":{
+      "href":"https://api.bitbucket.org/2.0/repositories/john_doe"
+    },
+    "snippets":{
+      "href":"https://api.bitbucket.org/2.0/snippets/john_doe"
+    },
+    "html":{
+      "href":"https://bitbucket.org/john_doe/"
+    },
+    "avatar":{
+      "href":"https://bitbucket.org/workspaces/john_doe/avatar/?ts=1571998380"
+    },
+    "members":{
+      "href":"https://api.bitbucket.org/2.0/workspaces/john_doe/members"
+    },
+    "projects":{
+      "href":"https://api.bitbucket.org/2.0/workspaces/john_doe/projects"
+    }
+  },
+  "created_on":"2019-10-25T10:13:00.687887+00:00",
+  "type":"workspace",
+  "slug":"john_doe",
+  "is_private":false,
+  "name":"John Doe"
+}
