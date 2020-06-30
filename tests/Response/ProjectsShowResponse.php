@@ -15,7 +15,6 @@ namespace Bitbucket\Tests\Response;
 
 use Bitbucket\Tests\Resource;
 use GuzzleHttp\Psr7\Response;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * This is the projects show response.
