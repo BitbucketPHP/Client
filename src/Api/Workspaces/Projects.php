@@ -37,25 +37,6 @@ class Projects extends AbstractWorkspacesApi
     }
 
     /**
-     * @throws \Http\Client\Exception
-     *
-     * @return array
-     */
-    public function all()
-    {
-        $projects = [];
-        $page = 1;
-
-        do {
-            $project = $this->list(['page' => $page]);
-            $projects = array_merge($projects, $project['values']);
-            $page++;
-        } while (isset($project['next']));
-
-        return $projects;
-    }
-
-    /**
      * @param array $params
      *
      * @throws \Http\Client\Exception
@@ -125,6 +106,6 @@ class Projects extends AbstractWorkspacesApi
      */
     protected function buildProjectsPath(string ...$parts)
     {
-        return static::buildPath('workspaces', $this->username, 'projects', ...$parts);
+        return static::buildPath('workspaces', $this->workspace, 'projects', ...$parts);
     }
 }

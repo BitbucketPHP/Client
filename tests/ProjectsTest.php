@@ -11,20 +11,11 @@ use Bitbucket\Tests\responses\ProjectUpdateResponse;
 
 class ProjectsTest extends TestCase
 {
-    public function test_projects_all()
-    {
-        $response = new ProjectsAllResponse();
-        $client = $this->getClient($response);
-        $projects = $client->teams('john_doe')->projects()->all();
-
-        $this->assertCount(11, $projects);
-    }
-
     public function test_projects_list()
     {
         $response = new ProjectsListResponse();
         $client = $this->getClient($response);
-        $projects = $client->teams('john_doe')->projects()->list();
+        $projects = $client->workspaces('my-workspace')->projects()->list();
 
         $this->assertCount(9, $projects['values']);
     }
@@ -33,7 +24,7 @@ class ProjectsTest extends TestCase
     {
         $response = new ProjectsShowResponse();
         $client = $this->getClient($response);
-        $project = $client->teams('john_doe')->projects()->show('Atlassian1');
+        $project = $client->workspaces('my-workspace')->projects()->show('Atlassian1');
 
         $this->assertCount(11, $project);
     }
@@ -55,7 +46,7 @@ class ProjectsTest extends TestCase
             'is_private' => true,
         ];
 
-        $project = $client->teams('john_doe')->projects()->create(
+        $project = $client->workspaces('my-workspace')->projects()->create(
             $params
         );
 
@@ -79,7 +70,7 @@ class ProjectsTest extends TestCase
             'is_private' => true,
         ];
 
-        $project = $client->teams('john_doe')->projects()->update(
+        $project = $client->workspaces('my-workspace')->projects()->update(
             'Atlassian1',
             $params
         );
@@ -92,7 +83,7 @@ class ProjectsTest extends TestCase
         $response = new ProjectRemoveResponse();
         $client = $this->getClient($response);
 
-        $project = $client->teams('john_doe')->projects()->remove(
+        $project = $client->workspaces('my-workspace')->projects()->remove(
             'Atlassian1'
         );
 

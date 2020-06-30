@@ -8,20 +8,11 @@ use Bitbucket\Tests\responses\WorkspacesShowResponse;
 
 class WorkspacesTest extends TestCase
 {
-    public function test_workspaces_all()
-    {
-        $response = new WorkspacesAllResponse();
-        $client = $this->getClient($response);
-        $workspaces = $client->workspaces()->all();
-
-        $this->assertCount(11, $workspaces);
-    }
-
     public function test_workspaces_list()
     {
         $response = new WorkspacesListResponse();
         $client = $this->getClient($response);
-        $workspaces = $client->workspaces()->list();
+        $workspaces = $client->workspaces('my-workspace')->list();
 
         $this->assertCount(4, $workspaces);
     }
@@ -30,7 +21,7 @@ class WorkspacesTest extends TestCase
     {
         $response = new WorkspacesShowResponse();
         $client = $this->getClient($response);
-        $workspace = $client->workspaces()->show('john_doe');
+        $workspace = $client->workspaces('my-workspace')->show();
 
         $this->assertCount(7, $workspace);
     }

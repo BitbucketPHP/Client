@@ -139,14 +139,6 @@ class Client
     }
 
     /**
-     * @return \Bitbucket\Api\Workspaces
-     */
-    public function workspaces()
-    {
-        return new Workspaces($this->getHttpClient());
-    }
-
-    /**
      * @return \Bitbucket\Api\Snippets
      */
     public function snippets()

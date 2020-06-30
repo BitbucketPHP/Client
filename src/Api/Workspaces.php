@@ -67,6 +67,20 @@ class Workspaces extends AbstractApi
      *
      * @return array
      */
+    public function list(array $params = [])
+    {
+        $path = $this->buildWorkspacesPath();
+
+        return $this->get($path, $params);
+    }
+
+    /**
+     * @param array $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
+     */
     public function codeSearch(array $params = [])
     {
         $path = $this->buildWorkspacesPath('search', 'code');
