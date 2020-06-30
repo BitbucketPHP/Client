@@ -16,8 +16,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run Composer
-      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:$7.4-base update -n -o
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:7.4-base update -n -o
     - name: Install PHPStan
-      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:$7.4-base bin phpstan update -n -o
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:7.4-base bin phpstan update -n -o
     - name: Run PHPUnit
-      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint vendor/bin/phpstan registry.gitlab.com/grahamcampbell/php:$7.4-cli analyse
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint vendor/bin/phpstan registry.gitlab.com/grahamcampbell/php:7.4-cli analyse
