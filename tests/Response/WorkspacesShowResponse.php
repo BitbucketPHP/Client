@@ -15,7 +15,6 @@ namespace Bitbucket\Tests\Response;
 
 use Bitbucket\Tests\Resource;
 use GuzzleHttp\Psr7\Response;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * This is the workspaces show response.
@@ -30,7 +29,7 @@ final class WorkspacesShowResponse
      */
     public function create()
     {
-    	$body = Resource::get('workspaces-show-success.json');
+        $body = Resource::get('workspaces-show-success.json');
 
         return new Response(200, ['Content-Type' => 'application/json'], $body);
     }
