@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Workspaces;
 
-use Http\Client\Exception;
-
 /**
  * The projects api class.
  *

@@ -2,7 +2,6 @@
 
 namespace Bitbucket\Tests;
 
-use Bitbucket\Tests\responses\WorkspacesAllResponse;
 use Bitbucket\Tests\responses\WorkspacesListResponse;
 use Bitbucket\Tests\responses\WorkspacesShowResponse;
 
