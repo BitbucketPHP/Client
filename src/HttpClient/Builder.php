@@ -19,13 +19,12 @@ use Http\Client\Common\Plugin\Cache\Generator\CacheKeyGenerator;
 use Http\Client\Common\Plugin\Cache\Generator\HeaderCacheKeyGenerator;
 use Http\Client\Common\Plugin\CachePlugin;
 use Http\Client\Common\PluginClientFactory;
-use Http\Discovery\MessageFactoryDiscovery;
+use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Discovery\Psr18ClientDiscovery;
-use Http\Discovery\StreamFactoryDiscovery;
-use Http\Message\RequestFactory;
-use Http\Message\StreamFactory;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
 
 /**
  * The Bitbucket HTTP client builder class.
@@ -59,14 +58,14 @@ final class Builder
     /**
      * The HTTP request factory.
      *
-     * @var \Http\Message\RequestFactory
+     * @var \Psr\Http\Message\RequestFactoryInterface
      */
     private $requestFactory;
 
     /**
      * The HTTP stream factory.
      *
-     * @var \Http\Message\StreamFactory
+     * @var \Psr\Http\Message\StreamFactoryInterface
      */
     private $streamFactory;
 
@@ -96,18 +95,18 @@ final class Builder
     /**
      * Create a new http client builder instance.
      *
-     * @param \Psr\Http\Client\ClientInterface|null $httpClient
-     * @param \Http\Message\RequestFactory|null     $requestFactory
-     * @param \Http\Message\StreamFactory|null      $streamFactory
+     * @param \Psr\Http\Client\ClientInterface|null          $httpClient
+     * @param \Psr\Http\Message\RequestFactoryInterface|null $requestFactory
+     * @param \Psr\Http\Message\StreamFactoryInterface|null  $streamFactory
      */
     public function __construct(
         ClientInterface $httpClient = null,
-        RequestFactory $requestFactory = null,
-        StreamFactory $streamFactory = null
+        RequestFactoryInterface $requestFactory = null,
+        StreamFactoryInterface $streamFactory = null
     ) {
         $this->httpClient = $httpClient ?? Psr18ClientDiscovery::find();
-        $this->requestFactory = $requestFactory ?? MessageFactoryDiscovery::find();
-        $this->streamFactory = $streamFactory ?? StreamFactoryDiscovery::find();
+        $this->requestFactory = $requestFactory ?? Psr17FactoryDiscovery::findRequestFactory();
+        $this->streamFactory = $streamFactory ?? Psr17FactoryDiscovery::findStreamFactory();
     }
 
     /**
