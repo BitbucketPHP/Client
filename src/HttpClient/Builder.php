@@ -15,7 +15,6 @@ namespace Bitbucket\HttpClient;
 
 use Http\Client\Common\HttpMethodsClient;
 use Http\Client\Common\Plugin;
-use Http\Client\Common\Plugin\Cache\Generator\CacheKeyGenerator;
 use Http\Client\Common\Plugin\Cache\Generator\HeaderCacheKeyGenerator;
 use Http\Client\Common\Plugin\CachePlugin;
 use Http\Client\Common\PluginClientFactory;
@@ -34,13 +33,6 @@ use Psr\Http\Message\StreamFactoryInterface;
  */
 final class Builder
 {
-    /**
-     * The default cache lifetime of 48 hours.
-     *
-     * @var int
-     */
-    const DEFAULT_CACHE_LIFETIME = 172800;
-
     /**
      * The object that sends HTTP messages.
      *
@@ -171,29 +163,12 @@ final class Builder
      */
     public function addCache(CacheItemPoolInterface $cachePool, array $config = [])
     {
-        $this->setCachePlugin(
-            $cachePool,
-            $config['generator'] ?? new HeaderCacheKeyGenerator(['Authorization', 'Cookie', 'Accept', 'Content-type']),
-            $config['lifetime'] ?? self::DEFAULT_CACHE_LIFETIME
-        );
+        if (!isset($config['cache_key_generator'])) {
+            $config['cache_key_generator'] = new HeaderCacheKeyGenerator(['Authorization', 'Cookie', 'Accept', 'Content-type']);
+        }
 
+        $this->cachePlugin = CachePlugin::clientCache($cachePool, $this->streamFactory, $config);
         $this->httpClientModified = true;
-    }
-
-    /**
-     * Add a cache plugin to cache responses locally.
-     *
-     * @param \Psr\Cache\CacheItemPoolInterface                            $cachePool
-     * @param \Http\Client\Common\Plugin\Cache\Generator\CacheKeyGenerator $generator
-     * @param int                                                          $lifetime
-     *
-     * @return void
-     */
-    private function setCachePlugin(CacheItemPoolInterface $cachePool, CacheKeyGenerator $generator, int $lifetime)
-    {
-        $options = ['cache_lifetime' => $lifetime, 'cache_key_generator' => $generator];
-
-        $this->cachePlugin = CachePlugin::clientCache($cachePool, $this->streamFactory, $options);
     }
 
     /**
