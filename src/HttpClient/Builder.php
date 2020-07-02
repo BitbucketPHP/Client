@@ -90,6 +90,8 @@ final class Builder
      * @param \Psr\Http\Client\ClientInterface|null          $httpClient
      * @param \Psr\Http\Message\RequestFactoryInterface|null $requestFactory
      * @param \Psr\Http\Message\StreamFactoryInterface|null  $streamFactory
+     *
+     * @return void
      */
     public function __construct(
         ClientInterface $httpClient = null,
