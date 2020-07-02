@@ -63,7 +63,7 @@ $client->authenticate(
 
 #### HTTP Password
 
-It is possible to login using a username and password combination. This method is not recommended for production use, however you find it useful never the less:
+It is possible to login using a username and password combination. This method is not recommended for production use, however you may find it useful never the less:
 
 ```php
 $client = new Bitbucket\Client();
