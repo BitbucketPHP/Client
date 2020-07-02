@@ -15,8 +15,8 @@ namespace Bitbucket\Tests;
 
 use Bitbucket\Client;
 use Bitbucket\HttpClient\Builder;
-use Http\Message\ResponseFactory;
 use Http\Mock\Client as MockClient;
+use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -42,11 +42,11 @@ final class MockedClient
     /**
      * @param \Psr\Http\Message\ResponseInterface $response
      *
-     * @return \Http\Message\ResponseFactory
+     * @return \Psr\Http\Message\ResponseFactoryInterface
      */
     private static function createResponseFactory(ResponseInterface $response)
     {
-        return new class($response) implements ResponseFactory {
+        return new class($response) implements ResponseFactoryInterface {
             private $response;
 
             public function __construct(ResponseInterface $response)
@@ -54,13 +54,8 @@ final class MockedClient
                 $this->response = $response;
             }
 
-            public function createResponse(
-                $statusCode = 200,
-                $reasonPhrase = null,
-                array $headers = [],
-                $body = null,
-                $protocolVersion = '1.1'
-            ) {
+            public function createResponse(int $code = 200, string $reasonPhrase = ''): ResponseInterface
+            {
                 return $this->response;
             }
         };
