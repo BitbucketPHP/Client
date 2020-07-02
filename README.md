@@ -25,7 +25,7 @@ Feel free to check out the [change log](CHANGELOG.md), [releases](https://github
 
 This version requires [PHP](https://php.net) 7.2-7.4.
 
-To get the latest version, simply require the project using [Composer](https://getcomposer.org). You will need to install package that "provide" [`psr/http-client-implementation`](https://packagist.org/providers/psr/http-client-implementation) and [`psr/http-factory-implementation`](https://packagist.org/providers/psr/http-factory-implementation). Pure PHP users will want something like:
+To get the latest version, simply require the project using [Composer](https://getcomposer.org). You will also need to install packages that "provide" [`psr/http-client-implementation`](https://packagist.org/providers/psr/http-client-implementation) and [`psr/http-factory-implementation`](https://packagist.org/providers/psr/http-factory-implementation). Pure PHP users will want something like:
 
 ```bash
 $ composer require bitbucket/client:^3.0 guzzlehttp/guzzle:^7.0.1 http-interop/http-factory-guzzle:^1.0
