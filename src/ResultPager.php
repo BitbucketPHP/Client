@@ -73,7 +73,7 @@ class ResultPager implements ResultPagerInterface
      *
      * @return array
      */
-    public function fetch(ApiInterface $api, $method, array $parameters = [])
+    public function fetch(ApiInterface $api, string $method, array $parameters = [])
     {
         $result = $api->$method(...$parameters);
         $this->postFetch();
@@ -92,7 +92,7 @@ class ResultPager implements ResultPagerInterface
      *
      * @return array
      */
-    public function fetchAll(ApiInterface $api, $method, array $parameters = [])
+    public function fetchAll(ApiInterface $api, string $method, array $parameters = [])
     {
         // get the perPage from the api
         $perPage = $api->getPerPage();

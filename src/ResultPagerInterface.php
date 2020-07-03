@@ -42,7 +42,7 @@ interface ResultPagerInterface
      *
      * @return array
      */
-    public function fetch(ApiInterface $api, $method, array $parameters = []);
+    public function fetch(ApiInterface $api, string $method, array $parameters = []);
 
     /**
      * Fetch all results from an api call.
@@ -55,7 +55,7 @@ interface ResultPagerInterface
      *
      * @return array
      */
-    public function fetchAll(ApiInterface $api, $method, array $parameters = []);
+    public function fetchAll(ApiInterface $api, string $method, array $parameters = []);
 
     /**
      * Method that performs the actual work to refresh the pagination property.
