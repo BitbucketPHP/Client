@@ -26,7 +26,9 @@ use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 
 /**
- * The Bitbucket HTTP client builder class.
+ * The HTTP client builder class.
+ *
+ * This will allow you to fluently add and remove plugins.
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  * @author Graham Campbell <graham@alt-three.com>
