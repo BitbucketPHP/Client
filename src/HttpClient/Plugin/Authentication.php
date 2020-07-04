@@ -22,6 +22,8 @@ use Psr\Http\Message\RequestInterface;
 /**
  * A plugin to add authentication to the request.
  *
+ * @internal
+ *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  * @author Graham Campbell <graham@alt-three.com>
  */

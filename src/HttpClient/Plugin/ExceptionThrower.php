@@ -29,6 +29,8 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * A plugin to throw bitbucket exceptions.
  *
+ * @internal
+ *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  * @author Fabien Bourigault <bourigaultfabien@gmail.com>
  * @author Graham Campbell <graham@alt-three.com>
