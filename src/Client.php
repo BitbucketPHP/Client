@@ -30,6 +30,7 @@ use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use Http\Client\Common\Plugin\HistoryPlugin;
 use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Discovery\Psr17FactoryDiscovery;
+use Psr\Http\Client\ClientInterface;
 
 /**
  * The Bitbucket API 2.0 client.
@@ -61,7 +62,7 @@ class Client
     public const AUTH_JWT = 'jwt';
 
     /**
-     * The bitbucket http client builder.
+     * The HTTP client builder.
      *
      * @var \Bitbucket\HttpClient\Builder
      */
@@ -96,6 +97,20 @@ class Client
         ]));
 
         $this->setUrl('https://api.bitbucket.org');
+    }
+
+    /**
+     * Create a Bitbucket\Client using an HTTP client.
+     *
+     * @param \Psr\Http\Client\ClientInterface $httpClient
+     *
+     * @return Client
+     */
+    public static function createWithHttpClient(ClientInterface $httpClient)
+    {
+        $builder = new Builder($httpClient);
+
+        return new self($builder);
     }
 
     /**
@@ -205,7 +220,7 @@ class Client
     }
 
     /**
-     * Get the http client.
+     * Get the HTTP client.
      *
      * @return \Http\Client\Common\HttpMethodsClientInterface
      */
@@ -215,7 +230,7 @@ class Client
     }
 
     /**
-     * Get the http client builder.
+     * Get the HTTP client builder.
      *
      * @return \Bitbucket\HttpClient\Builder
      */
