@@ -14,11 +14,9 @@ declare(strict_types=1);
 namespace Bitbucket\Exception;
 
 /**
- * This is the validation failed exception class.
- *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class ValidationFailedException extends ClientErrorException
+class ValidationFailedException extends ErrorException
 {
     //
 }

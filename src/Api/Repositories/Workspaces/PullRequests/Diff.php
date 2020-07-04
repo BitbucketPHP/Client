@@ -39,8 +39,6 @@ class Diff extends AbstractPullRequestsApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildDiffPath(string ...$parts)

@@ -44,8 +44,6 @@ class Ssh extends AbstractPipelinesConfigApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildSshPath(string ...$parts)

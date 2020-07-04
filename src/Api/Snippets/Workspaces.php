@@ -203,8 +203,6 @@ class Workspaces extends AbstractSnippetsApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildWorkspacesPath(string ...$parts)

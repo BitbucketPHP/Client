@@ -83,8 +83,6 @@ class EnvironmentVariables extends AbstractDeploymentsApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildEnvironmentVariablesPath(string ...$parts)

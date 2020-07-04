@@ -14,10 +14,8 @@ declare(strict_types=1);
 namespace Bitbucket\HttpClient\Plugin;
 
 use Bitbucket\Exception\ApiLimitExceededException;
-use Bitbucket\Exception\BadRequestException;
-use Bitbucket\Exception\ClientErrorException;
 use Bitbucket\Exception\DecodingFailedException;
-use Bitbucket\Exception\ServerErrorException;
+use Bitbucket\Exception\RuntimeException;
 use Bitbucket\Exception\ValidationFailedException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 use Bitbucket\JsonArray;
@@ -35,7 +33,7 @@ use Psr\Http\Message\ResponseInterface;
  * @author Fabien Bourigault <bourigaultfabien@gmail.com>
  * @author Graham Campbell <graham@alt-three.com>
  */
-final class ExceptionThrower implements Plugin
+final class BitbucketExceptionThrower implements Plugin
 {
     /**
      * Handle the request and return the response coming from the next callable.
@@ -65,17 +63,14 @@ final class ExceptionThrower implements Plugin
      * @param int    $status
      * @param string $message
      *
+     * @throws \Bitbucket\Exception\ErrorException
      * @throws \Bitbucket\Exception\RuntimeException
      *
      * @return void
      */
     private static function handleError(int $status, string $message)
     {
-        if ($status === 400) {
-            throw new BadRequestException($message, $status);
-        }
-
-        if ($status === 422) {
+        if ($status === 400 || $status === 422) {
             throw new ValidationFailedException($message, $status);
         }
 
@@ -83,11 +78,7 @@ final class ExceptionThrower implements Plugin
             throw new ApiLimitExceededException($message, $status);
         }
 
-        if ($status < 500) {
-            throw new ClientErrorException($message, $status);
-        }
-
-        throw new ServerErrorException($message, $status);
+        throw new RuntimeException($message, $status);
     }
 
     /**

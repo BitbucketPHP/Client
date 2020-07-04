@@ -84,8 +84,6 @@ class Steps extends AbstractPipelinesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildStepsPath(string ...$parts)

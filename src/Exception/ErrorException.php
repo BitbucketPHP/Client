@@ -14,11 +14,9 @@ declare(strict_types=1);
 namespace Bitbucket\Exception;
 
 /**
- * This is the client error exception class.
- *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class ClientErrorException extends RuntimeException
+class ErrorException extends \ErrorException implements ExceptionInterface
 {
     //
 }

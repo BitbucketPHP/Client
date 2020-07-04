@@ -40,8 +40,6 @@ class Events extends AbstractUsersApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildEventsPath(string ...$parts)

@@ -23,7 +23,7 @@ use Bitbucket\Api\Users;
 use Bitbucket\Api\Workspaces;
 use Bitbucket\HttpClient\Builder;
 use Bitbucket\HttpClient\Plugin\Authentication;
-use Bitbucket\HttpClient\Plugin\ExceptionThrower;
+use Bitbucket\HttpClient\Plugin\BitbucketExceptionThrower;
 use Bitbucket\HttpClient\Plugin\History;
 use Http\Client\Common\Plugin\AddHostPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
@@ -87,7 +87,7 @@ class Client
         $this->httpClientBuilder = $builder = $httpClientBuilder ?? new Builder();
         $this->responseHistory = new History();
 
-        $builder->addPlugin(new ExceptionThrower());
+        $builder->addPlugin(new BitbucketExceptionThrower());
         $builder->addPlugin(new HistoryPlugin($this->responseHistory));
         $builder->addPlugin(new RedirectPlugin());
 

@@ -54,8 +54,6 @@ class Milestones extends AbstractWorkspacesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildMilestonesPath(string ...$parts)

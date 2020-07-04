@@ -98,8 +98,6 @@ class Variables extends AbstractPipelinesConfigApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildVariablesPath(string ...$parts)

@@ -154,8 +154,6 @@ class Issues extends AbstractWorkspacesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildIssuesPath(string ...$parts)

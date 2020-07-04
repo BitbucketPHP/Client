@@ -66,8 +66,6 @@ class Linkers extends AbstractAddonApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildLinkersPath(string ...$parts)

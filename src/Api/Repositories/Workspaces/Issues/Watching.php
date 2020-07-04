@@ -67,8 +67,6 @@ class Watching extends AbstractIssuesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildWatchingPath(string ...$parts)

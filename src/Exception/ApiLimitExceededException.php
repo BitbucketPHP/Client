@@ -14,11 +14,9 @@ declare(strict_types=1);
 namespace Bitbucket\Exception;
 
 /**
- * This is the api limit exceeded exception class.
- *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class ApiLimitExceededException extends ClientErrorException
+class ApiLimitExceededException extends RuntimeException
 {
     //
 }

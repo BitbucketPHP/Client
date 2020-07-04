@@ -39,8 +39,6 @@ class BuildNumber extends AbstractPipelinesConfigApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildBuildNumberPath(string ...$parts)

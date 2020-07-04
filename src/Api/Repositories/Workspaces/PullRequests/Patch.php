@@ -39,8 +39,6 @@ class Patch extends AbstractPullRequestsApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildPatchPath(string ...$parts)

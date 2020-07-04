@@ -39,8 +39,6 @@ class Commits extends AbstractPullRequestsApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildCommitsPath(string ...$parts)

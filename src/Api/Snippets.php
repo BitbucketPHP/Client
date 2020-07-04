@@ -69,8 +69,6 @@ class Snippets extends AbstractApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildSnippetsPath(string ...$parts)

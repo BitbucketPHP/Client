@@ -40,8 +40,6 @@ class Patches extends AbstractWorkspacesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildPatchesPath(string ...$parts)

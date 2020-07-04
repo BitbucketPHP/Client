@@ -73,8 +73,6 @@ class Users extends AbstractApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildUsersPath(string ...$parts)

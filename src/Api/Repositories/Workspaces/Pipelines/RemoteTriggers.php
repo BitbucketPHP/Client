@@ -40,8 +40,6 @@ class RemoteTriggers extends AbstractPipelinesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildRemoteTriggersPath(string ...$parts)

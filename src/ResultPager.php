@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Bitbucket;
 
 use Bitbucket\Api\ApiInterface;
-use Bitbucket\Exception\InvalidArgumentException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 
 /**
@@ -195,7 +194,7 @@ class ResultPager implements ResultPagerInterface
     protected function get(string $key)
     {
         if (!$this->has($key)) {
-            throw new InvalidArgumentException('No such link exists.');
+            return [];
         }
 
         $result = $this->client->getHttpClient()->get($this->pagination[$key]);

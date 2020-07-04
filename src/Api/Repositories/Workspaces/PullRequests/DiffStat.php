@@ -39,8 +39,6 @@ class DiffStat extends AbstractPullRequestsApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildDiffStatPath(string ...$parts)

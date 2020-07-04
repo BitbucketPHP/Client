@@ -68,8 +68,6 @@ class Comments extends AbstractCommitApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildCommentsPath(string ...$parts)

@@ -49,8 +49,6 @@ class Statuses extends AbstractCommitApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildStatusesPath(string ...$parts)

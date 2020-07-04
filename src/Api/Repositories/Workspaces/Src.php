@@ -122,8 +122,6 @@ class Src extends AbstractWorkspacesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildSrcPath(string ...$parts)

@@ -110,8 +110,6 @@ class Schedules extends AbstractPipelinesConfigApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildSchedulesPath(string ...$parts)

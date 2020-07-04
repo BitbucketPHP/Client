@@ -53,8 +53,6 @@ class Approval extends AbstractCommitApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildApprovalPath(string ...$parts)

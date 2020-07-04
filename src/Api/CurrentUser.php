@@ -124,8 +124,6 @@ class CurrentUser extends AbstractApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildCurrentUserPath(string ...$parts)

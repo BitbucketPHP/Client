@@ -66,8 +66,6 @@ class Deployments extends AbstractWorkspacesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildDeploymentsPath(string ...$parts)

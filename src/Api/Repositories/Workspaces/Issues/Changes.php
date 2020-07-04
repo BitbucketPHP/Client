@@ -68,8 +68,6 @@ class Changes extends AbstractIssuesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildChangesPath(string ...$parts)

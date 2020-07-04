@@ -40,8 +40,6 @@ class PullRequests extends AbstractApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildPullRequestsPath(string ...$parts)

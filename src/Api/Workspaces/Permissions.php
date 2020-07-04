@@ -39,8 +39,6 @@ class Permissions extends AbstractWorkspacesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildPermissionsPath(string ...$parts)

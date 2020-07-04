@@ -67,8 +67,6 @@ class BranchingModel extends AbstractWorkspacesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildBranchingModelPath(string ...$parts)

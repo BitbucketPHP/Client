@@ -78,8 +78,6 @@ class Reports extends AbstractCommitApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildReportsPath(string ...$parts)

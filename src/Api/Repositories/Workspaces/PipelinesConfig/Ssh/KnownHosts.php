@@ -98,8 +98,6 @@ class KnownHosts extends AbstractSshApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildKnownHostsPath(string ...$parts)

@@ -397,8 +397,6 @@ class Workspaces extends AbstractRepositoriesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildWorkspacesPath(string ...$parts)

@@ -58,8 +58,6 @@ class Refs extends AbstractWorkspacesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildRefsPath(string ...$parts)

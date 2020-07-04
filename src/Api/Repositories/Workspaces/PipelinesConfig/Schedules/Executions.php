@@ -39,8 +39,6 @@ class Executions extends AbstractSchedulesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildExecutionsPath(string ...$parts)

@@ -54,8 +54,6 @@ class Members extends AbstractWorkspacesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildMembersPath(string ...$parts)

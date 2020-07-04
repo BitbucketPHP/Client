@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api;
 
-use Bitbucket\Exception\InvalidArgumentException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 use Bitbucket\JsonArray;
 use Http\Client\Common\HttpMethodsClientInterface;
+use TypeError;
 
 /**
  * The abstract bitbucket api class.
@@ -258,19 +258,19 @@ abstract class AbstractApi implements ApiInterface
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected static function buildPath(string ...$parts)
     {
-        $parts = array_map(function (string $part) {
+        foreach ($parts as $index => $part) {
             if ($part === '') {
-                throw new InvalidArgumentException('Missing required parameter.');
+                throw new TypeError(
+                    sprintf('%s::buildPath(): Argument #%d ($parts) must non-empty', self::class, $index + 1)
+                );
             }
 
-            return self::urlEncode($part);
-        }, $parts);
+            $parts[$index] = self::urlEncode($part);
+        }
 
         return implode(static::URI_SEPARATOR, $parts);
     }

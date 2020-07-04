@@ -14,8 +14,6 @@ declare(strict_types=1);
 namespace Bitbucket\Exception;
 
 /**
- * This is the decoding failed exception class.
- *
  * @author Graham Campbell <graham@alt-three.com>
  */
 class DecodingFailedException extends RuntimeException

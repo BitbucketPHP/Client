@@ -72,8 +72,6 @@ class Addon extends AbstractApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildAddonPath(string ...$parts)

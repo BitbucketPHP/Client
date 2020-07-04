@@ -39,8 +39,6 @@ class Statuses extends AbstractPullRequestsApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildStatusesPath(string ...$parts)

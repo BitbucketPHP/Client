@@ -84,8 +84,6 @@ class DefaultReviewers extends AbstractWorkspacesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildDefaultReviewersPath(string ...$parts)

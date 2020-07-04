@@ -67,8 +67,6 @@ class KeyPair extends AbstractSshApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildKeyPairPath(string ...$parts)

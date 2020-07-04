@@ -39,8 +39,6 @@ class Repositories extends AbstractUsersApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildRepositoriesPath(string ...$parts)

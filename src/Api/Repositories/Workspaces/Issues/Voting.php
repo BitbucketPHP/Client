@@ -67,8 +67,6 @@ class Voting extends AbstractIssuesApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildVotingPath(string ...$parts)

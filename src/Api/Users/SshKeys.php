@@ -98,8 +98,6 @@ class SshKeys extends AbstractUsersApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildSshKeysPath(string ...$parts)

@@ -98,8 +98,6 @@ class Annotations extends AbstractReportsApi
      *
      * @param string ...$parts
      *
-     * @throws \Bitbucket\Exception\InvalidArgumentException
-     *
      * @return string
      */
     protected function buildAnnotationsPath(string ...$parts)

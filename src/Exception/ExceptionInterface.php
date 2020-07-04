@@ -16,8 +16,6 @@ namespace Bitbucket\Exception;
 use Http\Client\Exception;
 
 /**
- * This is the bitbucket exception interface.
- *
  * @author Graham Campbell <graham@alt-three.com>
  */
 interface ExceptionInterface extends Exception
