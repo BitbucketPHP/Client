@@ -30,7 +30,7 @@ final class IntegrationTest extends TestCase
             ->repositories()
             ->workspaces('atlassian')
             ->show('stash-example-plugin');
-   
+
         self::assertIsArray($response);
         self::assertTrue(isset($response['uuid']));
         self::assertSame('{7dd600e6-0d9c-4801-b967-cb4cc17359ff}', $response['uuid']);
