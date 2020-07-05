@@ -114,11 +114,7 @@ final class BitbucketExceptionThrower implements Plugin
             return null;
         }
 
-        /** @var string|array $detail */
-        $detail = $error['detail'] ?? '';
-
-        /** @var string $detail */
-        $detail = strtok(is_string($detail) ? $detail : JsonArray::encode($detail), "\n");
+        $detail = self::getDetailAsString($error);
 
         if ($message !== '') {
             return $detail !== '' ? sprintf('%s: %s', $message, $detail) : $message;
@@ -129,5 +125,25 @@ final class BitbucketExceptionThrower implements Plugin
         }
 
         return null;
+    }
+
+    /**
+     * Present the detail portion of the error array.
+     *
+     * @param array $error
+     *
+     * @return string
+     */
+    private static function getDetailAsString(array $error)
+    {
+        /** @var string|array $detail */
+        $detail = $error['detail'] ?? '';
+
+        if ($detail === '' || $detail === []) {
+            return '';
+        }
+
+        /** @var string */
+        return strtok(is_string($detail) ? $detail : JsonArray::encode($detail), "\n");
     }
 }
