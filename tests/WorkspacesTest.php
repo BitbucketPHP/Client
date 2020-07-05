@@ -17,8 +17,6 @@ use Bitbucket\Tests\Response\WorkspacesShowResponse;
 use PHPUnit\Framework\TestCase;
 
 /**
- * This is the workspaces test class.
- *
  * @author Graham Campbell <graham@alt-three.com>
  * @author Giacomo Fabbian <info@giacomofabbian.it>
  */

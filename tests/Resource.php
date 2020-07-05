@@ -14,8 +14,6 @@ declare(strict_types=1);
 namespace Bitbucket\Tests;
 
 /**
- * This is the resource class.
- *
  * @author Graham Campbell <graham@alt-three.com>
  */
 final class Resource

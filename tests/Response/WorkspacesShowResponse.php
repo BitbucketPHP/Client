@@ -17,8 +17,6 @@ use Bitbucket\Tests\Resource;
 use GuzzleHttp\Psr7\Response;
 
 /**
- * This is the workspaces show response.
- *
  * @author Graham Campbell <graham@alt-three.com>
  * @author Giacomo Fabbian <info@giacomofabbian.it>
  */

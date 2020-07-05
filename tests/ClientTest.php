@@ -14,12 +14,10 @@ declare(strict_types=1);
 namespace Bitbucket\Tests;
 
 use Bitbucket\Client;
-use Http\Client\Common\HttpMethodsClient;
+use Http\Client\Common\HttpMethodsClientInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
- * This is the client test class.
- *
  * @author Graham Campbell <graham@alt-three.com>
  */
 final class ClientTest extends TestCase
@@ -29,20 +27,6 @@ final class ClientTest extends TestCase
         $client = new Client();
 
         self::assertInstanceOf(Client::class, $client);
-        self::assertInstanceOf(HttpMethodsClient::class, $client->getHttpClient());
-    }
-
-    public function testShowRepo()
-    {
-        $client = new Client();
-
-        $response = $client
-            ->repositories()
-            ->workspaces('atlassian')
-            ->show('stash-example-plugin');
-
-        self::assertIsArray($response);
-        self::assertTrue(isset($response['uuid']));
-        self::assertSame('{7dd600e6-0d9c-4801-b967-cb4cc17359ff}', $response['uuid']);
+        self::assertInstanceOf(HttpMethodsClientInterface::class, $client->getHttpClient());
     }
 }

@@ -17,8 +17,6 @@ use GrahamCampbell\Analyzer\AnalysisTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
- * This is the analysis test class.
- *
  * @author Graham Campbell <graham@alt-three.com>
  */
 final class AnalysisTest extends TestCase

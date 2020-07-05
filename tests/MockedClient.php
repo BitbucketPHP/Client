@@ -20,8 +20,6 @@ use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * This is the mocked client class.
- *
  * @author Graham Campbell <graham@alt-three.com>
  * @author Giacomo Fabbian <info@giacomofabbian.it>
  */

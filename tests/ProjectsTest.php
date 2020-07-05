@@ -21,8 +21,6 @@ use Bitbucket\Tests\Response\ProjectsUpdateResponse;
 use PHPUnit\Framework\TestCase;
 
 /**
- * This is the projects test class.
- *
  * @author Graham Campbell <graham@alt-three.com>
  * @author Giacomo Fabbian <info@giacomofabbian.it>
  */
