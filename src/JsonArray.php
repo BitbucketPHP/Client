@@ -34,6 +34,7 @@ final class JsonArray
      */
     public static function decode(string $json)
     {
+        /** @var scalar|array */
         $data = \json_decode($json, true);
 
         if (\JSON_ERROR_NONE !== \json_last_error()) {
