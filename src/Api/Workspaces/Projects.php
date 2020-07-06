@@ -29,7 +29,7 @@ class Projects extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildProjectsPath().static::URI_SEPARATOR;
+        $path = static::appendSeparator($this->buildProjectsPath());
 
         return $this->get($path, $params);
     }
@@ -43,7 +43,7 @@ class Projects extends AbstractWorkspacesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildProjectsPath().static::URI_SEPARATOR;
+        $path = static::appendSeparator($this->buildProjectsPath());
 
         return $this->post($path, $params);
     }

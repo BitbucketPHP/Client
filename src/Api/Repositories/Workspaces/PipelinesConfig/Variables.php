@@ -29,7 +29,7 @@ class Variables extends AbstractPipelinesConfigApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildVariablesPath().static::URI_SEPARATOR;
+        $path = static::appendSeparator($this->buildVariablesPath());
 
         return $this->get($path, $params);
     }
@@ -43,7 +43,7 @@ class Variables extends AbstractPipelinesConfigApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildVariablesPath().static::URI_SEPARATOR;
+        $path = static::appendSeparator($this->buildVariablesPath());
 
         return $this->post($path, $params);
     }

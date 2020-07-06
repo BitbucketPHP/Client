@@ -29,7 +29,7 @@ class Steps extends AbstractPipelinesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildStepsPath().static::URI_SEPARATOR;
+        $path = static::appendSeparator($this->buildStepsPath());
 
         return $this->get($path, $params);
     }

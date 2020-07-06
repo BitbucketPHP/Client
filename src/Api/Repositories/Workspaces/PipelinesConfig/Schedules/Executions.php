@@ -29,7 +29,7 @@ class Executions extends AbstractSchedulesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildExecutionsPath().static::URI_SEPARATOR;
+        $path = static::appendSeparator($this->buildExecutionsPath());
 
         return $this->get($path, $params);
     }

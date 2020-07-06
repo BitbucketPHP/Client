@@ -32,7 +32,7 @@ class Pipelines extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildPipelinesPath().static::URI_SEPARATOR;
+        $path = static::appendSeparator($this->buildPipelinesPath());
 
         return $this->get($path, $params);
     }
@@ -46,7 +46,7 @@ class Pipelines extends AbstractWorkspacesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildPipelinesPath().static::URI_SEPARATOR;
+        $path = static::appendSeparator($this->buildPipelinesPath());
 
         return $this->post($path, $params);
     }

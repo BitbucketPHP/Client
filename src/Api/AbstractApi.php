@@ -31,7 +31,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @var string
      */
-    protected const URI_SEPARATOR = '/';
+    private const URI_SEPARATOR = '/';
 
     /**
      * The http methods client.
@@ -272,7 +272,19 @@ abstract class AbstractApi implements ApiInterface
             $parts[$index] = self::urlEncode($part);
         }
 
-        return implode(static::URI_SEPARATOR, $parts);
+        return implode(self::URI_SEPARATOR, $parts);
+    }
+
+    /**
+     * Append a URI separator to the given path.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    protected static function appendSeparator(string $path)
+    {
+        return sprintf('%s%s', $path, self::URI_SEPARATOR);
     }
 
     /**

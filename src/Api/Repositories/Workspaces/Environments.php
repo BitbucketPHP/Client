@@ -73,7 +73,7 @@ class Environments extends AbstractWorkspacesApi
      */
     public function update(string $env, array $params = [])
     {
-        $path = $this->buildEnvironmentsPath($env, 'changes').static::URI_SEPARATOR;
+        $path = static::appendSeparator($this->buildEnvironmentsPath($env, 'changes'));
 
         return $this->put($path, $params);
     }

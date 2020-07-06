@@ -29,7 +29,7 @@ class SshKeys extends AbstractUsersApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildSshKeysPath().static::URI_SEPARATOR;
+        $path = static::appendSeparator($this->buildSshKeysPath());
 
         return $this->get($path, $params);
     }
@@ -43,7 +43,7 @@ class SshKeys extends AbstractUsersApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildSshKeysPath().static::URI_SEPARATOR;
+        $path = static::appendSeparator($this->buildSshKeysPath());
 
         return $this->post($path, $params);
     }

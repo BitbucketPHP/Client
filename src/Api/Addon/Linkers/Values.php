@@ -29,7 +29,7 @@ class Values extends AbstractLinkersApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildValuesPath().static::URI_SEPARATOR;
+        $path = static::appendSeparator($this->buildValuesPath());
 
         return $this->get($path, $params);
     }
@@ -43,7 +43,7 @@ class Values extends AbstractLinkersApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildValuesPath().static::URI_SEPARATOR;
+        $path = static::appendSeparator($this->buildValuesPath());
 
         return $this->post($path, $params);
     }
