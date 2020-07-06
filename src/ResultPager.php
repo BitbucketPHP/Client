@@ -35,7 +35,7 @@ final class ResultPager implements ResultPagerInterface
     /**
      * The pagination result from the API.
      *
-     * @var array|null
+     * @var array<string,string>
      */
     private $pagination;
 
@@ -49,6 +49,7 @@ final class ResultPager implements ResultPagerInterface
     public function __construct(Client $client)
     {
         $this->client = $client;
+        $this->pagination = [];
     }
 
     /**
@@ -99,6 +100,7 @@ final class ResultPager implements ResultPagerInterface
             $api->setPerPage($perPage);
         }
 
+        /** @var array */
         return $result;
     }
 
@@ -156,7 +158,7 @@ final class ResultPager implements ResultPagerInterface
         $response = $this->client->getLastResponse();
 
         if ($response === null) {
-            $this->pagination = null;
+            $this->pagination = [];
         } else {
             $this->pagination = ResponseMediator::getPagination($response);
         }
@@ -171,7 +173,7 @@ final class ResultPager implements ResultPagerInterface
      */
     private function get(string $key)
     {
-        $pagination = isset($this->pagination[$key]) ? $this->pagination[$key] : null;
+        $pagination = $this->pagination[$key] ?? null;
 
         if ($pagination === null) {
             return [];
