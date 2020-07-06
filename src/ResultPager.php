@@ -187,9 +187,11 @@ final class ResultPager implements ResultPagerInterface
 
         $result = $this->client->getHttpClient()->get($pagination);
 
+        $content = ResponseMediator::getContent($result);
+
         $this->postFetch();
 
-        return ResponseMediator::getContent($result);
+        return $content;
     }
 
     /**
