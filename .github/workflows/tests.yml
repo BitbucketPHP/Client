@@ -3,23 +3,36 @@ name: Tests
 on:
   push:
   pull_request:
-  schedule:
-    - cron: '0 4 * * 1'
 
 jobs:
-  test:
-
-    runs-on: ubuntu-latest
+  tests:
+    name: PHP ${{ matrix.php }}
+    runs-on: ubuntu-20.04
 
     strategy:
       matrix:
-        php: [7.1, 7.2, 7.3, 7.4]
-
-    name: PHP ${{ matrix.php }}
+        php: ['7.1', '7.2', '7.3', '7.4']
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Run Composer
-      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:${{ matrix.php }}-base update --prefer-dist -n -o
-    - name: Run PHPUnit
-      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint vendor/bin/phpunit registry.gitlab.com/grahamcampbell/php:${{ matrix.php }}-cli
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: curl, xml
+          tools: composer:v2
+          coverage: none
+
+      - name: Setup Problem Matchers
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Install Dependencies
+        run: composer update --prefer-dist --no-interaction --no-progress
+
+      - name: Install PHPUnit
+        run: composer bin phpunit update --no-interaction --no-progress
+
+      - name: Execute PHPUnit
+        run: vendor/bin/phpunit --verbose

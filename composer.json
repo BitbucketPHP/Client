@@ -27,8 +27,7 @@
         "graham-campbell/analyzer": "^2.4",
         "php-http/guzzle6-adapter": "^2.0.1",
         "http-interop/http-factory-guzzle": "^1.0",
-        "php-http/mock-client": "^1.4",
-        "phpunit/phpunit": "^7.5.15|^8.5|^9.0"
+        "php-http/mock-client": "^1.4"
     },
     "autoload": {
         "psr-4": {
