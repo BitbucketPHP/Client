@@ -15,6 +15,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\Issues;
 
 use Bitbucket\HttpClient\Message\FileResource;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The attachments api class.
@@ -32,9 +33,9 @@ class Attachments extends AbstractIssuesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildAttachmentsPath();
+        $uri = $this->buildAttachmentsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -46,11 +47,11 @@ class Attachments extends AbstractIssuesApi
      */
     public function upload(FileResource $file)
     {
-        $path = $this->buildAttachmentsPath();
+        $uri = $this->buildAttachmentsUri();
         $builder = (new MultipartStreamBuilder())->addResource($file->getName(), $file->getResource(), $file->getOptions());
         $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
-        return $this->postRaw($path, $builder->build(), $headers);
+        return $this->postRaw($uri, $builder->build(), $headers);
     }
 
     /**
@@ -63,9 +64,9 @@ class Attachments extends AbstractIssuesApi
      */
     public function download(string $filename, array $params = [])
     {
-        $path = $this->buildAttachmentsPath($filename);
+        $uri = $this->buildAttachmentsUri($filename);
 
-        return $this->pureGet($path, $params, ['Accept' => '*/*'])->getBody();
+        return $this->pureGet($uri, $params, ['Accept' => '*/*'])->getBody();
     }
 
     /**
@@ -78,20 +79,20 @@ class Attachments extends AbstractIssuesApi
      */
     public function remove(string $filename, array $params = [])
     {
-        $path = $this->buildAttachmentsPath($filename);
+        $uri = $this->buildAttachmentsUri($filename);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the attachments path from the given parts.
+     * Build the attachments URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildAttachmentsPath(string ...$parts)
+    protected function buildAttachmentsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'attachments', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'attachments', ...$parts);
     }
 }

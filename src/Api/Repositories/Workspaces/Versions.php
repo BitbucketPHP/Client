@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The versions api class.
@@ -29,9 +30,9 @@ class Versions extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildVersionsPath();
+        $uri = $this->buildVersionsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -44,20 +45,20 @@ class Versions extends AbstractWorkspacesApi
      */
     public function show(string $version, array $params = [])
     {
-        $path = $this->buildVersionsPath($version);
+        $uri = $this->buildVersionsUri($version);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the versions path from the given parts.
+     * Build the versions URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildVersionsPath(string ...$parts)
+    protected function buildVersionsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'versions', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'versions', ...$parts);
     }
 }

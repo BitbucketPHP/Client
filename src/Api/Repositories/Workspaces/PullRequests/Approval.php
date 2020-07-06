@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\PullRequests;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The approval api class.
@@ -29,9 +30,9 @@ class Approval extends AbstractPullRequestsApi
      */
     public function approve(array $params = [])
     {
-        $path = $this->buildApprovalPath();
+        $uri = $this->buildApprovalUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -43,20 +44,20 @@ class Approval extends AbstractPullRequestsApi
      */
     public function redact(array $params = [])
     {
-        $path = $this->buildApprovalPath();
+        $uri = $this->buildApprovalUri();
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the approval path from the given parts.
+     * Build the approval URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildApprovalPath(string ...$parts)
+    protected function buildApprovalUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'approve', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'approve', ...$parts);
     }
 }

@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The current user api class.
@@ -29,9 +30,9 @@ class CurrentUser extends AbstractApi
      */
     public function show(array $params = [])
     {
-        $path = $this->buildCurrentUserPath();
+        $uri = $this->buildCurrentUserUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class CurrentUser extends AbstractApi
      */
     public function listEmails(array $params = [])
     {
-        $path = $this->buildCurrentUserPath('emails');
+        $uri = $this->buildCurrentUserUri('emails');
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class CurrentUser extends AbstractApi
      */
     public function showEmail(string $email, array $params = [])
     {
-        $path = $this->buildCurrentUserPath('emails', $email);
+        $uri = $this->buildCurrentUserUri('emails', $email);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -72,9 +73,9 @@ class CurrentUser extends AbstractApi
      */
     public function listRepositoryPermissions(array $params = [])
     {
-        $path = $this->buildCurrentUserPath('permissions', 'repositories');
+        $uri = $this->buildCurrentUserUri('permissions', 'repositories');
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -86,9 +87,9 @@ class CurrentUser extends AbstractApi
      */
     public function listTeamPermissions(array $params = [])
     {
-        $path = $this->buildCurrentUserPath('permissions', 'teams');
+        $uri = $this->buildCurrentUserUri('permissions', 'teams');
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -100,9 +101,9 @@ class CurrentUser extends AbstractApi
      */
     public function listWorkspacePermissions(array $params = [])
     {
-        $path = $this->buildCurrentUserPath('permissions', 'workspaces');
+        $uri = $this->buildCurrentUserUri('permissions', 'workspaces');
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -114,20 +115,20 @@ class CurrentUser extends AbstractApi
      */
     public function listWorkspaces(array $params = [])
     {
-        $path = static::buildPath('workspaces');
+        $uri = UriBuilder::buildUri('workspaces');
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the current user path from the given parts.
+     * Build the current user URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildCurrentUserPath(string ...$parts)
+    protected function buildCurrentUserUri(string ...$parts)
     {
-        return static::buildPath('user', ...$parts);
+        return UriBuilder::buildUri('user', ...$parts);
     }
 }

@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The default reviewers api class.
@@ -29,9 +30,9 @@ class DefaultReviewers extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildDefaultReviewersPath();
+        $uri = $this->buildDefaultReviewersUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -44,9 +45,9 @@ class DefaultReviewers extends AbstractWorkspacesApi
      */
     public function show(string $reviewer, array $params = [])
     {
-        $path = $this->buildDefaultReviewersPath($reviewer);
+        $uri = $this->buildDefaultReviewersUri($reviewer);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -59,9 +60,9 @@ class DefaultReviewers extends AbstractWorkspacesApi
      */
     public function add(string $reviewer, array $params = [])
     {
-        $path = $this->buildDefaultReviewersPath($reviewer);
+        $uri = $this->buildDefaultReviewersUri($reviewer);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -74,20 +75,20 @@ class DefaultReviewers extends AbstractWorkspacesApi
      */
     public function remove(string $reviewer, array $params = [])
     {
-        $path = $this->buildDefaultReviewersPath($reviewer);
+        $uri = $this->buildDefaultReviewersUri($reviewer);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the default reviewers path from the given parts.
+     * Build the default reviewers URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildDefaultReviewersPath(string ...$parts)
+    protected function buildDefaultReviewersUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'default-reviewers', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'default-reviewers', ...$parts);
     }
 }

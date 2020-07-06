@@ -19,6 +19,7 @@ use Bitbucket\Api\Workspaces\Permissions;
 use Bitbucket\Api\Workspaces\PipelinesConfig;
 use Bitbucket\Api\Workspaces\Projects;
 use Http\Client\Common\HttpMethodsClientInterface;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The workspaces api class.
@@ -55,9 +56,9 @@ class Workspaces extends AbstractApi
      */
     public function show(array $params = [])
     {
-        $path = $this->buildWorkspacesPath();
+        $uri = $this->buildWorkspacesUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -69,9 +70,9 @@ class Workspaces extends AbstractApi
      */
     public function codeSearch(array $params = [])
     {
-        $path = $this->buildWorkspacesPath('search', 'code');
+        $uri = $this->buildWorkspacesUri('search', 'code');
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -115,14 +116,14 @@ class Workspaces extends AbstractApi
     }
 
     /**
-     * Build the workspaces path from the given parts.
+     * Build the workspaces URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildWorkspacesPath(string ...$parts)
+    protected function buildWorkspacesUri(string ...$parts)
     {
-        return static::buildPath('workspaces', $this->workspace, ...$parts);
+        return UriBuilder::buildUri('workspaces', $this->workspace, ...$parts);
     }
 }

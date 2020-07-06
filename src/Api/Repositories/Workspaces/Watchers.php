@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The watchers api class.
@@ -29,20 +30,20 @@ class Watchers extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildWatchersPath();
+        $uri = $this->buildWatchersUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the watchers path from the given parts.
+     * Build the watchers URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildWatchersPath(string ...$parts)
+    protected function buildWatchersUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'watchers', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'watchers', ...$parts);
     }
 }

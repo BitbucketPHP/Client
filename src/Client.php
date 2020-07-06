@@ -22,6 +22,7 @@ use Bitbucket\Api\Snippets;
 use Bitbucket\Api\Users;
 use Bitbucket\Api\Workspaces;
 use Bitbucket\HttpClient\Builder;
+use Bitbucket\HttpClient\Message\ResponseMediator;
 use Bitbucket\HttpClient\Plugin\Authentication;
 use Bitbucket\HttpClient\Plugin\BitbucketExceptionThrower;
 use Bitbucket\HttpClient\Plugin\History;
@@ -62,6 +63,20 @@ class Client
     public const AUTH_JWT = 'jwt';
 
     /**
+     * The default base URL.
+     *
+     * @var string
+     */
+    private const BASE_URL = 'https://api.bitbucket.org';
+
+    /**
+     * The default user agent header.
+     *
+     * @var string
+     */
+    private const USER_AGENT = 'bitbucket-api-client/3.0';
+
+    /**
      * The HTTP client builder.
      *
      * @var \Bitbucket\HttpClient\Builder
@@ -92,11 +107,11 @@ class Client
         $builder->addPlugin(new RedirectPlugin());
 
         $builder->addPlugin(new HeaderDefaultsPlugin([
-            'Accept'     => 'application/json',
-            'User-Agent' => 'bitbucket-api-client/3.0',
+            'Accept'     => ResponseMediator::JSON_CONTENT_TYPE,
+            'User-Agent' => self::USER_AGENT,
         ]));
 
-        $this->setUrl('https://api.bitbucket.org');
+        $this->setUrl(self::BASE_URL);
     }
 
     /**

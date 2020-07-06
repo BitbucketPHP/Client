@@ -15,6 +15,7 @@ namespace Bitbucket\Api\Repositories\Workspaces;
 
 use Bitbucket\Api\Repositories\Workspaces\Refs\Branches;
 use Bitbucket\Api\Repositories\Workspaces\Refs\Tags;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The refs api class.
@@ -32,9 +33,9 @@ class Refs extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildRefsPath();
+        $uri = $this->buildRefsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -54,14 +55,14 @@ class Refs extends AbstractWorkspacesApi
     }
 
     /**
-     * Build the refs path from the given parts.
+     * Build the refs URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildRefsPath(string ...$parts)
+    protected function buildRefsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'refs', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'refs', ...$parts);
     }
 }

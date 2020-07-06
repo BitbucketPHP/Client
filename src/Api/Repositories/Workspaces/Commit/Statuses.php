@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Workspaces\Commit;
 
 use Bitbucket\Api\Repositories\Workspaces\Commit\Statuses\Build;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The statuses api class.
@@ -31,9 +32,9 @@ class Statuses extends AbstractCommitApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildStatusesPath();
+        $uri = $this->buildStatusesUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -45,14 +46,14 @@ class Statuses extends AbstractCommitApi
     }
 
     /**
-     * Build the statuses path from the given parts.
+     * Build the statuses URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildStatusesPath(string ...$parts)
+    protected function buildStatusesUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'statuses', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'statuses', ...$parts);
     }
 }

@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\Refs;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The tags api class.
@@ -29,9 +30,9 @@ class Tags extends AbstractRefsApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildTagsPath();
+        $uri = $this->buildTagsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class Tags extends AbstractRefsApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildTagsPath();
+        $uri = $this->buildTagsUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class Tags extends AbstractRefsApi
      */
     public function show(string $tag, array $params = [])
     {
-        $path = $this->buildTagsPath($tag);
+        $uri = $this->buildTagsUri($tag);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -73,20 +74,20 @@ class Tags extends AbstractRefsApi
      */
     public function remove(string $tag, array $params = [])
     {
-        $path = $this->buildTagsPath($tag);
+        $uri = $this->buildTagsUri($tag);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the tags path from the given parts.
+     * Build the tags URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildTagsPath(string ...$parts)
+    protected function buildTagsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'refs', 'tags', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'refs', 'tags', ...$parts);
     }
 }

@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Workspaces\PipelinesConfig;
 
 use Bitbucket\Api\Workspaces\AbstractWorkspacesApi;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The abstract pipelines config api class.

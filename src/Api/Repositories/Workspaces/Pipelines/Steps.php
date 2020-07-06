@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\Pipelines;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The steps api class.
@@ -29,9 +30,9 @@ class Steps extends AbstractPipelinesApi
      */
     public function list(array $params = [])
     {
-        $path = static::appendSeparator($this->buildStepsPath());
+        $uri = UriBuilder::appendSeparator($this->buildStepsUri());
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -44,9 +45,9 @@ class Steps extends AbstractPipelinesApi
      */
     public function show(string $step, array $params = [])
     {
-        $path = $this->buildStepsPath($step);
+        $uri = $this->buildStepsUri($step);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -59,9 +60,9 @@ class Steps extends AbstractPipelinesApi
      */
     public function log(string $step, array $params = [])
     {
-        $path = $this->buildStepsPath($step, 'log');
+        $uri = $this->buildStepsUri($step, 'log');
 
-        return $this->pureGet($path, $params, ['Accept' => 'application/octet-stream'])->getBody();
+        return $this->pureGet($uri, $params, ['Accept' => 'application/octet-stream'])->getBody();
     }
 
     /**
@@ -74,20 +75,20 @@ class Steps extends AbstractPipelinesApi
      */
     public function stop(string $step, array $params = [])
     {
-        $path = $this->buildStepsPath($step, 'stopPipeline');
+        $uri = $this->buildStepsUri($step, 'stopPipeline');
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
-     * Build the steps path from the given parts.
+     * Build the steps URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildStepsPath(string ...$parts)
+    protected function buildStepsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pipelines', $this->pipeline, 'steps', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines', $this->pipeline, 'steps', ...$parts);
     }
 }

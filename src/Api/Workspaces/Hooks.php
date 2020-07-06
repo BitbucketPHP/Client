@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The hooks api class.
@@ -29,9 +30,9 @@ class Hooks extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildHooksPath();
+        $uri = $this->buildHooksUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class Hooks extends AbstractWorkspacesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildHooksPath();
+        $uri = $this->buildHooksUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class Hooks extends AbstractWorkspacesApi
      */
     public function show(string $hook, array $params = [])
     {
-        $path = $this->buildHooksPath($hook);
+        $uri = $this->buildHooksUri($hook);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -73,9 +74,9 @@ class Hooks extends AbstractWorkspacesApi
      */
     public function update(string $hook, array $params = [])
     {
-        $path = $this->buildHooksPath($hook);
+        $uri = $this->buildHooksUri($hook);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -88,20 +89,20 @@ class Hooks extends AbstractWorkspacesApi
      */
     public function remove(string $hook, array $params = [])
     {
-        $path = $this->buildHooksPath($hook);
+        $uri = $this->buildHooksUri($hook);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the hooks path from the given parts.
+     * Build the hooks URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildHooksPath(string ...$parts)
+    protected function buildHooksUri(string ...$parts)
     {
-        return static::buildPath('workspaces', $this->workspace, 'hooks', ...$parts);
+        return UriBuilder::buildUri('workspaces', $this->workspace, 'hooks', ...$parts);
     }
 }

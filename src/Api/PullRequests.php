@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The pull requests api class.
@@ -30,20 +31,20 @@ class PullRequests extends AbstractApi
      */
     public function list(string $username, array $params = [])
     {
-        $path = $this->buildPullRequestsPath($username);
+        $uri = $this->buildPullRequestsUri($username);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the pull requests path from the given parts.
+     * Build the pull requests URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildPullRequestsPath(string ...$parts)
+    protected function buildPullRequestsUri(string ...$parts)
     {
-        return static::buildPath('pullrequests', ...$parts);
+        return UriBuilder::buildUri('pullrequests', ...$parts);
     }
 }

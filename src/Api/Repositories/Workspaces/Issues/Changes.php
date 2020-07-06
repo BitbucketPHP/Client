@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\Issues;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The changes api class.
@@ -29,9 +30,9 @@ class Changes extends AbstractIssuesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildChangesPath();
+        $uri = $this->buildChangesUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class Changes extends AbstractIssuesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildChangesPath();
+        $uri = $this->buildChangesUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -58,20 +59,20 @@ class Changes extends AbstractIssuesApi
      */
     public function show(string $change, array $params = [])
     {
-        $path = $this->buildChangesPath($change);
+        $uri = $this->buildChangesUri($change);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the changes path from the given parts.
+     * Build the changes URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildChangesPath(string ...$parts)
+    protected function buildChangesUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'changes', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'changes', ...$parts);
     }
 }

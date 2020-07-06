@@ -17,6 +17,7 @@ use Bitbucket\Api\Users\Properties;
 use Bitbucket\Api\Users\Repositories as UsersRepositories;
 use Bitbucket\Api\Users\SshKeys;
 use Http\Client\Common\HttpMethodsClientInterface;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The users api class.
@@ -69,14 +70,14 @@ class Users extends AbstractApi
     }
 
     /**
-     * Build the users path from the given parts.
+     * Build the users URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildUsersPath(string ...$parts)
+    protected function buildUsersUri(string ...$parts)
     {
-        return static::buildPath('users', $this->username, ...$parts);
+        return UriBuilder::buildUri('users', $this->username, ...$parts);
     }
 }

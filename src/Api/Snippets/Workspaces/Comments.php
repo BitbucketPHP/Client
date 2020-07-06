@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Snippets\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The comments api class.
@@ -29,9 +30,9 @@ class Comments extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildCommentsPath();
+        $uri = $this->buildCommentsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class Comments extends AbstractWorkspacesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildCommentsPath();
+        $uri = $this->buildCommentsUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class Comments extends AbstractWorkspacesApi
      */
     public function show(string $comment, array $params = [])
     {
-        $path = $this->buildCommentsPath($comment);
+        $uri = $this->buildCommentsUri($comment);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -73,9 +74,9 @@ class Comments extends AbstractWorkspacesApi
      */
     public function update(string $comment, array $params = [])
     {
-        $path = $this->buildCommentsPath($comment);
+        $uri = $this->buildCommentsUri($comment);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -88,20 +89,20 @@ class Comments extends AbstractWorkspacesApi
      */
     public function remove(string $comment, array $params = [])
     {
-        $path = $this->buildCommentsPath($comment);
+        $uri = $this->buildCommentsUri($comment);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the comments path from the given parts.
+     * Build the comments URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildCommentsPath(string ...$parts)
+    protected function buildCommentsUri(string ...$parts)
     {
-        return static::buildPath('snippets', $this->workspace, $this->snippet, 'comments', ...$parts);
+        return UriBuilder::buildUri('snippets', $this->workspace, $this->snippet, 'comments', ...$parts);
     }
 }

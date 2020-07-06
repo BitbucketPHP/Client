@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\PullRequests;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The diff api class.
@@ -29,20 +30,20 @@ class Diff extends AbstractPullRequestsApi
      */
     public function download(array $params = [])
     {
-        $path = $this->buildDiffPath();
+        $uri = $this->buildDiffUri();
 
-        return $this->pureGet($path, $params, ['Accept' => 'text/plain'])->getBody();
+        return $this->pureGet($uri, $params, ['Accept' => 'text/plain'])->getBody();
     }
 
     /**
-     * Build the diff path from the given parts.
+     * Build the diff URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildDiffPath(string ...$parts)
+    protected function buildDiffUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'diff', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'diff', ...$parts);
     }
 }

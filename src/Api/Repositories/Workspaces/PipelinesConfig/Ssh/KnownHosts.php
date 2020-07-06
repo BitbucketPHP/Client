@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The known hosts api class.
@@ -29,9 +30,9 @@ class KnownHosts extends AbstractSshApi
      */
     public function list(array $params = [])
     {
-        $path = static::appendSeparator($this->buildKnownHostsPath());
+        $uri = UriBuilder::appendSeparator($this->buildKnownHostsUri());
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class KnownHosts extends AbstractSshApi
      */
     public function create(array $params = [])
     {
-        $path = static::appendSeparator($this->buildKnownHostsPath());
+        $uri = UriBuilder::appendSeparator($this->buildKnownHostsUri());
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class KnownHosts extends AbstractSshApi
      */
     public function show(string $host, array $params = [])
     {
-        $path = $this->buildKnownHostsPath($host);
+        $uri = $this->buildKnownHostsUri($host);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -73,9 +74,9 @@ class KnownHosts extends AbstractSshApi
      */
     public function update(string $host, array $params = [])
     {
-        $path = $this->buildKnownHostsPath($host);
+        $uri = $this->buildKnownHostsUri($host);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -88,20 +89,20 @@ class KnownHosts extends AbstractSshApi
      */
     public function remove(string $host, array $params = [])
     {
-        $path = $this->buildKnownHostsPath($host);
+        $uri = $this->buildKnownHostsUri($host);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the known hosts path from the given parts.
+     * Build the known hosts URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildKnownHostsPath(string ...$parts)
+    protected function buildKnownHostsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', 'known_hosts', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', 'known_hosts', ...$parts);
     }
 }

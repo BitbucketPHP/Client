@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The branch restrictions api class.
@@ -29,9 +30,9 @@ class BranchRestrictions extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildBranchRestrictionsPath();
+        $uri = $this->buildBranchRestrictionsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class BranchRestrictions extends AbstractWorkspacesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildBranchRestrictionsPath();
+        $uri = $this->buildBranchRestrictionsUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class BranchRestrictions extends AbstractWorkspacesApi
      */
     public function show(string $restriction, array $params = [])
     {
-        $path = $this->buildBranchRestrictionsPath($restriction);
+        $uri = $this->buildBranchRestrictionsUri($restriction);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -73,9 +74,9 @@ class BranchRestrictions extends AbstractWorkspacesApi
      */
     public function update(string $restriction, array $params = [])
     {
-        $path = $this->buildBranchRestrictionsPath($restriction);
+        $uri = $this->buildBranchRestrictionsUri($restriction);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -88,20 +89,20 @@ class BranchRestrictions extends AbstractWorkspacesApi
      */
     public function remove(string $restriction, array $params = [])
     {
-        $path = $this->buildBranchRestrictionsPath($restriction);
+        $uri = $this->buildBranchRestrictionsUri($restriction);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the branch restrictions path from the given parts.
+     * Build the branch restrictions URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildBranchRestrictionsPath(string ...$parts)
+    protected function buildBranchRestrictionsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'branch-restrictions', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'branch-restrictions', ...$parts);
     }
 }

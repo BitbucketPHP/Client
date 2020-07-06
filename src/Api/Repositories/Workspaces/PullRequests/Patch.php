@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\PullRequests;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The patch api class.
@@ -29,20 +30,20 @@ class Patch extends AbstractPullRequestsApi
      */
     public function download(array $params = [])
     {
-        $path = $this->buildPatchPath();
+        $uri = $this->buildPatchUri();
 
-        return $this->pureGet($path, $params, ['Accept' => 'text/plain'])->getBody();
+        return $this->pureGet($uri, $params, ['Accept' => 'text/plain'])->getBody();
     }
 
     /**
-     * Build the patch path from the given parts.
+     * Build the patch URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildPatchPath(string ...$parts)
+    protected function buildPatchUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'patch', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'patch', ...$parts);
     }
 }

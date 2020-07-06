@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Snippets\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The diffs api class.
@@ -30,20 +31,20 @@ class Diffs extends AbstractWorkspacesApi
      */
     public function download(string $commit, array $params = [])
     {
-        $path = $this->buildDiffsPath($commit, 'diff');
+        $uri = $this->buildDiffsUri($commit, 'diff');
 
-        return $this->pureGet($path, $params, ['Accept' => 'text/plain'])->getBody();
+        return $this->pureGet($uri, $params, ['Accept' => 'text/plain'])->getBody();
     }
 
     /**
-     * Build the diffs path from the given parts.
+     * Build the diffs URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildDiffsPath(string ...$parts)
+    protected function buildDiffsUri(string ...$parts)
     {
-        return static::buildPath('snippets', $this->workspace, $this->snippet, ...$parts);
+        return UriBuilder::buildUri('snippets', $this->workspace, $this->snippet, ...$parts);
     }
 }

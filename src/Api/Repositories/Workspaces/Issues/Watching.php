@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\Issues;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The watching class.
@@ -29,9 +30,9 @@ class Watching extends AbstractIssuesApi
      */
     public function check(array $params = [])
     {
-        $path = $this->buildWatchingPath();
+        $uri = $this->buildWatchingUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class Watching extends AbstractIssuesApi
      */
     public function watch(array $params = [])
     {
-        $path = $this->buildWatchingPath();
+        $uri = $this->buildWatchingUri();
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -57,20 +58,20 @@ class Watching extends AbstractIssuesApi
      */
     public function ignore(array $params = [])
     {
-        $path = $this->buildWatchingPath();
+        $uri = $this->buildWatchingUri();
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the watching path from the given parts.
+     * Build the watching URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildWatchingPath(string ...$parts)
+    protected function buildWatchingUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'watch', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'watch', ...$parts);
     }
 }

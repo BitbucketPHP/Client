@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Addon;
 
 use Bitbucket\Api\AbstractApi;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The abstract addon api class.

@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\Issues;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The voting class.
@@ -29,9 +30,9 @@ class Voting extends AbstractIssuesApi
      */
     public function check(array $params = [])
     {
-        $path = $this->buildVotingPath();
+        $uri = $this->buildVotingUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class Voting extends AbstractIssuesApi
      */
     public function vote(array $params = [])
     {
-        $path = $this->buildVotingPath();
+        $uri = $this->buildVotingUri();
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -57,20 +58,20 @@ class Voting extends AbstractIssuesApi
      */
     public function retract(array $params = [])
     {
-        $path = $this->buildVotingPath();
+        $uri = $this->buildVotingUri();
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the voting path from the given parts.
+     * Build the voting URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildVotingPath(string ...$parts)
+    protected function buildVotingUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'vote', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'vote', ...$parts);
     }
 }

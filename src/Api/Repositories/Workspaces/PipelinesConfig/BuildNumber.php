@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The build number api class.
@@ -29,20 +30,20 @@ class BuildNumber extends AbstractPipelinesConfigApi
      */
     public function update(array $params = [])
     {
-        $path = $this->buildBuildNumberPath();
+        $uri = $this->buildBuildNumberUri();
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
-     * Build the build number path from the given parts.
+     * Build the build number URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildBuildNumberPath(string ...$parts)
+    protected function buildBuildNumberUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pipelines_config', 'build_number', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', 'build_number', ...$parts);
     }
 }

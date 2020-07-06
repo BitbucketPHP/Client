@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The patches api class.
@@ -30,20 +31,20 @@ class Patches extends AbstractWorkspacesApi
      */
     public function download(string $spec, array $params = [])
     {
-        $path = $this->buildPatchesPath($spec);
+        $uri = $this->buildPatchesUri($spec);
 
-        return $this->pureGet($path, $params, ['Accept' => 'text/plain'])->getBody();
+        return $this->pureGet($uri, $params, ['Accept' => 'text/plain'])->getBody();
     }
 
     /**
-     * Build the patches path from the given parts.
+     * Build the patches URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildPatchesPath(string ...$parts)
+    protected function buildPatchesUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'patch', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'patch', ...$parts);
     }
 }

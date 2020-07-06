@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The diffs stat api class.
@@ -30,20 +31,20 @@ class DiffStat extends AbstractWorkspacesApi
      */
     public function download(string $spec, array $params = [])
     {
-        $path = $this->buildDiffStatPath($spec);
+        $uri = $this->buildDiffStatUri($spec);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the diff stat path from the given parts.
+     * Build the diff stat URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildDiffStatPath(string ...$parts)
+    protected function buildDiffStatUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'diffstat', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'diffstat', ...$parts);
     }
 }

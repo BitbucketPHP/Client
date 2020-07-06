@@ -15,6 +15,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig;
 
 use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh\KeyPair;
 use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh\KnownHosts;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The ssh api class.
@@ -40,14 +41,14 @@ class Ssh extends AbstractPipelinesConfigApi
     }
 
     /**
-     * Build the ssh path from the given parts.
+     * Build the ssh URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildSshPath(string ...$parts)
+    protected function buildSshUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', ...$parts);
     }
 }

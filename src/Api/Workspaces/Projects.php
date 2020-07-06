@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The projects api class.
@@ -29,9 +30,9 @@ class Projects extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = static::appendSeparator($this->buildProjectsPath());
+        $uri = UriBuilder::appendSeparator($this->buildProjectsUri());
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class Projects extends AbstractWorkspacesApi
      */
     public function create(array $params = [])
     {
-        $path = static::appendSeparator($this->buildProjectsPath());
+        $uri = UriBuilder::appendSeparator($this->buildProjectsUri());
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class Projects extends AbstractWorkspacesApi
      */
     public function show(string $project, array $params = [])
     {
-        $path = $this->buildProjectsPath($project);
+        $uri = $this->buildProjectsUri($project);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -73,9 +74,9 @@ class Projects extends AbstractWorkspacesApi
      */
     public function update(string $project, array $params = [])
     {
-        $path = $this->buildProjectsPath($project);
+        $uri = $this->buildProjectsUri($project);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -88,20 +89,20 @@ class Projects extends AbstractWorkspacesApi
      */
     public function remove(string $project, array $params = [])
     {
-        $path = $this->buildProjectsPath($project);
+        $uri = $this->buildProjectsUri($project);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the projects path from the given parts.
+     * Build the projects URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildProjectsPath(string ...$parts)
+    protected function buildProjectsUri(string ...$parts)
     {
-        return static::buildPath('workspaces', $this->workspace, 'projects', ...$parts);
+        return UriBuilder::buildUri('workspaces', $this->workspace, 'projects', ...$parts);
     }
 }

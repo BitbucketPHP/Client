@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api;
 
 use Bitbucket\Api\Repositories\Workspaces as RepositoriesWorkspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The repositories api class.
@@ -31,9 +32,9 @@ class Repositories extends AbstractApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildRepositoriesPath();
+        $uri = $this->buildRepositoriesUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -47,14 +48,14 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * Build the repositories path from the given parts.
+     * Build the repositories URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildRepositoriesPath(string ...$parts)
+    protected function buildRepositoriesUri(string ...$parts)
     {
-        return static::buildPath('repositories', ...$parts);
+        return UriBuilder::buildUri('repositories', ...$parts);
     }
 }

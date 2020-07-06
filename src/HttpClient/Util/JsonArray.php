@@ -11,13 +11,15 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket;
+namespace Bitbucket\HttpClient\Util;
 
 use Bitbucket\Exception\DecodingFailedException;
 use Bitbucket\Exception\EncodingFailedException;
 
 /**
  * The is the JSON array helper class.
+ *
+ * @internal
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -45,7 +47,7 @@ final class JsonArray
 
         if (!\is_array($data)) {
             throw new DecodingFailedException(
-                sprintf('json_decode error: Expected JSON of type array, %s given.', get_debug_type($data))
+                sprintf('json_decode error: Expected JSON of type array, %s given.', \get_debug_type($data))
             );
         }
 

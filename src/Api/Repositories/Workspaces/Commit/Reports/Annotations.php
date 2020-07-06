@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\Commit\Reports;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The annotations api class.
@@ -29,9 +30,9 @@ class Annotations extends AbstractReportsApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildAnnotationsPath();
+        $uri = $this->buildAnnotationsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class Annotations extends AbstractReportsApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildAnnotationsPath();
+        $uri = $this->buildAnnotationsUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class Annotations extends AbstractReportsApi
      */
     public function show(string $annotation, array $params = [])
     {
-        $path = $this->buildAnnotationsPath($annotation);
+        $uri = $this->buildAnnotationsUri($annotation);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -73,9 +74,9 @@ class Annotations extends AbstractReportsApi
      */
     public function update(string $annotation, array $params = [])
     {
-        $path = $this->buildAnnotationsPath($annotation);
+        $uri = $this->buildAnnotationsUri($annotation);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -88,20 +89,20 @@ class Annotations extends AbstractReportsApi
      */
     public function remove(string $annotation, array $params = [])
     {
-        $path = $this->buildAnnotationsPath($annotation);
+        $uri = $this->buildAnnotationsUri($annotation);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Annotations the build path from the given parts.
+     * Annotations the build URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildAnnotationsPath(string ...$parts)
+    protected function buildAnnotationsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'reports', 'annotations', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'reports', 'annotations', ...$parts);
     }
 }

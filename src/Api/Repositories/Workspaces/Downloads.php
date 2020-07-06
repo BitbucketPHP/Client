@@ -15,6 +15,7 @@ namespace Bitbucket\Api\Repositories\Workspaces;
 
 use Bitbucket\HttpClient\Message\FileResource;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The downloads api class.
@@ -32,9 +33,9 @@ class Downloads extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildDownloadsPath();
+        $uri = $this->buildDownloadsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -46,11 +47,11 @@ class Downloads extends AbstractWorkspacesApi
      */
     public function upload(FileResource $file)
     {
-        $path = $this->buildDownloadsPath();
+        $uri = $this->buildDownloadsUri();
         $builder = (new MultipartStreamBuilder())->addResource($file->getName(), $file->getResource(), $file->getOptions());
         $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
-        return $this->postRaw($path, $builder->build(), $headers);
+        return $this->postRaw($uri, $builder->build(), $headers);
     }
 
     /**
@@ -63,9 +64,9 @@ class Downloads extends AbstractWorkspacesApi
      */
     public function download(string $filename, array $params = [])
     {
-        $path = $this->buildDownloadsPath($filename);
+        $uri = $this->buildDownloadsUri($filename);
 
-        return $this->pureGet($path, $params, ['Accept' => '*/*'])->getBody();
+        return $this->pureGet($uri, $params, ['Accept' => '*/*'])->getBody();
     }
 
     /**
@@ -78,20 +79,20 @@ class Downloads extends AbstractWorkspacesApi
      */
     public function remove(string $filename, array $params = [])
     {
-        $path = $this->buildDownloadsPath($filename);
+        $uri = $this->buildDownloadsUri($filename);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the downloads path from the given parts.
+     * Build the downloads URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildDownloadsPath(string ...$parts)
+    protected function buildDownloadsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'downloads', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'downloads', ...$parts);
     }
 }

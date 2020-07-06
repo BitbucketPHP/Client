@@ -18,6 +18,7 @@ use Bitbucket\Api\Repositories\Workspaces\Issues\Changes;
 use Bitbucket\Api\Repositories\Workspaces\Issues\Comments;
 use Bitbucket\Api\Repositories\Workspaces\Issues\Voting;
 use Bitbucket\Api\Repositories\Workspaces\Issues\Watching;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The issues api class.
@@ -35,9 +36,9 @@ class Issues extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildIssuesPath();
+        $uri = $this->buildIssuesUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -49,9 +50,9 @@ class Issues extends AbstractWorkspacesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildIssuesPath();
+        $uri = $this->buildIssuesUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -64,9 +65,9 @@ class Issues extends AbstractWorkspacesApi
      */
     public function show(string $issue, array $params = [])
     {
-        $path = $this->buildIssuesPath($issue);
+        $uri = $this->buildIssuesUri($issue);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -79,9 +80,9 @@ class Issues extends AbstractWorkspacesApi
      */
     public function update(string $issue, array $params = [])
     {
-        $path = $this->buildIssuesPath($issue);
+        $uri = $this->buildIssuesUri($issue);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -94,9 +95,9 @@ class Issues extends AbstractWorkspacesApi
      */
     public function remove(string $issue, array $params = [])
     {
-        $path = $this->buildIssuesPath($issue);
+        $uri = $this->buildIssuesUri($issue);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
@@ -150,14 +151,14 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * Build the issues path from the given parts.
+     * Build the issues URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildIssuesPath(string ...$parts)
+    protected function buildIssuesUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'issues', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'issues', ...$parts);
     }
 }

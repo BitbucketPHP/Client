@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Addon\Linkers;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The values api class.
@@ -29,9 +30,9 @@ class Values extends AbstractLinkersApi
      */
     public function list(array $params = [])
     {
-        $path = static::appendSeparator($this->buildValuesPath());
+        $uri = UriBuilder::appendSeparator($this->buildValuesUri());
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class Values extends AbstractLinkersApi
      */
     public function create(array $params = [])
     {
-        $path = static::appendSeparator($this->buildValuesPath());
+        $uri = UriBuilder::appendSeparator($this->buildValuesUri());
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class Values extends AbstractLinkersApi
      */
     public function show(string $id, array $params = [])
     {
-        $path = $this->buildValuesPath($id);
+        $uri = $this->buildValuesUri($id);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -73,9 +74,9 @@ class Values extends AbstractLinkersApi
      */
     public function update(string $id, array $params = [])
     {
-        $path = $this->buildValuesPath($id);
+        $uri = $this->buildValuesUri($id);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -88,20 +89,20 @@ class Values extends AbstractLinkersApi
      */
     public function remove(string $id, array $params = [])
     {
-        $path = $this->buildValuesPath($id);
+        $uri = $this->buildValuesUri($id);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the values path from the given parts.
+     * Build the values URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildValuesPath(string ...$parts)
+    protected function buildValuesUri(string ...$parts)
     {
-        return static::buildPath('addon', 'linkers', $this->linker, 'values', ...$parts);
+        return UriBuilder::buildUri('addon', 'linkers', $this->linker, 'values', ...$parts);
     }
 }

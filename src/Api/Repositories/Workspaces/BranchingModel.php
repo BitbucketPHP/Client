@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The branching model api class.
@@ -29,9 +30,9 @@ class BranchingModel extends AbstractWorkspacesApi
      */
     public function show(array $params = [])
     {
-        $path = $this->buildBranchingModelPath();
+        $uri = $this->buildBranchingModelUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class BranchingModel extends AbstractWorkspacesApi
      */
     public function showSettings(array $params = [])
     {
-        $path = $this->buildBranchingModelPath('settings');
+        $uri = $this->buildBranchingModelUri('settings');
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -57,20 +58,20 @@ class BranchingModel extends AbstractWorkspacesApi
      */
     public function updateSettings(array $params = [])
     {
-        $path = $this->buildBranchingModelPath('settings');
+        $uri = $this->buildBranchingModelUri('settings');
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
-     * Build the branching model path from the given parts.
+     * Build the branching model URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildBranchingModelPath(string ...$parts)
+    protected function buildBranchingModelUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'branching-model', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'branching-model', ...$parts);
     }
 }

@@ -21,6 +21,7 @@ use Bitbucket\Api\Repositories\Workspaces\PullRequests\DiffStat;
 use Bitbucket\Api\Repositories\Workspaces\PullRequests\Patch;
 use Bitbucket\Api\Repositories\Workspaces\PullRequests\Properties as PullRequestsProperties;
 use Bitbucket\Api\Repositories\Workspaces\PullRequests\Statuses;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The pull requests api class.
@@ -38,9 +39,9 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildPullRequestsPath();
+        $uri = $this->buildPullRequestsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -52,9 +53,9 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function activity(array $params = [])
     {
-        $path = $this->buildPullRequestsPath('activity');
+        $uri = $this->buildPullRequestsUri('activity');
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -66,9 +67,9 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildPullRequestsPath();
+        $uri = $this->buildPullRequestsUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -81,9 +82,9 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function show(string $pr, array $params = [])
     {
-        $path = $this->buildPullRequestsPath($pr);
+        $uri = $this->buildPullRequestsUri($pr);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -96,9 +97,9 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function activityByPr(string $pr, array $params = [])
     {
-        $path = $this->buildPullRequestsPath($pr, 'activity');
+        $uri = $this->buildPullRequestsUri($pr, 'activity');
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -111,9 +112,9 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function update(string $pr, array $params = [])
     {
-        $path = $this->buildPullRequestsPath($pr);
+        $uri = $this->buildPullRequestsUri($pr);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -126,9 +127,9 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function decline(string $pr, array $params = [])
     {
-        $path = $this->buildPullRequestsPath($pr, 'decline');
+        $uri = $this->buildPullRequestsUri($pr, 'decline');
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -141,9 +142,9 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function merge(string $pr, array $params = [])
     {
-        $path = $this->buildPullRequestsPath($pr, 'merge');
+        $uri = $this->buildPullRequestsUri($pr, 'merge');
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -157,9 +158,9 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function mergeTaskStatus(string $pr, string $task, array $params = [])
     {
-        $path = $this->buildPullRequestsPath($pr, 'merge', 'task-status', $task);
+        $uri = $this->buildPullRequestsUri($pr, 'merge', 'task-status', $task);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -243,14 +244,14 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * Build the pull requests path from the given parts.
+     * Build the pull requests URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildPullRequestsPath(string ...$parts)
+    protected function buildPullRequestsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pullrequests', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pullrequests', ...$parts);
     }
 }

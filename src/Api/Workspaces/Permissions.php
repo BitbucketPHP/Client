@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The permissions api class.
@@ -29,20 +30,20 @@ class Permissions extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildPermissionsPath();
+        $uri = $this->buildPermissionsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the permissions path from the given parts.
+     * Build the permissions URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildPermissionsPath(string ...$parts)
+    protected function buildPermissionsUri(string ...$parts)
     {
-        return static::buildPath('workspaces', $this->workspace, 'permissions', ...$parts);
+        return UriBuilder::buildUri('workspaces', $this->workspace, 'permissions', ...$parts);
     }
 }

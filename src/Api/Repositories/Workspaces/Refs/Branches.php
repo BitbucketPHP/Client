@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\Refs;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The branches api class.
@@ -29,9 +30,9 @@ class Branches extends AbstractRefsApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildBranchesPath();
+        $uri = $this->buildBranchesUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class Branches extends AbstractRefsApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildBranchesPath();
+        $uri = $this->buildBranchesUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class Branches extends AbstractRefsApi
      */
     public function show(string $branch, array $params = [])
     {
-        $path = $this->buildBranchesPath($branch);
+        $uri = $this->buildBranchesUri($branch);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -73,20 +74,20 @@ class Branches extends AbstractRefsApi
      */
     public function remove(string $branch, array $params = [])
     {
-        $path = $this->buildBranchesPath($branch);
+        $uri = $this->buildBranchesUri($branch);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the branches path from the given parts.
+     * Build the branches URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildBranchesPath(string ...$parts)
+    protected function buildBranchesUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'refs', 'branches', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'refs', 'branches', ...$parts);
     }
 }

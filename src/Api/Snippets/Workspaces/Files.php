@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Snippets\Workspaces;
 
 use Http\Message\MultipartStream\MultipartStreamBuilder;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The files api class.
@@ -32,25 +33,25 @@ class Files extends AbstractWorkspacesApi
      */
     public function show(string $commit, array $params = [])
     {
-        $path = $this->buildFilesPath($commit);
+        $uri = $this->buildFilesUri($commit);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
      * @param string $commit
-     * @param string $path
+     * @param string $uri
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return \Psr\Http\Message\StreamInterface
      */
-    public function download(string $commit, string $path, array $params = [])
+    public function download(string $commit, string $uri, array $params = [])
     {
-        $path = $this->buildFilesPath($commit, 'files', ...explode('/', $path));
+        $uri = $this->buildFilesUri($commit, 'files', ...explode('/', $uri));
 
-        return $this->pureGet($path, $params, ['Accept' => '*/*'])->getBody();
+        return $this->pureGet($uri, $params, ['Accept' => '*/*'])->getBody();
     }
 
     /**
@@ -63,9 +64,9 @@ class Files extends AbstractWorkspacesApi
      */
     public function update(string $commit, array $params = [])
     {
-        $path = $this->buildFilesPath($commit);
+        $uri = $this->buildFilesUri($commit);
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -78,7 +79,7 @@ class Files extends AbstractWorkspacesApi
      */
     public function updateFiles(string $commit, array $files)
     {
-        $path = $this->buildFilesPath($commit);
+        $uri = $this->buildFilesUri($commit);
 
         $builder = new MultipartStreamBuilder();
 
@@ -88,7 +89,7 @@ class Files extends AbstractWorkspacesApi
 
         $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
-        return $this->postRaw($path, $builder->build(), $headers);
+        return $this->postRaw($uri, $builder->build(), $headers);
     }
 
     /**
@@ -101,20 +102,20 @@ class Files extends AbstractWorkspacesApi
      */
     public function remove(string $commit, array $params = [])
     {
-        $path = $this->buildFilesPath($commit);
+        $uri = $this->buildFilesUri($commit);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the files path from the given parts.
+     * Build the files URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildFilesPath(string ...$parts)
+    protected function buildFilesUri(string ...$parts)
     {
-        return static::buildPath('snippets', $this->workspace, $this->snippet, ...$parts);
+        return UriBuilder::buildUri('snippets', $this->workspace, $this->snippet, ...$parts);
     }
 }

@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Addon\Users;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The events api class.
@@ -30,20 +31,20 @@ class Events extends AbstractUsersApi
      */
     public function create(string $event, array $params = [])
     {
-        $path = $this->buildEventsPath($event);
+        $uri = $this->buildEventsUri($event);
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
-     * Build the events path from the given parts.
+     * Build the events URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildEventsPath(string ...$parts)
+    protected function buildEventsUri(string ...$parts)
     {
-        return static::buildPath('addon', 'users', $this->username, 'events', ...$parts);
+        return UriBuilder::buildUri('addon', 'users', $this->username, 'events', ...$parts);
     }
 }

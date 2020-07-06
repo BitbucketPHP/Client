@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The merge bases api class.
@@ -30,20 +31,20 @@ class MergeBases extends AbstractWorkspacesApi
      */
     public function show(string $spec, array $params = [])
     {
-        $path = $this->buildMergeBasesPath($spec);
+        $uri = $this->buildMergeBasesUri($spec);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the merge base path from the given parts.
+     * Build the merge base URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildMergeBasesPath(string ...$parts)
+    protected function buildMergeBasesUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'merge-base', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'merge-base', ...$parts);
     }
 }

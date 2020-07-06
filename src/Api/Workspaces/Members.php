@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The members api class.
@@ -29,9 +30,9 @@ class Members extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildMembersPath();
+        $uri = $this->buildMembersUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -44,20 +45,20 @@ class Members extends AbstractWorkspacesApi
      */
     public function show(string $member, array $params = [])
     {
-        $path = $this->buildMembersPath($member);
+        $uri = $this->buildMembersUri($member);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the members path from the given parts.
+     * Build the members URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildMembersPath(string ...$parts)
+    protected function buildMembersUri(string ...$parts)
     {
-        return static::buildPath('workspaces', $this->workspace, 'members', ...$parts);
+        return UriBuilder::buildUri('workspaces', $this->workspace, 'members', ...$parts);
     }
 }

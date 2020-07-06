@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\PullRequests;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The commits api class.
@@ -29,20 +30,20 @@ class Commits extends AbstractPullRequestsApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildCommitsPath();
+        $uri = $this->buildCommitsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the commits path from the given parts.
+     * Build the commits URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildCommitsPath(string ...$parts)
+    protected function buildCommitsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'commits', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'commits', ...$parts);
     }
 }

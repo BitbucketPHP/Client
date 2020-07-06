@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The branch restrictions api class.
@@ -29,9 +30,9 @@ class Commits extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildCommitsPath();
+        $uri = $this->buildCommitsUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -44,20 +45,20 @@ class Commits extends AbstractWorkspacesApi
      */
     public function show(string $commit, array $params = [])
     {
-        $path = $this->buildCommitsPath($commit);
+        $uri = $this->buildCommitsUri($commit);
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
-     * Build the commits path from the given parts.
+     * Build the commits URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildCommitsPath(string ...$parts)
+    protected function buildCommitsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'commits', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commits', ...$parts);
     }
 }

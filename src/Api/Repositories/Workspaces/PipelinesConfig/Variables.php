@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The variables api class.
@@ -29,9 +30,9 @@ class Variables extends AbstractPipelinesConfigApi
      */
     public function list(array $params = [])
     {
-        $path = static::appendSeparator($this->buildVariablesPath());
+        $uri = UriBuilder::appendSeparator($this->buildVariablesUri());
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class Variables extends AbstractPipelinesConfigApi
      */
     public function create(array $params = [])
     {
-        $path = static::appendSeparator($this->buildVariablesPath());
+        $uri = UriBuilder::appendSeparator($this->buildVariablesUri());
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class Variables extends AbstractPipelinesConfigApi
      */
     public function show(string $variable, array $params = [])
     {
-        $path = $this->buildVariablesPath($variable);
+        $uri = $this->buildVariablesUri($variable);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -73,9 +74,9 @@ class Variables extends AbstractPipelinesConfigApi
      */
     public function update(string $variable, array $params = [])
     {
-        $path = $this->buildVariablesPath($variable);
+        $uri = $this->buildVariablesUri($variable);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -88,20 +89,20 @@ class Variables extends AbstractPipelinesConfigApi
      */
     public function remove(string $variable, array $params = [])
     {
-        $path = $this->buildVariablesPath($variable);
+        $uri = $this->buildVariablesUri($variable);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the variables path from the given parts.
+     * Build the variables URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildVariablesPath(string ...$parts)
+    protected function buildVariablesUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pipelines_config', 'variables', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', 'variables', ...$parts);
     }
 }

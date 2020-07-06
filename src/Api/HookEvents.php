@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The hook events api class.
@@ -29,9 +30,9 @@ class HookEvents extends AbstractApi
      */
     public function listUserEvents(array $params = [])
     {
-        $path = $this->buildHookEventsPath('user');
+        $uri = $this->buildHookEventsUri('user');
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class HookEvents extends AbstractApi
      */
     public function listRepositoryEvents(array $params = [])
     {
-        $path = $this->buildHookEventsPath('repository');
+        $uri = $this->buildHookEventsUri('repository');
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -57,9 +58,9 @@ class HookEvents extends AbstractApi
      */
     public function listTeamEvents(array $params = [])
     {
-        $path = $this->buildHookEventsPath('team');
+        $uri = $this->buildHookEventsUri('team');
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -71,20 +72,20 @@ class HookEvents extends AbstractApi
      */
     public function listWorkspaceEvents(array $params = [])
     {
-        $path = $this->buildHookEventsPath('workspace');
+        $uri = $this->buildHookEventsUri('workspace');
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the hook events path from the given parts.
+     * Build the hook events URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildHookEventsPath(string ...$parts)
+    protected function buildHookEventsUri(string ...$parts)
     {
-        return static::buildPath('hook_events', ...$parts);
+        return UriBuilder::buildUri('hook_events', ...$parts);
     }
 }

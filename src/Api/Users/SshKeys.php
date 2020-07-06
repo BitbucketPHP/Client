@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Users;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The ssh keys api class.
@@ -29,9 +30,9 @@ class SshKeys extends AbstractUsersApi
      */
     public function list(array $params = [])
     {
-        $path = static::appendSeparator($this->buildSshKeysPath());
+        $uri = UriBuilder::appendSeparator($this->buildSshKeysUri());
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class SshKeys extends AbstractUsersApi
      */
     public function create(array $params = [])
     {
-        $path = static::appendSeparator($this->buildSshKeysPath());
+        $uri = UriBuilder::appendSeparator($this->buildSshKeysUri());
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class SshKeys extends AbstractUsersApi
      */
     public function show(string $id, array $params = [])
     {
-        $path = $this->buildSshKeysPath($id);
+        $uri = $this->buildSshKeysUri($id);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -73,9 +74,9 @@ class SshKeys extends AbstractUsersApi
      */
     public function update(string $id, array $params = [])
     {
-        $path = $this->buildSshKeysPath($id);
+        $uri = $this->buildSshKeysUri($id);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -88,20 +89,20 @@ class SshKeys extends AbstractUsersApi
      */
     public function remove(string $id, array $params = [])
     {
-        $path = $this->buildSshKeysPath($id);
+        $uri = $this->buildSshKeysUri($id);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the ssh keys path from the given parts.
+     * Build the ssh keys URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildSshKeysPath(string ...$parts)
+    protected function buildSshKeysUri(string ...$parts)
     {
-        return static::buildPath('users', $this->username, 'ssh-keys', ...$parts);
+        return UriBuilder::buildUri('users', $this->username, 'ssh-keys', ...$parts);
     }
 }

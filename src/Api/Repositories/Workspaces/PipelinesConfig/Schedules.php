@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig;
 
 use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Schedules\Executions;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The schedules api class.
@@ -31,9 +32,9 @@ class Schedules extends AbstractPipelinesConfigApi
      */
     public function list(array $params = [])
     {
-        $path = static::appendSeparator($this->buildSchedulesPath());
+        $uri = UriBuilder::appendSeparator($this->buildSchedulesUri());
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -45,9 +46,9 @@ class Schedules extends AbstractPipelinesConfigApi
      */
     public function create(array $params = [])
     {
-        $path = static::appendSeparator($this->buildSchedulesPath());
+        $uri = UriBuilder::appendSeparator($this->buildSchedulesUri());
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -60,9 +61,9 @@ class Schedules extends AbstractPipelinesConfigApi
      */
     public function show(string $schedule, array $params = [])
     {
-        $path = $this->buildSchedulesPath($schedule);
+        $uri = $this->buildSchedulesUri($schedule);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -75,9 +76,9 @@ class Schedules extends AbstractPipelinesConfigApi
      */
     public function update(string $schedule, array $params = [])
     {
-        $path = $this->buildSchedulesPath($schedule);
+        $uri = $this->buildSchedulesUri($schedule);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -90,9 +91,9 @@ class Schedules extends AbstractPipelinesConfigApi
      */
     public function remove(string $schedule, array $params = [])
     {
-        $path = $this->buildSchedulesPath($schedule);
+        $uri = $this->buildSchedulesUri($schedule);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
@@ -106,14 +107,14 @@ class Schedules extends AbstractPipelinesConfigApi
     }
 
     /**
-     * Build the schedules path from the given parts.
+     * Build the schedules URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildSchedulesPath(string ...$parts)
+    protected function buildSchedulesUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pipelines_config', 'schedules', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', 'schedules', ...$parts);
     }
 }

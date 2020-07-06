@@ -15,6 +15,7 @@ namespace Bitbucket\Api\Repositories\Workspaces;
 
 use Bitbucket\Api\Repositories\Workspaces\Pipelines\RemoteTriggers;
 use Bitbucket\Api\Repositories\Workspaces\Pipelines\Steps;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The pipelines api class.
@@ -32,9 +33,9 @@ class Pipelines extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = static::appendSeparator($this->buildPipelinesPath());
+        $uri = UriBuilder::appendSeparator($this->buildPipelinesUri());
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -46,9 +47,9 @@ class Pipelines extends AbstractWorkspacesApi
      */
     public function create(array $params = [])
     {
-        $path = static::appendSeparator($this->buildPipelinesPath());
+        $uri = UriBuilder::appendSeparator($this->buildPipelinesUri());
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -61,9 +62,9 @@ class Pipelines extends AbstractWorkspacesApi
      */
     public function show(string $pipeline, array $params = [])
     {
-        $path = $this->buildPipelinesPath($pipeline);
+        $uri = $this->buildPipelinesUri($pipeline);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -76,9 +77,9 @@ class Pipelines extends AbstractWorkspacesApi
      */
     public function stop(string $pipeline, array $params = [])
     {
-        $path = $this->buildPipelinesPath($pipeline, 'stopPipeline');
+        $uri = $this->buildPipelinesUri($pipeline, 'stopPipeline');
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -102,14 +103,14 @@ class Pipelines extends AbstractWorkspacesApi
     }
 
     /**
-     * Build the pipelines path from the given parts.
+     * Build the pipelines URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildPipelinesPath(string ...$parts)
+    protected function buildPipelinesUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pipelines', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines', ...$parts);
     }
 }

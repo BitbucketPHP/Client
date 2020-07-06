@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\Deployments;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The environment ariables api class.
@@ -29,9 +30,9 @@ class EnvironmentVariables extends AbstractDeploymentsApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildEnvironmentVariablesPath();
+        $uri = $this->buildEnvironmentVariablesUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class EnvironmentVariables extends AbstractDeploymentsApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildEnvironmentVariablesPath();
+        $uri = $this->buildEnvironmentVariablesUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class EnvironmentVariables extends AbstractDeploymentsApi
      */
     public function update(string $variable, array $params = [])
     {
-        $path = $this->buildEnvironmentVariablesPath($variable);
+        $uri = $this->buildEnvironmentVariablesUri($variable);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -73,20 +74,20 @@ class EnvironmentVariables extends AbstractDeploymentsApi
      */
     public function remove(string $variable, array $params = [])
     {
-        $path = $this->buildEnvironmentVariablesPath($variable);
+        $uri = $this->buildEnvironmentVariablesUri($variable);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the variables path from the given parts.
+     * Build the variables URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildEnvironmentVariablesPath(string ...$parts)
+    protected function buildEnvironmentVariablesUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'deployments_config', 'environments', $this->environment, 'variables', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'deployments_config', 'environments', $this->environment, 'variables', ...$parts);
     }
 }

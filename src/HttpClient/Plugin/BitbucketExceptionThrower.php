@@ -14,11 +14,9 @@ declare(strict_types=1);
 namespace Bitbucket\HttpClient\Plugin;
 
 use Bitbucket\Exception\ApiLimitExceededException;
-use Bitbucket\Exception\DecodingFailedException;
 use Bitbucket\Exception\RuntimeException;
 use Bitbucket\Exception\ValidationFailedException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
-use Bitbucket\JsonArray;
 use Http\Client\Common\Plugin;
 use Http\Promise\Promise;
 use Psr\Http\Message\RequestInterface;
@@ -50,7 +48,7 @@ final class BitbucketExceptionThrower implements Plugin
             $status = $response->getStatusCode();
 
             if ($status >= 400 && $status < 600) {
-                self::handleError($status, self::getMessage($response) ?? $response->getReasonPhrase());
+                self::handleError($status, ResponseMediator::getErrorMessage($response) ?? $response->getReasonPhrase());
             }
 
             return $response;
@@ -79,71 +77,5 @@ final class BitbucketExceptionThrower implements Plugin
         }
 
         throw new RuntimeException($message, $status);
-    }
-
-    /**
-     * Get the error message from the response if present.
-     *
-     * @param \Psr\Http\Message\ResponseInterface $response
-     *
-     * @return string|null
-     */
-    private static function getMessage(ResponseInterface $response)
-    {
-        try {
-            $error = ResponseMediator::getContent($response)['error'] ?? null;
-        } catch (DecodingFailedException $e) {
-            return null;
-        }
-
-        return is_array($error) ? self::getMessageFromError($error) : null;
-    }
-
-    /**
-     * Get the error message from the error array if present.
-     *
-     * @param array $error
-     *
-     * @return string|null
-     */
-    private static function getMessageFromError(array $error)
-    {
-        $message = $error['message'] ?? '';
-
-        if (!is_string($message)) {
-            return null;
-        }
-
-        $detail = self::getDetailAsString($error);
-
-        if ($message !== '') {
-            return $detail !== '' ? sprintf('%s: %s', $message, $detail) : $message;
-        }
-
-        if ($detail !== '') {
-            return $detail;
-        }
-
-        return null;
-    }
-
-    /**
-     * Present the detail portion of the error array.
-     *
-     * @param array $error
-     *
-     * @return string
-     */
-    private static function getDetailAsString(array $error)
-    {
-        /** @var string|array $detail */
-        $detail = $error['detail'] ?? '';
-
-        if ($detail === '' || $detail === []) {
-            return '';
-        }
-
-        /** @var string */
-        return strtok(is_string($detail) ? $detail : JsonArray::encode($detail), "\n");
     }
 }

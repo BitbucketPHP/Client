@@ -15,6 +15,7 @@ namespace Bitbucket\Api\Snippets;
 
 use Bitbucket\Api\AbstractApi;
 use Http\Client\Common\HttpMethodsClientInterface;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The abstract snippets api class.

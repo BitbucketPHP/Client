@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The pipelines config api class.
@@ -29,9 +30,9 @@ class PipelinesConfig extends AbstractWorkspacesApi
      */
     public function show(array $params = [])
     {
-        $path = $this->buildPipelinesConfigPath();
+        $uri = $this->buildPipelinesConfigUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,20 +44,20 @@ class PipelinesConfig extends AbstractWorkspacesApi
      */
     public function update(array $params = [])
     {
-        $path = $this->buildPipelinesConfigPath();
+        $uri = $this->buildPipelinesConfigUri();
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
-     * Build the pipelines config path from the given parts.
+     * Build the pipelines config URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildPipelinesConfigPath(string ...$parts)
+    protected function buildPipelinesConfigUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pipelines_config', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', ...$parts);
     }
 }

@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh;
 
 use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\AbstractPipelinesConfigApi;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The abstract ssh api class.

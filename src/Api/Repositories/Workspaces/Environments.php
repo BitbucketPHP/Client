@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The environments api class.
@@ -29,9 +30,9 @@ class Environments extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildEnvironmentsPath();
+        $uri = $this->buildEnvironmentsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -44,9 +45,9 @@ class Environments extends AbstractWorkspacesApi
      */
     public function show(string $env, array $params = [])
     {
-        $path = $this->buildEnvironmentsPath($env);
+        $uri = $this->buildEnvironmentsUri($env);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class Environments extends AbstractWorkspacesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildEnvironmentsPath();
+        $uri = $this->buildEnvironmentsUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -73,9 +74,9 @@ class Environments extends AbstractWorkspacesApi
      */
     public function update(string $env, array $params = [])
     {
-        $path = static::appendSeparator($this->buildEnvironmentsPath($env, 'changes'));
+        $uri = UriBuilder::appendSeparator($this->buildEnvironmentsUri($env, 'changes'));
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -87,20 +88,20 @@ class Environments extends AbstractWorkspacesApi
      */
     public function remove(string $env)
     {
-        $path = $this->buildEnvironmentsPath($env);
+        $uri = $this->buildEnvironmentsUri($env);
 
-        return $this->delete($path);
+        return $this->delete($uri);
     }
 
     /**
-     * Build the environments path from the given parts.
+     * Build the environments URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildEnvironmentsPath(string ...$parts)
+    protected function buildEnvironmentsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'environments', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'environments', ...$parts);
     }
 }

@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Workspaces\Commit;
 
 use Bitbucket\Api\Repositories\Workspaces\Commit\Reports\Annotations;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The reports api class.
@@ -31,9 +32,9 @@ class Reports extends AbstractCommitApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildReportsPath();
+        $uri = $this->buildReportsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -45,9 +46,9 @@ class Reports extends AbstractCommitApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildReportsPath();
+        $uri = $this->buildReportsUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -60,9 +61,9 @@ class Reports extends AbstractCommitApi
      */
     public function show(string $report, array $params = [])
     {
-        $path = $this->buildReportsPath($report);
+        $uri = $this->buildReportsUri($report);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -74,14 +75,14 @@ class Reports extends AbstractCommitApi
     }
 
     /**
-     * Build the reports path from the given parts.
+     * Build the reports URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildReportsPath(string ...$parts)
+    protected function buildReportsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'reports', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'reports', ...$parts);
     }
 }

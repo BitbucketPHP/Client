@@ -15,6 +15,7 @@ namespace Bitbucket\Api;
 
 use Bitbucket\Api\Addon\Linkers;
 use Bitbucket\Api\Addon\Users as UsersAddon;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The addon api class.
@@ -32,9 +33,9 @@ class Addon extends AbstractApi
      */
     public function update(array $params = [])
     {
-        $path = $this->buildAddonPath();
+        $uri = $this->buildAddonUri();
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -46,9 +47,9 @@ class Addon extends AbstractApi
      */
     public function remove(array $params = [])
     {
-        $path = $this->buildAddonPath();
+        $uri = $this->buildAddonUri();
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
@@ -68,14 +69,14 @@ class Addon extends AbstractApi
     }
 
     /**
-     * Build the addon path from the given parts.
+     * Build the addon URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildAddonPath(string ...$parts)
+    protected function buildAddonUri(string ...$parts)
     {
-        return static::buildPath('addon', ...$parts);
+        return UriBuilder::buildUri('addon', ...$parts);
     }
 }

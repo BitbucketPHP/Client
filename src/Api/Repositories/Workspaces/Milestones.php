@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The milestones api class.
@@ -29,9 +30,9 @@ class Milestones extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildMilestonesPath();
+        $uri = $this->buildMilestonesUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -44,20 +45,20 @@ class Milestones extends AbstractWorkspacesApi
      */
     public function show(string $milestone, array $params = [])
     {
-        $path = $this->buildMilestonesPath($milestone);
+        $uri = $this->buildMilestonesUri($milestone);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the milestones path from the given parts.
+     * Build the milestones URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildMilestonesPath(string ...$parts)
+    protected function buildMilestonesUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'milestones', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'milestones', ...$parts);
     }
 }

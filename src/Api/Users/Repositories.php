@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Users;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The repositories api class.
@@ -29,20 +30,20 @@ class Repositories extends AbstractUsersApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildRepositoriesPath();
+        $uri = $this->buildRepositoriesUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the repositories path from the given parts.
+     * Build the repositories URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildRepositoriesPath(string ...$parts)
+    protected function buildRepositoriesUri(string ...$parts)
     {
-        return static::buildPath('users', $this->username, 'repositories', ...$parts);
+        return UriBuilder::buildUri('users', $this->username, 'repositories', ...$parts);
     }
 }

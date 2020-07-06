@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace Bitbucket\Api;
 
 use Bitbucket\HttpClient\Message\ResponseMediator;
-use Bitbucket\JsonArray;
+use Bitbucket\HttpClient\Util\JsonArray;
 use Http\Client\Common\HttpMethodsClientInterface;
-use TypeError;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The abstract bitbucket api class.
@@ -27,11 +27,11 @@ use TypeError;
 abstract class AbstractApi implements ApiInterface
 {
     /**
-     * The URI path separator.
+     * The URI prefix.
      *
      * @var string
      */
-    private const URI_SEPARATOR = '/';
+    private const URI_PREFIX = '/2.0/';
 
     /**
      * The http methods client.
@@ -94,7 +94,7 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Send a GET request with query params.
      *
-     * @param string               $path
+     * @param string               $uri
      * @param array                $params
      * @param array<string,string> $headers
      *
@@ -102,9 +102,9 @@ abstract class AbstractApi implements ApiInterface
      *
      * @return array
      */
-    protected function get(string $path, array $params = [], array $headers = [])
+    protected function get(string $uri, array $params = [], array $headers = [])
     {
-        $response = $this->pureGet($path, $params, $headers);
+        $response = $this->pureGet($uri, $params, $headers);
 
         return ResponseMediator::getContent($response);
     }
@@ -112,7 +112,7 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Send a GET request with query params.
      *
-     * @param string               $path
+     * @param string               $uri
      * @param array                $params
      * @param array<string,string> $headers
      *
@@ -120,23 +120,23 @@ abstract class AbstractApi implements ApiInterface
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    protected function pureGet(string $path, array $params = [], array $headers = [])
+    protected function pureGet(string $uri, array $params = [], array $headers = [])
     {
         if ($this->perPage !== null && !isset($params['pagelen'])) {
             $params['pagelen'] = $this->perPage;
         }
 
         if (count($params) === 0) {
-            $path .= '?'.http_build_query($params);
+            $uri .= '?'.http_build_query($params);
         }
 
-        return $this->client->get(self::computePath($path), $headers);
+        return $this->client->get(self::prefixUri($uri), $headers);
     }
 
     /**
      * Send a POST request with JSON-encoded params.
      *
-     * @param string               $path
+     * @param string               $uri
      * @param array                $params
      * @param array<string,string> $headers
      *
@@ -144,7 +144,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @return array
      */
-    protected function post(string $path, array $params = [], array $headers = [])
+    protected function post(string $uri, array $params = [], array $headers = [])
     {
         $body = self::createJsonBody($params);
 
@@ -152,13 +152,13 @@ abstract class AbstractApi implements ApiInterface
             $headers = self::addJsonContentType($headers);
         }
 
-        return $this->postRaw($path, $body, $headers);
+        return $this->postRaw($uri, $body, $headers);
     }
 
     /**
      * Send a POST request with raw data.
      *
-     * @param string                                        $path
+     * @param string                                        $uri
      * @param string|\Psr\Http\Message\StreamInterface|null $body
      * @param array<string,string>                          $headers
      *
@@ -166,9 +166,9 @@ abstract class AbstractApi implements ApiInterface
      *
      * @return array
      */
-    protected function postRaw(string $path, $body = null, array $headers = [])
+    protected function postRaw(string $uri, $body = null, array $headers = [])
     {
-        $response = $this->client->post(self::computePath($path), $headers, $body);
+        $response = $this->client->post(self::prefixUri($uri), $headers, $body);
 
         return ResponseMediator::getContent($response);
     }
@@ -176,7 +176,7 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Send a PUT request with JSON-encoded params.
      *
-     * @param string               $path
+     * @param string               $uri
      * @param array                $params
      * @param array<string,string> $headers
      *
@@ -184,7 +184,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @return array
      */
-    protected function put(string $path, array $params = [], array $headers = [])
+    protected function put(string $uri, array $params = [], array $headers = [])
     {
         $body = self::createJsonBody($params);
 
@@ -192,13 +192,13 @@ abstract class AbstractApi implements ApiInterface
             $headers = self::addJsonContentType($headers);
         }
 
-        return $this->putRaw($path, $body, $headers);
+        return $this->putRaw($uri, $body, $headers);
     }
 
     /**
      * Send a PUT request with raw data.
      *
-     * @param string                                        $path
+     * @param string                                        $uri
      * @param string|\Psr\Http\Message\StreamInterface|null $body
      * @param array<string,string>                          $headers
      *
@@ -206,9 +206,9 @@ abstract class AbstractApi implements ApiInterface
      *
      * @return array
      */
-    protected function putRaw(string $path, $body = null, array $headers = [])
+    protected function putRaw(string $uri, $body = null, array $headers = [])
     {
-        $response = $this->client->put(self::computePath($path), $headers, $body);
+        $response = $this->client->put(self::prefixUri($uri), $headers, $body);
 
         return ResponseMediator::getContent($response);
     }
@@ -216,7 +216,7 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Send a DELETE request with JSON-encoded params.
      *
-     * @param string               $path
+     * @param string               $uri
      * @param array                $params
      * @param array<string,string> $headers
      *
@@ -224,7 +224,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @return array
      */
-    protected function delete(string $path, array $params = [], array $headers = [])
+    protected function delete(string $uri, array $params = [], array $headers = [])
     {
         $body = self::createJsonBody($params);
 
@@ -232,13 +232,13 @@ abstract class AbstractApi implements ApiInterface
             $headers = self::addJsonContentType($headers);
         }
 
-        return $this->deleteRaw($path, $body, $headers);
+        return $this->deleteRaw($uri, $body, $headers);
     }
 
     /**
      * Send a DELETE request with raw data.
      *
-     * @param string                                        $path
+     * @param string                                        $uri
      * @param string|\Psr\Http\Message\StreamInterface|null $body
      * @param array<string,string>                          $headers
      *
@@ -246,57 +246,11 @@ abstract class AbstractApi implements ApiInterface
      *
      * @return array
      */
-    protected function deleteRaw(string $path, $body = null, array $headers = [])
+    protected function deleteRaw(string $uri, $body = null, array $headers = [])
     {
-        $response = $this->client->delete(self::computePath($path), $headers, $body);
+        $response = $this->client->delete(self::prefixUri($uri), $headers, $body);
 
         return ResponseMediator::getContent($response);
-    }
-
-    /**
-     * Build a URL path from the given parts.
-     *
-     * @param string ...$parts
-     *
-     * @return string
-     */
-    protected static function buildPath(string ...$parts)
-    {
-        foreach ($parts as $index => $part) {
-            if ($part === '') {
-                throw new TypeError(
-                    sprintf('%s::buildPath(): Argument #%d ($parts) must non-empty', self::class, $index + 1)
-                );
-            }
-
-            $parts[$index] = self::urlEncode($part);
-        }
-
-        return implode(self::URI_SEPARATOR, $parts);
-    }
-
-    /**
-     * Append a URI separator to the given path.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    protected static function appendSeparator(string $path)
-    {
-        return sprintf('%s%s', $path, self::URI_SEPARATOR);
-    }
-
-    /**
-     * Compute the prefixed API path.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    private static function computePath(string $path)
-    {
-        return sprintf('/2.0/%s', $path);
     }
 
     /**
@@ -324,20 +278,18 @@ abstract class AbstractApi implements ApiInterface
      */
     private static function addJsonContentType(array $headers)
     {
-        return array_merge(['Content-Type' => 'application/json'], $headers);
+        return array_merge(['Content-Type' => ResponseMediator::JSON_CONTENT_TYPE], $headers);
     }
 
     /**
-     * Encode the given string for a URL.
+     * Compute the prefixed URI.
      *
-     * @param string $str
+     * @param string $uri
      *
      * @return string
      */
-    private static function urlEncode(string $str)
+    private static function prefixUri(string $uri)
     {
-        $str = rawurlencode($str);
-
-        return str_replace('.', '%2E', $str);
+        return sprintf('%s%s', self::URI_PREFIX, $uri);
     }
 }

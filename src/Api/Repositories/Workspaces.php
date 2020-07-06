@@ -40,6 +40,7 @@ use Bitbucket\Api\Repositories\Workspaces\Refs;
 use Bitbucket\Api\Repositories\Workspaces\Src;
 use Bitbucket\Api\Repositories\Workspaces\Versions;
 use Bitbucket\Api\Repositories\Workspaces\Watchers;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The workspaces api class.
@@ -57,9 +58,9 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildWorkspacesPath();
+        $uri = $this->buildWorkspacesUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -72,9 +73,9 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function show(string $repo, array $params = [])
     {
-        $path = $this->buildWorkspacesPath($repo);
+        $uri = $this->buildWorkspacesUri($repo);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -87,9 +88,9 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function create(string $repo, array $params = [])
     {
-        $path = $this->buildWorkspacesPath($repo);
+        $uri = $this->buildWorkspacesUri($repo);
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -102,9 +103,9 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function update(string $repo, array $params = [])
     {
-        $path = $this->buildWorkspacesPath($repo);
+        $uri = $this->buildWorkspacesUri($repo);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -117,9 +118,9 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function remove(string $repo, array $params = [])
     {
-        $path = $this->buildWorkspacesPath($repo);
+        $uri = $this->buildWorkspacesUri($repo);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
@@ -393,14 +394,14 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * Build the workspaces path from the given parts.
+     * Build the workspaces URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildWorkspacesPath(string ...$parts)
+    protected function buildWorkspacesUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, ...$parts);
     }
 }

@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The deploy keys api class.
@@ -29,9 +30,9 @@ class DeployKeys extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildDeployKeysPath();
+        $uri = $this->buildDeployKeysUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class DeployKeys extends AbstractWorkspacesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildDeployKeysPath();
+        $uri = $this->buildDeployKeysUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -58,9 +59,9 @@ class DeployKeys extends AbstractWorkspacesApi
      */
     public function show(string $id, array $params = [])
     {
-        $path = $this->buildDeployKeysPath($id);
+        $uri = $this->buildDeployKeysUri($id);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -73,9 +74,9 @@ class DeployKeys extends AbstractWorkspacesApi
      */
     public function update(string $id, array $params = [])
     {
-        $path = $this->buildDeployKeysPath($id);
+        $uri = $this->buildDeployKeysUri($id);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -88,20 +89,20 @@ class DeployKeys extends AbstractWorkspacesApi
      */
     public function remove(string $id, array $params = [])
     {
-        $path = $this->buildDeployKeysPath($id);
+        $uri = $this->buildDeployKeysUri($id);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the deploy keys path from the given parts.
+     * Build the deploy keys URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildDeployKeysPath(string ...$parts)
+    protected function buildDeployKeysUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'deploy-keys', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'deploy-keys', ...$parts);
     }
 }

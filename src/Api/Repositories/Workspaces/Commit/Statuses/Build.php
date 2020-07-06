@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\Commit\Statuses;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The build api class.
@@ -29,9 +30,9 @@ class Build extends AbstractStatusesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildBuildPath();
+        $uri = $this->buildBuildUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -44,9 +45,9 @@ class Build extends AbstractStatusesApi
      */
     public function show(string $key, array $params = [])
     {
-        $path = $this->buildBuildPath(...explode('/', $key));
+        $uri = $this->buildBuildUri(...explode('/', $key));
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -59,20 +60,20 @@ class Build extends AbstractStatusesApi
      */
     public function update(string $key, array $params = [])
     {
-        $path = $this->buildBuildPath(...explode('/', $key));
+        $uri = $this->buildBuildUri(...explode('/', $key));
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
-     * Build the build path from the given parts.
+     * Build the build URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildBuildPath(string ...$parts)
+    protected function buildBuildUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'statuses', 'build', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'statuses', 'build', ...$parts);
     }
 }

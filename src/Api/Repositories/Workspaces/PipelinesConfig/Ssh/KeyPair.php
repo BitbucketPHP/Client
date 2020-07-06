@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The key pair api class.
@@ -29,9 +30,9 @@ class KeyPair extends AbstractSshApi
      */
     public function show(array $params = [])
     {
-        $path = $this->buildKeyPairPath();
+        $uri = $this->buildKeyPairUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,9 +44,9 @@ class KeyPair extends AbstractSshApi
      */
     public function update(array $params = [])
     {
-        $path = $this->buildKeyPairPath();
+        $uri = $this->buildKeyPairUri();
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -57,20 +58,20 @@ class KeyPair extends AbstractSshApi
      */
     public function remove(array $params = [])
     {
-        $path = $this->buildKeyPairPath();
+        $uri = $this->buildKeyPairUri();
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the key pair path from the given parts.
+     * Build the key pair URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildKeyPairPath(string ...$parts)
+    protected function buildKeyPairUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', 'key_pair', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', 'key_pair', ...$parts);
     }
 }

@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Addon;
 
 use Bitbucket\Api\Addon\Linkers\Values;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The linkers api class.
@@ -31,9 +32,9 @@ class Linkers extends AbstractAddonApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildLinkersPath();
+        $uri = $this->buildLinkersUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -46,9 +47,9 @@ class Linkers extends AbstractAddonApi
      */
     public function show(string $linker, array $params = [])
     {
-        $path = $this->buildLinkersPath($linker);
+        $uri = $this->buildLinkersUri($linker);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -62,14 +63,14 @@ class Linkers extends AbstractAddonApi
     }
 
     /**
-     * Build the linkers path from the given parts.
+     * Build the linkers URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildLinkersPath(string ...$parts)
+    protected function buildLinkersUri(string ...$parts)
     {
-        return static::buildPath('addon', 'linkers', ...$parts);
+        return UriBuilder::buildUri('addon', 'linkers', ...$parts);
     }
 }

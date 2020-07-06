@@ -22,6 +22,7 @@ use Bitbucket\Api\Snippets\Workspaces\Watchers;
 use Bitbucket\Api\Snippets\Workspaces\Watching;
 use Bitbucket\HttpClient\Message\FileResource;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The workspaces api class.
@@ -39,9 +40,9 @@ class Workspaces extends AbstractSnippetsApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildWorkspacesPath();
+        $uri = $this->buildWorkspacesUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -53,11 +54,11 @@ class Workspaces extends AbstractSnippetsApi
      */
     public function create(FileResource $file)
     {
-        $path = $this->buildWorkspacesPath();
+        $uri = $this->buildWorkspacesUri();
         $builder = (new MultipartStreamBuilder())->addResource($file->getName(), $file->getResource(), $file->getOptions());
         $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
-        return $this->postRaw($path, $builder->build(), $headers);
+        return $this->postRaw($uri, $builder->build(), $headers);
     }
 
     /**
@@ -70,9 +71,9 @@ class Workspaces extends AbstractSnippetsApi
      */
     public function show(string $snippet, array $params = [])
     {
-        $path = $this->buildWorkspacesPath($snippet);
+        $uri = $this->buildWorkspacesUri($snippet);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -85,9 +86,9 @@ class Workspaces extends AbstractSnippetsApi
      */
     public function update(string $snippet, array $params = [])
     {
-        $path = $this->buildWorkspacesPath($snippet);
+        $uri = $this->buildWorkspacesUri($snippet);
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -100,7 +101,7 @@ class Workspaces extends AbstractSnippetsApi
      */
     public function updateFiles(string $snippet, array $files)
     {
-        $path = $this->buildWorkspacesPath($snippet);
+        $uri = $this->buildWorkspacesUri($snippet);
 
         $builder = new MultipartStreamBuilder();
 
@@ -110,7 +111,7 @@ class Workspaces extends AbstractSnippetsApi
 
         $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
-        return $this->postRaw($path, $builder->build(), $headers);
+        return $this->postRaw($uri, $builder->build(), $headers);
     }
 
     /**
@@ -123,9 +124,9 @@ class Workspaces extends AbstractSnippetsApi
      */
     public function remove(string $snippet, array $params = [])
     {
-        $path = $this->buildWorkspacesPath($snippet);
+        $uri = $this->buildWorkspacesUri($snippet);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
@@ -199,14 +200,14 @@ class Workspaces extends AbstractSnippetsApi
     }
 
     /**
-     * Build the workspaces path from the given parts.
+     * Build the workspaces URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildWorkspacesPath(string ...$parts)
+    protected function buildWorkspacesUri(string ...$parts)
     {
-        return static::buildPath('snippets', $this->workspace, ...$parts);
+        return UriBuilder::buildUri('snippets', $this->workspace, ...$parts);
     }
 }

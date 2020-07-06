@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Workspaces;
 
 use Http\Message\MultipartStream\MultipartStreamBuilder;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The src api class.
@@ -31,9 +32,9 @@ class Src extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildSrcPath();
+        $uri = $this->buildSrcUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -45,9 +46,9 @@ class Src extends AbstractWorkspacesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildSrcPath();
+        $uri = $this->buildSrcUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
@@ -60,7 +61,7 @@ class Src extends AbstractWorkspacesApi
      */
     public function createWithFiles(array $files, array $params = [])
     {
-        $path = $this->buildSrcPath();
+        $uri = $this->buildSrcUri();
 
         $builder = new MultipartStreamBuilder();
 
@@ -78,7 +79,7 @@ class Src extends AbstractWorkspacesApi
 
         $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
-        return $this->postRaw($path, $builder->build(), $headers);
+        return $this->postRaw($uri, $builder->build(), $headers);
     }
 
     /**
@@ -92,13 +93,13 @@ class Src extends AbstractWorkspacesApi
      */
     public function show(string $commit, string $filepath, array $params = [])
     {
-        $path = $this->buildSrcPath($commit, $filepath);
+        $uri = $this->buildSrcUri($commit, $filepath);
 
         if (!isset($params['format'])) {
             $params['format'] = 'meta';
         }
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -112,20 +113,20 @@ class Src extends AbstractWorkspacesApi
      */
     public function download(string $commit, string $filepath, array $params = [])
     {
-        $path = $this->buildSrcPath($commit, $filepath);
+        $uri = $this->buildSrcUri($commit, $filepath);
 
-        return $this->pureGet($path, $params, ['Accept' => '*/*'])->getBody();
+        return $this->pureGet($uri, $params, ['Accept' => '*/*'])->getBody();
     }
 
     /**
-     * Build the src path from the given parts.
+     * Build the src URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildSrcPath(string ...$parts)
+    protected function buildSrcUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'src', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'src', ...$parts);
     }
 }

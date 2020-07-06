@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The forks api class.
@@ -29,9 +30,9 @@ class Forks extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildForksPath();
+        $uri = $this->buildForksUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -43,20 +44,20 @@ class Forks extends AbstractWorkspacesApi
      */
     public function create(array $params = [])
     {
-        $path = $this->buildForksPath();
+        $uri = $this->buildForksUri();
 
-        return $this->post($path, $params);
+        return $this->post($uri, $params);
     }
 
     /**
-     * Build the forks path from the given parts.
+     * Build the forks URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildForksPath(string ...$parts)
+    protected function buildForksUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'forks', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'forks', ...$parts);
     }
 }

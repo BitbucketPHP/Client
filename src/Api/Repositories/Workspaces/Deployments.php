@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Workspaces;
 
 use Bitbucket\Api\Repositories\Workspaces\Deployments\EnvironmentVariables;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The deployments api class.
@@ -31,9 +32,9 @@ class Deployments extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildDeploymentsPath();
+        $uri = $this->buildDeploymentsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -46,9 +47,9 @@ class Deployments extends AbstractWorkspacesApi
      */
     public function show(string $deployments, array $params = [])
     {
-        $path = $this->buildDeploymentsPath($deployments);
+        $uri = $this->buildDeploymentsUri($deployments);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -62,14 +63,14 @@ class Deployments extends AbstractWorkspacesApi
     }
 
     /**
-     * Build the deployments path from the given parts.
+     * Build the deployments URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildDeploymentsPath(string ...$parts)
+    protected function buildDeploymentsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'deployments', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'deployments', ...$parts);
     }
 }

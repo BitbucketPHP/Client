@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Users;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The properties api class.
@@ -31,9 +32,9 @@ class Properties extends AbstractUsersApi
      */
     public function show(string $app, string $property, array $params = [])
     {
-        $path = $this->buildPropertiesPath($app, $property);
+        $uri = $this->buildPropertiesUri($app, $property);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -47,9 +48,9 @@ class Properties extends AbstractUsersApi
      */
     public function update(string $app, string $property, array $params = [])
     {
-        $path = $this->buildPropertiesPath($app, $property);
+        $uri = $this->buildPropertiesUri($app, $property);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
@@ -63,20 +64,20 @@ class Properties extends AbstractUsersApi
      */
     public function remove(string $app, string $property, array $params = [])
     {
-        $path = $this->buildPropertiesPath($app, $property);
+        $uri = $this->buildPropertiesUri($app, $property);
 
-        return $this->delete($path, $params);
+        return $this->delete($uri, $params);
     }
 
     /**
-     * Build the properties path from the given parts.
+     * Build the properties URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildPropertiesPath(string ...$parts)
+    protected function buildPropertiesUri(string ...$parts)
     {
-        return static::buildPath('users', $this->username, 'properties', ...$parts);
+        return UriBuilder::buildUri('users', $this->username, 'properties', ...$parts);
     }
 }

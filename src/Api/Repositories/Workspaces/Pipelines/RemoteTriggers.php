@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\Pipelines;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The remote triggers api class.
@@ -30,20 +31,20 @@ class RemoteTriggers extends AbstractPipelinesApi
      */
     public function update(string $key, array $params = [])
     {
-        $path = $this->buildRemoteTriggersPath($key);
+        $uri = $this->buildRemoteTriggersUri($key);
 
-        return $this->put($path, $params);
+        return $this->put($uri, $params);
     }
 
     /**
-     * Build the remote triggers path from the given parts.
+     * Build the remote triggers URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildRemoteTriggersPath(string ...$parts)
+    protected function buildRemoteTriggersUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pipelines', $this->pipeline, 'remote-triggers', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines', $this->pipeline, 'remote-triggers', ...$parts);
     }
 }

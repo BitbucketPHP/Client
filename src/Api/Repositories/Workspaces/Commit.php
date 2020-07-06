@@ -19,6 +19,7 @@ use Bitbucket\Api\Repositories\Workspaces\Commit\Properties as CommitProperties;
 use Bitbucket\Api\Repositories\Workspaces\Commit\PullRequests as CommitPullRequests;
 use Bitbucket\Api\Repositories\Workspaces\Commit\Reports;
 use Bitbucket\Api\Repositories\Workspaces\Commit\Statuses;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The commit api class.
@@ -37,9 +38,9 @@ class Commit extends AbstractWorkspacesApi
      */
     public function show(string $commit, array $params = [])
     {
-        $path = $this->buildCommitPath($commit);
+        $uri = $this->buildCommitUri($commit);
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -103,14 +104,14 @@ class Commit extends AbstractWorkspacesApi
     }
 
     /**
-     * Build the commit path from the given parts.
+     * Build the commit URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildCommitPath(string ...$parts)
+    protected function buildCommitUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'commit', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commit', ...$parts);
     }
 }

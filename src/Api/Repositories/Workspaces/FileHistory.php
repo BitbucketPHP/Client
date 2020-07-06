@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The file history api class.
@@ -22,29 +23,29 @@ class FileHistory extends AbstractWorkspacesApi
 {
     /**
      * @param string $commit
-     * @param string $path
+     * @param string $uri
      * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function list(string $commit, string $path, array $params = [])
+    public function list(string $commit, string $uri, array $params = [])
     {
-        $path = $this->buildFileHistoryPath($commit, ...explode('/', $path));
+        $uri = $this->buildFileHistoryUri($commit, ...explode('/', $uri));
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the file history path from the given parts.
+     * Build the file history URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildFileHistoryPath(string ...$parts)
+    protected function buildFileHistoryUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'filehistory', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'filehistory', ...$parts);
     }
 }

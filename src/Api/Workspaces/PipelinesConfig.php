@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Workspaces;
 
 use Bitbucket\Api\Workspaces\PipelinesConfig\Variables;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The pipelines config api class.
@@ -31,14 +32,14 @@ class PipelinesConfig extends AbstractWorkspacesApi
     }
 
     /**
-     * Build the pipelines config path from the given parts.
+     * Build the pipelines config URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildPipelinesConfigPath(string ...$parts)
+    protected function buildPipelinesConfigUri(string ...$parts)
     {
-        return static::buildPath('workspaces', $this->workspace, 'pipelines_config', ...$parts);
+        return UriBuilder::buildUri('workspaces', $this->workspace, 'pipelines_config', ...$parts);
     }
 }

@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Schedules;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The executions api class.
@@ -29,20 +30,20 @@ class Executions extends AbstractSchedulesApi
      */
     public function list(array $params = [])
     {
-        $path = static::appendSeparator($this->buildExecutionsPath());
+        $uri = UriBuilder::appendSeparator($this->buildExecutionsUri());
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the executions path from the given parts.
+     * Build the executions URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildExecutionsPath(string ...$parts)
+    protected function buildExecutionsUri(string ...$parts)
     {
-        return static::buildPath('repositories', $this->workspace, $this->repo, 'pipelines_config', 'schedules', $this->schedule, 'executions', ...$parts);
+        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', 'schedules', $this->schedule, 'executions', ...$parts);
     }
 }

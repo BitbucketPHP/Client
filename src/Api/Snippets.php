@@ -16,6 +16,7 @@ namespace Bitbucket\Api;
 use Bitbucket\Api\Snippets\Workspaces as SnippetsWorkspaces;
 use Bitbucket\HttpClient\Message\FileResource;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The snippets api class.
@@ -33,9 +34,9 @@ class Snippets extends AbstractApi
      */
     public function list(array $params = [])
     {
-        $path = $this->buildSnippetsPath();
+        $uri = $this->buildSnippetsUri();
 
-        return $this->get($path, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -47,11 +48,11 @@ class Snippets extends AbstractApi
      */
     public function create(FileResource $file)
     {
-        $path = $this->buildSnippetsPath();
+        $uri = $this->buildSnippetsUri();
         $builder = (new MultipartStreamBuilder())->addResource($file->getName(), $file->getResource(), $file->getOptions());
         $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
-        return $this->postRaw($path, $builder->build(), $headers);
+        return $this->postRaw($uri, $builder->build(), $headers);
     }
 
     /**
@@ -65,14 +66,14 @@ class Snippets extends AbstractApi
     }
 
     /**
-     * Build the snippets path from the given parts.
+     * Build the snippets URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildSnippetsPath(string ...$parts)
+    protected function buildSnippetsUri(string ...$parts)
     {
-        return static::buildPath('snippets', ...$parts);
+        return UriBuilder::buildUri('snippets', ...$parts);
     }
 }
