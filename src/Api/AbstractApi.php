@@ -94,8 +94,8 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Send a GET request with query params.
      *
-     * @param string $path
-     * @param array  $params
+     * @param string               $path
+     * @param array                $params
      * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
@@ -112,8 +112,8 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Send a GET request with query params.
      *
-     * @param string $path
-     * @param array  $params
+     * @param string               $path
+     * @param array                $params
      * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
@@ -136,8 +136,8 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Send a POST request with JSON-encoded params.
      *
-     * @param string $path
-     * @param array  $params
+     * @param string               $path
+     * @param array                $params
      * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
@@ -176,8 +176,8 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Send a PUT request with JSON-encoded params.
      *
-     * @param string $path
-     * @param array  $params
+     * @param string               $path
+     * @param array                $params
      * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
@@ -216,8 +216,8 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Send a DELETE request with JSON-encoded params.
      *
-     * @param string $path
-     * @param array  $params
+     * @param string               $path
+     * @param array                $params
      * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception

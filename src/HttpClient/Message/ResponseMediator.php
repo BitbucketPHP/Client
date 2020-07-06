@@ -73,6 +73,7 @@ final class ResponseMediator
 
     /**
      * @param string|int $key
+     *
      * @return bool
      */
     private static function paginationFilter($key)
