@@ -67,6 +67,10 @@ final class ResultPager implements ResultPagerInterface
     {
         $result = $api->$method(...$parameters);
 
+        if (!is_array($result)) {
+            throw new RuntimeException('Pagination of endpoints that produce blobs is not supported.');
+        }
+
         $this->postFetch();
 
         return $result;
@@ -90,11 +94,11 @@ final class ResultPager implements ResultPagerInterface
         $api->setPerPage(50);
 
         try {
-            $result = $this->fetch($api, $method, $parameters)['values'];
+            $result = self::getValues($this->fetch($api, $method, $parameters));
 
             while ($this->hasNext()) {
-                $next = $this->fetchNext();
-                $result = array_merge($result, $next['values']);
+                $next = self::getValues($this->fetchNext());
+                $result = array_merge($result, $next);
             }
         } finally {
             $api->setPerPage($perPage);
@@ -169,7 +173,7 @@ final class ResultPager implements ResultPagerInterface
      *
      * @throws \Http\Client\Exception
      *
-     * @return array<string,mixed>
+     * @return array
      */
     private function get(string $key)
     {
@@ -183,7 +187,22 @@ final class ResultPager implements ResultPagerInterface
 
         $this->postFetch();
 
-        /** @var array<string,mixed> */
         return ResponseMediator::getContent($result);
+    }
+
+    /**
+     * @param array $result
+     *
+     * @throws \Bitbucket\Exception\RuntimeException
+     *
+     * @return array
+     */
+    private static function getValues(array $result)
+    {
+        if (!isset($result['values']) || !is_array($result['values'])) {
+            throw new RuntimeException('Pagination of endpoints that produce value lists is not supported.');
+        }
+
+        return $result['values'];
     }
 }
