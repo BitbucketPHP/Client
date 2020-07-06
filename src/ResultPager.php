@@ -23,21 +23,21 @@ use Bitbucket\HttpClient\Message\ResponseMediator;
  * @author Mitchel Verschoof <mitchel@future500.nl>
  * @author Graham Campbell <graham@alt-three.com>
  */
-class ResultPager implements ResultPagerInterface
+final class ResultPager implements ResultPagerInterface
 {
     /**
      * The client to use for pagination.
      *
      * @var \Bitbucket\Client
      */
-    protected $client;
+    private $client;
 
     /**
      * The pagination result from the API.
      *
      * @var array|null
      */
-    protected $pagination;
+    private $pagination;
 
     /**
      * Create a new result pager instance.
@@ -49,16 +49,6 @@ class ResultPager implements ResultPagerInterface
     public function __construct(Client $client)
     {
         $this->client = $client;
-    }
-
-    /**
-     * Get the pagination result of the last request.
-     *
-     * @return array|null
-     */
-    public function getPagination()
-    {
-        return $this->pagination;
     }
 
     /**
@@ -75,6 +65,7 @@ class ResultPager implements ResultPagerInterface
     public function fetch(ApiInterface $api, string $method, array $parameters = [])
     {
         $result = $api->$method(...$parameters);
+
         $this->postFetch();
 
         return $result;
@@ -93,10 +84,8 @@ class ResultPager implements ResultPagerInterface
      */
     public function fetchAll(ApiInterface $api, string $method, array $parameters = [])
     {
-        // get the perPage from the api
         $perPage = $api->getPerPage();
 
-        // set parameters per_page to max to minimize number of requests
         $api->setPerPage(50);
 
         try {
@@ -107,27 +96,10 @@ class ResultPager implements ResultPagerInterface
                 $result = array_merge($result, $next['values']);
             }
         } finally {
-            // restore the perPage
             $api->setPerPage($perPage);
         }
 
         return $result;
-    }
-
-    /**
-     * Method that performs the actual work to refresh the pagination property.
-     *
-     * @return void
-     */
-    public function postFetch()
-    {
-        $response = $this->client->getLastResponse();
-
-        if ($response === null) {
-            $this->pagination = null;
-        } else {
-            $this->pagination = ResponseMediator::getPagination($response);
-        }
     }
 
     /**
@@ -137,7 +109,7 @@ class ResultPager implements ResultPagerInterface
      */
     public function hasNext()
     {
-        return $this->has('next');
+        return isset($this->pagination['next']);
     }
 
     /**
@@ -159,7 +131,7 @@ class ResultPager implements ResultPagerInterface
      */
     public function hasPrevious()
     {
-        return $this->has('prev');
+        return isset($this->pagination['prev']);
     }
 
     /**
@@ -175,13 +147,19 @@ class ResultPager implements ResultPagerInterface
     }
 
     /**
-     * @param string $key
+     * Refresh the pagination property.
      *
-     * @return bool
+     * @return void
      */
-    protected function has(string $key)
+    private function postFetch()
     {
-        return isset($this->pagination[$key]);
+        $response = $this->client->getLastResponse();
+
+        if ($response === null) {
+            $this->pagination = null;
+        } else {
+            $this->pagination = ResponseMediator::getPagination($response);
+        }
     }
 
     /**
@@ -189,17 +167,21 @@ class ResultPager implements ResultPagerInterface
      *
      * @throws \Http\Client\Exception
      *
-     * @return array
+     * @return array<string,mixed>
      */
-    protected function get(string $key)
+    private function get(string $key)
     {
-        if (!$this->has($key)) {
+        $pagination = isset($this->pagination[$key]) ? $this->pagination[$key] : null;
+
+        if ($pagination === null) {
             return [];
         }
 
-        $result = $this->client->getHttpClient()->get($this->pagination[$key]);
+        $result = $this->client->getHttpClient()->get($pagination);
+
         $this->postFetch();
 
+        /** @var array<string,mixed> */
         return ResponseMediator::getContent($result);
     }
 }

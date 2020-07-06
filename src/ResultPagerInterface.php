@@ -25,13 +25,6 @@ use Bitbucket\Api\ApiInterface;
 interface ResultPagerInterface
 {
     /**
-     * Get the pagination result of the last request.
-     *
-     * @return array|null
-     */
-    public function getPagination();
-
-    /**
      * Fetch a single result from an api call.
      *
      * @param \Bitbucket\Api\ApiInterface $api
@@ -56,13 +49,6 @@ interface ResultPagerInterface
      * @return array
      */
     public function fetchAll(ApiInterface $api, string $method, array $parameters = []);
-
-    /**
-     * Method that performs the actual work to refresh the pagination property.
-     *
-     * @return void
-     */
-    public function postFetch();
 
     /**
      * Check to determine the availability of a next page.
