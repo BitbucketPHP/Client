@@ -38,15 +38,15 @@ final class BitbucketExceptionThrower implements Plugin
     /**
      * Handle the request and return the response coming from the next callable.
      *
-     * @param \Psr\Http\Message\RequestInterface $request
-     * @param callable                           $next
-     * @param callable                           $first
+     * @param \Psr\Http\Message\RequestInterface                     $request
+     * @param callable(RequestInterface): Promise<ResponseInterface> $next
+     * @param callable(RequestInterface): Promise<ResponseInterface> $first
      *
-     * @return \Http\Promise\Promise
+     * @return \Http\Promise\Promise<ResponseInterface>
      */
     public function handleRequest(RequestInterface $request, callable $next, callable $first): Promise
     {
-        return $next($request)->then(function (ResponseInterface $response) {
+        return $next($request)->then(function (ResponseInterface $response): ResponseInterface {
             $status = $response->getStatusCode();
 
             if ($status >= 400 && $status < 600) {

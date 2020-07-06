@@ -1,16 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Anonymous function should have native return typehint \"bool\"\\.$#"
-			count: 1
-			path: src/HttpClient/Message/ResponseMediator.php
-
-		-
-			message: "#^Anonymous function should have native return typehint \"Psr\\\\Http\\\\Message\\\\ResponseInterface\"\\.$#"
-			count: 1
-			path: src/HttpClient/Plugin/BitbucketExceptionThrower.php
-
-		-
 			message: "#^Variable method call on Bitbucket\\\\Api\\\\ApiInterface\\.$#"
 			count: 1
 			path: src/ResultPager.php

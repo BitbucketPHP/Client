@@ -18,6 +18,7 @@ use Bitbucket\Exception\RuntimeException;
 use Http\Client\Common\Plugin;
 use Http\Promise\Promise;
 use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * A plugin to add authentication to the request.
@@ -53,11 +54,11 @@ final class Authentication implements Plugin
     /**
      * Handle the request and return the response coming from the next callable.
      *
-     * @param \Psr\Http\Message\RequestInterface $request
-     * @param callable                           $next
-     * @param callable                           $first
+     * @param \Psr\Http\Message\RequestInterface                     $request
+     * @param callable(RequestInterface): Promise<ResponseInterface> $next
+     * @param callable(RequestInterface): Promise<ResponseInterface> $first
      *
-     * @return \Http\Promise\Promise
+     * @return \Http\Promise\Promise<ResponseInterface>
      */
     public function handleRequest(RequestInterface $request, callable $next, callable $first): Promise
     {

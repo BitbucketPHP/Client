@@ -59,16 +59,24 @@ final class ResponseMediator
      *
      * @param \Psr\Http\Message\ResponseInterface $response
      *
-     * @return array
+     * @return array<string,string>
      */
     public static function getPagination(ResponseInterface $response)
     {
         try {
-            return array_filter(self::getContent($response), function ($key) {
-                return in_array($key, ['size', 'page', 'pagelen', 'next', 'previous'], true);
-            }, ARRAY_FILTER_USE_KEY);
+            /** @var array<string,string> */
+            return array_filter(self::getContent($response), [self::class, 'paginationFilter'], ARRAY_FILTER_USE_KEY);
         } catch (DecodingFailedException $e) {
             return [];
         }
+    }
+
+    /**
+     * @param string|int $key
+     * @return bool
+     */
+    private static function paginationFilter($key)
+    {
+        return in_array($key, ['size', 'page', 'pagelen', 'next', 'previous'], true);
     }
 }
