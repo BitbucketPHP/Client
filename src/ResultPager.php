@@ -66,6 +66,7 @@ final class ResultPager implements ResultPagerInterface
      */
     public function fetch(ApiInterface $api, string $method, array $parameters = [])
     {
+        /** @var mixed */
         $result = $api->$method(...$parameters);
 
         if (!is_array($result)) {

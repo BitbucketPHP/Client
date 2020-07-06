@@ -38,7 +38,7 @@ class Src extends AbstractWorkspacesApi
     }
 
     /**
-     * @param array $params
+     * @param array<string,string> $params
      *
      * @throws \Http\Client\Exception
      *
@@ -53,7 +53,7 @@ class Src extends AbstractWorkspacesApi
 
     /**
      * @param \Bitbucket\HttpClient\Message\FileResource[] $files
-     * @param array                                        $params
+     * @param array<string,string>                         $params
      *
      * @throws \Http\Client\Exception
      *
