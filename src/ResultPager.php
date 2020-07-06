@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket;
 
 use Bitbucket\Api\ApiInterface;
+use Bitbucket\Exception\RuntimeException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 
 /**
