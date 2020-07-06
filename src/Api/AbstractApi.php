@@ -96,7 +96,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @param string $path
      * @param array  $params
-     * @param array  $headers
+     * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
      *
@@ -114,7 +114,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @param string $path
      * @param array  $params
-     * @param array  $headers
+     * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
      *
@@ -138,7 +138,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @param string $path
      * @param array  $params
-     * @param array  $headers
+     * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
      *
@@ -160,7 +160,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @param string                                        $path
      * @param string|\Psr\Http\Message\StreamInterface|null $body
-     * @param array                                         $headers
+     * @param array<string,string>                          $headers
      *
      * @throws \Http\Client\Exception
      *
@@ -178,7 +178,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @param string $path
      * @param array  $params
-     * @param array  $headers
+     * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
      *
@@ -200,7 +200,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @param string                                        $path
      * @param string|\Psr\Http\Message\StreamInterface|null $body
-     * @param array                                         $headers
+     * @param array<string,string>                          $headers
      *
      * @throws \Http\Client\Exception
      *
@@ -218,7 +218,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @param string $path
      * @param array  $params
-     * @param array  $headers
+     * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
      *
@@ -240,7 +240,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @param string                                        $path
      * @param string|\Psr\Http\Message\StreamInterface|null $body
-     * @param array                                         $headers
+     * @param array<string,string>                          $headers
      *
      * @throws \Http\Client\Exception
      *
