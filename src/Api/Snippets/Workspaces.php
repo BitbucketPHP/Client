@@ -21,8 +21,8 @@ use Bitbucket\Api\Snippets\Workspaces\Patches;
 use Bitbucket\Api\Snippets\Workspaces\Watchers;
 use Bitbucket\Api\Snippets\Workspaces\Watching;
 use Bitbucket\HttpClient\Message\FileResource;
-use Http\Message\MultipartStream\MultipartStreamBuilder;
 use Bitbucket\HttpClient\Util\UriBuilder;
+use Http\Message\MultipartStream\MultipartStreamBuilder;
 
 /**
  * The workspaces api class.

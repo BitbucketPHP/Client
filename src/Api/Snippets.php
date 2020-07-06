@@ -15,8 +15,8 @@ namespace Bitbucket\Api;
 
 use Bitbucket\Api\Snippets\Workspaces as SnippetsWorkspaces;
 use Bitbucket\HttpClient\Message\FileResource;
-use Http\Message\MultipartStream\MultipartStreamBuilder;
 use Bitbucket\HttpClient\Util\UriBuilder;
+use Http\Message\MultipartStream\MultipartStreamBuilder;
 
 /**
  * The snippets api class.

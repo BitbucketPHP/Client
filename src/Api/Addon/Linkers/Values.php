@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Addon\Linkers;
+
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**

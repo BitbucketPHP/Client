@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api\Repositories\Workspaces\Commit\Reports;
+
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**

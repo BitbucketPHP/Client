@@ -12,7 +12,6 @@ declare(strict_types=1);
  */
 
 namespace Bitbucket\Api;
-use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The bitbucket api interface.

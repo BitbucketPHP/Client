@@ -15,7 +15,6 @@ namespace Bitbucket\Api\Repositories;
 
 use Bitbucket\Api\AbstractApi;
 use Http\Client\Common\HttpMethodsClientInterface;
-use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The abstract repository api class.

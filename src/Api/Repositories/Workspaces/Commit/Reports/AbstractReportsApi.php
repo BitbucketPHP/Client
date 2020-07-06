@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Workspaces\Commit\Reports;
 
 use Bitbucket\Api\Repositories\Workspaces\Commit\AbstractCommitApi;
-use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The abstract reports api class.

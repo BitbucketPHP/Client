@@ -16,7 +16,6 @@ namespace Bitbucket\Api;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 use Bitbucket\HttpClient\Util\JsonArray;
 use Http\Client\Common\HttpMethodsClientInterface;
-use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The abstract bitbucket api class.

@@ -15,7 +15,6 @@ namespace Bitbucket\Api\Addon\Linkers;
 
 use Bitbucket\Api\Addon\AbstractAddonApi;
 use Http\Client\Common\HttpMethodsClientInterface;
-use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The abstract linkers api class.

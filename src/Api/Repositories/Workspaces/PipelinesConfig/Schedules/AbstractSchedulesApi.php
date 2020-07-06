@@ -15,7 +15,6 @@ namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Schedules;
 
 use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\AbstractPipelinesConfigApi;
 use Http\Client\Common\HttpMethodsClientInterface;
-use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The abstract schedules api class.

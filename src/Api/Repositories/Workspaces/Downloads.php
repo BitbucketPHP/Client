@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Workspaces;
 
 use Bitbucket\HttpClient\Message\FileResource;
-use Http\Message\MultipartStream\MultipartStreamBuilder;
 use Bitbucket\HttpClient\Util\UriBuilder;
+use Http\Message\MultipartStream\MultipartStreamBuilder;
 
 /**
  * The downloads api class.

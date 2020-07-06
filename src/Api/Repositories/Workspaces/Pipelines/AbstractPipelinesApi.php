@@ -15,7 +15,6 @@ namespace Bitbucket\Api\Repositories\Workspaces\Pipelines;
 
 use Bitbucket\Api\Repositories\Workspaces\AbstractWorkspacesApi;
 use Http\Client\Common\HttpMethodsClientInterface;
-use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The abstract pipelines api class.

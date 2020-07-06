@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Workspaces\Commit\Statuses;
 
 use Bitbucket\Api\Repositories\Workspaces\Commit\AbstractCommitApi;
-use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The abstract statuses api class.

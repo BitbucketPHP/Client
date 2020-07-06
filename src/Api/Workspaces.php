@@ -18,8 +18,8 @@ use Bitbucket\Api\Workspaces\Members;
 use Bitbucket\Api\Workspaces\Permissions;
 use Bitbucket\Api\Workspaces\PipelinesConfig;
 use Bitbucket\Api\Workspaces\Projects;
-use Http\Client\Common\HttpMethodsClientInterface;
 use Bitbucket\HttpClient\Util\UriBuilder;
+use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
  * The workspaces api class.

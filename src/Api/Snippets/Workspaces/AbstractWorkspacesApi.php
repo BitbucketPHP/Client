@@ -15,7 +15,6 @@ namespace Bitbucket\Api\Snippets\Workspaces;
 
 use Bitbucket\Api\Snippets\AbstractSnippetsApi;
 use Http\Client\Common\HttpMethodsClientInterface;
-use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The abstract workspaces api class.

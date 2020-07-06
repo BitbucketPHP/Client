@@ -16,8 +16,8 @@ namespace Bitbucket\Api;
 use Bitbucket\Api\Users\Properties;
 use Bitbucket\Api\Users\Repositories as UsersRepositories;
 use Bitbucket\Api\Users\SshKeys;
-use Http\Client\Common\HttpMethodsClientInterface;
 use Bitbucket\HttpClient\Util\UriBuilder;
+use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
  * The users api class.

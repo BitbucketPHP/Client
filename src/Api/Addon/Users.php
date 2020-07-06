@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Addon;
 
 use Bitbucket\Api\Addon\Users\Events;
-use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The users api class.

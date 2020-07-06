@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Snippets\Workspaces;
 
-use Http\Message\MultipartStream\MultipartStreamBuilder;
 use Bitbucket\HttpClient\Util\UriBuilder;
+use Http\Message\MultipartStream\MultipartStreamBuilder;
 
 /**
  * The files api class.

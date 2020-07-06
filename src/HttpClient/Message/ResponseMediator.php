@@ -98,7 +98,7 @@ final class ResponseMediator
     public static function getErrorMessage(ResponseInterface $response)
     {
         try {
-            $error = ResponseMediator::getContent($response)['error'] ?? null;
+            $error = self::getContent($response)['error'] ?? null;
         } catch (DecodingFailedException $e) {
             return null;
         }
