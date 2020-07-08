@@ -1,15 +1,15 @@
-# Bitbucket API Client
+# Bitbucket PHP API Client
 
-We present a modern [Bitbucket](https://bitbucket.org/) API 2.0 client, by [Graham Campbell](https://github.com/GrahamCampbell).
+We present a modern [Bitbucket API 2.0](https://api.bitbucket.org/) client for PHP.
 
-![Banner](https://user-images.githubusercontent.com/2829600/71563802-86e2fe80-2a8d-11ea-9f03-1cc0b6517210.png)
+![Banner](https://user-images.githubusercontent.com/2829600/86968999-f9334a80-c164-11ea-9c20-2a4f9f9c898f.png)
 
 <p align="center">
+<a href="https://github.com/BitbucketPHP/Client/actions?query=workflow%3ATests"><img src="https://img.shields.io/github/workflow/status/BitbucketPHP/Client/Tests?label=Tests&style=flat-square" alt="Build Status"></img></a>
 <a href="https://github.styleci.io/repos/127466560"><img src="https://github.styleci.io/repos/127466560/shield" alt="StyleCI Status"></img></a>
-<a href="https://github.com/BitbucketAPI/Client/actions?query=workflow%3ATests"><img src="https://img.shields.io/github/workflow/status/BitbucketAPI/Client/Tests?style=flat-square" alt="Build Status"></img></a>
-<a href="https://scrutinizer-ci.com/g/BitbucketAPI/Client"><img src="https://img.shields.io/scrutinizer/g/BitbucketAPI/Client?style=flat-square" alt="Quality Score"></img></a>
+<a href="https://github.com/BitbucketPHP/Client/releases"><img src="https://img.shields.io/github/release/BitbucketPHP/Client?style=flat-square" alt="Latest Version"></img></a>
+<a href="https://packagist.org/packages/bitbucket/client"><img src="https://img.shields.io/packagist/dt/bitbucket/client?style=flat-square" alt="Packagist Downloads"></img></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" alt="Software License"></img></a>
-<a href="https://github.com/BitbucketAPI/Client/releases"><img src="https://img.shields.io/github/release/BitbucketAPI/Client?style=flat-square" alt="Latest Version"></img></a>
 </p>
 
 This is strongly based on [php-github-api](https://github.com/KnpLabs/php-github-api) by [KnpLabs](https://github.com/KnpLabs). With this in mind, we now have **very similar** clients for:
@@ -18,14 +18,12 @@ This is strongly based on [php-github-api](https://github.com/KnpLabs/php-github
 * [GitLab](https://gitlab.com/) - [m4tthumphrey/php-gitlab-api](https://packagist.org/packages/m4tthumphrey/php-gitlab-api) by [Matt Humphrey](https://github.com/m4tthumphrey) et al.
 * [Bitbucket](https://bitbucket.org/) - [bitbucket/client](https://packagist.org/packages/bitbucket/client) which is this package!
 
-Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BitbucketAPI/Client/releases), [security policy](https://github.com/BitbucketAPI/Client/security/policy), [license](LICENSE), [code of conduct](.github/CODE_OF_CONDUCT.md), and [contribution guidelines](.github/CONTRIBUTING.md).
+Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BitbucketPHP/Client/releases), [security policy](https://github.com/BitbucketPHP/Client/security/policy), [license](LICENSE), [code of conduct](.github/CODE_OF_CONDUCT.md), and [contribution guidelines](.github/CONTRIBUTING.md).
 
 
 ## Installation
 
-This version requires [PHP](https://php.net) 7.1-7.4.
-
-To get the latest version, simply require the project using [Composer](https://getcomposer.org). You will also need to install packages that "provide" [`psr/http-client-implementation`](https://packagist.org/providers/psr/http-client-implementation) and [`psr/http-factory-implementation`](https://packagist.org/providers/psr/http-factory-implementation).
+This version supports [PHP](https://php.net) 7.1-7.4. To get started, simply require the project using [Composer](https://getcomposer.org). You will also need to install packages that "provide" [`psr/http-client-implementation`](https://packagist.org/providers/psr/http-client-implementation) and [`psr/http-factory-implementation`](https://packagist.org/providers/psr/http-factory-implementation).
 
 ### PHP 7.1+:
 
@@ -50,7 +48,7 @@ We are decoupled from any HTTP messaging client with help by [HTTPlug](http://ht
 
 ## Usage
 
-The main point of entry is the `Bitbucket\Client` class. Simply create a new instance of that, authenticate, and you're good to go! As of time of writing (Tuesday 29th June 2020), every endpoint (excluding issue export and import, and various deprecated endpoints) available on the Bitbucket API 2.0 is also available through this PHP client. We'd recommend looking through the [Bitbucket documentation](https://developer.atlassian.com/bitbucket/api/2/reference/), and also the [source code](https://github.com/BitbucketAPI/Client/tree/3.0/src) to get a full picture of what is available to use.
+The main point of entry is the `Bitbucket\Client` class. Simply create a new instance of that, authenticate, and you're good to go! As of time of writing (Tuesday 29th June 2020), every endpoint (excluding issue export and import, and various deprecated endpoints) available on the Bitbucket API 2.0 is also available through this PHP client. We'd recommend looking through the [Bitbucket documentation](https://developer.atlassian.com/bitbucket/api/2/reference/), and also the [source code](https://github.com/BitbucketPHP/Client/tree/3.0/src) to get a full picture of what is available to use.
 
 ### Authentication
 
@@ -135,14 +133,24 @@ $branches = $paginator->fetchAll($branchesClient, 'list');
 ```
 
 
+## Contributing
+
+Not all endpoints of the API are implemented yet. We will gladly review and accept pull requests, in accordance with our [contribution guidelines](.github/CONTRIBUTING.md)!
+
+```
+$ make install
+$ make test
+```
+
+
 ## Security
 
-If you discover a security vulnerability within this package, please send an email to Graham Campbell at graham@alt-three.com. All security vulnerabilities will be promptly addressed. You may view our full security policy [here](https://github.com/BitbucketAPI/Client/security/policy).
+If you discover a security vulnerability within this package, please send an email to Graham Campbell at graham@alt-three.com. All security vulnerabilities will be promptly addressed. You may view our full security policy [here](https://github.com/BitbucketPHP/Client/security/policy).
 
 
 ## License
 
-Bitbucket API Client is licensed under [The MIT License (MIT)](LICENSE).
+Bitbucket PHP API Client is licensed under [The MIT License (MIT)](LICENSE).
 
 
 ## For Enterprise
