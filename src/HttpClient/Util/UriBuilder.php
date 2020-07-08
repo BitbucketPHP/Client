@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Bitbucket\HttpClient\Util;
 
-use TypeError;
+use ValueError;
 
 /**
  * The is the URI builder helper class.
@@ -42,7 +42,7 @@ final class UriBuilder
     {
         foreach ($parts as $index => $part) {
             if ('' === $part) {
-                throw new TypeError(sprintf('%s::buildUri(): Argument #%d ($parts) must non-empty', self::class, $index + 1));
+                throw new ValueError(sprintf('%s::buildUri(): Argument #%d ($parts) must non-empty', self::class, $index + 1));
             }
 
             $parts[$index] = self::encodePart($part);
