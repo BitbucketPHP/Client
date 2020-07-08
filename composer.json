@@ -1,6 +1,6 @@
 {
     "name": "bitbucket/client",
-    "description": "A Modern Bitbucket API 2.0 Client",
+    "description": "Bitbucket API 2.0 client for PHP",
     "keywords": ["bitbucket", "bitbucket api", "Bitbucket API", "BitbucketAPI", "Bitbucket", "Bitbucket Client", "Bitbucket API Client", "Graham Campbell", "GrahamCampbell"],
     "license": "MIT",
     "authors": [
