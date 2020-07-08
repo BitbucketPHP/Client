@@ -6,6 +6,7 @@ CHANGE LOG
 
 * Use PSR-7, PSR-17 and PSR-18 only
 * Update against latest API spec
+* Refactored exceptions and internals
 
 
 ## V2.1.5 (29/06/2020)
