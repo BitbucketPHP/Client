@@ -43,7 +43,7 @@ $ composer require bitbucket/client:^3.0 guzzlehttp/guzzle:^7.0.1 http-interop/h
 $ composer require graham-campbell/bitbucket:^7.0 guzzlehttp/guzzle:^7.0.1 http-interop/http-factory-guzzle:^1.0
 ```
 
-We are decoupled from any HTTP messaging client by using [PSR-7](https://www.php-fig.org/psr/psr-7/), [PSR-17](https://www.php-fig.org/psr/psr-17/), [PSR-18](https://www.php-fig.org/psr/psr-18/), and [HTTPlug](https://httplug.io/). You can visit [HTTPlug for library users](https://docs.php-http.org/en/latest/httplug/users.html) to get more information about installing HTTPlug related packages. [`graham-campbell/bitbucket`](https://github.com/GrahamCampbell/Laravel-Bitbucket) is also maintained by [Graham Campbell](https://github.com/GrahamCampbell).
+We are decoupled from any HTTP messaging client by using [PSR-7](https://www.php-fig.org/psr/psr-7/), [PSR-17](https://www.php-fig.org/psr/psr-17/), [PSR-18](https://www.php-fig.org/psr/psr-18/), and [HTTPlug](https://httplug.io/). You can visit [HTTPlug for library users](https://docs.php-http.org/en/latest/httplug/users.html) to get more information about installing HTTPlug related packages. The framework integration [`graham-campbell/bitbucket`](https://github.com/GrahamCampbell/Laravel-Bitbucket) is by [Graham Campbell](https://github.com/GrahamCampbell).
 
 
 ## Usage
