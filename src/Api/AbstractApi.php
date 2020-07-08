@@ -121,11 +121,11 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function pureGet(string $uri, array $params = [], array $headers = [])
     {
-        if ($this->perPage !== null && !isset($params['pagelen'])) {
+        if (null !== $this->perPage && !isset($params['pagelen'])) {
             $params['pagelen'] = $this->perPage;
         }
 
-        if (count($params) === 0) {
+        if (0 === count($params)) {
             $uri .= '?'.http_build_query($params);
         }
 
@@ -147,7 +147,7 @@ abstract class AbstractApi implements ApiInterface
     {
         $body = self::createJsonBody($params);
 
-        if ($body !== null) {
+        if (null !== $body) {
             $headers = self::addJsonContentType($headers);
         }
 
@@ -187,7 +187,7 @@ abstract class AbstractApi implements ApiInterface
     {
         $body = self::createJsonBody($params);
 
-        if ($body !== null) {
+        if (null !== $body) {
             $headers = self::addJsonContentType($headers);
         }
 
@@ -227,7 +227,7 @@ abstract class AbstractApi implements ApiInterface
     {
         $body = self::createJsonBody($params);
 
-        if ($body !== null) {
+        if (null !== $body) {
             $headers = self::addJsonContentType($headers);
         }
 
@@ -261,7 +261,7 @@ abstract class AbstractApi implements ApiInterface
      */
     private static function createJsonBody(array $params)
     {
-        if (count($params) === 0) {
+        if (0 === count($params)) {
             return JsonArray::encode($params);
         }
 

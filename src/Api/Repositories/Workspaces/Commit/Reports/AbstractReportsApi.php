@@ -22,5 +22,4 @@ use Bitbucket\Api\Repositories\Workspaces\Commit\AbstractCommitApi;
  */
 abstract class AbstractReportsApi extends AbstractCommitApi
 {
-    //
 }

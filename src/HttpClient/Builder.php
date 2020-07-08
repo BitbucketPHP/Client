@@ -103,9 +103,9 @@ class Builder
      */
     public function getHttpClient()
     {
-        if ($this->pluginClient === null) {
+        if (null === $this->pluginClient) {
             $plugins = $this->plugins;
-            if ($this->cachePlugin !== null) {
+            if (null !== $this->cachePlugin) {
                 $plugins[] = $this->cachePlugin;
             }
 

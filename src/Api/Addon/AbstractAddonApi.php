@@ -22,5 +22,4 @@ use Bitbucket\Api\AbstractApi;
  */
 abstract class AbstractAddonApi extends AbstractApi
 {
-    //
 }

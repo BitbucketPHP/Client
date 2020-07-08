@@ -44,17 +44,17 @@ final class ResponseMediator
      */
     public static function getContent(ResponseInterface $response)
     {
-        if ($response->getStatusCode() === 204) {
+        if (204 === $response->getStatusCode()) {
             return [];
         }
 
         $body = (string) $response->getBody();
 
-        if ($body === '') {
+        if ('' === $body) {
             return [];
         }
 
-        if (strpos($response->getHeaderLine('Content-Type'), self::JSON_CONTENT_TYPE) !== 0) {
+        if (0 !== strpos($response->getHeaderLine('Content-Type'), self::JSON_CONTENT_TYPE)) {
             throw new DecodingFailedException(sprintf('The content type was not %s.', self::JSON_CONTENT_TYPE));
         }
 
@@ -125,11 +125,11 @@ final class ResponseMediator
 
         $detail = self::getDetailAsString($error);
 
-        if ($message !== '') {
-            return $detail !== '' ? sprintf('%s: %s', $message, $detail) : $message;
+        if ('' !== $message) {
+            return '' !== $detail ? sprintf('%s: %s', $message, $detail) : $message;
         }
 
-        if ($detail !== '') {
+        if ('' !== $detail) {
             return $detail;
         }
 
@@ -148,7 +148,7 @@ final class ResponseMediator
         /** @var string|array $detail */
         $detail = $error['detail'] ?? '';
 
-        if ($detail === '' || $detail === []) {
+        if ('' === $detail || [] === $detail) {
             return '';
         }
 

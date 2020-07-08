@@ -68,11 +68,11 @@ final class BitbucketExceptionThrower implements Plugin
      */
     private static function handleError(int $status, string $message)
     {
-        if ($status === 400 || $status === 422) {
+        if (400 === $status || 422 === $status) {
             throw new ValidationFailedException($message, $status);
         }
 
-        if ($status === 429) {
+        if (429 === $status) {
             throw new ApiLimitExceededException($message, $status);
         }
 

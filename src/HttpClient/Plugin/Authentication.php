@@ -82,7 +82,7 @@ final class Authentication implements Plugin
     {
         switch ($method) {
             case Client::AUTH_HTTP_PASSWORD:
-                if ($password === null) {
+                if (null === $password) {
                     throw new RuntimeException(sprintf('Authentication method "%s" requires a password to be set.', $method));
                 }
 

@@ -107,7 +107,7 @@ class Client
         $builder->addPlugin(new RedirectPlugin());
 
         $builder->addPlugin(new HeaderDefaultsPlugin([
-            'Accept'     => ResponseMediator::JSON_CONTENT_TYPE,
+            'Accept' => ResponseMediator::JSON_CONTENT_TYPE,
             'User-Agent' => self::USER_AGENT,
         ]));
 

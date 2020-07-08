@@ -18,5 +18,4 @@ namespace Bitbucket\Exception;
  */
 class EncodingFailedException extends RuntimeException
 {
-    //
 }

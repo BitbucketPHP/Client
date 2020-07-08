@@ -27,7 +27,7 @@ final class Resource
     {
         $content = @\file_get_contents(sprintf('%s/Resource/%s', __DIR__, $path));
 
-        if ($content === false) {
+        if (false === $content) {
             throw new \RuntimeException(sprintf('Unable to read resource [%s].', $path));
         }
 

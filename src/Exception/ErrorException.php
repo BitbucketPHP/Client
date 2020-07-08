@@ -18,5 +18,4 @@ namespace Bitbucket\Exception;
  */
 class ErrorException extends \ErrorException implements ExceptionInterface
 {
-    //
 }

@@ -41,10 +41,8 @@ final class UriBuilder
     public static function buildUri(string ...$parts)
     {
         foreach ($parts as $index => $part) {
-            if ($part === '') {
-                throw new TypeError(
-                    sprintf('%s::buildUri(): Argument #%d ($parts) must non-empty', self::class, $index + 1)
-                );
+            if ('' === $part) {
+                throw new TypeError(sprintf('%s::buildUri(): Argument #%d ($parts) must non-empty', self::class, $index + 1));
             }
 
             $parts[$index] = self::encodePart($part);

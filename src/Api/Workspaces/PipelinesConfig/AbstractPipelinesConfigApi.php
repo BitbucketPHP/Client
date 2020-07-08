@@ -22,5 +22,4 @@ use Bitbucket\Api\Workspaces\AbstractWorkspacesApi;
  */
 abstract class AbstractPipelinesConfigApi extends AbstractWorkspacesApi
 {
-    //
 }

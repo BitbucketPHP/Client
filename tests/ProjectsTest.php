@@ -63,10 +63,10 @@ final class ProjectsTest extends TestCase
         );
 
         $params = [
-            'name'        => 'name',
-            'key'         => 'key',
+            'name' => 'name',
+            'key' => 'key',
             'description' => 'description',
-            'links'       => (object) [
+            'links' => (object) [
                 'avatar' => (object) [
                     'href' => '',
                 ],
@@ -90,10 +90,10 @@ final class ProjectsTest extends TestCase
         );
 
         $params = [
-            'name'        => 'name-updated',
-            'key'         => 'Atlassian1',
+            'name' => 'name-updated',
+            'key' => 'Atlassian1',
             'description' => 'description-updated',
-            'links'       => (object) [
+            'links' => (object) [
                 'avatar' => (object) [
                     'href' => '',
                 ],

@@ -22,5 +22,4 @@ use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\AbstractPipelinesConfi
  */
 abstract class AbstractSshApi extends AbstractPipelinesConfigApi
 {
-    //
 }
