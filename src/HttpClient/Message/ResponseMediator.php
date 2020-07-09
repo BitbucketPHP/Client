@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Bitbucket\HttpClient\Message;
 
-use Bitbucket\Exception\DecodingFailedException;
+use Bitbucket\Exception\RuntimeException;
 use Bitbucket\HttpClient\Util\JsonArray;
 use Psr\Http\Message\ResponseInterface;
 
@@ -38,7 +38,7 @@ final class ResponseMediator
      *
      * @param \Psr\Http\Message\ResponseInterface $response
      *
-     * @throws \Bitbucket\Exception\DecodingFailedException
+     * @throws \Bitbucket\Exception\RuntimeException
      *
      * @return array
      */
@@ -55,7 +55,7 @@ final class ResponseMediator
         }
 
         if (0 !== strpos($response->getHeaderLine('Content-Type'), self::JSON_CONTENT_TYPE)) {
-            throw new DecodingFailedException(sprintf('The content type was not %s.', self::JSON_CONTENT_TYPE));
+            throw new RuntimeException(sprintf('The content type was not %s.', self::JSON_CONTENT_TYPE));
         }
 
         return JsonArray::decode($body);
@@ -73,7 +73,7 @@ final class ResponseMediator
         try {
             /** @var array<string,string> */
             return array_filter(self::getContent($response), [self::class, 'paginationFilter'], ARRAY_FILTER_USE_KEY);
-        } catch (DecodingFailedException $e) {
+        } catch (RuntimeException $e) {
             return [];
         }
     }
@@ -100,7 +100,7 @@ final class ResponseMediator
         try {
             /** @var scalar|array */
             $error = self::getContent($response)['error'] ?? null;
-        } catch (DecodingFailedException $e) {
+        } catch (RuntimeException $e) {
             return null;
         }
 
