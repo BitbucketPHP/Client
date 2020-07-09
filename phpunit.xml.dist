@@ -16,7 +16,7 @@
          verbose="true"
 >
     <testsuites>
-        <testsuite name="Bitbucket API Client Test Suite">
+        <testsuite name="Test Suite">
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
