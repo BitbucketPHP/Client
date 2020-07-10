@@ -29,7 +29,7 @@ class Ssh extends AbstractPipelinesConfigApi
      */
     public function keyPair()
     {
-        return new KeyPair($this->getHttpClient(), $this->workspace, $this->repo);
+        return new KeyPair($this->getClient(), $this->workspace, $this->repo);
     }
 
     /**
@@ -37,7 +37,7 @@ class Ssh extends AbstractPipelinesConfigApi
      */
     public function knownHosts()
     {
-        return new KnownHosts($this->getHttpClient(), $this->workspace, $this->repo);
+        return new KnownHosts($this->getClient(), $this->workspace, $this->repo);
     }
 
     /**
@@ -49,6 +49,6 @@ class Ssh extends AbstractPipelinesConfigApi
      */
     protected function buildSshUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', ...$parts);
     }
 }

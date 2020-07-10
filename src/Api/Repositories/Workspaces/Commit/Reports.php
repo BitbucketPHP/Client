@@ -71,7 +71,7 @@ class Reports extends AbstractCommitApi
      */
     public function annotations()
     {
-        return new Annotations($this->getHttpClient(), $this->workspace, $this->repo, $this->commit);
+        return new Annotations($this->getClient(), $this->workspace, $this->repo, $this->commit);
     }
 
     /**
@@ -83,6 +83,6 @@ class Reports extends AbstractCommitApi
      */
     protected function buildReportsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'reports', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'reports', ...$parts);
     }
 }

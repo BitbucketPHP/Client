@@ -59,7 +59,7 @@ class Deployments extends AbstractWorkspacesApi
      */
     public function environmentVariables(string $environment)
     {
-        return new EnvironmentVariables($this->getHttpClient(), $this->workspace, $this->repo, $environment);
+        return new EnvironmentVariables($this->getClient(), $this->workspace, $this->repo, $environment);
     }
 
     /**
@@ -71,6 +71,6 @@ class Deployments extends AbstractWorkspacesApi
      */
     protected function buildDeploymentsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'deployments', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'deployments', ...$parts);
     }
 }

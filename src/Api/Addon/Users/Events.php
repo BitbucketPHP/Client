@@ -46,6 +46,6 @@ class Events extends AbstractUsersApi
      */
     protected function buildEventsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('addon', 'users', $this->username, 'events', ...$parts);
+        return UriBuilder::build('addon', 'users', $this->username, 'events', ...$parts);
     }
 }

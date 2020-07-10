@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Workspaces\Issues;
 
 use Bitbucket\Api\Repositories\Workspaces\AbstractWorkspacesApi;
-use Http\Client\Common\HttpMethodsClientInterface;
+use Bitbucket\Client;
 
 /**
  * The abstract issues api class.
@@ -33,12 +33,12 @@ abstract class AbstractIssuesApi extends AbstractWorkspacesApi
     /**
      * Create a new api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClientInterface $client
+     * @param Client $client
      * @param string                                         $workspace
      * @param string                                         $repo
      * @param string                                         $issue
      */
-    public function __construct(HttpMethodsClientInterface $client, string $workspace, string $repo, string $issue)
+    public function __construct(Client $client, string $workspace, string $repo, string $issue)
     {
         parent::__construct($client, $workspace, $repo);
         $this->issue = $issue;

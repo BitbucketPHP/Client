@@ -103,6 +103,6 @@ class Comments extends AbstractIssuesApi
      */
     protected function buildCommentsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'comments', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'comments', ...$parts);
     }
 }

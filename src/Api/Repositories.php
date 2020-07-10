@@ -44,7 +44,7 @@ class Repositories extends AbstractApi
      */
     public function workspaces(string $workspace)
     {
-        return new RepositoriesWorkspaces($this->getHttpClient(), $workspace);
+        return new RepositoriesWorkspaces($this->getClient(), $workspace);
     }
 
     /**
@@ -56,6 +56,6 @@ class Repositories extends AbstractApi
      */
     protected function buildRepositoriesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', ...$parts);
+        return UriBuilder::build('repositories', ...$parts);
     }
 }

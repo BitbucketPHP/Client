@@ -104,6 +104,6 @@ class DeployKeys extends AbstractWorkspacesApi
      */
     protected function buildDeployKeysUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'deploy-keys', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'deploy-keys', ...$parts);
     }
 }

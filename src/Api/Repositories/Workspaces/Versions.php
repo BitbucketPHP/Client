@@ -60,6 +60,6 @@ class Versions extends AbstractWorkspacesApi
      */
     protected function buildVersionsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'versions', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'versions', ...$parts);
     }
 }

@@ -45,6 +45,6 @@ class Repositories extends AbstractUsersApi
      */
     protected function buildRepositoriesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('users', $this->username, 'repositories', ...$parts);
+        return UriBuilder::build('users', $this->username, 'repositories', ...$parts);
     }
 }

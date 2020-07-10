@@ -104,6 +104,6 @@ class Annotations extends AbstractReportsApi
      */
     protected function buildAnnotationsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'reports', 'annotations', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'reports', 'annotations', ...$parts);
     }
 }

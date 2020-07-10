@@ -45,6 +45,6 @@ class Watchers extends AbstractWorkspacesApi
      */
     protected function buildWatchersUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'watchers', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'watchers', ...$parts);
     }
 }

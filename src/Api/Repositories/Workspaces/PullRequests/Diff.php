@@ -33,7 +33,7 @@ class Diff extends AbstractPullRequestsApi
     {
         $uri = $this->buildDiffUri();
 
-        return $this->pureGet($uri, $params, ['Accept' => 'text/plain'])->getBody();
+        return $this->getAsResponse($uri, $params, ['Accept' => 'text/plain'])->getBody();
     }
 
     /**
@@ -45,6 +45,6 @@ class Diff extends AbstractPullRequestsApi
      */
     protected function buildDiffUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'diff', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'diff', ...$parts);
     }
 }

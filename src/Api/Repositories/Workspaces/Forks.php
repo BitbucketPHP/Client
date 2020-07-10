@@ -59,6 +59,6 @@ class Forks extends AbstractWorkspacesApi
      */
     protected function buildForksUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'forks', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'forks', ...$parts);
     }
 }

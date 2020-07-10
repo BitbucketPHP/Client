@@ -104,6 +104,6 @@ class Hooks extends AbstractWorkspacesApi
      */
     protected function buildHooksUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'hooks', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'hooks', ...$parts);
     }
 }

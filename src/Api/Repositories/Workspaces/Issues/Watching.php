@@ -73,6 +73,6 @@ class Watching extends AbstractIssuesApi
      */
     protected function buildWatchingUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'watch', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'watch', ...$parts);
     }
 }

@@ -73,6 +73,6 @@ class KeyPair extends AbstractSshApi
      */
     protected function buildKeyPairUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', 'key_pair', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', 'key_pair', ...$parts);
     }
 }

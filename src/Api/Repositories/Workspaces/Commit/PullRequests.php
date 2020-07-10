@@ -45,6 +45,6 @@ class PullRequests extends AbstractCommitApi
      */
     protected function buildPullRequestsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'pullrequests', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'pullrequests', ...$parts);
     }
 }

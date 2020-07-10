@@ -46,6 +46,6 @@ class PullRequests extends AbstractApi
      */
     protected function buildPullRequestsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('pullrequests', ...$parts);
+        return UriBuilder::build('pullrequests', ...$parts);
     }
 }

@@ -104,6 +104,6 @@ class Variables extends AbstractPipelinesConfigApi
      */
     protected function buildVariablesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', 'variables', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', 'variables', ...$parts);
     }
 }

@@ -59,6 +59,6 @@ class PipelinesConfig extends AbstractWorkspacesApi
      */
     protected function buildPipelinesConfigUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', ...$parts);
     }
 }

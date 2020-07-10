@@ -63,7 +63,7 @@ class Steps extends AbstractPipelinesApi
     {
         $uri = $this->buildStepsUri($step, 'log');
 
-        return $this->pureGet($uri, $params, ['Accept' => 'application/octet-stream'])->getBody();
+        return $this->getAsResponse($uri, $params, ['Accept' => 'application/octet-stream'])->getBody();
     }
 
     /**
@@ -90,6 +90,6 @@ class Steps extends AbstractPipelinesApi
      */
     protected function buildStepsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines', $this->pipeline, 'steps', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines', $this->pipeline, 'steps', ...$parts);
     }
 }

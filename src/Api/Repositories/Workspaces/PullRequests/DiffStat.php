@@ -45,6 +45,6 @@ class DiffStat extends AbstractPullRequestsApi
      */
     protected function buildDiffStatUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'diffstat', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'diffstat', ...$parts);
     }
 }

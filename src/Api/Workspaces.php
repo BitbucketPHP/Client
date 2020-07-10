@@ -19,7 +19,7 @@ use Bitbucket\Api\Workspaces\Permissions;
 use Bitbucket\Api\Workspaces\PipelinesConfig;
 use Bitbucket\Api\Workspaces\Projects;
 use Bitbucket\HttpClient\Util\UriBuilder;
-use Http\Client\Common\HttpMethodsClientInterface;
+use Bitbucket\Client;
 
 /**
  * The workspaces api class.
@@ -38,10 +38,10 @@ class Workspaces extends AbstractApi
     /**
      * Create a new workspaces api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClientInterface $client
+     * @param Client $client
      * @param string                                         $workspace
      */
-    public function __construct(HttpMethodsClientInterface $client, string $workspace)
+    public function __construct(Client $client, string $workspace)
     {
         parent::__construct($client);
         $this->workspace = $workspace;
@@ -80,7 +80,7 @@ class Workspaces extends AbstractApi
      */
     public function hooks()
     {
-        return new Hooks($this->getHttpClient(), $this->workspace);
+        return new Hooks($this->getClient(), $this->workspace);
     }
 
     /**
@@ -88,7 +88,7 @@ class Workspaces extends AbstractApi
      */
     public function members()
     {
-        return new Members($this->getHttpClient(), $this->workspace);
+        return new Members($this->getClient(), $this->workspace);
     }
 
     /**
@@ -96,7 +96,7 @@ class Workspaces extends AbstractApi
      */
     public function permissions()
     {
-        return new Permissions($this->getHttpClient(), $this->workspace);
+        return new Permissions($this->getClient(), $this->workspace);
     }
 
     /**
@@ -104,7 +104,7 @@ class Workspaces extends AbstractApi
      */
     public function pipelinesConfig()
     {
-        return new PipelinesConfig($this->getHttpClient(), $this->workspace);
+        return new PipelinesConfig($this->getClient(), $this->workspace);
     }
 
     /**
@@ -112,7 +112,7 @@ class Workspaces extends AbstractApi
      */
     public function projects()
     {
-        return new Projects($this->getHttpClient(), $this->workspace);
+        return new Projects($this->getClient(), $this->workspace);
     }
 
     /**
@@ -124,6 +124,6 @@ class Workspaces extends AbstractApi
      */
     protected function buildWorkspacesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('workspaces', $this->workspace, ...$parts);
+        return UriBuilder::build('workspaces', $this->workspace, ...$parts);
     }
 }

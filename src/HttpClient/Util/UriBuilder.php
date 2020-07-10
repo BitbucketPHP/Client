@@ -38,7 +38,7 @@ final class UriBuilder
      *
      * @return string
      */
-    public static function buildUri(string ...$parts)
+    public static function build(string ...$parts)
     {
         foreach ($parts as $index => $part) {
             if ('' === $part) {

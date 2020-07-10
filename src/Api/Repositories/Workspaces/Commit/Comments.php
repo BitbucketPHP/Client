@@ -74,6 +74,6 @@ class Comments extends AbstractCommitApi
      */
     protected function buildCommentsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'comments', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'comments', ...$parts);
     }
 }

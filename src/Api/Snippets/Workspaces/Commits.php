@@ -60,6 +60,6 @@ class Commits extends AbstractWorkspacesApi
      */
     protected function buildCommitsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('snippets', $this->workspace, $this->snippet, 'commits', ...$parts);
+        return UriBuilder::build('snippets', $this->workspace, $this->snippet, 'commits', ...$parts);
     }
 }

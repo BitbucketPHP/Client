@@ -45,6 +45,6 @@ class Statuses extends AbstractPullRequestsApi
      */
     protected function buildStatusesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'statuses', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'statuses', ...$parts);
     }
 }

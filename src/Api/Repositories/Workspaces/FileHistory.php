@@ -47,6 +47,6 @@ class FileHistory extends AbstractWorkspacesApi
      */
     protected function buildFileHistoryUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'filehistory', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'filehistory', ...$parts);
     }
 }

@@ -90,6 +90,6 @@ class DefaultReviewers extends AbstractWorkspacesApi
      */
     protected function buildDefaultReviewersUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'default-reviewers', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'default-reviewers', ...$parts);
     }
 }

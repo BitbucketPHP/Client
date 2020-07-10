@@ -34,7 +34,7 @@ class Diffs extends AbstractWorkspacesApi
     {
         $uri = $this->buildDiffsUri($commit, 'diff');
 
-        return $this->pureGet($uri, $params, ['Accept' => 'text/plain'])->getBody();
+        return $this->getAsResponse($uri, $params, ['Accept' => 'text/plain'])->getBody();
     }
 
     /**
@@ -46,6 +46,6 @@ class Diffs extends AbstractWorkspacesApi
      */
     protected function buildDiffsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('snippets', $this->workspace, $this->snippet, ...$parts);
+        return UriBuilder::build('snippets', $this->workspace, $this->snippet, ...$parts);
     }
 }

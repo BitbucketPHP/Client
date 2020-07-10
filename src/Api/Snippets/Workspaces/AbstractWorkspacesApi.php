@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Snippets\Workspaces;
 
 use Bitbucket\Api\Snippets\AbstractSnippetsApi;
-use Http\Client\Common\HttpMethodsClientInterface;
+use Bitbucket\Client;
 
 /**
  * The abstract workspaces api class.
@@ -33,11 +33,11 @@ abstract class AbstractWorkspacesApi extends AbstractSnippetsApi
     /**
      * Create a new api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClientInterface $client
+     * @param Client $client
      * @param string                                         $workspace
      * @param string                                         $snippet
      */
-    public function __construct(HttpMethodsClientInterface $client, string $workspace, string $snippet)
+    public function __construct(Client $client, string $workspace, string $snippet)
     {
         parent::__construct($client, $workspace);
         $this->snippet = $snippet;

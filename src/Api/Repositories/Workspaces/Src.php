@@ -115,7 +115,7 @@ class Src extends AbstractWorkspacesApi
     {
         $uri = $this->buildSrcUri($commit, $filepath);
 
-        return $this->pureGet($uri, $params, ['Accept' => '*/*'])->getBody();
+        return $this->getAsResponse($uri, $params, ['Accept' => '*/*'])->getBody();
     }
 
     /**
@@ -127,6 +127,6 @@ class Src extends AbstractWorkspacesApi
      */
     protected function buildSrcUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'src', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'src', ...$parts);
     }
 }

@@ -34,7 +34,7 @@ class Patches extends AbstractWorkspacesApi
     {
         $uri = $this->buildPatchesUri($commit, 'patch');
 
-        return $this->pureGet($uri, $params, ['Accept' => 'text/plain'])->getBody();
+        return $this->getAsResponse($uri, $params, ['Accept' => 'text/plain'])->getBody();
     }
 
     /**
@@ -46,6 +46,6 @@ class Patches extends AbstractWorkspacesApi
      */
     protected function buildPatchesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('snippets', $this->workspace, $this->snippet, ...$parts);
+        return UriBuilder::build('snippets', $this->workspace, $this->snippet, ...$parts);
     }
 }

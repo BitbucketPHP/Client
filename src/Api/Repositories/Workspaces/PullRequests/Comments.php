@@ -103,6 +103,6 @@ class Comments extends AbstractPullRequestsApi
      */
     protected function buildCommentsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'comments', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'comments', ...$parts);
     }
 }

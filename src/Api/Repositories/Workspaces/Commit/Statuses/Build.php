@@ -75,6 +75,6 @@ class Build extends AbstractStatusesApi
      */
     protected function buildBuildUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'statuses', 'build', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'statuses', 'build', ...$parts);
     }
 }

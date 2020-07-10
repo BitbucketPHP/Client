@@ -104,6 +104,6 @@ class Values extends AbstractLinkersApi
      */
     protected function buildValuesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('addon', 'linkers', $this->linker, 'values', ...$parts);
+        return UriBuilder::build('addon', 'linkers', $this->linker, 'values', ...$parts);
     }
 }

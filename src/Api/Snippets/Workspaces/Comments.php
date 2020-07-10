@@ -104,6 +104,6 @@ class Comments extends AbstractWorkspacesApi
      */
     protected function buildCommentsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('snippets', $this->workspace, $this->snippet, 'comments', ...$parts);
+        return UriBuilder::build('snippets', $this->workspace, $this->snippet, 'comments', ...$parts);
     }
 }

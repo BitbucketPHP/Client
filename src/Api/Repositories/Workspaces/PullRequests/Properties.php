@@ -79,6 +79,6 @@ class Properties extends AbstractPullRequestsApi
      */
     protected function buildPropertiesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'properties', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'properties', ...$parts);
     }
 }

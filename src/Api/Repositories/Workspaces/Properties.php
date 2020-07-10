@@ -79,6 +79,6 @@ class Properties extends AbstractWorkspacesApi
      */
     protected function buildPropertiesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'properties', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'properties', ...$parts);
     }
 }

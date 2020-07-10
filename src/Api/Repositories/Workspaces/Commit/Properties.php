@@ -79,6 +79,6 @@ class Properties extends AbstractCommitApi
      */
     protected function buildPropertiesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'properties', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'properties', ...$parts);
     }
 }

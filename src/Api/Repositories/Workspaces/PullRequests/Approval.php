@@ -59,6 +59,6 @@ class Approval extends AbstractPullRequestsApi
      */
     protected function buildApprovalUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'approve', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'approve', ...$parts);
     }
 }

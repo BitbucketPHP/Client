@@ -13,13 +13,13 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api;
 
+use Bitbucket\Client;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 use Bitbucket\HttpClient\Util\JsonArray;
+use Bitbucket\HttpClient\Util\QueryStringBuilder;
 use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
- * The abstract bitbucket api class.
- *
  * @author Joseph Bielawski <stloyd@gmail.com>
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -33,9 +33,9 @@ abstract class AbstractApi implements ApiInterface
     private const URI_PREFIX = '/2.0/';
 
     /**
-     * The http methods client.
+     * The bitbucket client instance.
      *
-     * @var \Http\Client\Common\HttpMethodsClientInterface
+     * @var Client
      */
     private $client;
 
@@ -49,11 +49,11 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Create a new api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClientInterface $client
+     * @param Client $client
      *
      * @return void
      */
-    public function __construct(HttpMethodsClientInterface $client)
+    public function __construct(Client $client)
     {
         $this->client = $client;
     }
@@ -81,13 +81,33 @@ abstract class AbstractApi implements ApiInterface
     }
 
     /**
-     * Get the http methods client.
+     * Get the bitbucket client instance.
      *
-     * @return \Http\Client\Common\HttpMethodsClientInterface
+     * @return Client
      */
-    protected function getHttpClient()
+    protected function getClient()
     {
         return $this->client;
+    }
+
+    /**
+     * Send a GET request with query params and return the raw response.
+     *
+     * @param string               $uri
+     * @param array                $params
+     * @param array<string,string> $headers
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    protected function getAsResponse(string $uri, array $params = [], array $headers = [])
+    {
+        if (null !== $this->perPage && !isset($params['pagelen'])) {
+            $params['pagelen'] = $this->perPage;
+        }
+
+        return $this->client->getHttpClient()->get(self::prepareUri($uri, $params), $headers);
     }
 
     /**
@@ -103,33 +123,9 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function get(string $uri, array $params = [], array $headers = [])
     {
-        $response = $this->pureGet($uri, $params, $headers);
+        $response = $this->getAsResponse($uri, $params, $headers);
 
         return ResponseMediator::getContent($response);
-    }
-
-    /**
-     * Send a GET request with query params.
-     *
-     * @param string               $uri
-     * @param array                $params
-     * @param array<string,string> $headers
-     *
-     * @throws \Http\Client\Exception
-     *
-     * @return \Psr\Http\Message\ResponseInterface
-     */
-    protected function pureGet(string $uri, array $params = [], array $headers = [])
-    {
-        if (null !== $this->perPage && !isset($params['pagelen'])) {
-            $params['pagelen'] = $this->perPage;
-        }
-
-        if (0 === count($params)) {
-            $uri .= '?'.http_build_query($params);
-        }
-
-        return $this->client->get(self::prefixUri($uri), $headers);
     }
 
     /**
@@ -145,7 +141,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function post(string $uri, array $params = [], array $headers = [])
     {
-        $body = self::createJsonBody($params);
+        $body = self::prepareJsonBody($params);
 
         if (null !== $body) {
             $headers = self::addJsonContentType($headers);
@@ -167,7 +163,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function postRaw(string $uri, $body = null, array $headers = [])
     {
-        $response = $this->client->post(self::prefixUri($uri), $headers, $body);
+        $response = $this->client->getHttpClient()->post(self::prepareUri($uri), $headers, $body ?? '');
 
         return ResponseMediator::getContent($response);
     }
@@ -185,7 +181,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function put(string $uri, array $params = [], array $headers = [])
     {
-        $body = self::createJsonBody($params);
+        $body = self::prepareJsonBody($params);
 
         if (null !== $body) {
             $headers = self::addJsonContentType($headers);
@@ -207,7 +203,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function putRaw(string $uri, $body = null, array $headers = [])
     {
-        $response = $this->client->put(self::prefixUri($uri), $headers, $body);
+        $response = $this->client->getHttpClient()->put(self::prepareUri($uri), $headers, $body ?? '');
 
         return ResponseMediator::getContent($response);
     }
@@ -225,7 +221,7 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function delete(string $uri, array $params = [], array $headers = [])
     {
-        $body = self::createJsonBody($params);
+        $body = self::prepareJsonBody($params);
 
         if (null !== $body) {
             $headers = self::addJsonContentType($headers);
@@ -247,25 +243,38 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function deleteRaw(string $uri, $body = null, array $headers = [])
     {
-        $response = $this->client->delete(self::prefixUri($uri), $headers, $body);
+        $response = $this->client->getHttpClient()->delete(self::prepareUri($uri), $headers, $body ?? '');
 
         return ResponseMediator::getContent($response);
     }
 
     /**
-     * Create a JSON encoded version of an array of params.
+     * Prepare the request URI.
+     *
+     * @param string $uri
+     * @param array  $query
+     *
+     * @return string
+     */
+    private static function prepareUri(string $uri, array $query = [])
+    {
+        return sprintf('%s%s%s', self::URI_PREFIX, $uri, QueryStringBuilder::build($query));
+    }
+
+    /**
+     * Prepare the request JSON body.
      *
      * @param array $params
      *
      * @return string|null
      */
-    private static function createJsonBody(array $params)
+    private static function prepareJsonBody(array $params)
     {
         if (0 === count($params)) {
-            return JsonArray::encode($params);
+            return null;
         }
 
-        return null;
+        return JsonArray::encode($params);
     }
 
     /**
@@ -278,17 +287,5 @@ abstract class AbstractApi implements ApiInterface
     private static function addJsonContentType(array $headers)
     {
         return array_merge(['Content-Type' => ResponseMediator::JSON_CONTENT_TYPE], $headers);
-    }
-
-    /**
-     * Compute the prefixed URI.
-     *
-     * @param string $uri
-     *
-     * @return string
-     */
-    private static function prefixUri(string $uri)
-    {
-        return sprintf('%s%s', self::URI_PREFIX, $uri);
     }
 }

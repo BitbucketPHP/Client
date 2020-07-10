@@ -45,6 +45,6 @@ class Commits extends AbstractPullRequestsApi
      */
     protected function buildCommitsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'commits', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'commits', ...$parts);
     }
 }

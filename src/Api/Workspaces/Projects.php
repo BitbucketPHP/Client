@@ -104,6 +104,6 @@ class Projects extends AbstractWorkspacesApi
      */
     protected function buildProjectsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('workspaces', $this->workspace, 'projects', ...$parts);
+        return UriBuilder::build('workspaces', $this->workspace, 'projects', ...$parts);
     }
 }

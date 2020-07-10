@@ -73,6 +73,6 @@ class BranchingModel extends AbstractWorkspacesApi
      */
     protected function buildBranchingModelUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'branching-model', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'branching-model', ...$parts);
     }
 }

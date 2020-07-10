@@ -73,6 +73,6 @@ class Watching extends AbstractWorkspacesApi
      */
     protected function buildWatchingUri(string ...$parts)
     {
-        return UriBuilder::buildUri('snippets', $this->workspace, $this->snippet, 'watch', ...$parts);
+        return UriBuilder::build('snippets', $this->workspace, $this->snippet, 'watch', ...$parts);
     }
 }

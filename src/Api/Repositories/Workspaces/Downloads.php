@@ -66,7 +66,7 @@ class Downloads extends AbstractWorkspacesApi
     {
         $uri = $this->buildDownloadsUri($filename);
 
-        return $this->pureGet($uri, $params, ['Accept' => '*/*'])->getBody();
+        return $this->getAsResponse($uri, $params, ['Accept' => '*/*'])->getBody();
     }
 
     /**
@@ -93,6 +93,6 @@ class Downloads extends AbstractWorkspacesApi
      */
     protected function buildDownloadsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'downloads', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'downloads', ...$parts);
     }
 }

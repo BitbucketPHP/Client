@@ -45,6 +45,6 @@ class BuildNumber extends AbstractPipelinesConfigApi
      */
     protected function buildBuildNumberUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', 'build_number', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', 'build_number', ...$parts);
     }
 }

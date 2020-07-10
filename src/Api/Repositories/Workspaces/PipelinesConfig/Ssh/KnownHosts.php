@@ -104,6 +104,6 @@ class KnownHosts extends AbstractSshApi
      */
     protected function buildKnownHostsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', 'known_hosts', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', 'known_hosts', ...$parts);
     }
 }

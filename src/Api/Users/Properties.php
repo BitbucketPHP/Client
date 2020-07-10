@@ -79,6 +79,6 @@ class Properties extends AbstractUsersApi
      */
     protected function buildPropertiesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('users', $this->username, 'properties', ...$parts);
+        return UriBuilder::build('users', $this->username, 'properties', ...$parts);
     }
 }

@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Addon\Users;
 
 use Bitbucket\Api\Addon\AbstractAddonApi;
-use Http\Client\Common\HttpMethodsClientInterface;
+use Bitbucket\Client;
 
 /**
  * The abstract users api class.
@@ -33,10 +33,10 @@ abstract class AbstractUsersApi extends AbstractAddonApi
     /**
      * Create a new api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClientInterface $client
+     * @param Client $client
      * @param string                                         $username
      */
-    public function __construct(HttpMethodsClientInterface $client, string $username)
+    public function __construct(Client $client, string $username)
     {
         parent::__construct($client);
         $this->username = $username;

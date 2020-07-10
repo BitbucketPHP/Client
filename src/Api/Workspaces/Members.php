@@ -60,6 +60,6 @@ class Members extends AbstractWorkspacesApi
      */
     protected function buildMembersUri(string ...$parts)
     {
-        return UriBuilder::buildUri('workspaces', $this->workspace, 'members', ...$parts);
+        return UriBuilder::build('workspaces', $this->workspace, 'members', ...$parts);
     }
 }

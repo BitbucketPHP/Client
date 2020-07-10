@@ -46,6 +46,6 @@ class MergeBases extends AbstractWorkspacesApi
      */
     protected function buildMergeBasesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'merge-base', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'merge-base', ...$parts);
     }
 }

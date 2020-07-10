@@ -89,6 +89,6 @@ class Branches extends AbstractRefsApi
      */
     protected function buildBranchesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'refs', 'branches', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'refs', 'branches', ...$parts);
     }
 }

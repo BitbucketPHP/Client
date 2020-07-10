@@ -89,7 +89,7 @@ class Pipelines extends AbstractWorkspacesApi
      */
     public function remoteTriggers(string $pipeline)
     {
-        return new RemoteTriggers($this->getHttpClient(), $this->workspace, $this->repo, $pipeline);
+        return new RemoteTriggers($this->getClient(), $this->workspace, $this->repo, $pipeline);
     }
 
     /**
@@ -99,7 +99,7 @@ class Pipelines extends AbstractWorkspacesApi
      */
     public function steps(string $pipeline)
     {
-        return new Steps($this->getHttpClient(), $this->workspace, $this->repo, $pipeline);
+        return new Steps($this->getClient(), $this->workspace, $this->repo, $pipeline);
     }
 
     /**
@@ -111,6 +111,6 @@ class Pipelines extends AbstractWorkspacesApi
      */
     protected function buildPipelinesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines', ...$parts);
     }
 }

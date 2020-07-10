@@ -59,6 +59,6 @@ class Approval extends AbstractCommitApi
      */
     protected function buildApprovalUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'approve', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'approve', ...$parts);
     }
 }

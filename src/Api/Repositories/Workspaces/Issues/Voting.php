@@ -73,6 +73,6 @@ class Voting extends AbstractIssuesApi
      */
     protected function buildVotingUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'vote', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'vote', ...$parts);
     }
 }

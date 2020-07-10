@@ -104,6 +104,6 @@ class SshKeys extends AbstractUsersApi
      */
     protected function buildSshKeysUri(string ...$parts)
     {
-        return UriBuilder::buildUri('users', $this->username, 'ssh-keys', ...$parts);
+        return UriBuilder::build('users', $this->username, 'ssh-keys', ...$parts);
     }
 }

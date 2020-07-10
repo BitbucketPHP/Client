@@ -74,7 +74,7 @@ class Client
      *
      * @var string
      */
-    private const USER_AGENT = 'bitbucket-api-client/3.0';
+    private const USER_AGENT = 'bitbucket-php-api-client/3.0';
 
     /**
      * The HTTP client builder.
@@ -133,7 +133,7 @@ class Client
      */
     public function addon()
     {
-        return new Addon($this->getHttpClient());
+        return new Addon($this);
     }
 
     /**
@@ -141,7 +141,7 @@ class Client
      */
     public function currentUser()
     {
-        return new CurrentUser($this->getHttpClient());
+        return new CurrentUser($this);
     }
 
     /**
@@ -149,7 +149,7 @@ class Client
      */
     public function hookEvents()
     {
-        return new HookEvents($this->getHttpClient());
+        return new HookEvents($this);
     }
 
     /**
@@ -157,7 +157,7 @@ class Client
      */
     public function pullRequests()
     {
-        return new PullRequests($this->getHttpClient());
+        return new PullRequests($this);
     }
 
     /**
@@ -165,7 +165,7 @@ class Client
      */
     public function repositories()
     {
-        return new Repositories($this->getHttpClient());
+        return new Repositories($this);
     }
 
     /**
@@ -173,7 +173,7 @@ class Client
      */
     public function snippets()
     {
-        return new Snippets($this->getHttpClient());
+        return new Snippets($this);
     }
 
     /**
@@ -183,7 +183,7 @@ class Client
      */
     public function users(string $username)
     {
-        return new Users($this->getHttpClient(), $username);
+        return new Users($this, $username);
     }
 
     /**
@@ -193,7 +193,7 @@ class Client
      */
     public function workspaces(string $workspace)
     {
-        return new Workspaces($this->getHttpClient(), $workspace);
+        return new Workspaces($this, $workspace);
     }
 
     /**

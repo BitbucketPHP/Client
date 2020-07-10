@@ -104,6 +104,6 @@ class BranchRestrictions extends AbstractWorkspacesApi
      */
     protected function buildBranchRestrictionsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'branch-restrictions', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'branch-restrictions', ...$parts);
     }
 }

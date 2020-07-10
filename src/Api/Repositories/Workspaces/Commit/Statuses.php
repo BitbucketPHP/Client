@@ -42,7 +42,7 @@ class Statuses extends AbstractCommitApi
      */
     public function build()
     {
-        return new Build($this->getHttpClient(), $this->workspace, $this->repo, $this->commit);
+        return new Build($this->getClient(), $this->workspace, $this->repo, $this->commit);
     }
 
     /**
@@ -54,6 +54,6 @@ class Statuses extends AbstractCommitApi
      */
     protected function buildStatusesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'statuses', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'statuses', ...$parts);
     }
 }

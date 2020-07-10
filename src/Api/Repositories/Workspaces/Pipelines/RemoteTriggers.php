@@ -46,6 +46,6 @@ class RemoteTriggers extends AbstractPipelinesApi
      */
     protected function buildRemoteTriggersUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines', $this->pipeline, 'remote-triggers', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines', $this->pipeline, 'remote-triggers', ...$parts);
     }
 }

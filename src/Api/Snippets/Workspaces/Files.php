@@ -51,7 +51,7 @@ class Files extends AbstractWorkspacesApi
     {
         $uri = $this->buildFilesUri($commit, 'files', ...explode('/', $uri));
 
-        return $this->pureGet($uri, $params, ['Accept' => '*/*'])->getBody();
+        return $this->getAsResponse($uri, $params, ['Accept' => '*/*'])->getBody();
     }
 
     /**
@@ -116,6 +116,6 @@ class Files extends AbstractWorkspacesApi
      */
     protected function buildFilesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('snippets', $this->workspace, $this->snippet, ...$parts);
+        return UriBuilder::build('snippets', $this->workspace, $this->snippet, ...$parts);
     }
 }

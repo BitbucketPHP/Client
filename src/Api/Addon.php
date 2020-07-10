@@ -57,7 +57,7 @@ class Addon extends AbstractApi
      */
     public function linkers()
     {
-        return new Linkers($this->getHttpClient());
+        return new Linkers($this->getClient());
     }
 
     /**
@@ -65,7 +65,7 @@ class Addon extends AbstractApi
      */
     public function users()
     {
-        return new UsersAddon($this->getHttpClient());
+        return new UsersAddon($this->getClient());
     }
 
     /**
@@ -77,6 +77,6 @@ class Addon extends AbstractApi
      */
     protected function buildAddonUri(string ...$parts)
     {
-        return UriBuilder::buildUri('addon', ...$parts);
+        return UriBuilder::build('addon', ...$parts);
     }
 }

@@ -50,7 +50,7 @@ class Commit extends AbstractWorkspacesApi
      */
     public function approval(string $commit)
     {
-        return new Approval($this->getHttpClient(), $this->workspace, $this->repo, $commit);
+        return new Approval($this->getClient(), $this->workspace, $this->repo, $commit);
     }
 
     /**
@@ -60,7 +60,7 @@ class Commit extends AbstractWorkspacesApi
      */
     public function comments(string $commit)
     {
-        return new Comments($this->getHttpClient(), $this->workspace, $this->repo, $commit);
+        return new Comments($this->getClient(), $this->workspace, $this->repo, $commit);
     }
 
     /**
@@ -70,7 +70,7 @@ class Commit extends AbstractWorkspacesApi
      */
     public function properties(string $commit)
     {
-        return new CommitProperties($this->getHttpClient(), $this->workspace, $this->repo, $commit);
+        return new CommitProperties($this->getClient(), $this->workspace, $this->repo, $commit);
     }
 
     /**
@@ -80,7 +80,7 @@ class Commit extends AbstractWorkspacesApi
      */
     public function pullRequests(string $commit)
     {
-        return new CommitPullRequests($this->getHttpClient(), $this->workspace, $this->repo, $commit);
+        return new CommitPullRequests($this->getClient(), $this->workspace, $this->repo, $commit);
     }
 
     /**
@@ -90,7 +90,7 @@ class Commit extends AbstractWorkspacesApi
      */
     public function reports(string $commit)
     {
-        return new Reports($this->getHttpClient(), $this->workspace, $this->repo, $commit);
+        return new Reports($this->getClient(), $this->workspace, $this->repo, $commit);
     }
 
     /**
@@ -100,7 +100,7 @@ class Commit extends AbstractWorkspacesApi
      */
     public function statuses(string $commit)
     {
-        return new Statuses($this->getHttpClient(), $this->workspace, $this->repo, $commit);
+        return new Statuses($this->getClient(), $this->workspace, $this->repo, $commit);
     }
 
     /**
@@ -112,6 +112,6 @@ class Commit extends AbstractWorkspacesApi
      */
     protected function buildCommitUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'commit', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', ...$parts);
     }
 }

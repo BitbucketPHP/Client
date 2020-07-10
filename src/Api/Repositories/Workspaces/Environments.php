@@ -103,6 +103,6 @@ class Environments extends AbstractWorkspacesApi
      */
     protected function buildEnvironmentsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'environments', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'environments', ...$parts);
     }
 }

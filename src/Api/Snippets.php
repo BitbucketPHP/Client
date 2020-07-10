@@ -62,7 +62,7 @@ class Snippets extends AbstractApi
      */
     public function workspaces(string $workspace)
     {
-        return new SnippetsWorkspaces($this->getHttpClient(), $workspace);
+        return new SnippetsWorkspaces($this->getClient(), $workspace);
     }
 
     /**
@@ -74,6 +74,6 @@ class Snippets extends AbstractApi
      */
     protected function buildSnippetsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('snippets', ...$parts);
+        return UriBuilder::build('snippets', ...$parts);
     }
 }

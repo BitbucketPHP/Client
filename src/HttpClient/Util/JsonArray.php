@@ -35,14 +35,14 @@ final class JsonArray
      */
     public static function decode(string $json)
     {
-        /** @var scalar|array */
+        /** @var scalar|array|null */
         $data = \json_decode($json, true);
 
         if (\JSON_ERROR_NONE !== \json_last_error()) {
             throw new RuntimeException(sprintf('json_decode error: %s', \json_last_error_msg()));
         }
 
-        if (!\is_array($data)) {
+        if (null === $data || !\is_array($data)) {
             throw new RuntimeException(sprintf('json_decode error: Expected JSON of type array, %s given.', \get_debug_type($data)));
         }
 

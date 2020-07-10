@@ -60,6 +60,6 @@ class Components extends AbstractWorkspacesApi
      */
     protected function buildComponentsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'components', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'components', ...$parts);
     }
 }

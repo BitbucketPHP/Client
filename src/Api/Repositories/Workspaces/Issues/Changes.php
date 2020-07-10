@@ -74,6 +74,6 @@ class Changes extends AbstractIssuesApi
      */
     protected function buildChangesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'changes', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'changes', ...$parts);
     }
 }

@@ -107,7 +107,7 @@ class Issues extends AbstractWorkspacesApi
      */
     public function attachments(string $issue)
     {
-        return new Attachments($this->getHttpClient(), $this->workspace, $this->repo, $issue);
+        return new Attachments($this->getClient(), $this->workspace, $this->repo, $issue);
     }
 
     /**
@@ -117,7 +117,7 @@ class Issues extends AbstractWorkspacesApi
      */
     public function changes(string $issue)
     {
-        return new Changes($this->getHttpClient(), $this->workspace, $this->repo, $issue);
+        return new Changes($this->getClient(), $this->workspace, $this->repo, $issue);
     }
 
     /**
@@ -127,7 +127,7 @@ class Issues extends AbstractWorkspacesApi
      */
     public function comments(string $issue)
     {
-        return new Comments($this->getHttpClient(), $this->workspace, $this->repo, $issue);
+        return new Comments($this->getClient(), $this->workspace, $this->repo, $issue);
     }
 
     /**
@@ -137,7 +137,7 @@ class Issues extends AbstractWorkspacesApi
      */
     public function voting(string $issue)
     {
-        return new Voting($this->getHttpClient(), $this->workspace, $this->repo, $issue);
+        return new Voting($this->getClient(), $this->workspace, $this->repo, $issue);
     }
 
     /**
@@ -147,7 +147,7 @@ class Issues extends AbstractWorkspacesApi
      */
     public function watching(string $issue)
     {
-        return new Watching($this->getHttpClient(), $this->workspace, $this->repo, $issue);
+        return new Watching($this->getClient(), $this->workspace, $this->repo, $issue);
     }
 
     /**
@@ -159,6 +159,6 @@ class Issues extends AbstractWorkspacesApi
      */
     protected function buildIssuesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'issues', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'issues', ...$parts);
     }
 }

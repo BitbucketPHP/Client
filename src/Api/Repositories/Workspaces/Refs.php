@@ -43,7 +43,7 @@ class Refs extends AbstractWorkspacesApi
      */
     public function branches()
     {
-        return new Branches($this->getHttpClient(), $this->workspace, $this->repo);
+        return new Branches($this->getClient(), $this->workspace, $this->repo);
     }
 
     /**
@@ -51,7 +51,7 @@ class Refs extends AbstractWorkspacesApi
      */
     public function tags()
     {
-        return new Tags($this->getHttpClient(), $this->workspace, $this->repo);
+        return new Tags($this->getClient(), $this->workspace, $this->repo);
     }
 
     /**
@@ -63,6 +63,6 @@ class Refs extends AbstractWorkspacesApi
      */
     protected function buildRefsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'refs', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'refs', ...$parts);
     }
 }

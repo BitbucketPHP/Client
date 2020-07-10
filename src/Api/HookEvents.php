@@ -87,6 +87,6 @@ class HookEvents extends AbstractApi
      */
     protected function buildHookEventsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('hook_events', ...$parts);
+        return UriBuilder::build('hook_events', ...$parts);
     }
 }

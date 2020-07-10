@@ -33,7 +33,7 @@ class Patch extends AbstractPullRequestsApi
     {
         $uri = $this->buildPatchUri();
 
-        return $this->pureGet($uri, $params, ['Accept' => 'text/plain'])->getBody();
+        return $this->getAsResponse($uri, $params, ['Accept' => 'text/plain'])->getBody();
     }
 
     /**
@@ -45,6 +45,6 @@ class Patch extends AbstractPullRequestsApi
      */
     protected function buildPatchUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'patch', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'patch', ...$parts);
     }
 }

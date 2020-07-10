@@ -59,7 +59,7 @@ class Linkers extends AbstractAddonApi
      */
     public function values(string $linker)
     {
-        return new Values($this->getHttpClient(), $linker);
+        return new Values($this->getClient(), $linker);
     }
 
     /**
@@ -71,6 +71,6 @@ class Linkers extends AbstractAddonApi
      */
     protected function buildLinkersUri(string ...$parts)
     {
-        return UriBuilder::buildUri('addon', 'linkers', ...$parts);
+        return UriBuilder::build('addon', 'linkers', ...$parts);
     }
 }

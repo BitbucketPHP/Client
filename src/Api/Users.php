@@ -17,7 +17,7 @@ use Bitbucket\Api\Users\Properties;
 use Bitbucket\Api\Users\Repositories as UsersRepositories;
 use Bitbucket\Api\Users\SshKeys;
 use Bitbucket\HttpClient\Util\UriBuilder;
-use Http\Client\Common\HttpMethodsClientInterface;
+use Bitbucket\Client;
 
 /**
  * The users api class.
@@ -36,10 +36,10 @@ class Users extends AbstractApi
     /**
      * Create a new users api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClientInterface $client
+     * @param Client $client
      * @param string                                         $username
      */
-    public function __construct(HttpMethodsClientInterface $client, string $username)
+    public function __construct(Client $client, string $username)
     {
         parent::__construct($client);
         $this->username = $username;
@@ -50,7 +50,7 @@ class Users extends AbstractApi
      */
     public function properties()
     {
-        return new Properties($this->getHttpClient(), $this->username);
+        return new Properties($this->getClient(), $this->username);
     }
 
     /**
@@ -58,7 +58,7 @@ class Users extends AbstractApi
      */
     public function repositories()
     {
-        return new UsersRepositories($this->getHttpClient(), $this->username);
+        return new UsersRepositories($this->getClient(), $this->username);
     }
 
     /**
@@ -66,7 +66,7 @@ class Users extends AbstractApi
      */
     public function sshKeys()
     {
-        return new SshKeys($this->getHttpClient(), $this->username);
+        return new SshKeys($this->getClient(), $this->username);
     }
 
     /**
@@ -78,6 +78,6 @@ class Users extends AbstractApi
      */
     protected function buildUsersUri(string ...$parts)
     {
-        return UriBuilder::buildUri('users', $this->username, ...$parts);
+        return UriBuilder::build('users', $this->username, ...$parts);
     }
 }

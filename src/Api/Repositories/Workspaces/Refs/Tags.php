@@ -89,6 +89,6 @@ class Tags extends AbstractRefsApi
      */
     protected function buildTagsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'refs', 'tags', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'refs', 'tags', ...$parts);
     }
 }

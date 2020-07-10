@@ -116,7 +116,7 @@ class CurrentUser extends AbstractApi
      */
     public function listWorkspaces(array $params = [])
     {
-        $uri = UriBuilder::buildUri('workspaces');
+        $uri = UriBuilder::build('workspaces');
 
         return $this->get($uri, $params);
     }
@@ -130,6 +130,6 @@ class CurrentUser extends AbstractApi
      */
     protected function buildCurrentUserUri(string ...$parts)
     {
-        return UriBuilder::buildUri('user', ...$parts);
+        return UriBuilder::build('user', ...$parts);
     }
 }

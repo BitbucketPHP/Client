@@ -45,6 +45,6 @@ class Executions extends AbstractSchedulesApi
      */
     protected function buildExecutionsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', 'schedules', $this->schedule, 'executions', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', 'schedules', $this->schedule, 'executions', ...$parts);
     }
 }

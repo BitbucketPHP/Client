@@ -45,6 +45,6 @@ class Permissions extends AbstractWorkspacesApi
      */
     protected function buildPermissionsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('workspaces', $this->workspace, 'permissions', ...$parts);
+        return UriBuilder::build('workspaces', $this->workspace, 'permissions', ...$parts);
     }
 }

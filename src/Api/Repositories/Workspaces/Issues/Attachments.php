@@ -66,7 +66,7 @@ class Attachments extends AbstractIssuesApi
     {
         $uri = $this->buildAttachmentsUri($filename);
 
-        return $this->pureGet($uri, $params, ['Accept' => '*/*'])->getBody();
+        return $this->getAsResponse($uri, $params, ['Accept' => '*/*'])->getBody();
     }
 
     /**
@@ -93,6 +93,6 @@ class Attachments extends AbstractIssuesApi
      */
     protected function buildAttachmentsUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'attachments', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'attachments', ...$parts);
     }
 }

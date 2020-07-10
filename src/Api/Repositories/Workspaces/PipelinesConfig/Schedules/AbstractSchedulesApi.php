@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Schedules;
 
 use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\AbstractPipelinesConfigApi;
-use Http\Client\Common\HttpMethodsClientInterface;
+use Bitbucket\Client;
 
 /**
  * The abstract schedules api class.
@@ -33,12 +33,12 @@ abstract class AbstractSchedulesApi extends AbstractPipelinesConfigApi
     /**
      * Create a new api instance.
      *
-     * @param \Http\Client\Common\HttpMethodsClientInterface $client
+     * @param Client $client
      * @param string                                         $workspace
      * @param string                                         $repo
      * @param string                                         $schedule
      */
-    public function __construct(HttpMethodsClientInterface $client, string $workspace, string $repo, string $schedule)
+    public function __construct(Client $client, string $workspace, string $repo, string $schedule)
     {
         parent::__construct($client, $workspace, $repo);
         $this->schedule = $schedule;

@@ -60,6 +60,6 @@ class Milestones extends AbstractWorkspacesApi
      */
     protected function buildMilestonesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'milestones', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'milestones', ...$parts);
     }
 }

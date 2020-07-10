@@ -103,7 +103,7 @@ class Schedules extends AbstractPipelinesConfigApi
      */
     public function executions(string $schedule)
     {
-        return new Executions($this->getHttpClient(), $this->workspace, $this->repo, $schedule);
+        return new Executions($this->getClient(), $this->workspace, $this->repo, $schedule);
     }
 
     /**
@@ -115,6 +115,6 @@ class Schedules extends AbstractPipelinesConfigApi
      */
     protected function buildSchedulesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'pipelines_config', 'schedules', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', 'schedules', ...$parts);
     }
 }

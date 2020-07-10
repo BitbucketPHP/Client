@@ -89,6 +89,6 @@ class EnvironmentVariables extends AbstractDeploymentsApi
      */
     protected function buildEnvironmentVariablesUri(string ...$parts)
     {
-        return UriBuilder::buildUri('repositories', $this->workspace, $this->repo, 'deployments_config', 'environments', $this->environment, 'variables', ...$parts);
+        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'deployments_config', 'environments', $this->environment, 'variables', ...$parts);
     }
 }
