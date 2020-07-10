@@ -34,8 +34,8 @@ abstract class AbstractWorkspacesApi extends AbstractSnippetsApi
      * Create a new api instance.
      *
      * @param Client $client
-     * @param string                                         $workspace
-     * @param string                                         $snippet
+     * @param string $workspace
+     * @param string $snippet
      */
     public function __construct(Client $client, string $workspace, string $snippet)
     {

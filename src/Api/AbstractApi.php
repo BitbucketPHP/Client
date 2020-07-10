@@ -17,7 +17,6 @@ use Bitbucket\Client;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 use Bitbucket\HttpClient\Util\JsonArray;
 use Bitbucket\HttpClient\Util\QueryStringBuilder;
-use Http\Client\Common\HttpMethodsClientInterface;
 
 /**
  * @author Joseph Bielawski <stloyd@gmail.com>

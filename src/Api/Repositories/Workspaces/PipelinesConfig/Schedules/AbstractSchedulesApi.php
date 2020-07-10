@@ -34,9 +34,9 @@ abstract class AbstractSchedulesApi extends AbstractPipelinesConfigApi
      * Create a new api instance.
      *
      * @param Client $client
-     * @param string                                         $workspace
-     * @param string                                         $repo
-     * @param string                                         $schedule
+     * @param string $workspace
+     * @param string $repo
+     * @param string $schedule
      */
     public function __construct(Client $client, string $workspace, string $repo, string $schedule)
     {

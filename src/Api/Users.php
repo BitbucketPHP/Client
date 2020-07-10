@@ -16,8 +16,8 @@ namespace Bitbucket\Api;
 use Bitbucket\Api\Users\Properties;
 use Bitbucket\Api\Users\Repositories as UsersRepositories;
 use Bitbucket\Api\Users\SshKeys;
-use Bitbucket\HttpClient\Util\UriBuilder;
 use Bitbucket\Client;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The users api class.
@@ -37,7 +37,7 @@ class Users extends AbstractApi
      * Create a new users api instance.
      *
      * @param Client $client
-     * @param string                                         $username
+     * @param string $username
      */
     public function __construct(Client $client, string $username)
     {

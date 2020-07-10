@@ -18,8 +18,8 @@ use Bitbucket\Api\Workspaces\Members;
 use Bitbucket\Api\Workspaces\Permissions;
 use Bitbucket\Api\Workspaces\PipelinesConfig;
 use Bitbucket\Api\Workspaces\Projects;
-use Bitbucket\HttpClient\Util\UriBuilder;
 use Bitbucket\Client;
+use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
  * The workspaces api class.
@@ -39,7 +39,7 @@ class Workspaces extends AbstractApi
      * Create a new workspaces api instance.
      *
      * @param Client $client
-     * @param string                                         $workspace
+     * @param string $workspace
      */
     public function __construct(Client $client, string $workspace)
     {

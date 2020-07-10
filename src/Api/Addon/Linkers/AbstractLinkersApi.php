@@ -34,7 +34,7 @@ abstract class AbstractLinkersApi extends AbstractAddonApi
      * Create a new api instance.
      *
      * @param Client $client
-     * @param string                                         $linker
+     * @param string $linker
      */
     public function __construct(Client $client, string $linker)
     {

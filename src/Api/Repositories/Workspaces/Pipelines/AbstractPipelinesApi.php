@@ -34,9 +34,9 @@ abstract class AbstractPipelinesApi extends AbstractWorkspacesApi
      * Create a new api instance.
      *
      * @param Client $client
-     * @param string                                         $workspace
-     * @param string                                         $repo
-     * @param string                                         $pipeline
+     * @param string $workspace
+     * @param string $repo
+     * @param string $pipeline
      */
     public function __construct(Client $client, string $workspace, string $repo, string $pipeline)
     {

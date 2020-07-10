@@ -34,9 +34,9 @@ abstract class AbstractDeploymentsApi extends AbstractWorkspacesApi
      * Create a new api instance.
      *
      * @param Client $client
-     * @param string                                         $workspace
-     * @param string                                         $repo
-     * @param string                                         $environment
+     * @param string $workspace
+     * @param string $repo
+     * @param string $environment
      */
     public function __construct(Client $client, string $workspace, string $repo, string $environment)
     {

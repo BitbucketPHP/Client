@@ -34,9 +34,9 @@ abstract class AbstractIssuesApi extends AbstractWorkspacesApi
      * Create a new api instance.
      *
      * @param Client $client
-     * @param string                                         $workspace
-     * @param string                                         $repo
-     * @param string                                         $issue
+     * @param string $workspace
+     * @param string $repo
+     * @param string $issue
      */
     public function __construct(Client $client, string $workspace, string $repo, string $issue)
     {

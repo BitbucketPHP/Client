@@ -34,7 +34,7 @@ abstract class AbstractUsersApi extends AbstractApi
      * Create a new api instance.
      *
      * @param Client $client
-     * @param string                                         $username
+     * @param string $username
      */
     public function __construct(Client $client, string $username)
     {
