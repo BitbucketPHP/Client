@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Bitbucket\Tests;
 
-use Bitbucket\HttpClient\Message\ResponseMediator;
 use Bitbucket\Exception\RuntimeException;
+use Bitbucket\HttpClient\Message\ResponseMediator;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 
