@@ -8,6 +8,7 @@ CHANGE LOG
 * Update against latest API spec
 * Refactored exceptions and internals
 * Encode URIs according to RFC 3986
+* Replaced legacy APIs with workspaces
 
 
 ## V2.1.5 (29/06/2020)
