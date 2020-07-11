@@ -25,19 +25,23 @@ Check out the [change log](CHANGELOG.md), [releases](https://github.com/Bitbucke
 
 This version supports [PHP](https://php.net) 7.1-7.4. To get started, simply require the project using [Composer](https://getcomposer.org). You will also need to install packages that "provide" [`psr/http-client-implementation`](https://packagist.org/providers/psr/http-client-implementation) and [`psr/http-factory-implementation`](https://packagist.org/providers/psr/http-factory-implementation).
 
-### PHP 7.1+:
+### Standard Installation
+
+#### PHP 7.1+:
 
 ```bash
 $ composer require bitbucket/client:^3.0 php-http/guzzle6-adapter:^2.0.1 http-interop/http-factory-guzzle:^1.0
 ```
 
-### PHP 7.2+:
+#### PHP 7.2+:
 
 ```bash
 $ composer require bitbucket/client:^3.0 guzzlehttp/guzzle:^7.0.1 http-interop/http-factory-guzzle:^1.0
 ```
 
-### Laravel 6+:
+### Framework Integration
+
+#### Laravel 6+:
 
 ```bash
 $ composer require graham-campbell/bitbucket:^7.0 guzzlehttp/guzzle:^7.0.1 http-interop/http-factory-guzzle:^1.0
