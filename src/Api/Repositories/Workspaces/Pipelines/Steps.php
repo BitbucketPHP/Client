@@ -68,6 +68,22 @@ class Steps extends AbstractPipelinesApi
 
     /**
      * @param string $step
+     * @param string $uuid
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function specificLog(string $step, string $uuid, array $params = [])
+    {
+        $uri = $this->buildStepsUri($step, 'logs', $uuid);
+
+        return $this->getAsResponse($uri, $params, ['Accept' => 'application/octet-stream'])->getBody();
+    }
+
+    /**
+     * @param string $step
      * @param array  $params
      *
      * @throws \Http\Client\Exception
