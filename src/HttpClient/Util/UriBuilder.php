@@ -25,13 +25,6 @@ use ValueError;
 final class UriBuilder
 {
     /**
-     * The URI part separator.
-     *
-     * @var string
-     */
-    private const URI_SEPARATOR = '/';
-
-    /**
      * Build a URI from the given parts.
      *
      * @param string ...$parts
@@ -45,10 +38,10 @@ final class UriBuilder
                 throw new ValueError(sprintf('%s::buildUri(): Argument #%d ($parts) must non-empty', self::class, $index + 1));
             }
 
-            $parts[$index] = self::encodePart($part);
+            $parts[$index] = rawurlencode($part);
         }
 
-        return implode(self::URI_SEPARATOR, $parts);
+        return implode('/', $parts);
     }
 
     /**
@@ -60,20 +53,6 @@ final class UriBuilder
      */
     public static function appendSeparator(string $uri)
     {
-        return sprintf('%s%s', $uri, self::URI_SEPARATOR);
-    }
-
-    /**
-     * Encode the given part for a URI.
-     *
-     * @param string $part
-     *
-     * @return string
-     */
-    private static function encodePart(string $part)
-    {
-        $part = rawurlencode($part);
-
-        return str_replace('.', '%2E', $part);
+        return sprintf('%s%s', $uri, '/');
     }
 }
