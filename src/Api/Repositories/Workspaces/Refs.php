@@ -18,7 +18,7 @@ use Bitbucket\Api\Repositories\Workspaces\Refs\Tags;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The refs api class.
+ * The refs API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -43,7 +43,7 @@ class Refs extends AbstractWorkspacesApi
      */
     public function branches()
     {
-        return new Branches($this->getClient(), $this->workspace, $this->repo);
+        return new Branches($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo);
     }
 
     /**
@@ -51,7 +51,7 @@ class Refs extends AbstractWorkspacesApi
      */
     public function tags()
     {
-        return new Tags($this->getClient(), $this->workspace, $this->repo);
+        return new Tags($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo);
     }
 
     /**

@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The known hosts api class.
+ * The known hosts API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

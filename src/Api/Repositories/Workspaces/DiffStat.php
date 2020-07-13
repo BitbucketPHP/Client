@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The diffs stat api class.
+ * The diffs stat API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

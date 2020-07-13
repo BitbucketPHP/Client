@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Addon\Users;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The events api class.
+ * The events API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

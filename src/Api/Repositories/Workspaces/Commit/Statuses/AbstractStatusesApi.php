@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\Commit\Statuses;
 use Bitbucket\Api\Repositories\Workspaces\Commit\AbstractCommitApi;
 
 /**
- * The abstract statuses api class.
+ * The abstract statuses API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

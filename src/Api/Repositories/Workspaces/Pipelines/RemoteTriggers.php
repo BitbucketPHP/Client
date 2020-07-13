@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\Pipelines;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The remote triggers api class.
+ * The remote triggers API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

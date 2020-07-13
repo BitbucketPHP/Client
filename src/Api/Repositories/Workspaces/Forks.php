@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The forks api class.
+ * The forks API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

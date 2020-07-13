@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Workspaces;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The permissions api class.
+ * The permissions API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

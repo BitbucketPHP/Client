@@ -18,7 +18,7 @@ use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh\KnownHosts;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The ssh api class.
+ * The ssh API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -29,7 +29,7 @@ class Ssh extends AbstractPipelinesConfigApi
      */
     public function keyPair()
     {
-        return new KeyPair($this->getClient(), $this->workspace, $this->repo);
+        return new KeyPair($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo);
     }
 
     /**
@@ -37,7 +37,7 @@ class Ssh extends AbstractPipelinesConfigApi
      */
     public function knownHosts()
     {
-        return new KnownHosts($this->getClient(), $this->workspace, $this->repo);
+        return new KnownHosts($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo);
     }
 
     /**

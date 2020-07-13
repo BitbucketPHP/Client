@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\Commit;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The approval api class.
+ * The approval API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

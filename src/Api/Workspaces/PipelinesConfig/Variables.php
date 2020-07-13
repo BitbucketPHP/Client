@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Workspaces\PipelinesConfig;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The variables api class.
+ * The variables API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

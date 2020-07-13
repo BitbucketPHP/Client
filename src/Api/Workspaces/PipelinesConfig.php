@@ -17,7 +17,7 @@ use Bitbucket\Api\Workspaces\PipelinesConfig\Variables;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The pipelines config api class.
+ * The pipelines config API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -28,7 +28,7 @@ class PipelinesConfig extends AbstractWorkspacesApi
      */
     public function variables()
     {
-        return new Variables($this->getClient(), $this->workspace);
+        return new Variables($this->getClient(), $this->getPerPage(), $this->workspace);
     }
 
     /**

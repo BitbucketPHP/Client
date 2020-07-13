@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Users;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The ssh keys api class.
+ * The ssh keys API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

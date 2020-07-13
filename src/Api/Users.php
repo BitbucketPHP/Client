@@ -20,7 +20,7 @@ use Bitbucket\Client;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The users api class.
+ * The users API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -34,14 +34,14 @@ class Users extends AbstractApi
     protected $username;
 
     /**
-     * Create a new users api instance.
+     * Create a new users API instance.
      *
      * @param Client $client
      * @param string $username
      */
-    public function __construct(Client $client, string $username)
+    public function __construct(Client $client, ?int $perPage, string $username)
     {
-        parent::__construct($client);
+        parent::__construct($client, $perPage);
         $this->username = $username;
     }
 
@@ -50,7 +50,7 @@ class Users extends AbstractApi
      */
     public function properties()
     {
-        return new Properties($this->getClient(), $this->username);
+        return new Properties($this->getClient(), $this->getPerPage(), $this->username);
     }
 
     /**
@@ -58,7 +58,7 @@ class Users extends AbstractApi
      */
     public function repositories()
     {
-        return new UsersRepositories($this->getClient(), $this->username);
+        return new UsersRepositories($this->getClient(), $this->getPerPage(), $this->username);
     }
 
     /**
@@ -66,7 +66,7 @@ class Users extends AbstractApi
      */
     public function sshKeys()
     {
-        return new SshKeys($this->getClient(), $this->username);
+        return new SshKeys($this->getClient(), $this->getPerPage(), $this->username);
     }
 
     /**

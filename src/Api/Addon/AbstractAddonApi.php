@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Addon;
 use Bitbucket\Api\AbstractApi;
 
 /**
- * The abstract addon api class.
+ * The abstract addon API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

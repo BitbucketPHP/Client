@@ -16,7 +16,7 @@ namespace Bitbucket\Api;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The hook events api class.
+ * The hook events API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

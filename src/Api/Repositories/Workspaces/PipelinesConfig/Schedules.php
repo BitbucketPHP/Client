@@ -17,7 +17,7 @@ use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Schedules\Executions;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The schedules api class.
+ * The schedules API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -103,7 +103,7 @@ class Schedules extends AbstractPipelinesConfigApi
      */
     public function executions(string $schedule)
     {
-        return new Executions($this->getClient(), $this->workspace, $this->repo, $schedule);
+        return new Executions($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $schedule);
     }
 
     /**

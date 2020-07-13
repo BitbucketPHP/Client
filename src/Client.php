@@ -133,7 +133,7 @@ class Client
      */
     public function addon()
     {
-        return new Addon($this);
+        return new Addon($this, null);
     }
 
     /**
@@ -141,7 +141,7 @@ class Client
      */
     public function currentUser()
     {
-        return new CurrentUser($this);
+        return new CurrentUser($this, null);
     }
 
     /**
@@ -149,7 +149,7 @@ class Client
      */
     public function hookEvents()
     {
-        return new HookEvents($this);
+        return new HookEvents($this, null);
     }
 
     /**
@@ -157,7 +157,7 @@ class Client
      */
     public function pullRequests()
     {
-        return new PullRequests($this);
+        return new PullRequests($this, null);
     }
 
     /**
@@ -165,7 +165,7 @@ class Client
      */
     public function repositories()
     {
-        return new Repositories($this);
+        return new Repositories($this, null);
     }
 
     /**
@@ -173,7 +173,7 @@ class Client
      */
     public function snippets()
     {
-        return new Snippets($this);
+        return new Snippets($this, null);
     }
 
     /**
@@ -183,7 +183,7 @@ class Client
      */
     public function users(string $username)
     {
-        return new Users($this, $username);
+        return new Users($this, null, $username);
     }
 
     /**
@@ -193,7 +193,7 @@ class Client
      */
     public function workspaces(string $workspace)
     {
-        return new Workspaces($this, $workspace);
+        return new Workspaces($this, null, $workspace);
     }
 
     /**

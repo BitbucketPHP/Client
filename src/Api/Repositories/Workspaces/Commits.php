@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The branch restrictions api class.
+ * The branch restrictions API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

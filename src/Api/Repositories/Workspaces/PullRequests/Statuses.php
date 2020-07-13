@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\PullRequests;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The statuses api class.
+ * The statuses API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

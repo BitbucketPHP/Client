@@ -17,7 +17,7 @@ use Bitbucket\Api\Repositories\Workspaces as RepositoriesWorkspaces;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The repositories api class.
+ * The repositories API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -44,7 +44,7 @@ class Repositories extends AbstractApi
      */
     public function workspaces(string $workspace)
     {
-        return new RepositoriesWorkspaces($this->getClient(), $workspace);
+        return new RepositoriesWorkspaces($this->getClient(), $this->getPerPage(), $workspace);
     }
 
     /**

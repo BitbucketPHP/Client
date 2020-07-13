@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\Pipelines;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The steps api class.
+ * The steps API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

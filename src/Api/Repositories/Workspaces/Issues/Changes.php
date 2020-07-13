@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\Issues;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The changes api class.
+ * The changes API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

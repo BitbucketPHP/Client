@@ -17,7 +17,7 @@ use Bitbucket\Api\Addon\AbstractAddonApi;
 use Bitbucket\Client;
 
 /**
- * The abstract linkers api class.
+ * The abstract linkers API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -31,14 +31,15 @@ abstract class AbstractLinkersApi extends AbstractAddonApi
     protected $linker;
 
     /**
-     * Create a new api instance.
+     * Create a new API instance.
      *
-     * @param Client $client
-     * @param string $linker
+     * @param Client   $client
+     * @param int|null $perPage
+     * @param string   $linker
      */
-    public function __construct(Client $client, string $linker)
+    public function __construct(Client $client, ?int $perPage, string $linker)
     {
-        parent::__construct($client);
+        parent::__construct($client, $perPage);
         $this->linker = $linker;
     }
 }

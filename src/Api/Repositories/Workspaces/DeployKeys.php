@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The deploy keys api class.
+ * The deploy keys API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

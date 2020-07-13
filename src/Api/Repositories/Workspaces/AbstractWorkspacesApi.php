@@ -17,7 +17,7 @@ use Bitbucket\Api\Repositories\AbstractRepositoriesApi;
 use Bitbucket\Client;
 
 /**
- * The abstract workspaces api class.
+ * The abstract workspaces API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -31,15 +31,16 @@ abstract class AbstractWorkspacesApi extends AbstractRepositoriesApi
     protected $repo;
 
     /**
-     * Create a new api instance.
+     * Create a new API instance.
      *
-     * @param Client $client
-     * @param string $workspace
-     * @param string $repo
+     * @param Client   $client
+     * @param int|null $perPage
+     * @param string   $workspace
+     * @param string   $repo
      */
-    public function __construct(Client $client, string $workspace, string $repo)
+    public function __construct(Client $client, ?int $perPage, string $workspace, string $repo)
     {
-        parent::__construct($client, $workspace);
+        parent::__construct($client, $perPage, $workspace);
         $this->repo = $repo;
     }
 }

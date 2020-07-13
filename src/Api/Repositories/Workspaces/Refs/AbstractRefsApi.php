@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\Refs;
 use Bitbucket\Api\Repositories\Workspaces\AbstractWorkspacesApi;
 
 /**
- * The abstract refs api class.
+ * The abstract refs API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

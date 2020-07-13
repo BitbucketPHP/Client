@@ -22,7 +22,7 @@ use Bitbucket\Api\Repositories\Workspaces\Commit\Statuses;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The commit api class.
+ * The commit API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -50,7 +50,7 @@ class Commit extends AbstractWorkspacesApi
      */
     public function approval(string $commit)
     {
-        return new Approval($this->getClient(), $this->workspace, $this->repo, $commit);
+        return new Approval($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $commit);
     }
 
     /**
@@ -60,7 +60,7 @@ class Commit extends AbstractWorkspacesApi
      */
     public function comments(string $commit)
     {
-        return new Comments($this->getClient(), $this->workspace, $this->repo, $commit);
+        return new Comments($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $commit);
     }
 
     /**
@@ -70,7 +70,7 @@ class Commit extends AbstractWorkspacesApi
      */
     public function properties(string $commit)
     {
-        return new CommitProperties($this->getClient(), $this->workspace, $this->repo, $commit);
+        return new CommitProperties($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $commit);
     }
 
     /**
@@ -80,7 +80,7 @@ class Commit extends AbstractWorkspacesApi
      */
     public function pullRequests(string $commit)
     {
-        return new CommitPullRequests($this->getClient(), $this->workspace, $this->repo, $commit);
+        return new CommitPullRequests($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $commit);
     }
 
     /**
@@ -90,7 +90,7 @@ class Commit extends AbstractWorkspacesApi
      */
     public function reports(string $commit)
     {
-        return new Reports($this->getClient(), $this->workspace, $this->repo, $commit);
+        return new Reports($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $commit);
     }
 
     /**
@@ -100,7 +100,7 @@ class Commit extends AbstractWorkspacesApi
      */
     public function statuses(string $commit)
     {
-        return new Statuses($this->getClient(), $this->workspace, $this->repo, $commit);
+        return new Statuses($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $commit);
     }
 
     /**

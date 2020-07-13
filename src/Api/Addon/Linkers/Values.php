@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Addon\Linkers;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The values api class.
+ * The values API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

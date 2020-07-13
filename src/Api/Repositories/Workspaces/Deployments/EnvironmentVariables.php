@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\Deployments;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The environment ariables api class.
+ * The environment ariables API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

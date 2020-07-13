@@ -17,7 +17,7 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
 
 /**
- * The src api class.
+ * The src API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

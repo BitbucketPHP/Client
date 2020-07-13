@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\PullRequests;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The commits api class.
+ * The commits API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

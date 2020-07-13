@@ -16,6 +16,7 @@ namespace Bitbucket;
 use Bitbucket\Api\ApiInterface;
 use Bitbucket\Exception\RuntimeException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
+use ValueError;
 
 /**
  * This is the result pager class.
@@ -27,11 +28,25 @@ use Bitbucket\HttpClient\Message\ResponseMediator;
 final class ResultPager implements ResultPagerInterface
 {
     /**
+     * The default number of entries to request per page.
+     *
+     * @var int
+     */
+    private const PER_PAGE = 50;
+
+    /**
      * The client to use for pagination.
      *
-     * @var \Bitbucket\Client
+     * @var Client
      */
     private $client;
+
+    /**
+     * The number of entries to request per page.
+     *
+     * @var int
+     */
+    private $perPage;
 
     /**
      * The pagination result from the API.
@@ -43,13 +58,19 @@ final class ResultPager implements ResultPagerInterface
     /**
      * Create a new result pager instance.
      *
-     * @param \Bitbucket\Client $client
+     * @param Client   $client
+     * @param int|null $perPage
      *
      * @return void
      */
-    public function __construct(Client $client)
+    public function __construct(Client $client, int $perPage = null)
     {
+        if (null !== $perPage && ($perPage < 1 || $perPage > 50)) {
+            throw new ValueError(sprintf('%s::__construct(): Argument #2 ($perPage) must be between 1 and 50, or null', self::class));
+        }
+
         $this->client = $client;
+        $this->perPage = $perPage ?? self::PER_PAGE;
         $this->pagination = [];
     }
 
@@ -67,7 +88,7 @@ final class ResultPager implements ResultPagerInterface
     public function fetch(ApiInterface $api, string $method, array $parameters = [])
     {
         /** @var mixed */
-        $result = $api->$method(...$parameters);
+        $result = $api->perPage($this->perPage)->$method(...$parameters);
 
         if (!is_array($result)) {
             throw new RuntimeException('Pagination of endpoints that produce blobs is not supported.');
@@ -91,23 +112,33 @@ final class ResultPager implements ResultPagerInterface
      */
     public function fetchAll(ApiInterface $api, string $method, array $parameters = [])
     {
-        $perPage = $api->getPerPage();
+        return iterator_to_array($this->fetchAllLazy($api, $method, $parameters));
+    }
 
-        $api->setPerPage(50);
-
-        try {
-            $result = self::getValues($this->fetch($api, $method, $parameters));
-
-            while ($this->hasNext()) {
-                $next = self::getValues($this->fetchNext());
-                $result = array_merge($result, $next);
-            }
-        } finally {
-            $api->setPerPage($perPage);
+    /**
+     * Lazily fetch all results from an api call.
+     *
+     * @param \Bitbucket\Api\ApiInterface $api
+     * @param string                      $method
+     * @param array                       $parameters
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return \Generator
+     */
+    public function fetchAllLazy(ApiInterface $api, string $method, array $parameters = [])
+    {
+        /** @var mixed $value */
+        foreach (self::getValues($this->fetch($api, $method, $parameters)) as $value) {
+            yield $value;
         }
 
-        /** @var array */
-        return $result;
+        while ($this->hasNext()) {
+            /** @var mixed $value */
+            foreach (self::getValues($this->fetchNext()) as $value) {
+                yield $value;
+            }
+        }
     }
 
     /**

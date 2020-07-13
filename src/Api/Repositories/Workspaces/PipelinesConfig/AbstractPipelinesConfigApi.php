@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig;
 use Bitbucket\Api\Repositories\Workspaces\AbstractWorkspacesApi;
 
 /**
- * The abstract pipelines config api class.
+ * The abstract pipelines config API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

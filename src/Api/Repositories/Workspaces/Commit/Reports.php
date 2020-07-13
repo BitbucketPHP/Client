@@ -17,7 +17,7 @@ use Bitbucket\Api\Repositories\Workspaces\Commit\Reports\Annotations;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The reports api class.
+ * The reports API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -71,7 +71,7 @@ class Reports extends AbstractCommitApi
      */
     public function annotations()
     {
-        return new Annotations($this->getClient(), $this->workspace, $this->repo, $this->commit);
+        return new Annotations($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $this->commit);
     }
 
     /**

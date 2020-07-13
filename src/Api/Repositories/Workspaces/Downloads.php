@@ -18,7 +18,7 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
 
 /**
- * The downloads api class.
+ * The downloads API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

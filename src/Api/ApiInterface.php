@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\Api;
 
 /**
- * The bitbucket api interface.
+ * The bitbucket API interface.
  *
  * @author Joseph Bielawski <stloyd@gmail.com>
  * @author Graham Campbell <graham@alt-three.com>
@@ -22,18 +22,13 @@ namespace Bitbucket\Api;
 interface ApiInterface
 {
     /**
-     * Get the number of values to fetch per page.
+     * Create a new instance with the given per page parameter.
      *
-     * @return int|null
-     */
-    public function getPerPage();
-
-    /**
-     * Set the number of values to fetch per page.
+     * This must be an integer between 1 and 50.
      *
      * @param int|null $perPage
      *
-     * @return void
+     * @return static
      */
-    public function setPerPage(int $perPage = null);
+    public function perPage(?int $perPage);
 }

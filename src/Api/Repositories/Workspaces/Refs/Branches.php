@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\Refs;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The branches api class.
+ * The branches API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

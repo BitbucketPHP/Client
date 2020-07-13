@@ -16,7 +16,7 @@ namespace Bitbucket\Api;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The current user api class.
+ * The current user API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

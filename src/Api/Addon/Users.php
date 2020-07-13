@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Addon;
 use Bitbucket\Api\Addon\Users\Events;
 
 /**
- * The users api class.
+ * The users API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -29,6 +29,6 @@ class Users extends AbstractAddonApi
      */
     public function events(string $username)
     {
-        return new Events($this->getClient(), $username);
+        return new Events($this->getClient(), $this->getPerPage(), $username);
     }
 }

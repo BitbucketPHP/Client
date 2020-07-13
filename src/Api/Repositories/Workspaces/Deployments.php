@@ -17,7 +17,7 @@ use Bitbucket\Api\Repositories\Workspaces\Deployments\EnvironmentVariables;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The deployments api class.
+ * The deployments API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -59,7 +59,7 @@ class Deployments extends AbstractWorkspacesApi
      */
     public function environmentVariables(string $environment)
     {
-        return new EnvironmentVariables($this->getClient(), $this->workspace, $this->repo, $environment);
+        return new EnvironmentVariables($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $environment);
     }
 
     /**

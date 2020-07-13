@@ -18,7 +18,7 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
 
 /**
- * The attachments api class.
+ * The attachments API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

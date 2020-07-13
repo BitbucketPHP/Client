@@ -18,7 +18,7 @@ use Bitbucket\Api\Repositories\Workspaces\Pipelines\Steps;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The pipelines api class.
+ * The pipelines API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -89,7 +89,7 @@ class Pipelines extends AbstractWorkspacesApi
      */
     public function remoteTriggers(string $pipeline)
     {
-        return new RemoteTriggers($this->getClient(), $this->workspace, $this->repo, $pipeline);
+        return new RemoteTriggers($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $pipeline);
     }
 
     /**
@@ -99,7 +99,7 @@ class Pipelines extends AbstractWorkspacesApi
      */
     public function steps(string $pipeline)
     {
-        return new Steps($this->getClient(), $this->workspace, $this->repo, $pipeline);
+        return new Steps($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $pipeline);
     }
 
     /**

@@ -17,7 +17,7 @@ use Bitbucket\Api\Addon\Linkers\Values;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The linkers api class.
+ * The linkers API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -59,7 +59,7 @@ class Linkers extends AbstractAddonApi
      */
     public function values(string $linker)
     {
-        return new Values($this->getClient(), $linker);
+        return new Values($this->getClient(), $this->getPerPage(), $linker);
     }
 
     /**

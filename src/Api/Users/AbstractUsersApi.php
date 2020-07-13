@@ -17,7 +17,7 @@ use Bitbucket\Api\AbstractApi;
 use Bitbucket\Client;
 
 /**
- * The abstract user api class.
+ * The abstract user API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -31,14 +31,15 @@ abstract class AbstractUsersApi extends AbstractApi
     protected $username;
 
     /**
-     * Create a new api instance.
+     * Create a new API instance.
      *
-     * @param Client $client
-     * @param string $username
+     * @param Client   $client
+     * @param int|null $perPage
+     * @param string   $username
      */
-    public function __construct(Client $client, string $username)
+    public function __construct(Client $client, ?int $perPage, string $username)
     {
-        parent::__construct($client);
+        parent::__construct($client, $perPage);
         $this->username = $username;
     }
 }

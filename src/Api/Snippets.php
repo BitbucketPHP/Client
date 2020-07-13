@@ -19,7 +19,7 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
 
 /**
- * The snippets api class.
+ * The snippets API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -62,7 +62,7 @@ class Snippets extends AbstractApi
      */
     public function workspaces(string $workspace)
     {
-        return new SnippetsWorkspaces($this->getClient(), $workspace);
+        return new SnippetsWorkspaces($this->getClient(), $this->getPerPage(), $workspace);
     }
 
     /**

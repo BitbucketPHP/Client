@@ -17,7 +17,7 @@ use Bitbucket\Api\Repositories\Workspaces\Commit\Statuses\Build;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The statuses api class.
+ * The statuses API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -42,7 +42,7 @@ class Statuses extends AbstractCommitApi
      */
     public function build()
     {
-        return new Build($this->getClient(), $this->workspace, $this->repo, $this->commit);
+        return new Build($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $this->commit);
     }
 
     /**

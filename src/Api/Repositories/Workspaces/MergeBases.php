@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The merge bases api class.
+ * The merge bases API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

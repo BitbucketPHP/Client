@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\Commit\Statuses;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The build api class.
+ * The build API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

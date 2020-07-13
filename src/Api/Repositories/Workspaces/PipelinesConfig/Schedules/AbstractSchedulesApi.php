@@ -17,7 +17,7 @@ use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\AbstractPipelinesConfi
 use Bitbucket\Client;
 
 /**
- * The abstract schedules api class.
+ * The abstract schedules API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -31,16 +31,17 @@ abstract class AbstractSchedulesApi extends AbstractPipelinesConfigApi
     protected $schedule;
 
     /**
-     * Create a new api instance.
+     * Create a new API instance.
      *
-     * @param Client $client
-     * @param string $workspace
-     * @param string $repo
-     * @param string $schedule
+     * @param Client   $client
+     * @param int|null $perPage
+     * @param string   $workspace
+     * @param string   $repo
+     * @param string   $schedule
      */
-    public function __construct(Client $client, string $workspace, string $repo, string $schedule)
+    public function __construct(Client $client, ?int $perPage, string $workspace, string $repo, string $schedule)
     {
-        parent::__construct($client, $workspace, $repo);
+        parent::__construct($client, $perPage, $workspace, $repo);
         $this->schedule = $schedule;
     }
 }

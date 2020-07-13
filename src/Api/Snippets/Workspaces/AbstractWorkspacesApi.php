@@ -17,7 +17,7 @@ use Bitbucket\Api\Snippets\AbstractSnippetsApi;
 use Bitbucket\Client;
 
 /**
- * The abstract workspaces api class.
+ * The abstract workspaces API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -31,15 +31,16 @@ abstract class AbstractWorkspacesApi extends AbstractSnippetsApi
     protected $snippet;
 
     /**
-     * Create a new api instance.
+     * Create a new API instance.
      *
-     * @param Client $client
-     * @param string $workspace
-     * @param string $snippet
+     * @param Client   $client
+     * @param int|null $perPage
+     * @param string   $workspace
+     * @param string   $snippet
      */
-    public function __construct(Client $client, string $workspace, string $snippet)
+    public function __construct(Client $client, ?int $perPage, string $workspace, string $snippet)
     {
-        parent::__construct($client, $workspace);
+        parent::__construct($client, $perPage, $workspace);
         $this->snippet = $snippet;
     }
 }

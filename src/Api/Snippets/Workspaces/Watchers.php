@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Snippets\Workspaces;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The watchers api class.
+ * The watchers API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

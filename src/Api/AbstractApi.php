@@ -17,6 +17,7 @@ use Bitbucket\Client;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 use Bitbucket\HttpClient\Util\JsonArray;
 use Bitbucket\HttpClient\Util\QueryStringBuilder;
+use ValueError;
 
 /**
  * @author Joseph Bielawski <stloyd@gmail.com>
@@ -32,50 +33,34 @@ abstract class AbstractApi implements ApiInterface
     private const URI_PREFIX = '/2.0/';
 
     /**
-     * The bitbucket client instance.
+     * The client instance.
      *
      * @var Client
      */
     private $client;
 
     /**
-     * Number of items per page.
+     * The per page parameter.
      *
      * @var int|null
      */
     private $perPage;
 
     /**
-     * Create a new api instance.
+     * Create a new API instance.
      *
-     * @param Client $client
-     *
-     * @return void
-     */
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
-    }
-
-    /**
-     * Get the number of values to fetch per page.
-     *
-     * @return int|null
-     */
-    public function getPerPage()
-    {
-        return $this->perPage;
-    }
-
-    /**
-     * Set the number of values to fetch per page.
-     *
+     * @param Client   $client
      * @param int|null $perPage
      *
      * @return void
      */
-    public function setPerPage(int $perPage = null)
+    public function __construct(Client $client, ?int $perPage)
     {
+        if (null !== $perPage && ($perPage < 1 || $perPage > 50)) {
+            throw new ValueError(sprintf('%s::__construct(): Argument #2 ($perPage) must be between 1 and 50, or null', self::class));
+        }
+
+        $this->client = $client;
         $this->perPage = $perPage;
     }
 
@@ -87,6 +72,38 @@ abstract class AbstractApi implements ApiInterface
     protected function getClient()
     {
         return $this->client;
+    }
+
+    /**
+     * Get the number of values to fetch per page.
+     *
+     * @return int|null
+     */
+    protected function getPerPage()
+    {
+        return $this->perPage;
+    }
+
+    /**
+     * Create a new instance with the given page parameter.
+     *
+     * This must be an integer between 1 and 200.
+     *
+     * @param int|null $perPage
+     *
+     * @return static
+     */
+    public function perPage(?int $perPage)
+    {
+        if (null !== $perPage && ($perPage < 1 || $perPage > 50)) {
+            throw new ValueError(sprintf('%s::perPage(): Argument #1 ($perPage) must be between 1 and 50, or null', self::class));
+        }
+
+        $copy = clone $this;
+
+        $copy->perPage = $perPage;
+
+        return $copy;
     }
 
     /**

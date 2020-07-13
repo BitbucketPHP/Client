@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Snippets\Workspaces;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The comments api class.
+ * The comments API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\Commit\Reports;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The annotations api class.
+ * The annotations API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

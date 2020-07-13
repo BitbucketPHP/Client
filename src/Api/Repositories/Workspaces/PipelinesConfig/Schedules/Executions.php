@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Schedules;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The executions api class.
+ * The executions API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

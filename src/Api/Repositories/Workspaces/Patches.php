@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The patches api class.
+ * The patches API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

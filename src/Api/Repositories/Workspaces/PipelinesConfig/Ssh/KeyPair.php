@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The key pair api class.
+ * The key pair API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The branching model api class.
+ * The branching model API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

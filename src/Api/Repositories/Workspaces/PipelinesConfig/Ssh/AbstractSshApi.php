@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh;
 use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\AbstractPipelinesConfigApi;
 
 /**
- * The abstract ssh api class.
+ * The abstract ssh API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

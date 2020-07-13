@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\Commit;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The pull requests api class.
+ * The pull requests API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

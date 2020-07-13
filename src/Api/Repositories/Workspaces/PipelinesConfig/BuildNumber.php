@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\PipelinesConfig;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The build number api class.
+ * The build number API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

@@ -22,7 +22,7 @@ use Bitbucket\Client;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The workspaces api class.
+ * The workspaces API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -36,14 +36,15 @@ class Workspaces extends AbstractApi
     protected $workspace;
 
     /**
-     * Create a new workspaces api instance.
+     * Create a new API instance.
      *
-     * @param Client $client
-     * @param string $workspace
+     * @param Client   $client
+     * @param int|null $perPage
+     * @param string   $workspace
      */
-    public function __construct(Client $client, string $workspace)
+    public function __construct(Client $client, ?int $perPage, string $workspace)
     {
-        parent::__construct($client);
+        parent::__construct($client, $perPage);
         $this->workspace = $workspace;
     }
 
@@ -80,7 +81,7 @@ class Workspaces extends AbstractApi
      */
     public function hooks()
     {
-        return new Hooks($this->getClient(), $this->workspace);
+        return new Hooks($this->getClient(), $this->getPerPage(), $this->workspace);
     }
 
     /**
@@ -88,7 +89,7 @@ class Workspaces extends AbstractApi
      */
     public function members()
     {
-        return new Members($this->getClient(), $this->workspace);
+        return new Members($this->getClient(), $this->getPerPage(), $this->workspace);
     }
 
     /**
@@ -96,7 +97,7 @@ class Workspaces extends AbstractApi
      */
     public function permissions()
     {
-        return new Permissions($this->getClient(), $this->workspace);
+        return new Permissions($this->getClient(), $this->getPerPage(), $this->workspace);
     }
 
     /**
@@ -104,7 +105,7 @@ class Workspaces extends AbstractApi
      */
     public function pipelinesConfig()
     {
-        return new PipelinesConfig($this->getClient(), $this->workspace);
+        return new PipelinesConfig($this->getClient(), $this->getPerPage(), $this->workspace);
     }
 
     /**
@@ -112,7 +113,7 @@ class Workspaces extends AbstractApi
      */
     public function projects()
     {
-        return new Projects($this->getClient(), $this->workspace);
+        return new Projects($this->getClient(), $this->getPerPage(), $this->workspace);
     }
 
     /**

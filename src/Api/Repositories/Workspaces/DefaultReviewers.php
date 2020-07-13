@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The default reviewers api class.
+ * The default reviewers API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

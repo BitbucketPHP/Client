@@ -18,7 +18,7 @@ use Bitbucket\Api\Addon\Users as UsersAddon;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The addon api class.
+ * The addon API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
@@ -57,7 +57,7 @@ class Addon extends AbstractApi
      */
     public function linkers()
     {
-        return new Linkers($this->getClient());
+        return new Linkers($this->getClient(), $this->getPerPage());
     }
 
     /**
@@ -65,7 +65,7 @@ class Addon extends AbstractApi
      */
     public function users()
     {
-        return new UsersAddon($this->getClient());
+        return new UsersAddon($this->getClient(), $this->getPerPage());
     }
 
     /**

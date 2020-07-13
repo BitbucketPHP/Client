@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\Commit\Reports;
 use Bitbucket\Api\Repositories\Workspaces\Commit\AbstractCommitApi;
 
 /**
- * The abstract reports api class.
+ * The abstract reports API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

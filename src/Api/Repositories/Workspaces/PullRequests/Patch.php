@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\PullRequests;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The patch api class.
+ * The patch API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */

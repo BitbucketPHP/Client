@@ -16,7 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces\PullRequests;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The diff stat api class.
+ * The diff stat API class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
