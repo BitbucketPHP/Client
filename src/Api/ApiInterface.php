@@ -24,7 +24,7 @@ interface ApiInterface
     /**
      * Create a new instance with the given per page parameter.
      *
-     * This must be an integer between 1 and 50.
+     * This must be an integer between 1 and 100.
      *
      * @param int|null $perPage
      *

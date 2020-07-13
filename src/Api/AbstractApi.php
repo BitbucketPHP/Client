@@ -56,8 +56,8 @@ abstract class AbstractApi implements ApiInterface
      */
     public function __construct(Client $client, ?int $perPage)
     {
-        if (null !== $perPage && ($perPage < 1 || $perPage > 50)) {
-            throw new ValueError(sprintf('%s::__construct(): Argument #2 ($perPage) must be between 1 and 50, or null', self::class));
+        if (null !== $perPage && ($perPage < 1 || $perPage > 100)) {
+            throw new ValueError(sprintf('%s::__construct(): Argument #2 ($perPage) must be between 1 and 100, or null', self::class));
         }
 
         $this->client = $client;
@@ -87,7 +87,7 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Create a new instance with the given page parameter.
      *
-     * This must be an integer between 1 and 200.
+     * This must be an integer between 1 and 100.
      *
      * @param int|null $perPage
      *
@@ -95,8 +95,8 @@ abstract class AbstractApi implements ApiInterface
      */
     public function perPage(?int $perPage)
     {
-        if (null !== $perPage && ($perPage < 1 || $perPage > 50)) {
-            throw new ValueError(sprintf('%s::perPage(): Argument #1 ($perPage) must be between 1 and 50, or null', self::class));
+        if (null !== $perPage && ($perPage < 1 || $perPage > 100)) {
+            throw new ValueError(sprintf('%s::perPage(): Argument #1 ($perPage) must be between 1 and 100, or null', self::class));
         }
 
         $copy = clone $this;

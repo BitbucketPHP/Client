@@ -91,7 +91,7 @@ final class ResultPager implements ResultPagerInterface
         $result = $api->perPage($this->perPage)->$method(...$parameters);
 
         if (!is_array($result)) {
-            throw new RuntimeException('Pagination of endpoints that produce blobs is not supported.');
+            throw new RuntimeException('Pagination of this endpoint is not supported.');
         }
 
         $this->postFetch();
@@ -235,7 +235,7 @@ final class ResultPager implements ResultPagerInterface
     private static function getValues(array $result)
     {
         if (!isset($result['values']) || !is_array($result['values'])) {
-            throw new RuntimeException('Pagination of endpoints that produce value lists is not supported.');
+            throw new RuntimeException('Pagination of this endpoint is not supported.');
         }
 
         return $result['values'];
