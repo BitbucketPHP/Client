@@ -30,13 +30,13 @@ This version supports [PHP](https://php.net) 7.1-7.4. To get started, simply req
 #### PHP 7.1+:
 
 ```bash
-$ composer require bitbucket/client:^3.0 php-http/guzzle6-adapter:^2.0.1 http-interop/http-factory-guzzle:^1.0
+$ composer require bitbucket/client:^3.1 php-http/guzzle6-adapter:^2.0.1 http-interop/http-factory-guzzle:^1.0
 ```
 
 #### PHP 7.2+:
 
 ```bash
-$ composer require bitbucket/client:^3.0 guzzlehttp/guzzle:^7.0.1 http-interop/http-factory-guzzle:^1.0
+$ composer require bitbucket/client:^3.1 guzzlehttp/guzzle:^7.0.1 http-interop/http-factory-guzzle:^1.0
 ```
 
 ### Framework Integration
