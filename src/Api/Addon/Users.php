@@ -29,6 +29,6 @@ class Users extends AbstractAddonApi
      */
     public function events(string $username)
     {
-        return new Events($this->getClient(), $this->getPerPage(), $username);
+        return new Events($this->getClient(), $username, $this->getPerPage());
     }
 }

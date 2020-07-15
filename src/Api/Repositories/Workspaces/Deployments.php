@@ -59,7 +59,7 @@ class Deployments extends AbstractWorkspacesApi
      */
     public function environmentVariables(string $environment)
     {
-        return new EnvironmentVariables($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $environment);
+        return new EnvironmentVariables($this->getClient(), $this->workspace, $this->repo, $environment, $this->getPerPage());
     }
 
     /**

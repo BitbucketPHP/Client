@@ -34,10 +34,10 @@ abstract class AbstractUsersApi extends AbstractAddonApi
      * Create a new API instance.
      *
      * @param Client   $client
-     * @param int|null $perPage
      * @param string   $username
+     * @param int|null $perPage
      */
-    public function __construct(Client $client, ?int $perPage, string $username)
+    public function __construct(Client $client, string $username, int $perPage = null)
     {
         parent::__construct($client, $perPage);
         $this->username = $username;

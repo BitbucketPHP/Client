@@ -29,7 +29,7 @@ class Ssh extends AbstractPipelinesConfigApi
      */
     public function keyPair()
     {
-        return new KeyPair($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo);
+        return new KeyPair($this->getClient(), $this->workspace, $this->repo, $this->getPerPage());
     }
 
     /**
@@ -37,7 +37,7 @@ class Ssh extends AbstractPipelinesConfigApi
      */
     public function knownHosts()
     {
-        return new KnownHosts($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo);
+        return new KnownHosts($this->getClient(), $this->workspace, $this->repo, $this->getPerPage());
     }
 
     /**

@@ -39,10 +39,10 @@ class Workspaces extends AbstractApi
      * Create a new API instance.
      *
      * @param Client   $client
-     * @param int|null $perPage
      * @param string   $workspace
+     * @param int|null $perPage
      */
-    public function __construct(Client $client, ?int $perPage, string $workspace)
+    public function __construct(Client $client, string $workspace, int $perPage = null)
     {
         parent::__construct($client, $perPage);
         $this->workspace = $workspace;
@@ -81,7 +81,7 @@ class Workspaces extends AbstractApi
      */
     public function hooks()
     {
-        return new Hooks($this->getClient(), $this->getPerPage(), $this->workspace);
+        return new Hooks($this->getClient(), $this->workspace, $this->getPerPage());
     }
 
     /**
@@ -89,7 +89,7 @@ class Workspaces extends AbstractApi
      */
     public function members()
     {
-        return new Members($this->getClient(), $this->getPerPage(), $this->workspace);
+        return new Members($this->getClient(), $this->workspace, $this->getPerPage());
     }
 
     /**
@@ -97,7 +97,7 @@ class Workspaces extends AbstractApi
      */
     public function permissions()
     {
-        return new Permissions($this->getClient(), $this->getPerPage(), $this->workspace);
+        return new Permissions($this->getClient(), $this->workspace, $this->getPerPage());
     }
 
     /**
@@ -105,7 +105,7 @@ class Workspaces extends AbstractApi
      */
     public function pipelinesConfig()
     {
-        return new PipelinesConfig($this->getClient(), $this->getPerPage(), $this->workspace);
+        return new PipelinesConfig($this->getClient(), $this->workspace, $this->getPerPage());
     }
 
     /**
@@ -113,7 +113,7 @@ class Workspaces extends AbstractApi
      */
     public function projects()
     {
-        return new Projects($this->getClient(), $this->getPerPage(), $this->workspace);
+        return new Projects($this->getClient(), $this->workspace, $this->getPerPage());
     }
 
     /**

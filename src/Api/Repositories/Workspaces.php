@@ -130,7 +130,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function branchingModel(string $repo)
     {
-        return new BranchingModel($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new BranchingModel($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -140,7 +140,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function branchRestrictions(string $repo)
     {
-        return new BranchRestrictions($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new BranchRestrictions($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -150,7 +150,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function commit(string $repo)
     {
-        return new Commit($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Commit($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -160,7 +160,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function commits(string $repo)
     {
-        return new Commits($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Commits($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -170,7 +170,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function components(string $repo)
     {
-        return new Components($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Components($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -180,7 +180,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function defaultReviewers(string $repo)
     {
-        return new DefaultReviewers($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new DefaultReviewers($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -190,7 +190,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function deployKeys(string $repo)
     {
-        return new DeployKeys($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new DeployKeys($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -200,7 +200,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function deployments(string $repo)
     {
-        return new Deployments($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Deployments($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -210,7 +210,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function diffs(string $repo)
     {
-        return new Diffs($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Diffs($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -220,7 +220,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function diffStat(string $repo)
     {
-        return new DiffStat($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new DiffStat($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -230,7 +230,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function downloads(string $repo)
     {
-        return new Downloads($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Downloads($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -240,7 +240,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function environments(string $repo)
     {
-        return new Environments($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Environments($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -250,7 +250,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function fileHistory(string $repo)
     {
-        return new FileHistory($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new FileHistory($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -260,7 +260,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function forks(string $repo)
     {
-        return new Forks($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Forks($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -270,7 +270,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function hooks(string $repo)
     {
-        return new Hooks($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Hooks($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -280,7 +280,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function issues(string $repo)
     {
-        return new Issues($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Issues($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -290,7 +290,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function mergeBases(string $repo)
     {
-        return new MergeBases($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new MergeBases($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -300,7 +300,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function milestones(string $repo)
     {
-        return new Milestones($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Milestones($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -310,7 +310,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function patches(string $repo)
     {
-        return new Patches($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Patches($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -320,7 +320,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function pipelines(string $repo)
     {
-        return new Pipelines($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Pipelines($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -330,7 +330,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function pipelinesConfig(string $repo)
     {
-        return new PipelinesConfig($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new PipelinesConfig($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -340,7 +340,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function properties(string $repo)
     {
-        return new Properties($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Properties($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -350,7 +350,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function pullRequests(string $repo)
     {
-        return new PullRequests($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new PullRequests($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -360,7 +360,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function refs(string $repo)
     {
-        return new Refs($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Refs($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -370,7 +370,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function src(string $repo)
     {
-        return new Src($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Src($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -380,7 +380,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function versions(string $repo)
     {
-        return new Versions($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Versions($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**
@@ -390,7 +390,7 @@ class Workspaces extends AbstractRepositoriesApi
      */
     public function watchers(string $repo)
     {
-        return new Watchers($this->getClient(), $this->getPerPage(), $this->workspace, $repo);
+        return new Watchers($this->getClient(), $this->workspace, $repo, $this->getPerPage());
     }
 
     /**

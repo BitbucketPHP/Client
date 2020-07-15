@@ -34,10 +34,10 @@ abstract class AbstractRepositoriesApi extends AbstractApi
      * Create a new API instance.
      *
      * @param Client   $client
-     * @param int|null $perPage
      * @param string   $workspace
+     * @param int|null $perPage
      */
-    public function __construct(Client $client, ?int $perPage, string $workspace)
+    public function __construct(Client $client, string $workspace, int $perPage = null)
     {
         parent::__construct($client, $perPage);
         $this->workspace = $workspace;

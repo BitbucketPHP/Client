@@ -34,12 +34,13 @@ class Users extends AbstractApi
     protected $username;
 
     /**
-     * Create a new users API instance.
+     * Create a new API instance.
      *
-     * @param Client $client
-     * @param string $username
+     * @param Client   $client
+     * @param string   $username
+     * @param int|null $perPage
      */
-    public function __construct(Client $client, ?int $perPage, string $username)
+    public function __construct(Client $client, string $username, int $perPage = null)
     {
         parent::__construct($client, $perPage);
         $this->username = $username;
@@ -50,7 +51,7 @@ class Users extends AbstractApi
      */
     public function properties()
     {
-        return new Properties($this->getClient(), $this->getPerPage(), $this->username);
+        return new Properties($this->getClient(), $this->username, $this->getPerPage());
     }
 
     /**
@@ -58,7 +59,7 @@ class Users extends AbstractApi
      */
     public function repositories()
     {
-        return new UsersRepositories($this->getClient(), $this->getPerPage(), $this->username);
+        return new UsersRepositories($this->getClient(), $this->username, $this->getPerPage());
     }
 
     /**
@@ -66,7 +67,7 @@ class Users extends AbstractApi
      */
     public function sshKeys()
     {
-        return new SshKeys($this->getClient(), $this->getPerPage(), $this->username);
+        return new SshKeys($this->getClient(), $this->username, $this->getPerPage());
     }
 
     /**

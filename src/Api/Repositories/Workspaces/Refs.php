@@ -43,7 +43,7 @@ class Refs extends AbstractWorkspacesApi
      */
     public function branches()
     {
-        return new Branches($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo);
+        return new Branches($this->getClient(), $this->workspace, $this->repo, $this->getPerPage());
     }
 
     /**
@@ -51,7 +51,7 @@ class Refs extends AbstractWorkspacesApi
      */
     public function tags()
     {
-        return new Tags($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo);
+        return new Tags($this->getClient(), $this->workspace, $this->repo, $this->getPerPage());
     }
 
     /**

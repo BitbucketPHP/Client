@@ -107,7 +107,7 @@ class Issues extends AbstractWorkspacesApi
      */
     public function attachments(string $issue)
     {
-        return new Attachments($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $issue);
+        return new Attachments($this->getClient(), $this->workspace, $this->repo, $issue, $this->getPerPage());
     }
 
     /**
@@ -117,7 +117,7 @@ class Issues extends AbstractWorkspacesApi
      */
     public function changes(string $issue)
     {
-        return new Changes($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $issue);
+        return new Changes($this->getClient(), $this->workspace, $this->repo, $issue, $this->getPerPage());
     }
 
     /**
@@ -127,7 +127,7 @@ class Issues extends AbstractWorkspacesApi
      */
     public function comments(string $issue)
     {
-        return new Comments($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $issue);
+        return new Comments($this->getClient(), $this->workspace, $this->repo, $issue, $this->getPerPage());
     }
 
     /**
@@ -137,7 +137,7 @@ class Issues extends AbstractWorkspacesApi
      */
     public function voting(string $issue)
     {
-        return new Voting($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $issue);
+        return new Voting($this->getClient(), $this->workspace, $this->repo, $issue, $this->getPerPage());
     }
 
     /**
@@ -147,7 +147,7 @@ class Issues extends AbstractWorkspacesApi
      */
     public function watching(string $issue)
     {
-        return new Watching($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $issue);
+        return new Watching($this->getClient(), $this->workspace, $this->repo, $issue, $this->getPerPage());
     }
 
     /**

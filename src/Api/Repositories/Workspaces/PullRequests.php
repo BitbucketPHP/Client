@@ -170,7 +170,7 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function approval(string $pr)
     {
-        return new Approval($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $pr);
+        return new Approval($this->getClient(), $this->workspace, $this->repo, $pr, $this->getPerPage());
     }
 
     /**
@@ -180,7 +180,7 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function comments(string $pr)
     {
-        return new Comments($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $pr);
+        return new Comments($this->getClient(), $this->workspace, $this->repo, $pr, $this->getPerPage());
     }
 
     /**
@@ -190,7 +190,7 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function commits(string $pr)
     {
-        return new PullRequestsCommits($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $pr);
+        return new PullRequestsCommits($this->getClient(), $this->workspace, $this->repo, $pr, $this->getPerPage());
     }
 
     /**
@@ -200,7 +200,7 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function diff(string $pr)
     {
-        return new Diff($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $pr);
+        return new Diff($this->getClient(), $this->workspace, $this->repo, $pr, $this->getPerPage());
     }
 
     /**
@@ -210,7 +210,7 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function diffstat(string $pr)
     {
-        return new DiffStat($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $pr);
+        return new DiffStat($this->getClient(), $this->workspace, $this->repo, $pr, $this->getPerPage());
     }
 
     /**
@@ -220,7 +220,7 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function patch(string $pr)
     {
-        return new Patch($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $pr);
+        return new Patch($this->getClient(), $this->workspace, $this->repo, $pr, $this->getPerPage());
     }
 
     /**
@@ -230,7 +230,7 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function properties(string $pr)
     {
-        return new PullRequestsProperties($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $pr);
+        return new PullRequestsProperties($this->getClient(), $this->workspace, $this->repo, $pr, $this->getPerPage());
     }
 
     /**
@@ -240,7 +240,7 @@ class PullRequests extends AbstractWorkspacesApi
      */
     public function statuses(string $pr)
     {
-        return new Statuses($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $pr);
+        return new Statuses($this->getClient(), $this->workspace, $this->repo, $pr, $this->getPerPage());
     }
 
     /**

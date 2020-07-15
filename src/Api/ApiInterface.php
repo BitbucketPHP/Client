@@ -30,5 +30,5 @@ interface ApiInterface
      *
      * @return static
      */
-    public function perPage(?int $perPage);
+    public function perPage(int $perPage = null);
 }

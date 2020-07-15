@@ -34,10 +34,10 @@ abstract class AbstractLinkersApi extends AbstractAddonApi
      * Create a new API instance.
      *
      * @param Client   $client
-     * @param int|null $perPage
      * @param string   $linker
+     * @param int|null $perPage
      */
-    public function __construct(Client $client, ?int $perPage, string $linker)
+    public function __construct(Client $client, string $linker, int $perPage = null)
     {
         parent::__construct($client, $perPage);
         $this->linker = $linker;

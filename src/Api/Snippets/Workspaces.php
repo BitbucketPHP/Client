@@ -136,7 +136,7 @@ class Workspaces extends AbstractSnippetsApi
      */
     public function comments(string $snippet)
     {
-        return new Comments($this->getClient(), $this->getPerPage(), $this->workspace, $snippet);
+        return new Comments($this->getClient(), $this->workspace, $snippet, $this->getPerPage());
     }
 
     /**
@@ -146,7 +146,7 @@ class Workspaces extends AbstractSnippetsApi
      */
     public function commits(string $snippet)
     {
-        return new Commits($this->getClient(), $this->getPerPage(), $this->workspace, $snippet);
+        return new Commits($this->getClient(), $this->workspace, $snippet, $this->getPerPage());
     }
 
     /**
@@ -156,7 +156,7 @@ class Workspaces extends AbstractSnippetsApi
      */
     public function diffs(string $snippet)
     {
-        return new Diffs($this->getClient(), $this->getPerPage(), $this->workspace, $snippet);
+        return new Diffs($this->getClient(), $this->workspace, $snippet, $this->getPerPage());
     }
 
     /**
@@ -166,7 +166,7 @@ class Workspaces extends AbstractSnippetsApi
      */
     public function files(string $snippet)
     {
-        return new Files($this->getClient(), $this->getPerPage(), $this->workspace, $snippet);
+        return new Files($this->getClient(), $this->workspace, $snippet, $this->getPerPage());
     }
 
     /**
@@ -176,7 +176,7 @@ class Workspaces extends AbstractSnippetsApi
      */
     public function patches(string $snippet)
     {
-        return new Patches($this->getClient(), $this->getPerPage(), $this->workspace, $snippet);
+        return new Patches($this->getClient(), $this->workspace, $snippet, $this->getPerPage());
     }
 
     /**
@@ -186,7 +186,7 @@ class Workspaces extends AbstractSnippetsApi
      */
     public function watchers(string $snippet)
     {
-        return new Watchers($this->getClient(), $this->getPerPage(), $this->workspace, $snippet);
+        return new Watchers($this->getClient(), $this->workspace, $snippet, $this->getPerPage());
     }
 
     /**
@@ -196,7 +196,7 @@ class Workspaces extends AbstractSnippetsApi
      */
     public function watching(string $snippet)
     {
-        return new Watching($this->getClient(), $this->getPerPage(), $this->workspace, $snippet);
+        return new Watching($this->getClient(), $this->workspace, $snippet, $this->getPerPage());
     }
 
     /**

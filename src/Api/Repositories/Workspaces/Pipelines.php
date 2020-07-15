@@ -89,7 +89,7 @@ class Pipelines extends AbstractWorkspacesApi
      */
     public function remoteTriggers(string $pipeline)
     {
-        return new RemoteTriggers($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $pipeline);
+        return new RemoteTriggers($this->getClient(), $this->workspace, $this->repo, $pipeline, $this->getPerPage());
     }
 
     /**
@@ -99,7 +99,7 @@ class Pipelines extends AbstractWorkspacesApi
      */
     public function steps(string $pipeline)
     {
-        return new Steps($this->getClient(), $this->getPerPage(), $this->workspace, $this->repo, $pipeline);
+        return new Steps($this->getClient(), $this->workspace, $this->repo, $pipeline, $this->getPerPage());
     }
 
     /**

@@ -34,13 +34,13 @@ abstract class AbstractWorkspacesApi extends AbstractSnippetsApi
      * Create a new API instance.
      *
      * @param Client   $client
-     * @param int|null $perPage
      * @param string   $workspace
      * @param string   $snippet
+     * @param int|null $perPage
      */
-    public function __construct(Client $client, ?int $perPage, string $workspace, string $snippet)
+    public function __construct(Client $client, string $workspace, string $snippet, int $perPage = null)
     {
-        parent::__construct($client, $perPage, $workspace);
+        parent::__construct($client, $workspace, $perPage);
         $this->snippet = $snippet;
     }
 }

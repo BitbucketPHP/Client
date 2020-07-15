@@ -28,7 +28,7 @@ class PipelinesConfig extends AbstractWorkspacesApi
      */
     public function variables()
     {
-        return new Variables($this->getClient(), $this->getPerPage(), $this->workspace);
+        return new Variables($this->getClient(), $this->workspace, $this->getPerPage());
     }
 
     /**

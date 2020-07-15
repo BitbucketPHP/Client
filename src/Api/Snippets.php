@@ -62,7 +62,7 @@ class Snippets extends AbstractApi
      */
     public function workspaces(string $workspace)
     {
-        return new SnippetsWorkspaces($this->getClient(), $this->getPerPage(), $workspace);
+        return new SnippetsWorkspaces($this->getClient(), $workspace, $this->getPerPage());
     }
 
     /**

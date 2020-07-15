@@ -34,14 +34,14 @@ abstract class AbstractDeploymentsApi extends AbstractWorkspacesApi
      * Create a new API instance.
      *
      * @param Client   $client
-     * @param int|null $perPage
      * @param string   $workspace
      * @param string   $repo
      * @param string   $environment
+     * @param int|null $perPage
      */
-    public function __construct(Client $client, ?int $perPage, string $workspace, string $repo, string $environment)
+    public function __construct(Client $client, string $workspace, string $repo, string $environment, int $perPage = null)
     {
-        parent::__construct($client, $perPage, $workspace, $repo);
+        parent::__construct($client, $workspace, $repo, $perPage);
         $this->environment = $environment;
     }
 }
