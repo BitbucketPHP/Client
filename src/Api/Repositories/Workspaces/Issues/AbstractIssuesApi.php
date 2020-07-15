@@ -38,6 +38,8 @@ abstract class AbstractIssuesApi extends AbstractWorkspacesApi
      * @param string   $repo
      * @param string   $issue
      * @param int|null $perPage
+     *
+     * @return void
      */
     public function __construct(Client $client, string $workspace, string $repo, string $issue, int $perPage = null)
     {

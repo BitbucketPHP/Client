@@ -38,6 +38,8 @@ abstract class AbstractPipelinesApi extends AbstractWorkspacesApi
      * @param string   $repo
      * @param string   $pipeline
      * @param int|null $perPage
+     *
+     * @return void
      */
     public function __construct(Client $client, string $workspace, string $repo, string $pipeline, int $perPage = null)
     {

@@ -38,6 +38,8 @@ abstract class AbstractCommitApi extends AbstractWorkspacesApi
      * @param string   $repo
      * @param string   $commit
      * @param int|null $perPage
+     *
+     * @return void
      */
     public function __construct(Client $client, string $workspace, string $repo, string $commit, int $perPage = null)
     {

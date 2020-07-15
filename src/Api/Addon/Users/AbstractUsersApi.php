@@ -36,6 +36,8 @@ abstract class AbstractUsersApi extends AbstractAddonApi
      * @param Client   $client
      * @param string   $username
      * @param int|null $perPage
+     *
+     * @return void
      */
     public function __construct(Client $client, string $username, int $perPage = null)
     {

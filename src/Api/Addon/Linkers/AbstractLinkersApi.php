@@ -36,6 +36,8 @@ abstract class AbstractLinkersApi extends AbstractAddonApi
      * @param Client   $client
      * @param string   $linker
      * @param int|null $perPage
+     *
+     * @return void
      */
     public function __construct(Client $client, string $linker, int $perPage = null)
     {

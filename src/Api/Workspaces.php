@@ -41,6 +41,8 @@ class Workspaces extends AbstractApi
      * @param Client   $client
      * @param string   $workspace
      * @param int|null $perPage
+     *
+     * @return void
      */
     public function __construct(Client $client, string $workspace, int $perPage = null)
     {
