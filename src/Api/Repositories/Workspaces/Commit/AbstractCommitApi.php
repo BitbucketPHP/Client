@@ -37,6 +37,8 @@ abstract class AbstractCommitApi extends AbstractWorkspacesApi
      * @param string $workspace
      * @param string $repo
      * @param string $commit
+     *
+     * @return void
      */
     public function __construct(Client $client, string $workspace, string $repo, string $commit)
     {

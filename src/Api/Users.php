@@ -38,6 +38,8 @@ class Users extends AbstractApi
      *
      * @param Client $client
      * @param string $username
+     *
+     * @return void
      */
     public function __construct(Client $client, string $username)
     {

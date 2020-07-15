@@ -36,6 +36,8 @@ abstract class AbstractWorkspacesApi extends AbstractRepositoriesApi
      * @param Client $client
      * @param string $workspace
      * @param string $repo
+     *
+     * @return void
      */
     public function __construct(Client $client, string $workspace, string $repo)
     {

@@ -36,6 +36,8 @@ abstract class AbstractWorkspacesApi extends AbstractSnippetsApi
      * @param Client $client
      * @param string $workspace
      * @param string $snippet
+     *
+     * @return void
      */
     public function __construct(Client $client, string $workspace, string $snippet)
     {

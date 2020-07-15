@@ -37,6 +37,8 @@ abstract class AbstractIssuesApi extends AbstractWorkspacesApi
      * @param string $workspace
      * @param string $repo
      * @param string $issue
+     *
+     * @return void
      */
     public function __construct(Client $client, string $workspace, string $repo, string $issue)
     {

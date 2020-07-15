@@ -37,6 +37,8 @@ abstract class AbstractDeploymentsApi extends AbstractWorkspacesApi
      * @param string $workspace
      * @param string $repo
      * @param string $environment
+     *
+     * @return void
      */
     public function __construct(Client $client, string $workspace, string $repo, string $environment)
     {

@@ -35,6 +35,8 @@ abstract class AbstractLinkersApi extends AbstractAddonApi
      *
      * @param Client $client
      * @param string $linker
+     *
+     * @return void
      */
     public function __construct(Client $client, string $linker)
     {
