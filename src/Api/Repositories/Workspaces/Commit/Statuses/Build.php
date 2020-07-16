@@ -46,7 +46,7 @@ class Build extends AbstractStatusesApi
      */
     public function show(string $key, array $params = [])
     {
-        $uri = $this->buildBuildUri(...explode('/', $key));
+        $uri = $this->buildBuildUri(...\explode('/', $key));
 
         return $this->get($uri, $params);
     }
@@ -61,7 +61,7 @@ class Build extends AbstractStatusesApi
      */
     public function update(string $key, array $params = [])
     {
-        $uri = $this->buildBuildUri(...explode('/', $key));
+        $uri = $this->buildBuildUri(...\explode('/', $key));
 
         return $this->put($uri, $params);
     }

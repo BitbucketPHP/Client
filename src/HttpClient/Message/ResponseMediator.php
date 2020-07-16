@@ -54,8 +54,8 @@ final class ResponseMediator
             return [];
         }
 
-        if (0 !== strpos($response->getHeaderLine('Content-Type'), self::JSON_CONTENT_TYPE)) {
-            throw new RuntimeException(sprintf('The content type was not %s.', self::JSON_CONTENT_TYPE));
+        if (0 !== \strpos($response->getHeaderLine('Content-Type'), self::JSON_CONTENT_TYPE)) {
+            throw new RuntimeException(\sprintf('The content type was not %s.', self::JSON_CONTENT_TYPE));
         }
 
         return JsonArray::decode($body);
@@ -72,7 +72,7 @@ final class ResponseMediator
     {
         try {
             /** @var array<string,string> */
-            return array_filter(self::getContent($response), [self::class, 'paginationFilter'], ARRAY_FILTER_USE_KEY);
+            return \array_filter(self::getContent($response), [self::class, 'paginationFilter'], ARRAY_FILTER_USE_KEY);
         } catch (RuntimeException $e) {
             return [];
         }
@@ -85,7 +85,7 @@ final class ResponseMediator
      */
     private static function paginationFilter($key)
     {
-        return in_array($key, ['size', 'page', 'pagelen', 'next', 'previous'], true);
+        return \in_array($key, ['size', 'page', 'pagelen', 'next', 'previous'], true);
     }
 
     /**
@@ -104,7 +104,7 @@ final class ResponseMediator
             return null;
         }
 
-        return is_array($error) ? self::getMessageFromError($error) : null;
+        return \is_array($error) ? self::getMessageFromError($error) : null;
     }
 
     /**
@@ -119,14 +119,14 @@ final class ResponseMediator
         /** @var scalar|array */
         $message = $error['message'] ?? '';
 
-        if (!is_string($message)) {
+        if (!\is_string($message)) {
             return null;
         }
 
         $detail = self::getDetailAsString($error);
 
         if ('' !== $message) {
-            return '' !== $detail ? sprintf('%s: %s', $message, $detail) : $message;
+            return '' !== $detail ? \sprintf('%s: %s', $message, $detail) : $message;
         }
 
         if ('' !== $detail) {
@@ -152,6 +152,6 @@ final class ResponseMediator
             return '';
         }
 
-        return (string) strtok(is_string($detail) ? $detail : JsonArray::encode($detail), "\n");
+        return (string) \strtok(\is_string($detail) ? $detail : JsonArray::encode($detail), "\n");
     }
 }

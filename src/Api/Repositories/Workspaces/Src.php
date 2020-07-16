@@ -77,7 +77,7 @@ class Src extends AbstractWorkspacesApi
             }
         }
 
-        $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
+        $headers = ['Content-Type' => \sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
         return $this->postRaw($uri, $builder->build(), $headers);
     }

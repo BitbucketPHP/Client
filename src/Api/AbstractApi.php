@@ -57,7 +57,7 @@ abstract class AbstractApi implements ApiInterface
     public function __construct(Client $client, int $perPage = null)
     {
         if (null !== $perPage && ($perPage < 1 || $perPage > 100)) {
-            throw new ValueError(sprintf('%s::__construct(): Argument #2 ($perPage) must be between 1 and 100, or null', self::class));
+            throw new ValueError(\sprintf('%s::__construct(): Argument #2 ($perPage) must be between 1 and 100, or null', self::class));
         }
 
         $this->client = $client;
@@ -96,7 +96,7 @@ abstract class AbstractApi implements ApiInterface
     public function perPage(int $perPage = null)
     {
         if (null !== $perPage && ($perPage < 1 || $perPage > 100)) {
-            throw new ValueError(sprintf('%s::perPage(): Argument #1 ($perPage) must be between 1 and 100, or null', self::class));
+            throw new ValueError(\sprintf('%s::perPage(): Argument #1 ($perPage) must be between 1 and 100, or null', self::class));
         }
 
         $copy = clone $this;
@@ -274,7 +274,7 @@ abstract class AbstractApi implements ApiInterface
      */
     private static function prepareUri(string $uri, array $query = [])
     {
-        return sprintf('%s%s%s', self::URI_PREFIX, $uri, QueryStringBuilder::build($query));
+        return \sprintf('%s%s%s', self::URI_PREFIX, $uri, QueryStringBuilder::build($query));
     }
 
     /**
@@ -286,7 +286,7 @@ abstract class AbstractApi implements ApiInterface
      */
     private static function prepareJsonBody(array $params)
     {
-        if (0 === count($params)) {
+        if (0 === \count($params)) {
             return null;
         }
 
@@ -302,6 +302,6 @@ abstract class AbstractApi implements ApiInterface
      */
     private static function addJsonContentType(array $headers)
     {
-        return array_merge(['Content-Type' => ResponseMediator::JSON_CONTENT_TYPE], $headers);
+        return \array_merge(['Content-Type' => ResponseMediator::JSON_CONTENT_TYPE], $headers);
     }
 }

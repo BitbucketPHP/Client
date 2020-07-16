@@ -49,7 +49,7 @@ class Files extends AbstractWorkspacesApi
      */
     public function download(string $commit, string $uri, array $params = [])
     {
-        $uri = $this->buildFilesUri($commit, 'files', ...explode('/', $uri));
+        $uri = $this->buildFilesUri($commit, 'files', ...\explode('/', $uri));
 
         return $this->getAsResponse($uri, $params, ['Accept' => '*/*'])->getBody();
     }
@@ -87,7 +87,7 @@ class Files extends AbstractWorkspacesApi
             $builder->addResource($file->getName(), $file->getResource(), $file->getOptions());
         }
 
-        $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
+        $headers = ['Content-Type' => \sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
         return $this->postRaw($uri, $builder->build(), $headers);
     }

@@ -33,7 +33,7 @@ class FileHistory extends AbstractWorkspacesApi
      */
     public function list(string $commit, string $uri, array $params = [])
     {
-        $uri = $this->buildFileHistoryUri($commit, ...explode('/', $uri));
+        $uri = $this->buildFileHistoryUri($commit, ...\explode('/', $uri));
 
         return $this->get($uri, $params);
     }

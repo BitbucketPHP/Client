@@ -35,13 +35,13 @@ final class UriBuilder
     {
         foreach ($parts as $index => $part) {
             if ('' === $part) {
-                throw new ValueError(sprintf('%s::buildUri(): Argument #%d ($parts) must non-empty', self::class, $index + 1));
+                throw new ValueError(\sprintf('%s::buildUri(): Argument #%d ($parts) must non-empty', self::class, $index + 1));
             }
 
-            $parts[$index] = rawurlencode($part);
+            $parts[$index] = \rawurlencode($part);
         }
 
-        return implode('/', $parts);
+        return \implode('/', $parts);
     }
 
     /**
@@ -53,6 +53,6 @@ final class UriBuilder
      */
     public static function appendSeparator(string $uri)
     {
-        return sprintf('%s%s', $uri, '/');
+        return \sprintf('%s%s', $uri, '/');
     }
 }

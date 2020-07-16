@@ -66,7 +66,7 @@ final class ResultPager implements ResultPagerInterface
     public function __construct(Client $client, int $perPage = null)
     {
         if (null !== $perPage && ($perPage < 1 || $perPage > 50)) {
-            throw new ValueError(sprintf('%s::__construct(): Argument #2 ($perPage) must be between 1 and 50, or null', self::class));
+            throw new ValueError(\sprintf('%s::__construct(): Argument #2 ($perPage) must be between 1 and 50, or null', self::class));
         }
 
         $this->client = $client;
@@ -90,7 +90,7 @@ final class ResultPager implements ResultPagerInterface
         /** @var mixed */
         $result = $api->perPage($this->perPage)->$method(...$parameters);
 
-        if (!is_array($result)) {
+        if (!\is_array($result)) {
             throw new RuntimeException('Pagination of this endpoint is not supported.');
         }
 
@@ -112,7 +112,7 @@ final class ResultPager implements ResultPagerInterface
      */
     public function fetchAll(ApiInterface $api, string $method, array $parameters = [])
     {
-        return iterator_to_array($this->fetchAllLazy($api, $method, $parameters));
+        return \iterator_to_array($this->fetchAllLazy($api, $method, $parameters));
     }
 
     /**
@@ -230,7 +230,7 @@ final class ResultPager implements ResultPagerInterface
      */
     private static function getValues(array $result)
     {
-        if (!isset($result['values']) || !is_array($result['values'])) {
+        if (!isset($result['values']) || !\is_array($result['values'])) {
             throw new RuntimeException('Pagination of this endpoint is not supported.');
         }
 

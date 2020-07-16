@@ -56,7 +56,7 @@ class Workspaces extends AbstractSnippetsApi
     {
         $uri = $this->buildWorkspacesUri();
         $builder = (new MultipartStreamBuilder())->addResource($file->getName(), $file->getResource(), $file->getOptions());
-        $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
+        $headers = ['Content-Type' => \sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
         return $this->postRaw($uri, $builder->build(), $headers);
     }
@@ -109,7 +109,7 @@ class Workspaces extends AbstractSnippetsApi
             $builder->addResource($file->getName(), $file->getResource(), $file->getOptions());
         }
 
-        $headers = ['Content-Type' => sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
+        $headers = ['Content-Type' => \sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
         return $this->postRaw($uri, $builder->build(), $headers);
     }

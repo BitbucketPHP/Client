@@ -6,3 +6,5 @@ parameters:
         - code-quality
         - dead-code
         - php71
+services:
+    Rector\Performance\Rector\FuncCall\PreslashSimpleFunctionRector: ~

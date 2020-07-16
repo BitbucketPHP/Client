@@ -83,16 +83,16 @@ final class Authentication implements Plugin
         switch ($method) {
             case Client::AUTH_HTTP_PASSWORD:
                 if (null === $password) {
-                    throw new RuntimeException(sprintf('Authentication method "%s" requires a password to be set.', $method));
+                    throw new RuntimeException(\sprintf('Authentication method "%s" requires a password to be set.', $method));
                 }
 
-                return sprintf('Basic %s', base64_encode(sprintf('%s:%s', $token, $password)));
+                return \sprintf('Basic %s', \base64_encode(\sprintf('%s:%s', $token, $password)));
             case Client::AUTH_OAUTH_TOKEN:
-                return sprintf('Bearer %s', $token);
+                return \sprintf('Bearer %s', $token);
             case Client::AUTH_JWT:
-                return sprintf('JWT %s', $token);
+                return \sprintf('JWT %s', $token);
         }
 
-        throw new RuntimeException(sprintf('Authentication method "%s" not implemented.', $method));
+        throw new RuntimeException(\sprintf('Authentication method "%s" not implemented.', $method));
     }
 }
