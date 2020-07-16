@@ -11,7 +11,6 @@ parameters:
         - 'tests'
     sets:
         - 'code-quality'
-        - 'dead-code'
         - 'php52'
         - 'php53'
         - 'php54'
@@ -27,7 +26,6 @@ parameters:
 
 services:
     Rector\Performance\Rector\FuncCall\PreslashSimpleFunctionRector: ~
-    Rector\Php55\Rector\String_\StringClassNameToClassConstantRector: ~
     Rector\SOLID\Rector\Foreach_\ChangeNestedForeachIfsToEarlyContinueRector: ~
     Rector\SOLID\Rector\If_\ChangeIfElseValueAssignToEarlyReturnRector: ~
     Rector\SOLID\Rector\If_\ChangeNestedIfsToEarlyReturnRector: ~
