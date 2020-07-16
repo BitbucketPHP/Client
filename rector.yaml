@@ -1,0 +1,7 @@
+parameters:
+    php_version_features: '7.1'
+    paths:
+        - 'src'
+    sets:
+        - php71
+        - code-quality
