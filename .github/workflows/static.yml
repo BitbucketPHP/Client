@@ -69,7 +69,7 @@ jobs:
       - name: Execute Psalm
         run: vendor/bin/psalm --no-progress --output-format=github
 
-  psalm:
+  rector:
     name: Rector
     runs-on: ubuntu-20.04
 
