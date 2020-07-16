@@ -13,9 +13,11 @@ declare(strict_types=1);
 
 namespace Bitbucket\Tests;
 
+use GuzzleHttp\Psr7\Response;
+use function GuzzleHttp\Psr7\stream_for;
 use Bitbucket\Exception\RuntimeException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
-use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -28,7 +30,7 @@ class ResponseMediatorTest extends TestCase
         $response = new Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Psr7\stream_for('{"foo": "bar"}')
+            stream_for('{"foo": "bar"}')
         );
 
         $this->assertSame(['foo' => 'bar'], ResponseMediator::getContent($response));
@@ -40,7 +42,7 @@ class ResponseMediatorTest extends TestCase
         $response = new Response(
             200,
             [],
-            \GuzzleHttp\Psr7\stream_for($body)
+            stream_for($body)
         );
 
         $this->expectException(RuntimeException::class);
@@ -55,7 +57,7 @@ class ResponseMediatorTest extends TestCase
         $response = new Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Psr7\stream_for($body)
+            stream_for($body)
         );
 
         $this->expectException(RuntimeException::class);
@@ -70,7 +72,7 @@ class ResponseMediatorTest extends TestCase
         $response = new Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Psr7\stream_for($body)
+            stream_for($body)
         );
 
         $this->assertNull(ResponseMediator::getErrorMessage($response));
