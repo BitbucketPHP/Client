@@ -3,5 +3,6 @@ parameters:
     paths:
         - 'src'
     sets:
-        - php71
         - code-quality
+        - dead-code
+        - php71
