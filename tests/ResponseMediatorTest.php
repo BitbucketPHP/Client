@@ -13,11 +13,10 @@ declare(strict_types=1);
 
 namespace Bitbucket\Tests;
 
-use GuzzleHttp\Psr7\Response;
-use function GuzzleHttp\Psr7\stream_for;
 use Bitbucket\Exception\RuntimeException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
-use GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\Response;
+use function GuzzleHttp\Psr7\stream_for;
 use PHPUnit\Framework\TestCase;
 
 /**
