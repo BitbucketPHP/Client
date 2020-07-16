@@ -194,11 +194,7 @@ final class ResultPager implements ResultPagerInterface
     {
         $response = $this->client->getLastResponse();
 
-        if (null === $response) {
-            $this->pagination = [];
-        } else {
-            $this->pagination = ResponseMediator::getPagination($response);
-        }
+        $this->pagination = null === $response ? [] : ResponseMediator::getPagination($response);
     }
 
     /**
