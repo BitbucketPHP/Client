@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V3.0.1 (UPCOMING)
+
+* Fix HTTP methods client headers and body
+
+
 ## V3.0 (11/07/2020)
 
 * Use PSR-7, PSR-17 and PSR-18 only
