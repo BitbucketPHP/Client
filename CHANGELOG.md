@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V3.0.1 (UPCOMING)
+## V3.0.1 (22/07/2020)
 
 * Fix HTTP methods client headers and body
 
