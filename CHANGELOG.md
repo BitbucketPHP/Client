@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V3.1 (UPCOMING)
+## V3.1 (22/07/2020)
 
 * Reworked pagination
 
