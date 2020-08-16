@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V3.2 (16/08/2020)
+
+* Added void returns where possible
+
+
 ## V3.1 (22/07/2020)
 
 * Reworked pagination
