@@ -205,7 +205,7 @@ class Client
      *
      * @return void
      */
-    public function authenticate(string $method, string $token, string $password = null)
+    public function authenticate(string $method, string $token, string $password = null): void
     {
         $this->getHttpClientBuilder()->removePlugin(Authentication::class);
         $this->getHttpClientBuilder()->addPlugin(new Authentication($method, $token, $password));
@@ -218,7 +218,7 @@ class Client
      *
      * @return void
      */
-    public function setUrl(string $url)
+    public function setUrl(string $url): void
     {
         $this->httpClientBuilder->removePlugin(AddHostPlugin::class);
         $this->httpClientBuilder->addPlugin(new AddHostPlugin(Psr17FactoryDiscovery::findUrlFactory()->createUri($url)));

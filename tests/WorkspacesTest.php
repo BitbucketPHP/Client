@@ -22,7 +22,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class WorkspacesTest extends TestCase
 {
-    public function testWorkspaceShow()
+    public function testWorkspaceShow(): void
     {
         $client = MockedClient::create(
             WorkspacesShowResponse::create()

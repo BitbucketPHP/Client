@@ -26,7 +26,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class ProjectsTest extends TestCase
 {
-    public function testProjectList()
+    public function testProjectList(): void
     {
         $client = MockedClient::create(
             ProjectsListResponse::create()
@@ -41,7 +41,7 @@ final class ProjectsTest extends TestCase
         self::assertCount(9, $response['values']);
     }
 
-    public function testProjectShow()
+    public function testProjectShow(): void
     {
         $client = MockedClient::create(
             ProjectsShowResponse::create()
@@ -56,7 +56,7 @@ final class ProjectsTest extends TestCase
         self::assertCount(11, $response);
     }
 
-    public function testProjectCreate()
+    public function testProjectCreate(): void
     {
         $client = MockedClient::create(
             ProjectsCreateResponse::create()
@@ -83,7 +83,7 @@ final class ProjectsTest extends TestCase
         self::assertCount(11, $response);
     }
 
-    public function testProjectUpdate()
+    public function testProjectUpdate(): void
     {
         $client = MockedClient::create(
             ProjectsUpdateResponse::create()
@@ -110,7 +110,7 @@ final class ProjectsTest extends TestCase
         self::assertCount(11, $response);
     }
 
-    public function testProjectRemove()
+    public function testProjectRemove(): void
     {
         $client = MockedClient::create(
             ProjectsRemoveResponse::create()

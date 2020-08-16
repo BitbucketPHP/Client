@@ -22,7 +22,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class ClientTest extends TestCase
 {
-    public function testCreateClient()
+    public function testCreateClient(): void
     {
         $client = new Client();
 

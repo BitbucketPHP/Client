@@ -22,7 +22,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class IntegrationTest extends TestCase
 {
-    public function testShowRepo()
+    public function testShowRepo(): void
     {
         $client = new Client();
 
@@ -36,7 +36,7 @@ final class IntegrationTest extends TestCase
         self::assertSame('{7dd600e6-0d9c-4801-b967-cb4cc17359ff}', $response['uuid']);
     }
 
-    public function testRepoNotFound()
+    public function testRepoNotFound(): void
     {
         $client = new Client();
 

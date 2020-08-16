@@ -72,7 +72,7 @@ final class ResponseMediator
     {
         try {
             /** @var array<string,string> */
-            return \array_filter(self::getContent($response), [self::class, 'paginationFilter'], ARRAY_FILTER_USE_KEY);
+            return \array_filter(self::getContent($response), [self::class, 'paginationFilter'], \ARRAY_FILTER_USE_KEY);
         } catch (RuntimeException $e) {
             return [];
         }

@@ -126,7 +126,7 @@ class Builder
      *
      * @return void
      */
-    public function addPlugin(Plugin $plugin)
+    public function addPlugin(Plugin $plugin): void
     {
         $this->plugins[] = $plugin;
         $this->pluginClient = null;
@@ -139,7 +139,7 @@ class Builder
      *
      * @return void
      */
-    public function removePlugin(string $fqcn)
+    public function removePlugin(string $fqcn): void
     {
         foreach ($this->plugins as $idx => $plugin) {
             if ($plugin instanceof $fqcn) {
@@ -157,7 +157,7 @@ class Builder
      *
      * @return void
      */
-    public function addCache(CacheItemPoolInterface $cachePool, array $config = [])
+    public function addCache(CacheItemPoolInterface $cachePool, array $config = []): void
     {
         if (!isset($config['cache_key_generator'])) {
             $config['cache_key_generator'] = new HeaderCacheKeyGenerator(['Authorization', 'Cookie', 'Accept', 'Content-type']);
@@ -172,7 +172,7 @@ class Builder
      *
      * @return void
      */
-    public function removeCache()
+    public function removeCache(): void
     {
         $this->cachePlugin = null;
         $this->pluginClient = null;
