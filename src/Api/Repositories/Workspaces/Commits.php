@@ -33,7 +33,7 @@ class Commits extends AbstractWorkspacesApi
     {
         $uri = $this->buildCommitsUri();
 
-        return $this->post($uri, $params);
+        return $this->get($uri, $params);
     }
 
     /**
@@ -48,7 +48,7 @@ class Commits extends AbstractWorkspacesApi
     {
         $uri = $this->buildCommitsUri($commit);
 
-        return $this->post($uri, $params);
+        return $this->get($uri, $params);
     }
 
     /**
