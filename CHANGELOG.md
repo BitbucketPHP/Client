@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V3.2.1 (26/08/2020)
+
+* Fixed the method used to list and show commits
+
+
 ## V3.2 (16/08/2020)
 
 * Added void returns where possible
