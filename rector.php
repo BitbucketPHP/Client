@@ -88,7 +88,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set('import_doc_blocks', false);
     $parameters->set('php_version_features', '7.1');
     $parameters->set('paths', [__DIR__.'/src', __DIR__.'/tests']);
-    $parameters->set('exclude_paths', __DIR__.'/tests/MockedClient.php']); // TODO: remove
+    $parameters->set('exclude_paths', __DIR__.'/tests/MockedClient.php'); // TODO: remove
     $parameters->set('sets', ['php52', 'php53', 'php54', 'php55', 'php56', 'php70', 'php71', 'phpunit40', 'phpunit50', 'phpunit60', 'phpunit70', 'phpunit75']);
 
     $services = $containerConfigurator->services();
