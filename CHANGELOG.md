@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V3.2.2 (09/11/2020)
+
+* Use `Psr17FactoryDiscovery::findUriFactory`
+
+
 ## V3.2.1 (26/08/2020)
 
 * Fixed the method used to list and show commits
