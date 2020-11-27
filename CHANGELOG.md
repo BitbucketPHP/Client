@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V3.2.3 (27/11/2020)
+
+* Fixed typos in versions
+
+
 ## V3.2.2 (09/11/2020)
 
 * Use `Psr17FactoryDiscovery::findUriFactory`
