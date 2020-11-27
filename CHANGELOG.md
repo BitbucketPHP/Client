@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V4.0 (UPCOMING)
+
+* Dropped support for PHP 7.1
+
+
 ## V3.3 (27/11/2020)
 
 * Added PHP 8.0 support

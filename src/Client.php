@@ -74,7 +74,7 @@ class Client
      *
      * @var string
      */
-    private const USER_AGENT = 'bitbucket-php-api-client/3.3';
+    private const USER_AGENT = 'bitbucket-php-api-client/4.0';
 
     /**
      * The HTTP client builder.
