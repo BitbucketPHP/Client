@@ -31,7 +31,7 @@ use Psr\Http\Message\ResponseInterface;
  * @author Fabien Bourigault <bourigaultfabien@gmail.com>
  * @author Graham Campbell <graham@alt-three.com>
  */
-final class BitbucketExceptionThrower implements Plugin
+final class ExceptionThrower implements Plugin
 {
     /**
      * Handle the request and return the response coming from the next callable.
