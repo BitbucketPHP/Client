@@ -15,6 +15,7 @@ namespace Bitbucket\Api;
 
 use Bitbucket\Api\Snippets\Workspaces as SnippetsWorkspaces;
 use Bitbucket\HttpClient\Message\FileResource;
+use Bitbucket\HttpClient\Message\ResponseMediator;
 use Bitbucket\HttpClient\Util\UriBuilder;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
 
@@ -50,7 +51,7 @@ class Snippets extends AbstractApi
     {
         $uri = $this->buildSnippetsUri();
         $builder = (new MultipartStreamBuilder())->addResource($file->getName(), $file->getResource(), $file->getOptions());
-        $headers = ['Content-Type' => \sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
+        $headers = [ResponseMediator::CONTENT_TYPE_HEADER => \sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
         return $this->postRaw($uri, $builder->build(), $headers);
     }
