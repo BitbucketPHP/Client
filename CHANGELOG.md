@@ -5,6 +5,7 @@ CHANGE LOG
 ## V4.0 (UPCOMING)
 
 * Dropped support for PHP 7.1
+* Made builder class final
 
 
 ## V3.3 (27/11/2020)
