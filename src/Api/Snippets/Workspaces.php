@@ -21,6 +21,7 @@ use Bitbucket\Api\Snippets\Workspaces\Patches;
 use Bitbucket\Api\Snippets\Workspaces\Watchers;
 use Bitbucket\Api\Snippets\Workspaces\Watching;
 use Bitbucket\HttpClient\Message\FileResource;
+use Bitbucket\HttpClient\Message\ResponseMediator;
 use Bitbucket\HttpClient\Util\UriBuilder;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
 
@@ -56,7 +57,7 @@ class Workspaces extends AbstractSnippetsApi
     {
         $uri = $this->buildWorkspacesUri();
         $builder = (new MultipartStreamBuilder())->addResource($file->getName(), $file->getResource(), $file->getOptions());
-        $headers = ['Content-Type' => \sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
+        $headers = [ResponseMediator::CONTENT_TYPE_HEADER => \sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
         return $this->postRaw($uri, $builder->build(), $headers);
     }
@@ -109,7 +110,7 @@ class Workspaces extends AbstractSnippetsApi
             $builder->addResource($file->getName(), $file->getResource(), $file->getOptions());
         }
 
-        $headers = ['Content-Type' => \sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
+        $headers = [ResponseMediator::CONTENT_TYPE_HEADER => \sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
         return $this->postRaw($uri, $builder->build(), $headers);
     }

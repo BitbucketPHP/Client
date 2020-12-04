@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Repositories\Workspaces;
 
+use Bitbucket\HttpClient\Message\ResponseMediator;
 use Bitbucket\HttpClient\Util\UriBuilder;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
 
@@ -77,7 +78,7 @@ class Src extends AbstractWorkspacesApi
             }
         }
 
-        $headers = ['Content-Type' => \sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
+        $headers = [ResponseMediator::CONTENT_TYPE_HEADER => \sprintf('multipart/form-data; boundary="%s"', $builder->getBoundary())];
 
         return $this->postRaw($uri, $builder->build(), $headers);
     }

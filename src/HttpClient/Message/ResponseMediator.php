@@ -25,6 +25,13 @@ use Psr\Http\Message\ResponseInterface;
 final class ResponseMediator
 {
     /**
+     * The content type header.
+     *
+     * @var string
+     */
+    public const CONTENT_TYPE_HEADER = 'Content-Type';
+
+    /**
      * The JSON content type identifier.
      *
      * @var string
@@ -54,7 +61,7 @@ final class ResponseMediator
             return [];
         }
 
-        if (0 !== \strpos($response->getHeaderLine('Content-Type'), self::JSON_CONTENT_TYPE)) {
+        if (0 !== \strpos($response->getHeaderLine(self::CONTENT_TYPE_HEADER), self::JSON_CONTENT_TYPE)) {
             throw new RuntimeException(\sprintf('The content type was not %s.', self::JSON_CONTENT_TYPE));
         }
 
