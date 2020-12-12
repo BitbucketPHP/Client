@@ -33,10 +33,10 @@ abstract class AbstractCommitApi extends AbstractWorkspacesApi
     /**
      * Create a new API instance.
      *
-     * @param Client   $client
-     * @param string   $workspace
-     * @param string   $repo
-     * @param string   $commit
+     * @param Client $client
+     * @param string $workspace
+     * @param string $repo
+     * @param string $commit
      *
      * @return void
      */

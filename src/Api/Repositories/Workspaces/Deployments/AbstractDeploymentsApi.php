@@ -33,10 +33,10 @@ abstract class AbstractDeploymentsApi extends AbstractWorkspacesApi
     /**
      * Create a new API instance.
      *
-     * @param Client   $client
-     * @param string   $workspace
-     * @param string   $repo
-     * @param string   $environment
+     * @param Client $client
+     * @param string $workspace
+     * @param string $repo
+     * @param string $environment
      *
      * @return void
      */

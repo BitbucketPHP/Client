@@ -33,10 +33,10 @@ abstract class AbstractPipelinesApi extends AbstractWorkspacesApi
     /**
      * Create a new API instance.
      *
-     * @param Client   $client
-     * @param string   $workspace
-     * @param string   $repo
-     * @param string   $pipeline
+     * @param Client $client
+     * @param string $workspace
+     * @param string $repo
+     * @param string $pipeline
      *
      * @return void
      */

@@ -33,9 +33,9 @@ abstract class AbstractWorkspacesApi extends AbstractRepositoriesApi
     /**
      * Create a new API instance.
      *
-     * @param Client   $client
-     * @param string   $workspace
-     * @param string   $repo
+     * @param Client $client
+     * @param string $workspace
+     * @param string $repo
      *
      * @return void
      */

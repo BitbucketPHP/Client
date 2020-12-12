@@ -33,8 +33,8 @@ abstract class AbstractLinkersApi extends AbstractAddonApi
     /**
      * Create a new API instance.
      *
-     * @param Client   $client
-     * @param string   $linker
+     * @param Client $client
+     * @param string $linker
      *
      * @return void
      */

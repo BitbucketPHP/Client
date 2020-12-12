@@ -33,10 +33,10 @@ abstract class AbstractPullRequestsApi extends AbstractWorkspacesApi
     /**
      * Create a new API instance.
      *
-     * @param Client   $client
-     * @param string   $workspace
-     * @param string   $repo
-     * @param string   $pr
+     * @param Client $client
+     * @param string $workspace
+     * @param string $repo
+     * @param string $pr
      *
      * @return void
      */

@@ -38,8 +38,8 @@ class Workspaces extends AbstractApi
     /**
      * Create a new API instance.
      *
-     * @param Client   $client
-     * @param string   $workspace
+     * @param Client $client
+     * @param string $workspace
      *
      * @return void
      */

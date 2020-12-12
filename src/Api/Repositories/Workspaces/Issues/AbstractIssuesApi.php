@@ -33,10 +33,10 @@ abstract class AbstractIssuesApi extends AbstractWorkspacesApi
     /**
      * Create a new API instance.
      *
-     * @param Client   $client
-     * @param string   $workspace
-     * @param string   $repo
-     * @param string   $issue
+     * @param Client $client
+     * @param string $workspace
+     * @param string $repo
+     * @param string $issue
      *
      * @return void
      */

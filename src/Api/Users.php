@@ -36,8 +36,8 @@ class Users extends AbstractApi
     /**
      * Create a new API instance.
      *
-     * @param Client   $client
-     * @param string   $username
+     * @param Client $client
+     * @param string $username
      *
      * @return void
      */
