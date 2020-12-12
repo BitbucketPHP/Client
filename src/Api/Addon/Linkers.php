@@ -59,7 +59,7 @@ class Linkers extends AbstractAddonApi
      */
     public function values(string $linker)
     {
-        return new Values($this->getClient(), $linker, $this->getPerPage());
+        return new Values($this->getClient(), $linker);
     }
 
     /**

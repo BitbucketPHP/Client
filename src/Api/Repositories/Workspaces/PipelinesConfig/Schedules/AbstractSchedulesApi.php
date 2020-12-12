@@ -37,13 +37,12 @@ abstract class AbstractSchedulesApi extends AbstractPipelinesConfigApi
      * @param string   $workspace
      * @param string   $repo
      * @param string   $schedule
-     * @param int|null $perPage
      *
      * @return void
      */
-    public function __construct(Client $client, string $workspace, string $repo, string $schedule, int $perPage = null)
+    public function __construct(Client $client, string $workspace, string $repo, string $schedule)
     {
-        parent::__construct($client, $workspace, $repo, $perPage);
+        parent::__construct($client, $workspace, $repo);
         $this->schedule = $schedule;
     }
 }

@@ -42,7 +42,7 @@ class Statuses extends AbstractCommitApi
      */
     public function build()
     {
-        return new Build($this->getClient(), $this->workspace, $this->repo, $this->commit, $this->getPerPage());
+        return new Build($this->getClient(), $this->workspace, $this->repo, $this->commit);
     }
 
     /**

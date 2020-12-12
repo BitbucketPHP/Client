@@ -37,13 +37,12 @@ abstract class AbstractPullRequestsApi extends AbstractWorkspacesApi
      * @param string   $workspace
      * @param string   $repo
      * @param string   $pr
-     * @param int|null $perPage
      *
      * @return void
      */
-    public function __construct(Client $client, string $workspace, string $repo, string $pr, int $perPage = null)
+    public function __construct(Client $client, string $workspace, string $repo, string $pr)
     {
-        parent::__construct($client, $workspace, $repo, $perPage);
+        parent::__construct($client, $workspace, $repo);
         $this->pr = $pr;
     }
 }

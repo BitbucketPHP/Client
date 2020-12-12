@@ -6,6 +6,7 @@ CHANGE LOG
 
 * Dropped support for PHP 7.1
 * Made builder class final
+* Re-worked pagination
 
 
 ## V3.3 (27/11/2020)

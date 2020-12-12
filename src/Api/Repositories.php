@@ -44,7 +44,7 @@ class Repositories extends AbstractApi
      */
     public function workspaces(string $workspace)
     {
-        return new RepositoriesWorkspaces($this->getClient(), $workspace, $this->getPerPage());
+        return new RepositoriesWorkspaces($this->getClient(), $workspace);
     }
 
     /**

@@ -57,7 +57,7 @@ class Addon extends AbstractApi
      */
     public function linkers()
     {
-        return new Linkers($this->getClient(), $this->getPerPage());
+        return new Linkers($this->getClient());
     }
 
     /**
@@ -65,7 +65,7 @@ class Addon extends AbstractApi
      */
     public function users()
     {
-        return new UsersAddon($this->getClient(), $this->getPerPage());
+        return new UsersAddon($this->getClient());
     }
 
     /**

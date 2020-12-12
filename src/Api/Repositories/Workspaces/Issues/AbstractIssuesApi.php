@@ -37,13 +37,12 @@ abstract class AbstractIssuesApi extends AbstractWorkspacesApi
      * @param string   $workspace
      * @param string   $repo
      * @param string   $issue
-     * @param int|null $perPage
      *
      * @return void
      */
-    public function __construct(Client $client, string $workspace, string $repo, string $issue, int $perPage = null)
+    public function __construct(Client $client, string $workspace, string $repo, string $issue)
     {
-        parent::__construct($client, $workspace, $repo, $perPage);
+        parent::__construct($client, $workspace, $repo);
         $this->issue = $issue;
     }
 }

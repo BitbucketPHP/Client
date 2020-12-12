@@ -71,7 +71,7 @@ class Reports extends AbstractCommitApi
      */
     public function annotations()
     {
-        return new Annotations($this->getClient(), $this->workspace, $this->repo, $this->commit, $this->getPerPage());
+        return new Annotations($this->getClient(), $this->workspace, $this->repo, $this->commit);
     }
 
     /**

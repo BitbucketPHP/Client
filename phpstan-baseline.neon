@@ -1,7 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Variable method call on Bitbucket\\\\Api\\\\ApiInterface\\.$#"
+			message: "#^Variable method call on Bitbucket\\\\Api\\\\AbstractApi\\.$#"
 			count: 1
 			path: src/ResultPager.php
 

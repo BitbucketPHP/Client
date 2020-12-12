@@ -36,13 +36,12 @@ abstract class AbstractWorkspacesApi extends AbstractRepositoriesApi
      * @param Client   $client
      * @param string   $workspace
      * @param string   $repo
-     * @param int|null $perPage
      *
      * @return void
      */
-    public function __construct(Client $client, string $workspace, string $repo, int $perPage = null)
+    public function __construct(Client $client, string $workspace, string $repo)
     {
-        parent::__construct($client, $workspace, $perPage);
+        parent::__construct($client, $workspace);
         $this->repo = $repo;
     }
 }

@@ -103,7 +103,7 @@ class Schedules extends AbstractPipelinesConfigApi
      */
     public function executions(string $schedule)
     {
-        return new Executions($this->getClient(), $this->workspace, $this->repo, $schedule, $this->getPerPage());
+        return new Executions($this->getClient(), $this->workspace, $this->repo, $schedule);
     }
 
     /**

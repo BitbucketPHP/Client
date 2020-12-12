@@ -38,13 +38,12 @@ class Users extends AbstractApi
      *
      * @param Client   $client
      * @param string   $username
-     * @param int|null $perPage
      *
      * @return void
      */
-    public function __construct(Client $client, string $username, int $perPage = null)
+    public function __construct(Client $client, string $username)
     {
-        parent::__construct($client, $perPage);
+        parent::__construct($client);
         $this->username = $username;
     }
 
@@ -53,7 +52,7 @@ class Users extends AbstractApi
      */
     public function properties()
     {
-        return new Properties($this->getClient(), $this->username, $this->getPerPage());
+        return new Properties($this->getClient(), $this->username);
     }
 
     /**
@@ -61,7 +60,7 @@ class Users extends AbstractApi
      */
     public function repositories()
     {
-        return new UsersRepositories($this->getClient(), $this->username, $this->getPerPage());
+        return new UsersRepositories($this->getClient(), $this->username);
     }
 
     /**
@@ -69,7 +68,7 @@ class Users extends AbstractApi
      */
     public function sshKeys()
     {
-        return new SshKeys($this->getClient(), $this->username, $this->getPerPage());
+        return new SshKeys($this->getClient(), $this->username);
     }
 
     /**
