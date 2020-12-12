@@ -17,6 +17,7 @@ use Bitbucket\Client;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 use Bitbucket\HttpClient\Util\JsonArray;
 use Bitbucket\HttpClient\Util\QueryStringBuilder;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * @author Joseph Bielawski <stloyd@gmail.com>
@@ -62,7 +63,7 @@ abstract class AbstractApi
      *
      * @return Client
      */
-    protected function getClient()
+    protected function getClient(): Client
     {
         return $this->client;
     }
@@ -78,7 +79,7 @@ abstract class AbstractApi
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    protected function getAsResponse(string $uri, array $params = [], array $headers = [])
+    protected function getAsResponse(string $uri, array $params = [], array $headers = []): ResponseInterface
     {
         if (null !== $this->perPage && !isset($params['pagelen'])) {
             $params['pagelen'] = $this->perPage;
@@ -98,7 +99,7 @@ abstract class AbstractApi
      *
      * @return array
      */
-    protected function get(string $uri, array $params = [], array $headers = [])
+    protected function get(string $uri, array $params = [], array $headers = []): array
     {
         $response = $this->getAsResponse($uri, $params, $headers);
 
@@ -116,7 +117,7 @@ abstract class AbstractApi
      *
      * @return array
      */
-    protected function post(string $uri, array $params = [], array $headers = [])
+    protected function post(string $uri, array $params = [], array $headers = []): array
     {
         $body = self::prepareJsonBody($params);
 
@@ -138,7 +139,7 @@ abstract class AbstractApi
      *
      * @return array
      */
-    protected function postRaw(string $uri, $body = null, array $headers = [])
+    protected function postRaw(string $uri, $body = null, array $headers = []): array
     {
         $response = $this->client->getHttpClient()->post(self::prepareUri($uri), $headers, $body ?? '');
 
@@ -156,7 +157,7 @@ abstract class AbstractApi
      *
      * @return array
      */
-    protected function put(string $uri, array $params = [], array $headers = [])
+    protected function put(string $uri, array $params = [], array $headers = []): array
     {
         $body = self::prepareJsonBody($params);
 
@@ -178,7 +179,7 @@ abstract class AbstractApi
      *
      * @return array
      */
-    protected function putRaw(string $uri, $body = null, array $headers = [])
+    protected function putRaw(string $uri, $body = null, array $headers = []): array
     {
         $response = $this->client->getHttpClient()->put(self::prepareUri($uri), $headers, $body ?? '');
 
@@ -196,7 +197,7 @@ abstract class AbstractApi
      *
      * @return array
      */
-    protected function delete(string $uri, array $params = [], array $headers = [])
+    protected function delete(string $uri, array $params = [], array $headers = []): array
     {
         $body = self::prepareJsonBody($params);
 
@@ -218,7 +219,7 @@ abstract class AbstractApi
      *
      * @return array
      */
-    protected function deleteRaw(string $uri, $body = null, array $headers = [])
+    protected function deleteRaw(string $uri, $body = null, array $headers = []): array
     {
         $response = $this->client->getHttpClient()->delete(self::prepareUri($uri), $headers, $body ?? '');
 
@@ -233,7 +234,7 @@ abstract class AbstractApi
      *
      * @return string
      */
-    private static function prepareUri(string $uri, array $query = [])
+    private static function prepareUri(string $uri, array $query = []): string
     {
         return \sprintf('%s%s%s', self::URI_PREFIX, $uri, QueryStringBuilder::build($query));
     }
@@ -245,7 +246,7 @@ abstract class AbstractApi
      *
      * @return string|null
      */
-    private static function prepareJsonBody(array $params)
+    private static function prepareJsonBody(array $params): ?string
     {
         if (0 === \count($params)) {
             return null;
@@ -261,7 +262,7 @@ abstract class AbstractApi
      *
      * @return array<string,string>
      */
-    private static function addJsonContentType(array $headers)
+    private static function addJsonContentType(array $headers): array
     {
         return \array_merge([ResponseMediator::CONTENT_TYPE_HEADER => ResponseMediator::JSON_CONTENT_TYPE], $headers);
     }

@@ -31,7 +31,7 @@ final class UriBuilder
      *
      * @return string
      */
-    public static function build(string ...$parts)
+    public static function build(string ...$parts): string
     {
         foreach ($parts as $index => $part) {
             if ('' === $part) {
@@ -51,7 +51,7 @@ final class UriBuilder
      *
      * @return string
      */
-    public static function appendSeparator(string $uri)
+    public static function appendSeparator(string $uri): string
     {
         return \sprintf('%s%s', $uri, '/');
     }

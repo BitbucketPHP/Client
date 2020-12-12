@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\HttpClient\Plugin;
 
 use Bitbucket\Exception\ApiLimitExceededException;
+use Bitbucket\Exception\ExceptionInterface;
 use Bitbucket\Exception\RuntimeException;
 use Bitbucket\Exception\ValidationFailedException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
@@ -63,7 +64,7 @@ final class ExceptionThrower implements Plugin
      *
      * @return \Bitbucket\Exception\ErrorException|\Bitbucket\Exception\RuntimeException
      */
-    private static function createException(int $status, string $message)
+    private static function createException(int $status, string $message): ExceptionInterface
     {
         if (400 === $status || 422 === $status) {
             return new ValidationFailedException($message, $status);

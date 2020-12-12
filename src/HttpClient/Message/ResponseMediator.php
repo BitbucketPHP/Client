@@ -75,7 +75,7 @@ final class ResponseMediator
      *
      * @return array<string,string>
      */
-    public static function getPagination(ResponseInterface $response)
+    public static function getPagination(ResponseInterface $response): array
     {
         try {
             /** @var array<string,string> */
@@ -102,7 +102,7 @@ final class ResponseMediator
      *
      * @return string|null
      */
-    public static function getErrorMessage(ResponseInterface $response)
+    public static function getErrorMessage(ResponseInterface $response): ?string
     {
         try {
             /** @var scalar|array */
@@ -121,7 +121,7 @@ final class ResponseMediator
      *
      * @return string|null
      */
-    private static function getMessageFromError(array $error)
+    private static function getMessageFromError(array $error): ?string
     {
         /** @var scalar|array */
         $message = $error['message'] ?? '';
@@ -150,7 +150,7 @@ final class ResponseMediator
      *
      * @return string
      */
-    private static function getDetailAsString(array $error)
+    private static function getDetailAsString(array $error): string
     {
         /** @var string|array $detail */
         $detail = $error['detail'] ?? '';

@@ -17,6 +17,7 @@ use Bitbucket\Api\AbstractApi;
 use Bitbucket\Exception\RuntimeException;
 use Bitbucket\HttpClient\Message\ResponseMediator;
 use Closure;
+use Generator;
 use ValueError;
 
 /**
@@ -86,7 +87,7 @@ final class ResultPager implements ResultPagerInterface
      *
      * @return array
      */
-    public function fetch(AbstractApi $api, string $method, array $parameters = [])
+    public function fetch(AbstractApi $api, string $method, array $parameters = []): array
     {
         /** @var mixed */
         $result = self::bindPerPage($api, $this->perPage)->$method(...$parameters);
@@ -111,7 +112,7 @@ final class ResultPager implements ResultPagerInterface
      *
      * @return array
      */
-    public function fetchAll(AbstractApi $api, string $method, array $parameters = [])
+    public function fetchAll(AbstractApi $api, string $method, array $parameters = []): array
     {
         return \iterator_to_array($this->fetchAllLazy($api, $method, $parameters));
     }
@@ -127,7 +128,7 @@ final class ResultPager implements ResultPagerInterface
      *
      * @return \Generator
      */
-    public function fetchAllLazy(AbstractApi $api, string $method, array $parameters = [])
+    public function fetchAllLazy(AbstractApi $api, string $method, array $parameters = []): Generator
     {
         /** @var mixed $value */
         foreach (self::getValues($this->fetch($api, $method, $parameters)) as $value) {
@@ -147,7 +148,7 @@ final class ResultPager implements ResultPagerInterface
      *
      * @return bool
      */
-    public function hasNext()
+    public function hasNext(): bool
     {
         return isset($this->pagination['next']);
     }
@@ -159,7 +160,7 @@ final class ResultPager implements ResultPagerInterface
      *
      * @return array
      */
-    public function fetchNext()
+    public function fetchNext(): array
     {
         return $this->get('next');
     }
@@ -169,7 +170,7 @@ final class ResultPager implements ResultPagerInterface
      *
      * @return bool
      */
-    public function hasPrevious()
+    public function hasPrevious(): bool
     {
         return isset($this->pagination['prev']);
     }
@@ -181,7 +182,7 @@ final class ResultPager implements ResultPagerInterface
      *
      * @return array
      */
-    public function fetchPrevious()
+    public function fetchPrevious(): array
     {
         return $this->get('prev');
     }
@@ -205,7 +206,7 @@ final class ResultPager implements ResultPagerInterface
      *
      * @return array
      */
-    private function get(string $key)
+    private function get(string $key): array
     {
         $pagination = $this->pagination[$key] ?? null;
 
@@ -228,7 +229,7 @@ final class ResultPager implements ResultPagerInterface
      *
      * @return \Bitbucket\Api\AbstractApi
      */
-    private static function bindPerPage(AbstractApi $api, int $perPage)
+    private static function bindPerPage(AbstractApi $api, int $perPage): AbstractApi
     {
         $closure = Closure::bind(static function (AbstractApi $api) use ($perPage): AbstractApi {
             $clone = clone $api;
@@ -249,7 +250,7 @@ final class ResultPager implements ResultPagerInterface
      *
      * @return array
      */
-    private static function getValues(array $result)
+    private static function getValues(array $result): array
     {
         if (!isset($result['values']) || !\is_array($result['values'])) {
             throw new RuntimeException('Pagination of this endpoint is not supported.');

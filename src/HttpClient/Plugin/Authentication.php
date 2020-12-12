@@ -78,7 +78,7 @@ final class Authentication implements Plugin
      *
      * @return string
      */
-    private static function buildAuthorizationHeader(string $method, string $token, string $password = null)
+    private static function buildAuthorizationHeader(string $method, string $token, string $password = null): string
     {
         switch ($method) {
             case Client::AUTH_HTTP_PASSWORD:

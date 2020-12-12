@@ -26,12 +26,14 @@ use Bitbucket\HttpClient\Message\ResponseMediator;
 use Bitbucket\HttpClient\Plugin\Authentication;
 use Bitbucket\HttpClient\Plugin\ExceptionThrower;
 use Bitbucket\HttpClient\Plugin\History;
+use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\AddHostPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use Http\Client\Common\Plugin\HistoryPlugin;
 use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * The Bitbucket API 2.0 client.
@@ -121,7 +123,7 @@ class Client
      *
      * @return Client
      */
-    public static function createWithHttpClient(ClientInterface $httpClient)
+    public static function createWithHttpClient(ClientInterface $httpClient): self
     {
         $builder = new Builder($httpClient);
 
@@ -131,7 +133,7 @@ class Client
     /**
      * @return \Bitbucket\Api\Addon
      */
-    public function addon()
+    public function addon(): Addon
     {
         return new Addon($this);
     }
@@ -139,7 +141,7 @@ class Client
     /**
      * @return \Bitbucket\Api\CurrentUser
      */
-    public function currentUser()
+    public function currentUser(): CurrentUser
     {
         return new CurrentUser($this);
     }
@@ -147,7 +149,7 @@ class Client
     /**
      * @return \Bitbucket\Api\HookEvents
      */
-    public function hookEvents()
+    public function hookEvents(): HookEvents
     {
         return new HookEvents($this);
     }
@@ -155,7 +157,7 @@ class Client
     /**
      * @return \Bitbucket\Api\PullRequests
      */
-    public function pullRequests()
+    public function pullRequests(): PullRequests
     {
         return new PullRequests($this);
     }
@@ -163,7 +165,7 @@ class Client
     /**
      * @return \Bitbucket\Api\Repositories
      */
-    public function repositories()
+    public function repositories(): Repositories
     {
         return new Repositories($this);
     }
@@ -171,7 +173,7 @@ class Client
     /**
      * @return \Bitbucket\Api\Snippets
      */
-    public function snippets()
+    public function snippets(): Snippets
     {
         return new Snippets($this);
     }
@@ -181,7 +183,7 @@ class Client
      *
      * @return \Bitbucket\Api\Users
      */
-    public function users(string $username)
+    public function users(string $username): Users
     {
         return new Users($this, $username);
     }
@@ -191,7 +193,7 @@ class Client
      *
      * @return \Bitbucket\Api\Workspaces
      */
-    public function workspaces(string $workspace)
+    public function workspaces(string $workspace): Workspaces
     {
         return new Workspaces($this, $workspace);
     }
@@ -229,7 +231,7 @@ class Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function getLastResponse()
+    public function getLastResponse(): ?ResponseInterface
     {
         return $this->responseHistory->getLastResponse();
     }
@@ -239,7 +241,7 @@ class Client
      *
      * @return \Http\Client\Common\HttpMethodsClientInterface
      */
-    public function getHttpClient()
+    public function getHttpClient(): HttpMethodsClientInterface
     {
         return $this->getHttpClientBuilder()->getHttpClient();
     }
@@ -249,7 +251,7 @@ class Client
      *
      * @return \Bitbucket\HttpClient\Builder
      */
-    protected function getHttpClientBuilder()
+    protected function getHttpClientBuilder(): Builder
     {
         return $this->httpClientBuilder;
     }

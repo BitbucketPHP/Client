@@ -33,7 +33,7 @@ final class JsonArray
      *
      * @return array
      */
-    public static function decode(string $json)
+    public static function decode(string $json): array
     {
         /** @var scalar|array|null */
         $data = \json_decode($json, true);
@@ -58,7 +58,7 @@ final class JsonArray
      *
      * @return string
      */
-    public static function encode(array $value)
+    public static function encode(array $value): string
     {
         $json = \json_encode($value);
 

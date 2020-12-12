@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket;
 
 use Bitbucket\Api\AbstractApi;
+use Generator;
 
 /**
  * This is the result pager interface.
@@ -35,7 +36,7 @@ interface ResultPagerInterface
      *
      * @return array
      */
-    public function fetch(AbstractApi $api, string $method, array $parameters = []);
+    public function fetch(AbstractApi $api, string $method, array $parameters = []): array;
 
     /**
      * Fetch all results from an api call.
@@ -48,7 +49,7 @@ interface ResultPagerInterface
      *
      * @return array
      */
-    public function fetchAll(AbstractApi $api, string $method, array $parameters = []);
+    public function fetchAll(AbstractApi $api, string $method, array $parameters = []): array;
 
     /**
      * Lazily fetch all results from an api call.
@@ -61,14 +62,14 @@ interface ResultPagerInterface
      *
      * @return \Generator
      */
-    public function fetchAllLazy(AbstractApi $api, string $method, array $parameters = []);
+    public function fetchAllLazy(AbstractApi $api, string $method, array $parameters = []): Generator;
 
     /**
      * Check to determine the availability of a next page.
      *
      * @return bool
      */
-    public function hasNext();
+    public function hasNext(): bool;
 
     /**
      * Fetch the next page.
@@ -77,14 +78,14 @@ interface ResultPagerInterface
      *
      * @return array
      */
-    public function fetchNext();
+    public function fetchNext(): array;
 
     /**
      * Check to determine the availability of a previous page.
      *
      * @return bool
      */
-    public function hasPrevious();
+    public function hasPrevious(): bool;
 
     /**
      * Fetch the previous page.
@@ -93,5 +94,5 @@ interface ResultPagerInterface
      *
      * @return array
      */
-    public function fetchPrevious();
+    public function fetchPrevious(): array;
 }

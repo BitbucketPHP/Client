@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Bitbucket\HttpClient;
 
 use Http\Client\Common\HttpMethodsClient;
+use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin;
 use Http\Client\Common\Plugin\Cache\Generator\HeaderCacheKeyGenerator;
 use Http\Client\Common\Plugin\CachePlugin;
@@ -101,7 +102,7 @@ final class Builder
     /**
      * @return \Http\Client\Common\HttpMethodsClientInterface
      */
-    public function getHttpClient()
+    public function getHttpClient(): HttpMethodsClientInterface
     {
         if (null === $this->pluginClient) {
             $plugins = $this->plugins;
