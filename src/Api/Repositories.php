@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of Bitbucket API Client.
+ * This file is part of the Bitbucket API Client.
  *
  * (c) Graham Campbell <graham@alt-three.com>
  *
