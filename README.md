@@ -77,7 +77,7 @@ $client->authenticate(
 );
 ```
 
-Bitbucket Cloud does not support Personal Access Tokens, but you can create an Application Password at https://bitbucket.org/account/settings/app-passwords/.  Then use the above method to authenticate, but use the application password, not your bitbucket password.
+> If you have two-factor authentication enabled on your account, then you must use an [application password](https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/).
 
 #### JSON Web Token
 
