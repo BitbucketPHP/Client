@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V4.0 (UPCOMING)
+## V4.0 (22/12/2020)
 
 * Dropped support for PHP 7.1
 * Made builder class final
