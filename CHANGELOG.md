@@ -10,6 +10,11 @@ CHANGE LOG
 * Added additional return type enforcement
 
 
+## V3.3.1 (22/12/2020)
+
+* Added content type header constant
+
+
 ## V3.3 (27/11/2020)
 
 * Added PHP 8.0 support
