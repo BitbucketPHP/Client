@@ -77,6 +77,8 @@ $client->authenticate(
 );
 ```
 
+> If you have two-factor authentication enabled on your account, then you must use an [application password](https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/).
+
 #### JSON Web Token
 
 Finally, we support logging in using JSON web tokens (JWTs). This method is exclusively required by some of Bitbucket's API endpoints, such as the addons API. Generate your JWT, perahps using [lcobucci/jwt](https://github.com/lcobucci/jwt/tree/3.3.2), then provide it as below:
