@@ -77,6 +77,8 @@ $client->authenticate(
 );
 ```
 
+Bitbucket Cloud does not support Personal Access Tokens, but you can create an Application Password at https://bitbucket.org/account/settings/app-passwords/.  Then use the above method to authenticate, but use the application password, not your bitbucket password.
+
 #### JSON Web Token
 
 Finally, we support logging in using JSON web tokens (JWTs). This method is exclusively required by some of Bitbucket's API endpoints, such as the addons API. Generate your JWT, perahps using [lcobucci/jwt](https://github.com/lcobucci/jwt/tree/3.3.2), then provide it as below:
