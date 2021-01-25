@@ -28,7 +28,7 @@ This version supports [PHP](https://php.net) 7.2-8.0. To get started, simply req
 ### Standard Installation
 
 ```bash
-$ composer require bitbucket/client:^4.0 guzzlehttp/guzzle:^7.2 http-interop/http-factory-guzzle:^1.0
+$ composer require "bitbucket/client:^4.0" "guzzlehttp/guzzle:^7.2" "http-interop/http-factory-guzzle:^1.0"
 ```
 
 ### Framework Integration
@@ -36,7 +36,7 @@ $ composer require bitbucket/client:^4.0 guzzlehttp/guzzle:^7.2 http-interop/htt
 #### Laravel 6+:
 
 ```bash
-$ composer require graham-campbell/bitbucket:^8.0 guzzlehttp/guzzle:^7.2 http-interop/http-factory-guzzle:^1.0
+$ composer require "graham-campbell/bitbucket:^8.0" "guzzlehttp/guzzle:^7.2" "http-interop/http-factory-guzzle:^1.0"
 ```
 
 We are decoupled from any HTTP messaging client by using [PSR-7](https://www.php-fig.org/psr/psr-7/), [PSR-17](https://www.php-fig.org/psr/psr-17/), [PSR-18](https://www.php-fig.org/psr/psr-18/), and [HTTPlug](https://httplug.io/). You can visit [HTTPlug for library users](https://docs.php-http.org/en/latest/httplug/users.html) to get more information about installing HTTPlug related packages. The framework integration [`graham-campbell/bitbucket`](https://github.com/GrahamCampbell/Laravel-Bitbucket) is by [Graham Campbell](https://github.com/GrahamCampbell).
