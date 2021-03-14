@@ -31,7 +31,7 @@ class Environments extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $uri = $this->buildEnvironmentsUri();
+        $uri = UriBuilder::appendSeparator($this->buildEnvironmentsUri());
 
         return $this->get($uri, $params);
     }
@@ -60,7 +60,7 @@ class Environments extends AbstractWorkspacesApi
      */
     public function create(array $params = [])
     {
-        $uri = $this->buildEnvironmentsUri();
+        $uri = UriBuilder::appendSeparator($this->buildEnvironmentsUri());
 
         return $this->post($uri, $params);
     }
