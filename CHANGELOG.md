@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V4.0.1 (14/03/2021)
+
+* Fixed some incorrect endpoint URIs
+
+
 ## V4.0 (22/12/2020)
 
 * Dropped support for PHP 7.1
