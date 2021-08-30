@@ -39,7 +39,7 @@ class Reports extends AbstractCommitApi
 
     /**
      * @param string $report
-     * @param array $params
+     * @param array  $params
      *
      * @throws \Http\Client\Exception
      *
