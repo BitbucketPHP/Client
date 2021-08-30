@@ -38,17 +38,18 @@ class Reports extends AbstractCommitApi
     }
 
     /**
+     * @param string $report
      * @param array $params
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(string $report, array $params = [])
     {
-        $uri = $this->buildReportsUri();
+        $uri = $this->buildReportsUri($report);
 
-        return $this->post($uri, $params);
+        return $this->put($uri, $params);
     }
 
     /**
