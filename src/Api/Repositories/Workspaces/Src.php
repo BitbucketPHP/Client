@@ -38,6 +38,22 @@ class Src extends AbstractWorkspacesApi
         return $this->get($uri, $params);
     }
 
+	/**
+	 * @param string $commit
+	 * @param string $filepath
+	 * @param array  $params
+	 *
+	 * @throws \Http\Client\Exception
+	 *
+	 * @return array
+	 */
+	public function listCommit(string $commit, string $filepath, array $params = [])
+	{
+		$uri = $this->buildSrcUri($commit, $filepath);
+
+		return $this->get($uri, $params);
+	}
+
     /**
      * @param array<string,string> $params
      *
