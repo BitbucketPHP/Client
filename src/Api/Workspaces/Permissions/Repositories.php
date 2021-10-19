@@ -11,18 +11,16 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\Workspaces;
+namespace Bitbucket\Api\Workspaces\Permissions;
 
-use Bitbucket\Api\Workspaces\Permissions\Repositories;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The permissions API class.
+ * The repositories API class.
  *
- * @author Graham Campbell <graham@alt-three.com>
  * @author Patrick Barsallo <p.d.barsallo@gmail.com>
  */
-class Permissions extends AbstractWorkspacesApi
+class Repositories extends AbstractPermissionsApi
 {
     /**
      * @param array $params
@@ -33,28 +31,35 @@ class Permissions extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $uri = $this->buildPermissionsUri();
+        $uri = UriBuilder::appendSeparator($this->buildRepositoriesUri());
 
         return $this->get($uri, $params);
     }
 
     /**
-     * @return \Bitbucket\Api\Workspaces\Permissions\Repositories
+     * @param string $repo
+     * @param array  $params
+     *
+     * @throws \Http\Client\Exception
+     *
+     * @return array
      */
-    public function repositories()
+    public function show(string $repo, array $params = [])
     {
-        return new Repositories($this->getClient(), $this->workspace);
+        $uri = $this->buildRepositoriesUri($repo);
+
+        return $this->get($uri, $params);
     }
 
     /**
-     * Build the permissions URI from the given parts.
+     * Build the repositories URI from the given parts.
      *
      * @param string ...$parts
      *
      * @return string
      */
-    protected function buildPermissionsUri(string ...$parts)
+    protected function buildRepositoriesUri(string ...$parts)
     {
-        return UriBuilder::build('workspaces', $this->workspace, 'permissions', ...$parts);
+        return UriBuilder::build('workspaces', $this->workspace, 'permissions', 'repositories', ...$parts);
     }
 }
