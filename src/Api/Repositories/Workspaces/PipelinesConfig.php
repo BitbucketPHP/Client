@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Repositories\Workspaces;
 
+use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Variables;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
@@ -22,6 +23,14 @@ use Bitbucket\HttpClient\Util\UriBuilder;
  */
 class PipelinesConfig extends AbstractWorkspacesApi
 {
+    /**
+     * @return \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Variables
+     */
+    public function variables()
+    {
+        return new Variables($this->getClient(), $this->workspace, $this->repo);
+    }
+
     /**
      * @param array $params
      *
