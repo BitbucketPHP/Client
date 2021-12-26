@@ -41,7 +41,7 @@ final class IntegrationTest extends TestCase
         $client = new Client();
 
         $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessage('Repository atlassian/qwertyuiop not found');
+        $this->expectExceptionMessage('The requested repository either does not exist or you do not have access');
 
         $client
             ->repositories()
