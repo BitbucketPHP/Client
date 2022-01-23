@@ -33,6 +33,7 @@ final class UriBuilder
      */
     public static function build(string ...$parts): string
     {
+        /** @var int $index */
         foreach ($parts as $index => $part) {
             if ('' === $part) {
                 throw new ValueError(\sprintf('%s::buildUri(): Argument #%d ($parts) must non-empty', self::class, $index + 1));
