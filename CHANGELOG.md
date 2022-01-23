@@ -7,6 +7,12 @@ CHANGE LOG
 * TODO
 
 
+## V4.0.2 (23/01/2022)
+
+* Added missing `PipelinesConfig::variables()` method
+* Fixed some incorrect endpoint URIs
+
+
 ## V4.0.1 (14/03/2021)
 
 * Fixed some incorrect endpoint URIs

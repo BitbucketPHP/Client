@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of the Bitbucket API Client.
  *
- * (c) Graham Campbell <graham@alt-three.com>
+ * (c) Graham Campbell <hello@gjcampbell.co.uk>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -18,7 +18,7 @@ use Bitbucket\Exception\RuntimeException;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @author Graham Campbell <graham@alt-three.com>
+ * @author Graham Campbell <hello@gjcampbell.co.uk>
  */
 final class IntegrationTest extends TestCase
 {
@@ -41,7 +41,7 @@ final class IntegrationTest extends TestCase
         $client = new Client();
 
         $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessage('Repository atlassian/qwertyuiop not found');
+        $this->expectExceptionMessage('The requested repository either does not exist or you do not have access');
 
         $client
             ->repositories()

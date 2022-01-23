@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of the Bitbucket API Client.
  *
- * (c) Graham Campbell <graham@alt-three.com>
+ * (c) Graham Campbell <hello@gjcampbell.co.uk>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -18,7 +18,7 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 /**
  * The branch restrictions API class.
  *
- * @author Graham Campbell <graham@alt-three.com>
+ * @author Graham Campbell <hello@gjcampbell.co.uk>
  */
 class Commits extends AbstractWorkspacesApi
 {
@@ -31,7 +31,7 @@ class Commits extends AbstractWorkspacesApi
      */
     public function list(array $params = [])
     {
-        $uri = $this->buildCommitsUri();
+        $uri = UriBuilder::build('repositories', $this->workspace, $this->repo, 'commits');
 
         return $this->get($uri, $params);
     }
@@ -46,20 +46,8 @@ class Commits extends AbstractWorkspacesApi
      */
     public function show(string $commit, array $params = [])
     {
-        $uri = $this->buildCommitsUri($commit);
+        $uri = UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $commit);
 
         return $this->get($uri, $params);
-    }
-
-    /**
-     * Build the commits URI from the given parts.
-     *
-     * @param string ...$parts
-     *
-     * @return string
-     */
-    protected function buildCommitsUri(string ...$parts)
-    {
-        return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commits', ...$parts);
     }
 }

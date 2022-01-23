@@ -1,6 +1,11 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Property Bitbucket\\\\Api\\\\AbstractApi\\:\\:\\$perPage is never written, only read\\.$#"
+			count: 1
+			path: src/Api/AbstractApi.php
+
+		-
 			message: "#^Variable method call on Bitbucket\\\\Api\\\\AbstractApi\\.$#"
 			count: 1
 			path: src/ResultPager.php

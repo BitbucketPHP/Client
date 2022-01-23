@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of the Bitbucket API Client.
  *
- * (c) Graham Campbell <graham@alt-three.com>
+ * (c) Graham Campbell <hello@gjcampbell.co.uk>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -20,7 +20,7 @@ use ValueError;
  *
  * @internal
  *
- * @author Graham Campbell <graham@alt-three.com>
+ * @author Graham Campbell <hello@gjcampbell.co.uk>
  */
 final class UriBuilder
 {
@@ -33,6 +33,7 @@ final class UriBuilder
      */
     public static function build(string ...$parts): string
     {
+        /** @var int $index */
         foreach ($parts as $index => $part) {
             if ('' === $part) {
                 throw new ValueError(\sprintf('%s::buildUri(): Argument #%d ($parts) must non-empty', self::class, $index + 1));
