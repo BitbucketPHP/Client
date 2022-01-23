@@ -2,9 +2,10 @@ CHANGE LOG
 ==========
 
 
-## V4.1 (UPCOMING)
+## V4.1 (23/01/2022)
 
-* TODO
+* Added PHP 8.1 support
+* Added `psr/cache` v2 and v3 support
 
 
 ## V4.0.2 (23/01/2022)
