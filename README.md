@@ -23,20 +23,20 @@ Check out the [change log](CHANGELOG.md), [releases](https://github.com/Bitbucke
 
 ## Installation
 
-This version supports [PHP](https://php.net) 7.2-8.1. To get started, simply require the project using [Composer](https://getcomposer.org). You will also need to install packages that "provide" [`psr/http-client-implementation`](https://packagist.org/providers/psr/http-client-implementation) and [`psr/http-factory-implementation`](https://packagist.org/providers/psr/http-factory-implementation).
+This version supports [PHP](https://php.net) 7.4-8.1. To get started, simply require the project using [Composer](https://getcomposer.org). You will also need to install packages that "provide" [`psr/http-client-implementation`](https://packagist.org/providers/psr/http-client-implementation) and [`psr/http-factory-implementation`](https://packagist.org/providers/psr/http-factory-implementation).
 
 ### Standard Installation
 
 ```bash
-$ composer require "bitbucket/client:^4.1" "guzzlehttp/guzzle:^7.4" "http-interop/http-factory-guzzle:^1.0"
+$ composer require "bitbucket/client:^4.2" "guzzlehttp/guzzle:^7.4" "http-interop/http-factory-guzzle:^1.2"
 ```
 
 ### Framework Integration
 
-#### Laravel 6+:
+#### Laravel:
 
 ```bash
-$ composer require "graham-campbell/bitbucket:^8.1" "guzzlehttp/guzzle:^7.4" "http-interop/http-factory-guzzle:^1.0"
+$ composer require "graham-campbell/bitbucket:^9.0"
 ```
 
 We are decoupled from any HTTP messaging client by using [PSR-7](https://www.php-fig.org/psr/psr-7/), [PSR-17](https://www.php-fig.org/psr/psr-17/), [PSR-18](https://www.php-fig.org/psr/psr-18/), and [HTTPlug](https://httplug.io/). You can visit [HTTPlug for library users](https://docs.php-http.org/en/latest/httplug/users.html) to get more information about installing HTTPlug related packages. The framework integration [`graham-campbell/bitbucket`](https://github.com/GrahamCampbell/Laravel-Bitbucket) is by [Graham Campbell](https://github.com/GrahamCampbell).
