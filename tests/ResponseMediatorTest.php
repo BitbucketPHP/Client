@@ -32,7 +32,7 @@ class ResponseMediatorTest extends TestCase
             Utils::streamFor('{"foo": "bar"}')
         );
 
-        $this->assertSame(['foo' => 'bar'], ResponseMediator::getContent($response));
+        self::assertSame(['foo' => 'bar'], ResponseMediator::getContent($response));
     }
 
     public function testGetContentNotJson(): void
@@ -74,6 +74,6 @@ class ResponseMediatorTest extends TestCase
             Utils::streamFor($body)
         );
 
-        $this->assertNull(ResponseMediator::getErrorMessage($response));
+        self::assertNull(ResponseMediator::getErrorMessage($response));
     }
 }

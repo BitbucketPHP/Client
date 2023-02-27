@@ -23,12 +23,12 @@ Check out the [change log](CHANGELOG.md), [releases](https://github.com/Bitbucke
 
 ## Installation
 
-This version supports [PHP](https://php.net) 7.4-8.1. To get started, simply require the project using [Composer](https://getcomposer.org). You will also need to install packages that "provide" [`psr/http-client-implementation`](https://packagist.org/providers/psr/http-client-implementation) and [`psr/http-factory-implementation`](https://packagist.org/providers/psr/http-factory-implementation).
+This version supports [PHP](https://php.net) 7.4-8.2. To get started, simply require the project using [Composer](https://getcomposer.org). You will also need to install packages that "provide" [`psr/http-client-implementation`](https://packagist.org/providers/psr/http-client-implementation) and [`psr/http-factory-implementation`](https://packagist.org/providers/psr/http-factory-implementation).
 
 ### Standard Installation
 
 ```bash
-$ composer require "bitbucket/client:^4.2" "guzzlehttp/guzzle:^7.4" "http-interop/http-factory-guzzle:^1.2"
+$ composer require "bitbucket/client:^4.3" "guzzlehttp/guzzle:^7.5" "http-interop/http-factory-guzzle:^1.2"
 ```
 
 ### Framework Integration
