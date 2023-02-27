@@ -41,7 +41,7 @@ final class IntegrationTest extends TestCase
         $client = new Client();
 
         $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessage('The requested repository either does not exist or you do not have access');
+        $this->expectExceptionMessage('You may not have access to this repository or it no longer exists in this workspace');
 
         $client
             ->repositories()
