@@ -5,7 +5,7 @@ We present a modern [Bitbucket API 2.0](https://api.bitbucket.org/) client for P
 ![Banner](https://user-images.githubusercontent.com/2829600/86968999-f9334a80-c164-11ea-9c20-2a4f9f9c898f.png)
 
 <p align="center">
-<a href="https://github.com/BitbucketPHP/Client/actions?query=workflow%3ATests"><img src="https://img.shields.io/github/workflow/status/BitbucketPHP/Client/Tests?label=Tests&style=flat-square" alt="Build Status"></img></a>
+<a href="https://github.com/BitbucketPHP/Client/actions?query=workflow%3ATests"><img src="https://img.shields.io/github/actions/workflow/status/BitbucketPHP/Client/tests.yml?label=Tests&style=flat-square" alt="Build Status"></img></a>
 <a href="https://github.styleci.io/repos/127466560"><img src="https://github.styleci.io/repos/127466560/shield" alt="StyleCI Status"></img></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" alt="Software License"></img></a>
 <a href="https://packagist.org/packages/bitbucket/client"><img src="https://img.shields.io/packagist/dt/bitbucket/client?style=flat-square" alt="Packagist Downloads"></img></a>
@@ -28,7 +28,8 @@ This version supports [PHP](https://php.net) 7.4-8.2. To get started, simply req
 ### Standard Installation
 
 ```bash
-$ composer require "bitbucket/client:^4.3" "guzzlehttp/guzzle:^7.5" "http-interop/http-factory-guzzle:^1.2"
+$ composer require "bitbucket/client:^4.3" \
+  "guzzlehttp/guzzle:^7.5" "http-interop/http-factory-guzzle:^1.2"
 ```
 
 ### Framework Integration
@@ -36,7 +37,7 @@ $ composer require "bitbucket/client:^4.3" "guzzlehttp/guzzle:^7.5" "http-intero
 #### Laravel:
 
 ```bash
-$ composer require "graham-campbell/bitbucket:^9.0"
+$ composer require "graham-campbell/bitbucket:^10.0"
 ```
 
 We are decoupled from any HTTP messaging client by using [PSR-7](https://www.php-fig.org/psr/psr-7/), [PSR-17](https://www.php-fig.org/psr/psr-17/), [PSR-18](https://www.php-fig.org/psr/psr-18/), and [HTTPlug](https://httplug.io/). You can visit [HTTPlug for library users](https://docs.php-http.org/en/latest/httplug/users.html) to get more information about installing HTTPlug related packages. The framework integration [`graham-campbell/bitbucket`](https://github.com/GrahamCampbell/Laravel-Bitbucket) is by [Graham Campbell](https://github.com/GrahamCampbell).
