@@ -82,7 +82,7 @@ $client->authenticate(
 
 #### JSON Web Token
 
-Finally, we support logging in using JSON web tokens (JWTs). This method is exclusively required by some of Bitbucket's API endpoints, such as the addons API. Generate your JWT, perahps using [lcobucci/jwt](https://github.com/lcobucci/jwt/tree/3.3.2), then provide it as below:
+Finally, we support logging in using JSON web tokens (JWTs). This method is exclusively required by some of Bitbucket's API endpoints, such as the addons API. Generate your JWT, perahps using [lcobucci/jwt](https://github.com/lcobucci/jwt/tree/4.3.0), then provide it as below:
 
 
 ```php
