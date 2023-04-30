@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V4.4 (UPCOMING)
+
+* Added support for `psr/http-message` v2
+
+
 ## V4.3 (27/02/2023)
 
 * Added PHP 8.2 support
