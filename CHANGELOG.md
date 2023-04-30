@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V4.4 (UPCOMING)
+## V4.4 (30/04/2023)
 
 * Added support for `psr/http-message` v2
 
