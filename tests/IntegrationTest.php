@@ -28,12 +28,12 @@ final class IntegrationTest extends TestCase
 
         $response = $client
             ->repositories()
-            ->workspaces('atlassian')
-            ->show('stash-example-plugin');
+            ->workspaces('StyleCI')
+            ->show('test');
 
         self::assertIsArray($response);
         self::assertTrue(isset($response['uuid']));
-        self::assertSame('{7dd600e6-0d9c-4801-b967-cb4cc17359ff}', $response['uuid']);
+        self::assertSame('{e530baa1-ce6e-4d52-a292-0432765c1970}', $response['uuid']);
     }
 
     public function testRepoNotFound(): void
@@ -45,7 +45,7 @@ final class IntegrationTest extends TestCase
 
         $client
             ->repositories()
-            ->workspaces('atlassian')
+            ->workspaces('StyleCI')
             ->show('qwertyuiop');
     }
 }
