@@ -28,7 +28,7 @@ This version supports [PHP](https://php.net) 7.4-8.3. To get started, simply req
 ### Standard Installation
 
 ```bash
-$ composer require "bitbucket/client:^4.5" \
+$ composer require "bitbucket/client:^4.6" \
   "guzzlehttp/guzzle:^7.8" "http-interop/http-factory-guzzle:^1.2"
 ```
 
@@ -37,7 +37,7 @@ $ composer require "bitbucket/client:^4.5" \
 #### Laravel:
 
 ```bash
-$ composer require "graham-campbell/bitbucket:^10.2"
+$ composer require "graham-campbell/bitbucket:^10.3"
 ```
 
 We are decoupled from any HTTP messaging client by using [PSR-7](https://www.php-fig.org/psr/psr-7/), [PSR-17](https://www.php-fig.org/psr/psr-17/), [PSR-18](https://www.php-fig.org/psr/psr-18/), and [HTTPlug](https://httplug.io/). You can visit [HTTPlug for library users](https://docs.php-http.org/en/latest/httplug/users.html) to get more information about installing HTTPlug related packages. The framework integration [`graham-campbell/bitbucket`](https://github.com/GrahamCampbell/Laravel-Bitbucket) is by [Graham Campbell](https://github.com/GrahamCampbell).
@@ -45,7 +45,7 @@ We are decoupled from any HTTP messaging client by using [PSR-7](https://www.php
 
 ## Usage
 
-The main point of entry is the `Bitbucket\Client` class. Simply create a new instance of that, authenticate, and you're good to go! As of time of writing (Tuesday 29th June 2020), every endpoint (excluding issue export and import, and various deprecated endpoints) available on the Bitbucket API 2.0 is also available through this PHP client. We'd recommend looking through the [Bitbucket documentation](https://developer.atlassian.com/cloud/bitbucket/rest/intro/), and also the [source code](https://github.com/BitbucketPHP/Client/tree/4.5/src) to get a full picture of what is available to use.
+The main point of entry is the `Bitbucket\Client` class. Simply create a new instance of that, authenticate, and you're good to go! As of time of writing (Tuesday 29th June 2020), every endpoint (excluding issue export and import, and various deprecated endpoints) available on the Bitbucket API 2.0 is also available through this PHP client. We'd recommend looking through the [Bitbucket documentation](https://developer.atlassian.com/cloud/bitbucket/rest/intro/), and also the [source code](https://github.com/BitbucketPHP/Client/tree/4.6/src) to get a full picture of what is available to use.
 
 ### Authentication
 
