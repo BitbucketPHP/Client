@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V4.6.1 (17/03/2024)
+
+* Fixed issues with `Src` and` Downloads`
+
+
 ## V4.6 (03/12/2023)
 
 * Add support for `symfony/options-resolver:^7.0`
