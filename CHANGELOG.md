@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V4.7 (UPCOMING)
+
+* Add support for `php-http/cache-plugin:^2.0`
+
+
 ## V4.6.1 (17/03/2024)
 
 * Fixed issues with `Src` and` Downloads`

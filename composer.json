@@ -13,7 +13,7 @@
     "require": {
         "php": "^7.4.15 || ^8.0.2",
         "ext-json": "*",
-        "php-http/cache-plugin": "^1.8.1",
+        "php-http/cache-plugin": "^1.8.1 || ^2.0",
         "php-http/client-common": "^2.7.1",
         "php-http/discovery": "^1.19.2",
         "php-http/httplug": "^2.4",
