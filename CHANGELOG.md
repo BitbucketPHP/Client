@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V4.7 (UPCOMING)
+## V4.7 (17/03/2024)
 
 * Add support for `php-http/cache-plugin:^2.0`
 
