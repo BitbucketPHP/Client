@@ -65,7 +65,7 @@ class Downloads extends AbstractWorkspacesApi
      */
     public function download(string $filename, array $params = [])
     {
-        $uri = $this->buildDownloadsUri($filename);
+        $uri = $this->buildDownloadsUri(...\explode('/', $filename));
 
         return $this->getAsResponse($uri, $params, ['Accept' => '*/*'])->getBody();
     }
@@ -80,7 +80,7 @@ class Downloads extends AbstractWorkspacesApi
      */
     public function remove(string $filename, array $params = [])
     {
-        $uri = $this->buildDownloadsUri($filename);
+        $uri = $this->buildDownloadsUri(...\explode('/', $filename));
 
         return $this->delete($uri, $params);
     }

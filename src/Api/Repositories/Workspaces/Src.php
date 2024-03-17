@@ -94,7 +94,7 @@ class Src extends AbstractWorkspacesApi
      */
     public function show(string $commit, string $filepath, array $params = [])
     {
-        $uri = $this->buildSrcUri($commit, $filepath);
+        $uri = $this->buildSrcUri($commit, ...\explode('/', $filepath));
 
         if (!isset($params['format'])) {
             $params['format'] = 'meta';
@@ -114,7 +114,7 @@ class Src extends AbstractWorkspacesApi
      */
     public function download(string $commit, string $filepath, array $params = [])
     {
-        $uri = $this->buildSrcUri($commit, $filepath);
+        $uri = $this->buildSrcUri($commit, ...\explode('/', $filepath));
 
         return $this->getAsResponse($uri, $params, ['Accept' => '*/*'])->getBody();
     }
