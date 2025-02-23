@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V5.0 (UPCOMING)
+## V5.0 (23/02/2025)
 
 * Added PHP 8.4 support
 * Dropped PHP 7.4 and 8.0 support
