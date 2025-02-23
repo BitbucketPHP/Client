@@ -6,6 +6,7 @@ CHANGE LOG
 
 * Added PHP 8.4 support
 * Dropped PHP 7.4 and 8.0 support
+* Moved various param types to native PHP types
 
 
 ## V4.7 (17/03/2024)
