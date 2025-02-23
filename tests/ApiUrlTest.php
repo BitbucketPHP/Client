@@ -8,6 +8,7 @@ use Bitbucket\Client;
 use Bitbucket\HttpClient\Builder;
 use Http\Mock\Client as MockClient;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * Tests API URLs constructed in Src and Downloads API classes.
@@ -23,12 +24,7 @@ class ApiUrlTest extends TestCase
         $this->client = new Client(new Builder($this->httpClient));
     }
 
-    /**
-     * @covers \Bitbucket\Api\Repositories\Workspaces\Src::show
-     * @covers \Bitbucket\Api\Repositories\Workspaces\Src::buildSrcUri
-     *
-     * @dataProvider dataProvider
-     */
+    #[DataProvider('dataProvider')]
     public function testWorkspaceSrcShowUri(string $fileName): void
     {
         $this->client->repositories()
@@ -42,12 +38,7 @@ class ApiUrlTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Bitbucket\Api\Repositories\Workspaces\Src::download
-     * @covers \Bitbucket\Api\Repositories\Workspaces\Src::buildSrcUri
-     *
-     * @dataProvider dataProvider
-     */
+    #[DataProvider('dataProvider')]
     public function testWorkspaceSrcDownloadUri(string $fileName): void
     {
         $this->client->repositories()
@@ -61,12 +52,7 @@ class ApiUrlTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Bitbucket\Api\Repositories\Workspaces\Downloads::download
-     * @covers \Bitbucket\Api\Repositories\Workspaces\Downloads::buildDownloadsUri
-     *
-     * @dataProvider dataProvider
-     */
+    #[DataProvider('dataProvider')]
     public function testWorkspaceDownloadUri(string $fileName): void
     {
         $this->client->repositories()
@@ -80,12 +66,7 @@ class ApiUrlTest extends TestCase
         );
     }
 
-    /**
-     * @covers \Bitbucket\Api\Repositories\Workspaces\Downloads::remove
-     * @covers \Bitbucket\Api\Repositories\Workspaces\Downloads::buildDownloadsUri
-     *
-     * @dataProvider dataProvider
-     */
+    #[DataProvider('dataProvider')]
     public function testWorkspaceRemoveUri(string $fileName): void
     {
         $this->client->repositories()

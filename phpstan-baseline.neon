@@ -1,8 +1,8 @@
 parameters:
 	ignoreErrors:
 		-
-			message: '#^Property Bitbucket\\Api\\AbstractApi\:\:\$perPage is never written, only read\.$#'
-			identifier: property.onlyRead
+			message: '#^Property Bitbucket\\Api\\AbstractApi\:\:\$perPage \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
 			count: 1
 			path: src/Api/AbstractApi.php
 
