@@ -28,10 +28,12 @@ use Psr\Http\Message\ResponseInterface;
  */
 final class History implements Journal
 {
-    /**
-     * The last response.
-     */
-    private ?\Psr\Http\Message\ResponseInterface $lastResponse;
+    private ?ResponseInterface $lastResponse;
+
+    public function __construct()
+    {
+        $this->lastResponse = null;
+    }
 
     /**
      * Get the last response.
