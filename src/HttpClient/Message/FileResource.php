@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Bitbucket\HttpClient\Message;
 
+use Psr\Http\Message\StreamInterface;
+
 /**
  * This is the file resource class.
  *
@@ -23,7 +25,7 @@ final class FileResource
     /**
      * Create a new file resource instance.
      *
-     * @param string|resource|\Psr\Http\Message\StreamInterface $resource
+     * @param string|resource|StreamInterface $resource
      *
      * @return void
      */
@@ -45,7 +47,7 @@ final class FileResource
     /**
      * Get the resource.
      *
-     * @return string|resource|\Psr\Http\Message\StreamInterface
+     * @return string|resource|StreamInterface
      */
     public function getResource()
     {
