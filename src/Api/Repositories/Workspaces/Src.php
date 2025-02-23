@@ -29,7 +29,7 @@ class Src extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildSrcUri();
 
@@ -43,7 +43,7 @@ class Src extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildSrcUri();
 
@@ -58,7 +58,7 @@ class Src extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function createWithFiles(array $files, array $params = [])
+    public function createWithFiles(array $files, array $params = []): array
     {
         $uri = $this->buildSrcUri();
 
@@ -86,7 +86,7 @@ class Src extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $commit, string $filepath, array $params = [])
+    public function show(string $commit, string $filepath, array $params = []): array
     {
         $uri = $this->buildSrcUri($commit, ...\explode('/', $filepath));
 
@@ -102,7 +102,7 @@ class Src extends AbstractWorkspacesApi
      *
      * @return \Psr\Http\Message\StreamInterface
      */
-    public function download(string $commit, string $filepath, array $params = [])
+    public function download(string $commit, string $filepath, array $params = []): \Psr\Http\Message\StreamInterface
     {
         $uri = $this->buildSrcUri($commit, ...\explode('/', $filepath));
 
@@ -114,7 +114,7 @@ class Src extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildSrcUri(string ...$parts)
+    protected function buildSrcUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'src', ...$parts);
     }

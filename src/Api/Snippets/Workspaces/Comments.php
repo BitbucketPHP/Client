@@ -27,7 +27,7 @@ class Comments extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildCommentsUri();
 
@@ -39,7 +39,7 @@ class Comments extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildCommentsUri();
 
@@ -51,7 +51,7 @@ class Comments extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $comment, array $params = [])
+    public function show(string $comment, array $params = []): array
     {
         $uri = $this->buildCommentsUri($comment);
 
@@ -63,7 +63,7 @@ class Comments extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function update(string $comment, array $params = [])
+    public function update(string $comment, array $params = []): array
     {
         $uri = $this->buildCommentsUri($comment);
 
@@ -75,7 +75,7 @@ class Comments extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function remove(string $comment, array $params = [])
+    public function remove(string $comment, array $params = []): array
     {
         $uri = $this->buildCommentsUri($comment);
 
@@ -87,7 +87,7 @@ class Comments extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildCommentsUri(string ...$parts)
+    protected function buildCommentsUri(string ...$parts): string
     {
         return UriBuilder::build('snippets', $this->workspace, $this->snippet, 'comments', ...$parts);
     }

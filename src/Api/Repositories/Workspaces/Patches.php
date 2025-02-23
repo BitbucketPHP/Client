@@ -27,7 +27,7 @@ class Patches extends AbstractWorkspacesApi
      *
      * @return \Psr\Http\Message\StreamInterface
      */
-    public function download(string $spec, array $params = [])
+    public function download(string $spec, array $params = []): \Psr\Http\Message\StreamInterface
     {
         $uri = $this->buildPatchesUri($spec);
 
@@ -39,7 +39,7 @@ class Patches extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildPatchesUri(string ...$parts)
+    protected function buildPatchesUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'patch', ...$parts);
     }

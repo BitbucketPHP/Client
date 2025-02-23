@@ -27,7 +27,7 @@ class Tags extends AbstractRefsApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildTagsUri();
 
@@ -39,7 +39,7 @@ class Tags extends AbstractRefsApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildTagsUri();
 
@@ -51,7 +51,7 @@ class Tags extends AbstractRefsApi
      *
      * @return array
      */
-    public function show(string $tag, array $params = [])
+    public function show(string $tag, array $params = []): array
     {
         $uri = $this->buildTagsUri($tag);
 
@@ -63,7 +63,7 @@ class Tags extends AbstractRefsApi
      *
      * @return array
      */
-    public function remove(string $tag, array $params = [])
+    public function remove(string $tag, array $params = []): array
     {
         $uri = $this->buildTagsUri($tag);
 
@@ -75,7 +75,7 @@ class Tags extends AbstractRefsApi
      *
      * @return string
      */
-    protected function buildTagsUri(string ...$parts)
+    protected function buildTagsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'refs', 'tags', ...$parts);
     }

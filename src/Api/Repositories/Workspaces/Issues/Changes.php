@@ -27,7 +27,7 @@ class Changes extends AbstractIssuesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildChangesUri();
 
@@ -39,7 +39,7 @@ class Changes extends AbstractIssuesApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildChangesUri();
 
@@ -51,7 +51,7 @@ class Changes extends AbstractIssuesApi
      *
      * @return array
      */
-    public function show(string $change, array $params = [])
+    public function show(string $change, array $params = []): array
     {
         $uri = $this->buildChangesUri($change);
 
@@ -63,7 +63,7 @@ class Changes extends AbstractIssuesApi
      *
      * @return string
      */
-    protected function buildChangesUri(string ...$parts)
+    protected function buildChangesUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'changes', ...$parts);
     }

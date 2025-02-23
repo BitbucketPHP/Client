@@ -27,7 +27,7 @@ class DeployKeys extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildDeployKeysUri();
 
@@ -39,7 +39,7 @@ class DeployKeys extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildDeployKeysUri();
 
@@ -51,7 +51,7 @@ class DeployKeys extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $id, array $params = [])
+    public function show(string $id, array $params = []): array
     {
         $uri = $this->buildDeployKeysUri($id);
 
@@ -63,7 +63,7 @@ class DeployKeys extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function update(string $id, array $params = [])
+    public function update(string $id, array $params = []): array
     {
         $uri = $this->buildDeployKeysUri($id);
 
@@ -75,7 +75,7 @@ class DeployKeys extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function remove(string $id, array $params = [])
+    public function remove(string $id, array $params = []): array
     {
         $uri = $this->buildDeployKeysUri($id);
 
@@ -87,7 +87,7 @@ class DeployKeys extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildDeployKeysUri(string ...$parts)
+    protected function buildDeployKeysUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'deploy-keys', ...$parts);
     }

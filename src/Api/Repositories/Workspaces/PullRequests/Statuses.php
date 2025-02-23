@@ -27,7 +27,7 @@ class Statuses extends AbstractPullRequestsApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildStatusesUri();
 
@@ -39,7 +39,7 @@ class Statuses extends AbstractPullRequestsApi
      *
      * @return string
      */
-    protected function buildStatusesUri(string ...$parts)
+    protected function buildStatusesUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'statuses', ...$parts);
     }

@@ -27,7 +27,7 @@ class RemoteTriggers extends AbstractPipelinesApi
      *
      * @return array
      */
-    public function update(string $key, array $params = [])
+    public function update(string $key, array $params = []): array
     {
         $uri = $this->buildRemoteTriggersUri($key);
 
@@ -39,7 +39,7 @@ class RemoteTriggers extends AbstractPipelinesApi
      *
      * @return string
      */
-    protected function buildRemoteTriggersUri(string ...$parts)
+    protected function buildRemoteTriggersUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines', $this->pipeline, 'remote-triggers', ...$parts);
     }

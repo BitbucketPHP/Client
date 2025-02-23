@@ -27,7 +27,7 @@ class Commits extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildCommitsUri();
 
@@ -39,7 +39,7 @@ class Commits extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $commit, array $params = [])
+    public function show(string $commit, array $params = []): array
     {
         $uri = $this->buildCommitsUri($commit);
 
@@ -51,7 +51,7 @@ class Commits extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildCommitsUri(string ...$parts)
+    protected function buildCommitsUri(string ...$parts): string
     {
         return UriBuilder::build('snippets', $this->workspace, $this->snippet, 'commits', ...$parts);
     }

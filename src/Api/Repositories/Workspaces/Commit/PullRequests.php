@@ -27,7 +27,7 @@ class PullRequests extends AbstractCommitApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildPullRequestsUri();
 
@@ -39,7 +39,7 @@ class PullRequests extends AbstractCommitApi
      *
      * @return string
      */
-    protected function buildPullRequestsUri(string ...$parts)
+    protected function buildPullRequestsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'pullrequests', ...$parts);
     }

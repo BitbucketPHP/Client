@@ -41,7 +41,7 @@ class Workspaces extends AbstractApi
      *
      * @return array
      */
-    public function show(array $params = [])
+    public function show(array $params = []): array
     {
         $uri = $this->buildWorkspacesUri();
 
@@ -53,7 +53,7 @@ class Workspaces extends AbstractApi
      *
      * @return array
      */
-    public function codeSearch(array $params = [])
+    public function codeSearch(array $params = []): array
     {
         $uri = $this->buildWorkspacesUri('search', 'code');
 
@@ -63,7 +63,7 @@ class Workspaces extends AbstractApi
     /**
      * @return \Bitbucket\Api\Workspaces\Hooks
      */
-    public function hooks()
+    public function hooks(): \Bitbucket\Api\Workspaces\Hooks
     {
         return new Hooks($this->getClient(), $this->workspace);
     }
@@ -71,7 +71,7 @@ class Workspaces extends AbstractApi
     /**
      * @return \Bitbucket\Api\Workspaces\Members
      */
-    public function members()
+    public function members(): \Bitbucket\Api\Workspaces\Members
     {
         return new Members($this->getClient(), $this->workspace);
     }
@@ -79,7 +79,7 @@ class Workspaces extends AbstractApi
     /**
      * @return \Bitbucket\Api\Workspaces\Permissions
      */
-    public function permissions()
+    public function permissions(): \Bitbucket\Api\Workspaces\Permissions
     {
         return new Permissions($this->getClient(), $this->workspace);
     }
@@ -87,7 +87,7 @@ class Workspaces extends AbstractApi
     /**
      * @return \Bitbucket\Api\Workspaces\PipelinesConfig
      */
-    public function pipelinesConfig()
+    public function pipelinesConfig(): \Bitbucket\Api\Workspaces\PipelinesConfig
     {
         return new PipelinesConfig($this->getClient(), $this->workspace);
     }
@@ -95,7 +95,7 @@ class Workspaces extends AbstractApi
     /**
      * @return \Bitbucket\Api\Workspaces\Projects
      */
-    public function projects()
+    public function projects(): \Bitbucket\Api\Workspaces\Projects
     {
         return new Projects($this->getClient(), $this->workspace);
     }
@@ -105,7 +105,7 @@ class Workspaces extends AbstractApi
      *
      * @return string
      */
-    protected function buildWorkspacesUri(string ...$parts)
+    protected function buildWorkspacesUri(string ...$parts): string
     {
         return UriBuilder::build('workspaces', $this->workspace, ...$parts);
     }

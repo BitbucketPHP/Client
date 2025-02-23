@@ -26,7 +26,7 @@ class PipelinesConfig extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Variables
      */
-    public function variables()
+    public function variables(): \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Variables
     {
         return new Variables($this->getClient(), $this->workspace, $this->repo);
     }
@@ -36,7 +36,7 @@ class PipelinesConfig extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(array $params = [])
+    public function show(array $params = []): array
     {
         $uri = $this->buildPipelinesConfigUri();
 
@@ -48,7 +48,7 @@ class PipelinesConfig extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function update(array $params = [])
+    public function update(array $params = []): array
     {
         $uri = $this->buildPipelinesConfigUri();
 
@@ -60,7 +60,7 @@ class PipelinesConfig extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildPipelinesConfigUri(string ...$parts)
+    protected function buildPipelinesConfigUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', ...$parts);
     }

@@ -27,7 +27,7 @@ class PullRequests extends AbstractApi
      *
      * @return array
      */
-    public function list(string $username, array $params = [])
+    public function list(string $username, array $params = []): array
     {
         $uri = $this->buildPullRequestsUri($username);
 
@@ -39,7 +39,7 @@ class PullRequests extends AbstractApi
      *
      * @return string
      */
-    protected function buildPullRequestsUri(string ...$parts)
+    protected function buildPullRequestsUri(string ...$parts): string
     {
         return UriBuilder::build('pullrequests', ...$parts);
     }

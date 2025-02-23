@@ -27,7 +27,7 @@ class Comments extends AbstractCommitApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildCommentsUri();
 
@@ -39,7 +39,7 @@ class Comments extends AbstractCommitApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildCommentsUri();
 
@@ -51,7 +51,7 @@ class Comments extends AbstractCommitApi
      *
      * @return array
      */
-    public function show(string $comment, array $params = [])
+    public function show(string $comment, array $params = []): array
     {
         $uri = $this->buildCommentsUri($comment);
 
@@ -63,7 +63,7 @@ class Comments extends AbstractCommitApi
      *
      * @return string
      */
-    protected function buildCommentsUri(string ...$parts)
+    protected function buildCommentsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'comments', ...$parts);
     }

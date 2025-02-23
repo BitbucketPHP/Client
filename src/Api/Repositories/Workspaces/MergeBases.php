@@ -27,7 +27,7 @@ class MergeBases extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $spec, array $params = [])
+    public function show(string $spec, array $params = []): array
     {
         $uri = $this->buildMergeBasesUri($spec);
 
@@ -39,7 +39,7 @@ class MergeBases extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildMergeBasesUri(string ...$parts)
+    protected function buildMergeBasesUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'merge-base', ...$parts);
     }

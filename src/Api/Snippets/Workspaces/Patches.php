@@ -27,7 +27,7 @@ class Patches extends AbstractWorkspacesApi
      *
      * @return \Psr\Http\Message\StreamInterface
      */
-    public function download(string $commit, array $params = [])
+    public function download(string $commit, array $params = []): \Psr\Http\Message\StreamInterface
     {
         $uri = $this->buildPatchesUri($commit, 'patch');
 
@@ -39,7 +39,7 @@ class Patches extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildPatchesUri(string ...$parts)
+    protected function buildPatchesUri(string ...$parts): string
     {
         return UriBuilder::build('snippets', $this->workspace, $this->snippet, ...$parts);
     }

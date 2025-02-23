@@ -28,7 +28,7 @@ class Statuses extends AbstractCommitApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildStatusesUri();
 
@@ -38,7 +38,7 @@ class Statuses extends AbstractCommitApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Statuses\Build
      */
-    public function build()
+    public function build(): \Bitbucket\Api\Repositories\Workspaces\Commit\Statuses\Build
     {
         return new Build($this->getClient(), $this->workspace, $this->repo, $this->commit);
     }
@@ -48,7 +48,7 @@ class Statuses extends AbstractCommitApi
      *
      * @return string
      */
-    protected function buildStatusesUri(string ...$parts)
+    protected function buildStatusesUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'statuses', ...$parts);
     }

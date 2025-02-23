@@ -27,7 +27,7 @@ class SshKeys extends AbstractUsersApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildSshKeysUri());
 
@@ -39,7 +39,7 @@ class SshKeys extends AbstractUsersApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildSshKeysUri());
 
@@ -51,7 +51,7 @@ class SshKeys extends AbstractUsersApi
      *
      * @return array
      */
-    public function show(string $id, array $params = [])
+    public function show(string $id, array $params = []): array
     {
         $uri = $this->buildSshKeysUri($id);
 
@@ -63,7 +63,7 @@ class SshKeys extends AbstractUsersApi
      *
      * @return array
      */
-    public function update(string $id, array $params = [])
+    public function update(string $id, array $params = []): array
     {
         $uri = $this->buildSshKeysUri($id);
 
@@ -75,7 +75,7 @@ class SshKeys extends AbstractUsersApi
      *
      * @return array
      */
-    public function remove(string $id, array $params = [])
+    public function remove(string $id, array $params = []): array
     {
         $uri = $this->buildSshKeysUri($id);
 
@@ -87,7 +87,7 @@ class SshKeys extends AbstractUsersApi
      *
      * @return string
      */
-    protected function buildSshKeysUri(string ...$parts)
+    protected function buildSshKeysUri(string ...$parts): string
     {
         return UriBuilder::build('users', $this->username, 'ssh-keys', ...$parts);
     }

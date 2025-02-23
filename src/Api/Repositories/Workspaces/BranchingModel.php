@@ -27,7 +27,7 @@ class BranchingModel extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(array $params = [])
+    public function show(array $params = []): array
     {
         $uri = $this->buildBranchingModelUri();
 
@@ -39,7 +39,7 @@ class BranchingModel extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function showSettings(array $params = [])
+    public function showSettings(array $params = []): array
     {
         $uri = $this->buildBranchingModelUri('settings');
 
@@ -51,7 +51,7 @@ class BranchingModel extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function updateSettings(array $params = [])
+    public function updateSettings(array $params = []): array
     {
         $uri = $this->buildBranchingModelUri('settings');
 
@@ -63,7 +63,7 @@ class BranchingModel extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildBranchingModelUri(string ...$parts)
+    protected function buildBranchingModelUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'branching-model', ...$parts);
     }

@@ -28,7 +28,7 @@ final class MockedClient
     /**
      * @return \Bitbucket\Client
      */
-    public static function create(ResponseInterface $response)
+    public static function create(ResponseInterface $response): \Bitbucket\Client
     {
         $client = new MockClient(self::createResponseFactory($response));
 
@@ -38,7 +38,7 @@ final class MockedClient
     /**
      * @return \Psr\Http\Message\ResponseFactoryInterface
      */
-    private static function createResponseFactory(ResponseInterface $response)
+    private static function createResponseFactory(ResponseInterface $response): \Psr\Http\Message\ResponseFactoryInterface
     {
         return new class($response) implements ResponseFactoryInterface {
             public function __construct(

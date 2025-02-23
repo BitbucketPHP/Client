@@ -27,7 +27,7 @@ class Approval extends AbstractCommitApi
      *
      * @return array
      */
-    public function approve(array $params = [])
+    public function approve(array $params = []): array
     {
         $uri = $this->buildApprovalUri();
 
@@ -39,7 +39,7 @@ class Approval extends AbstractCommitApi
      *
      * @return array
      */
-    public function redact(array $params = [])
+    public function redact(array $params = []): array
     {
         $uri = $this->buildApprovalUri();
 
@@ -51,7 +51,7 @@ class Approval extends AbstractCommitApi
      *
      * @return string
      */
-    protected function buildApprovalUri(string ...$parts)
+    protected function buildApprovalUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'approve', ...$parts);
     }

@@ -27,7 +27,7 @@ class DefaultReviewers extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildDefaultReviewersUri();
 
@@ -39,7 +39,7 @@ class DefaultReviewers extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $reviewer, array $params = [])
+    public function show(string $reviewer, array $params = []): array
     {
         $uri = $this->buildDefaultReviewersUri($reviewer);
 
@@ -51,7 +51,7 @@ class DefaultReviewers extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function add(string $reviewer, array $params = [])
+    public function add(string $reviewer, array $params = []): array
     {
         $uri = $this->buildDefaultReviewersUri($reviewer);
 
@@ -63,7 +63,7 @@ class DefaultReviewers extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function remove(string $reviewer, array $params = [])
+    public function remove(string $reviewer, array $params = []): array
     {
         $uri = $this->buildDefaultReviewersUri($reviewer);
 
@@ -75,7 +75,7 @@ class DefaultReviewers extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildDefaultReviewersUri(string ...$parts)
+    protected function buildDefaultReviewersUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'default-reviewers', ...$parts);
     }

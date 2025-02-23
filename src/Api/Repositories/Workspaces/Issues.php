@@ -32,7 +32,7 @@ class Issues extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildIssuesUri();
 
@@ -44,7 +44,7 @@ class Issues extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildIssuesUri();
 
@@ -56,7 +56,7 @@ class Issues extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $issue, array $params = [])
+    public function show(string $issue, array $params = []): array
     {
         $uri = $this->buildIssuesUri($issue);
 
@@ -68,7 +68,7 @@ class Issues extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function update(string $issue, array $params = [])
+    public function update(string $issue, array $params = []): array
     {
         $uri = $this->buildIssuesUri($issue);
 
@@ -80,7 +80,7 @@ class Issues extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function remove(string $issue, array $params = [])
+    public function remove(string $issue, array $params = []): array
     {
         $uri = $this->buildIssuesUri($issue);
 
@@ -90,7 +90,7 @@ class Issues extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Attachments
      */
-    public function attachments(string $issue)
+    public function attachments(string $issue): \Bitbucket\Api\Repositories\Workspaces\Issues\Attachments
     {
         return new Attachments($this->getClient(), $this->workspace, $this->repo, $issue);
     }
@@ -98,7 +98,7 @@ class Issues extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Changes
      */
-    public function changes(string $issue)
+    public function changes(string $issue): \Bitbucket\Api\Repositories\Workspaces\Issues\Changes
     {
         return new Changes($this->getClient(), $this->workspace, $this->repo, $issue);
     }
@@ -106,7 +106,7 @@ class Issues extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Comments
      */
-    public function comments(string $issue)
+    public function comments(string $issue): \Bitbucket\Api\Repositories\Workspaces\Issues\Comments
     {
         return new Comments($this->getClient(), $this->workspace, $this->repo, $issue);
     }
@@ -114,7 +114,7 @@ class Issues extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Voting
      */
-    public function voting(string $issue)
+    public function voting(string $issue): \Bitbucket\Api\Repositories\Workspaces\Issues\Voting
     {
         return new Voting($this->getClient(), $this->workspace, $this->repo, $issue);
     }
@@ -122,7 +122,7 @@ class Issues extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Watching
      */
-    public function watching(string $issue)
+    public function watching(string $issue): \Bitbucket\Api\Repositories\Workspaces\Issues\Watching
     {
         return new Watching($this->getClient(), $this->workspace, $this->repo, $issue);
     }
@@ -132,7 +132,7 @@ class Issues extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildIssuesUri(string ...$parts)
+    protected function buildIssuesUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'issues', ...$parts);
     }

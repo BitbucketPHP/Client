@@ -27,7 +27,7 @@ class Diff extends AbstractPullRequestsApi
      *
      * @return \Psr\Http\Message\StreamInterface
      */
-    public function download(array $params = [])
+    public function download(array $params = []): \Psr\Http\Message\StreamInterface
     {
         $uri = $this->buildDiffUri();
 
@@ -39,7 +39,7 @@ class Diff extends AbstractPullRequestsApi
      *
      * @return string
      */
-    protected function buildDiffUri(string ...$parts)
+    protected function buildDiffUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'diff', ...$parts);
     }

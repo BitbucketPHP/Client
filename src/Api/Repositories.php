@@ -28,7 +28,7 @@ class Repositories extends AbstractApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildRepositoriesUri();
 
@@ -38,7 +38,7 @@ class Repositories extends AbstractApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces
      */
-    public function workspaces(string $workspace)
+    public function workspaces(string $workspace): \Bitbucket\Api\Repositories\Workspaces
     {
         return new RepositoriesWorkspaces($this->getClient(), $workspace);
     }
@@ -48,7 +48,7 @@ class Repositories extends AbstractApi
      *
      * @return string
      */
-    protected function buildRepositoriesUri(string ...$parts)
+    protected function buildRepositoriesUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', ...$parts);
     }

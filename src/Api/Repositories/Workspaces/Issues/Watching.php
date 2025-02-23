@@ -27,7 +27,7 @@ class Watching extends AbstractIssuesApi
      *
      * @return array
      */
-    public function check(array $params = [])
+    public function check(array $params = []): array
     {
         $uri = $this->buildWatchingUri();
 
@@ -39,7 +39,7 @@ class Watching extends AbstractIssuesApi
      *
      * @return array
      */
-    public function watch(array $params = [])
+    public function watch(array $params = []): array
     {
         $uri = $this->buildWatchingUri();
 
@@ -51,7 +51,7 @@ class Watching extends AbstractIssuesApi
      *
      * @return array
      */
-    public function ignore(array $params = [])
+    public function ignore(array $params = []): array
     {
         $uri = $this->buildWatchingUri();
 
@@ -63,7 +63,7 @@ class Watching extends AbstractIssuesApi
      *
      * @return string
      */
-    protected function buildWatchingUri(string ...$parts)
+    protected function buildWatchingUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'watch', ...$parts);
     }

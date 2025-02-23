@@ -37,7 +37,7 @@ class Workspaces extends AbstractSnippetsApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildWorkspacesUri();
 
@@ -49,7 +49,7 @@ class Workspaces extends AbstractSnippetsApi
      *
      * @return array
      */
-    public function create(FileResource $file)
+    public function create(FileResource $file): array
     {
         $uri = $this->buildWorkspacesUri();
         $builder = (new MultipartStreamBuilder())->addResource($file->getName(), $file->getResource(), $file->getOptions());
@@ -63,7 +63,7 @@ class Workspaces extends AbstractSnippetsApi
      *
      * @return array
      */
-    public function show(string $snippet, array $params = [])
+    public function show(string $snippet, array $params = []): array
     {
         $uri = $this->buildWorkspacesUri($snippet);
 
@@ -75,7 +75,7 @@ class Workspaces extends AbstractSnippetsApi
      *
      * @return array
      */
-    public function update(string $snippet, array $params = [])
+    public function update(string $snippet, array $params = []): array
     {
         $uri = $this->buildWorkspacesUri($snippet);
 
@@ -89,7 +89,7 @@ class Workspaces extends AbstractSnippetsApi
      *
      * @return array
      */
-    public function updateFiles(string $snippet, array $files)
+    public function updateFiles(string $snippet, array $files): array
     {
         $uri = $this->buildWorkspacesUri($snippet);
 
@@ -109,7 +109,7 @@ class Workspaces extends AbstractSnippetsApi
      *
      * @return array
      */
-    public function remove(string $snippet, array $params = [])
+    public function remove(string $snippet, array $params = []): array
     {
         $uri = $this->buildWorkspacesUri($snippet);
 
@@ -119,7 +119,7 @@ class Workspaces extends AbstractSnippetsApi
     /**
      * @return \Bitbucket\Api\Snippets\Workspaces\Comments
      */
-    public function comments(string $snippet)
+    public function comments(string $snippet): \Bitbucket\Api\Snippets\Workspaces\Comments
     {
         return new Comments($this->getClient(), $this->workspace, $snippet);
     }
@@ -127,7 +127,7 @@ class Workspaces extends AbstractSnippetsApi
     /**
      * @return \Bitbucket\Api\Snippets\Workspaces\Commits
      */
-    public function commits(string $snippet)
+    public function commits(string $snippet): \Bitbucket\Api\Snippets\Workspaces\Commits
     {
         return new Commits($this->getClient(), $this->workspace, $snippet);
     }
@@ -135,7 +135,7 @@ class Workspaces extends AbstractSnippetsApi
     /**
      * @return \Bitbucket\Api\Snippets\Workspaces\Diffs
      */
-    public function diffs(string $snippet)
+    public function diffs(string $snippet): \Bitbucket\Api\Snippets\Workspaces\Diffs
     {
         return new Diffs($this->getClient(), $this->workspace, $snippet);
     }
@@ -143,7 +143,7 @@ class Workspaces extends AbstractSnippetsApi
     /**
      * @return \Bitbucket\Api\Snippets\Workspaces\Files
      */
-    public function files(string $snippet)
+    public function files(string $snippet): \Bitbucket\Api\Snippets\Workspaces\Files
     {
         return new Files($this->getClient(), $this->workspace, $snippet);
     }
@@ -151,7 +151,7 @@ class Workspaces extends AbstractSnippetsApi
     /**
      * @return \Bitbucket\Api\Snippets\Workspaces\Patches
      */
-    public function patches(string $snippet)
+    public function patches(string $snippet): \Bitbucket\Api\Snippets\Workspaces\Patches
     {
         return new Patches($this->getClient(), $this->workspace, $snippet);
     }
@@ -159,7 +159,7 @@ class Workspaces extends AbstractSnippetsApi
     /**
      * @return \Bitbucket\Api\Snippets\Workspaces\Watchers
      */
-    public function watchers(string $snippet)
+    public function watchers(string $snippet): \Bitbucket\Api\Snippets\Workspaces\Watchers
     {
         return new Watchers($this->getClient(), $this->workspace, $snippet);
     }
@@ -167,7 +167,7 @@ class Workspaces extends AbstractSnippetsApi
     /**
      * @return \Bitbucket\Api\Snippets\Workspaces\Watching
      */
-    public function watching(string $snippet)
+    public function watching(string $snippet): \Bitbucket\Api\Snippets\Workspaces\Watching
     {
         return new Watching($this->getClient(), $this->workspace, $snippet);
     }
@@ -177,7 +177,7 @@ class Workspaces extends AbstractSnippetsApi
      *
      * @return string
      */
-    protected function buildWorkspacesUri(string ...$parts)
+    protected function buildWorkspacesUri(string ...$parts): string
     {
         return UriBuilder::build('snippets', $this->workspace, ...$parts);
     }

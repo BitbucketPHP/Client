@@ -27,7 +27,7 @@ class Members extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildMembersUri();
 
@@ -39,7 +39,7 @@ class Members extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $member, array $params = [])
+    public function show(string $member, array $params = []): array
     {
         $uri = $this->buildMembersUri($member);
 
@@ -51,7 +51,7 @@ class Members extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildMembersUri(string ...$parts)
+    protected function buildMembersUri(string ...$parts): string
     {
         return UriBuilder::build('workspaces', $this->workspace, 'members', ...$parts);
     }

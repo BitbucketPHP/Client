@@ -27,7 +27,7 @@ class BuildNumber extends AbstractPipelinesConfigApi
      *
      * @return array
      */
-    public function update(array $params = [])
+    public function update(array $params = []): array
     {
         $uri = $this->buildBuildNumberUri();
 
@@ -39,7 +39,7 @@ class BuildNumber extends AbstractPipelinesConfigApi
      *
      * @return string
      */
-    protected function buildBuildNumberUri(string ...$parts)
+    protected function buildBuildNumberUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', 'build_number', ...$parts);
     }

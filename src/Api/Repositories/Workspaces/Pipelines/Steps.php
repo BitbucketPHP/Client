@@ -27,7 +27,7 @@ class Steps extends AbstractPipelinesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildStepsUri());
 
@@ -39,7 +39,7 @@ class Steps extends AbstractPipelinesApi
      *
      * @return array
      */
-    public function show(string $step, array $params = [])
+    public function show(string $step, array $params = []): array
     {
         $uri = $this->buildStepsUri($step);
 
@@ -51,7 +51,7 @@ class Steps extends AbstractPipelinesApi
      *
      * @return \Psr\Http\Message\StreamInterface
      */
-    public function log(string $step, array $params = [])
+    public function log(string $step, array $params = []): \Psr\Http\Message\StreamInterface
     {
         $uri = $this->buildStepsUri($step, 'log');
 
@@ -63,7 +63,7 @@ class Steps extends AbstractPipelinesApi
      *
      * @return \Psr\Http\Message\StreamInterface
      */
-    public function specificLog(string $step, string $uuid, array $params = [])
+    public function specificLog(string $step, string $uuid, array $params = []): \Psr\Http\Message\StreamInterface
     {
         $uri = $this->buildStepsUri($step, 'logs', $uuid);
 
@@ -75,7 +75,7 @@ class Steps extends AbstractPipelinesApi
      *
      * @return array
      */
-    public function stop(string $step, array $params = [])
+    public function stop(string $step, array $params = []): array
     {
         $uri = $this->buildStepsUri($step, 'stopPipeline');
 
@@ -87,7 +87,7 @@ class Steps extends AbstractPipelinesApi
      *
      * @return string
      */
-    protected function buildStepsUri(string ...$parts)
+    protected function buildStepsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines', $this->pipeline, 'steps', ...$parts);
     }

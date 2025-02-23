@@ -27,7 +27,7 @@ class HookEvents extends AbstractApi
      *
      * @return array
      */
-    public function listUserEvents(array $params = [])
+    public function listUserEvents(array $params = []): array
     {
         $uri = $this->buildHookEventsUri('user');
 
@@ -39,7 +39,7 @@ class HookEvents extends AbstractApi
      *
      * @return array
      */
-    public function listRepositoryEvents(array $params = [])
+    public function listRepositoryEvents(array $params = []): array
     {
         $uri = $this->buildHookEventsUri('repository');
 
@@ -51,7 +51,7 @@ class HookEvents extends AbstractApi
      *
      * @return array
      */
-    public function listTeamEvents(array $params = [])
+    public function listTeamEvents(array $params = []): array
     {
         $uri = $this->buildHookEventsUri('team');
 
@@ -63,7 +63,7 @@ class HookEvents extends AbstractApi
      *
      * @return array
      */
-    public function listWorkspaceEvents(array $params = [])
+    public function listWorkspaceEvents(array $params = []): array
     {
         $uri = $this->buildHookEventsUri('workspace');
 
@@ -75,7 +75,7 @@ class HookEvents extends AbstractApi
      *
      * @return string
      */
-    protected function buildHookEventsUri(string ...$parts)
+    protected function buildHookEventsUri(string ...$parts): string
     {
         return UriBuilder::build('hook_events', ...$parts);
     }

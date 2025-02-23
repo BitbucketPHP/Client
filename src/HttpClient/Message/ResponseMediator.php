@@ -47,7 +47,7 @@ final class ResponseMediator
      *
      * @return array
      */
-    public static function getContent(ResponseInterface $response)
+    public static function getContent(ResponseInterface $response): array
     {
         if (204 === $response->getStatusCode()) {
             return [];
@@ -84,7 +84,7 @@ final class ResponseMediator
     /**
      * @return bool
      */
-    private static function paginationFilter(string|int $key)
+    private static function paginationFilter(string|int $key): bool
     {
         return \in_array($key, ['size', 'page', 'pagelen', 'next', 'previous'], true);
     }

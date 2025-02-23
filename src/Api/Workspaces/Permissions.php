@@ -29,7 +29,7 @@ class Permissions extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildPermissionsUri();
 
@@ -39,7 +39,7 @@ class Permissions extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Workspaces\Permissions\Repositories
      */
-    public function repositories()
+    public function repositories(): \Bitbucket\Api\Workspaces\Permissions\Repositories
     {
         return new Repositories($this->getClient(), $this->workspace);
     }
@@ -49,7 +49,7 @@ class Permissions extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildPermissionsUri(string ...$parts)
+    protected function buildPermissionsUri(string ...$parts): string
     {
         return UriBuilder::build('workspaces', $this->workspace, 'permissions', ...$parts);
     }

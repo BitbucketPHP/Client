@@ -27,7 +27,7 @@ class Events extends AbstractUsersApi
      *
      * @return array
      */
-    public function create(string $event, array $params = [])
+    public function create(string $event, array $params = []): array
     {
         $uri = $this->buildEventsUri($event);
 
@@ -39,7 +39,7 @@ class Events extends AbstractUsersApi
      *
      * @return string
      */
-    protected function buildEventsUri(string ...$parts)
+    protected function buildEventsUri(string ...$parts): string
     {
         return UriBuilder::build('addon', 'users', $this->username, 'events', ...$parts);
     }

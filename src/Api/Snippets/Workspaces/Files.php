@@ -29,7 +29,7 @@ class Files extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $commit, array $params = [])
+    public function show(string $commit, array $params = []): array
     {
         $uri = $this->buildFilesUri($commit);
 
@@ -41,7 +41,7 @@ class Files extends AbstractWorkspacesApi
      *
      * @return \Psr\Http\Message\StreamInterface
      */
-    public function download(string $commit, string $uri, array $params = [])
+    public function download(string $commit, string $uri, array $params = []): \Psr\Http\Message\StreamInterface
     {
         $uri = $this->buildFilesUri($commit, 'files', ...\explode('/', $uri));
 
@@ -53,7 +53,7 @@ class Files extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function update(string $commit, array $params = [])
+    public function update(string $commit, array $params = []): array
     {
         $uri = $this->buildFilesUri($commit);
 
@@ -67,7 +67,7 @@ class Files extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function updateFiles(string $commit, array $files)
+    public function updateFiles(string $commit, array $files): array
     {
         $uri = $this->buildFilesUri($commit);
 
@@ -87,7 +87,7 @@ class Files extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function remove(string $commit, array $params = [])
+    public function remove(string $commit, array $params = []): array
     {
         $uri = $this->buildFilesUri($commit);
 
@@ -99,7 +99,7 @@ class Files extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildFilesUri(string ...$parts)
+    protected function buildFilesUri(string ...$parts): string
     {
         return UriBuilder::build('snippets', $this->workspace, $this->snippet, ...$parts);
     }

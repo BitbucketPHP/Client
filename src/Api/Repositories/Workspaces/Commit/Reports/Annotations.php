@@ -27,7 +27,7 @@ class Annotations extends AbstractReportsApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildAnnotationsUri();
 
@@ -39,7 +39,7 @@ class Annotations extends AbstractReportsApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildAnnotationsUri();
 
@@ -51,7 +51,7 @@ class Annotations extends AbstractReportsApi
      *
      * @return array
      */
-    public function show(string $annotation, array $params = [])
+    public function show(string $annotation, array $params = []): array
     {
         $uri = $this->buildAnnotationsUri($annotation);
 
@@ -63,7 +63,7 @@ class Annotations extends AbstractReportsApi
      *
      * @return array
      */
-    public function update(string $annotation, array $params = [])
+    public function update(string $annotation, array $params = []): array
     {
         $uri = $this->buildAnnotationsUri($annotation);
 
@@ -75,7 +75,7 @@ class Annotations extends AbstractReportsApi
      *
      * @return array
      */
-    public function remove(string $annotation, array $params = [])
+    public function remove(string $annotation, array $params = []): array
     {
         $uri = $this->buildAnnotationsUri($annotation);
 
@@ -87,7 +87,7 @@ class Annotations extends AbstractReportsApi
      *
      * @return string
      */
-    protected function buildAnnotationsUri(string ...$parts)
+    protected function buildAnnotationsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'reports', 'annotations', ...$parts);
     }

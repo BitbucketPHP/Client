@@ -27,7 +27,7 @@ class Watchers extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildWatchersUri();
 
@@ -39,7 +39,7 @@ class Watchers extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildWatchersUri(string ...$parts)
+    protected function buildWatchersUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'watchers', ...$parts);
     }

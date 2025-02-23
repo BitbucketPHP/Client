@@ -30,7 +30,7 @@ class Attachments extends AbstractIssuesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildAttachmentsUri();
 
@@ -42,7 +42,7 @@ class Attachments extends AbstractIssuesApi
      *
      * @return array
      */
-    public function upload(FileResource $file)
+    public function upload(FileResource $file): array
     {
         $uri = $this->buildAttachmentsUri();
         $builder = (new MultipartStreamBuilder())->addResource($file->getName(), $file->getResource(), $file->getOptions());
@@ -56,7 +56,7 @@ class Attachments extends AbstractIssuesApi
      *
      * @return \Psr\Http\Message\StreamInterface
      */
-    public function download(string $filename, array $params = [])
+    public function download(string $filename, array $params = []): \Psr\Http\Message\StreamInterface
     {
         $uri = $this->buildAttachmentsUri($filename);
 
@@ -68,7 +68,7 @@ class Attachments extends AbstractIssuesApi
      *
      * @return array
      */
-    public function remove(string $filename, array $params = [])
+    public function remove(string $filename, array $params = []): array
     {
         $uri = $this->buildAttachmentsUri($filename);
 
@@ -80,7 +80,7 @@ class Attachments extends AbstractIssuesApi
      *
      * @return string
      */
-    protected function buildAttachmentsUri(string ...$parts)
+    protected function buildAttachmentsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'attachments', ...$parts);
     }

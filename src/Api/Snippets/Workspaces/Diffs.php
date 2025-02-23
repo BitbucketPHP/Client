@@ -27,7 +27,7 @@ class Diffs extends AbstractWorkspacesApi
      *
      * @return \Psr\Http\Message\StreamInterface
      */
-    public function download(string $commit, array $params = [])
+    public function download(string $commit, array $params = []): \Psr\Http\Message\StreamInterface
     {
         $uri = $this->buildDiffsUri($commit, 'diff');
 
@@ -39,7 +39,7 @@ class Diffs extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildDiffsUri(string ...$parts)
+    protected function buildDiffsUri(string ...$parts): string
     {
         return UriBuilder::build('snippets', $this->workspace, $this->snippet, ...$parts);
     }

@@ -27,7 +27,7 @@ class DiffStat extends AbstractPullRequestsApi
      *
      * @return array
      */
-    public function download(array $params = [])
+    public function download(array $params = []): array
     {
         $uri = $this->buildDiffStatUri();
 
@@ -39,7 +39,7 @@ class DiffStat extends AbstractPullRequestsApi
      *
      * @return string
      */
-    protected function buildDiffStatUri(string ...$parts)
+    protected function buildDiffStatUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'diffstat', ...$parts);
     }

@@ -27,7 +27,7 @@ class Versions extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildVersionsUri();
 
@@ -39,7 +39,7 @@ class Versions extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $version, array $params = [])
+    public function show(string $version, array $params = []): array
     {
         $uri = $this->buildVersionsUri($version);
 
@@ -51,7 +51,7 @@ class Versions extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildVersionsUri(string ...$parts)
+    protected function buildVersionsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'versions', ...$parts);
     }

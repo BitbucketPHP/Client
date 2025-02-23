@@ -31,7 +31,7 @@ class Snippets extends AbstractApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildSnippetsUri();
 
@@ -43,7 +43,7 @@ class Snippets extends AbstractApi
      *
      * @return array
      */
-    public function create(FileResource $file)
+    public function create(FileResource $file): array
     {
         $uri = $this->buildSnippetsUri();
         $builder = (new MultipartStreamBuilder())->addResource($file->getName(), $file->getResource(), $file->getOptions());
@@ -55,7 +55,7 @@ class Snippets extends AbstractApi
     /**
      * @return \Bitbucket\Api\Snippets\Workspaces
      */
-    public function workspaces(string $workspace)
+    public function workspaces(string $workspace): \Bitbucket\Api\Snippets\Workspaces
     {
         return new SnippetsWorkspaces($this->getClient(), $workspace);
     }
@@ -65,7 +65,7 @@ class Snippets extends AbstractApi
      *
      * @return string
      */
-    protected function buildSnippetsUri(string ...$parts)
+    protected function buildSnippetsUri(string ...$parts): string
     {
         return UriBuilder::build('snippets', ...$parts);
     }

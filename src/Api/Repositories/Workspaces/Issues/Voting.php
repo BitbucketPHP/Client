@@ -27,7 +27,7 @@ class Voting extends AbstractIssuesApi
      *
      * @return array
      */
-    public function check(array $params = [])
+    public function check(array $params = []): array
     {
         $uri = $this->buildVotingUri();
 
@@ -39,7 +39,7 @@ class Voting extends AbstractIssuesApi
      *
      * @return array
      */
-    public function vote(array $params = [])
+    public function vote(array $params = []): array
     {
         $uri = $this->buildVotingUri();
 
@@ -51,7 +51,7 @@ class Voting extends AbstractIssuesApi
      *
      * @return array
      */
-    public function retract(array $params = [])
+    public function retract(array $params = []): array
     {
         $uri = $this->buildVotingUri();
 
@@ -63,7 +63,7 @@ class Voting extends AbstractIssuesApi
      *
      * @return string
      */
-    protected function buildVotingUri(string ...$parts)
+    protected function buildVotingUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'issues', $this->issue, 'vote', ...$parts);
     }

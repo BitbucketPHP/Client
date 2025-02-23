@@ -27,7 +27,7 @@ class FileHistory extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(string $commit, string $uri, array $params = [])
+    public function list(string $commit, string $uri, array $params = []): array
     {
         $uri = $this->buildFileHistoryUri($commit, ...\explode('/', $uri));
 
@@ -39,7 +39,7 @@ class FileHistory extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildFileHistoryUri(string ...$parts)
+    protected function buildFileHistoryUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'filehistory', ...$parts);
     }

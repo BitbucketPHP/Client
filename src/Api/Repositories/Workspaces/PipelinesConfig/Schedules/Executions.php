@@ -27,7 +27,7 @@ class Executions extends AbstractSchedulesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildExecutionsUri());
 
@@ -39,7 +39,7 @@ class Executions extends AbstractSchedulesApi
      *
      * @return string
      */
-    protected function buildExecutionsUri(string ...$parts)
+    protected function buildExecutionsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', 'schedules', $this->schedule, 'executions', ...$parts);
     }

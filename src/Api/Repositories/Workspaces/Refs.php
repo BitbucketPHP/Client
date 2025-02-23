@@ -29,7 +29,7 @@ class Refs extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildRefsUri();
 
@@ -39,7 +39,7 @@ class Refs extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\Refs\Branches
      */
-    public function branches()
+    public function branches(): \Bitbucket\Api\Repositories\Workspaces\Refs\Branches
     {
         return new Branches($this->getClient(), $this->workspace, $this->repo);
     }
@@ -47,7 +47,7 @@ class Refs extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\Refs\Tags
      */
-    public function tags()
+    public function tags(): \Bitbucket\Api\Repositories\Workspaces\Refs\Tags
     {
         return new Tags($this->getClient(), $this->workspace, $this->repo);
     }
@@ -57,7 +57,7 @@ class Refs extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildRefsUri(string ...$parts)
+    protected function buildRefsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'refs', ...$parts);
     }

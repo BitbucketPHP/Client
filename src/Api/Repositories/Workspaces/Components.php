@@ -27,7 +27,7 @@ class Components extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildComponentsUri();
 
@@ -39,7 +39,7 @@ class Components extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $component, array $params = [])
+    public function show(string $component, array $params = []): array
     {
         $uri = $this->buildComponentsUri($component);
 
@@ -51,7 +51,7 @@ class Components extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildComponentsUri(string ...$parts)
+    protected function buildComponentsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'components', ...$parts);
     }

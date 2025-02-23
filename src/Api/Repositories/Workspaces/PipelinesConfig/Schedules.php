@@ -28,7 +28,7 @@ class Schedules extends AbstractPipelinesConfigApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildSchedulesUri());
 
@@ -40,7 +40,7 @@ class Schedules extends AbstractPipelinesConfigApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildSchedulesUri());
 
@@ -52,7 +52,7 @@ class Schedules extends AbstractPipelinesConfigApi
      *
      * @return array
      */
-    public function show(string $schedule, array $params = [])
+    public function show(string $schedule, array $params = []): array
     {
         $uri = $this->buildSchedulesUri($schedule);
 
@@ -64,7 +64,7 @@ class Schedules extends AbstractPipelinesConfigApi
      *
      * @return array
      */
-    public function update(string $schedule, array $params = [])
+    public function update(string $schedule, array $params = []): array
     {
         $uri = $this->buildSchedulesUri($schedule);
 
@@ -76,7 +76,7 @@ class Schedules extends AbstractPipelinesConfigApi
      *
      * @return array
      */
-    public function remove(string $schedule, array $params = [])
+    public function remove(string $schedule, array $params = []): array
     {
         $uri = $this->buildSchedulesUri($schedule);
 
@@ -86,7 +86,7 @@ class Schedules extends AbstractPipelinesConfigApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Schedules\Executions
      */
-    public function executions(string $schedule)
+    public function executions(string $schedule): \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Schedules\Executions
     {
         return new Executions($this->getClient(), $this->workspace, $this->repo, $schedule);
     }
@@ -96,7 +96,7 @@ class Schedules extends AbstractPipelinesConfigApi
      *
      * @return string
      */
-    protected function buildSchedulesUri(string ...$parts)
+    protected function buildSchedulesUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', 'schedules', ...$parts);
     }

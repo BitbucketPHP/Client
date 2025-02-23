@@ -30,7 +30,7 @@ class Downloads extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildDownloadsUri();
 
@@ -42,7 +42,7 @@ class Downloads extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function upload(FileResource $file)
+    public function upload(FileResource $file): array
     {
         $uri = $this->buildDownloadsUri();
         $builder = (new MultipartStreamBuilder())->addResource($file->getName(), $file->getResource(), $file->getOptions());
@@ -56,7 +56,7 @@ class Downloads extends AbstractWorkspacesApi
      *
      * @return \Psr\Http\Message\StreamInterface
      */
-    public function download(string $filename, array $params = [])
+    public function download(string $filename, array $params = []): \Psr\Http\Message\StreamInterface
     {
         $uri = $this->buildDownloadsUri(...\explode('/', $filename));
 
@@ -68,7 +68,7 @@ class Downloads extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function remove(string $filename, array $params = [])
+    public function remove(string $filename, array $params = []): array
     {
         $uri = $this->buildDownloadsUri(...\explode('/', $filename));
 
@@ -80,7 +80,7 @@ class Downloads extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildDownloadsUri(string ...$parts)
+    protected function buildDownloadsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'downloads', ...$parts);
     }

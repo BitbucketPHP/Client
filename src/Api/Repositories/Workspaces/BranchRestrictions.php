@@ -27,7 +27,7 @@ class BranchRestrictions extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildBranchRestrictionsUri();
 
@@ -39,7 +39,7 @@ class BranchRestrictions extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildBranchRestrictionsUri();
 
@@ -51,7 +51,7 @@ class BranchRestrictions extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $restriction, array $params = [])
+    public function show(string $restriction, array $params = []): array
     {
         $uri = $this->buildBranchRestrictionsUri($restriction);
 
@@ -63,7 +63,7 @@ class BranchRestrictions extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function update(string $restriction, array $params = [])
+    public function update(string $restriction, array $params = []): array
     {
         $uri = $this->buildBranchRestrictionsUri($restriction);
 
@@ -75,7 +75,7 @@ class BranchRestrictions extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function remove(string $restriction, array $params = [])
+    public function remove(string $restriction, array $params = []): array
     {
         $uri = $this->buildBranchRestrictionsUri($restriction);
 
@@ -87,7 +87,7 @@ class BranchRestrictions extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildBranchRestrictionsUri(string ...$parts)
+    protected function buildBranchRestrictionsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'branch-restrictions', ...$parts);
     }

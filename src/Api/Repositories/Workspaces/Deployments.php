@@ -28,7 +28,7 @@ class Deployments extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildDeploymentsUri();
 
@@ -40,7 +40,7 @@ class Deployments extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $deployments, array $params = [])
+    public function show(string $deployments, array $params = []): array
     {
         $uri = $this->buildDeploymentsUri($deployments);
 
@@ -50,7 +50,7 @@ class Deployments extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\Deployments\EnvironmentVariables
      */
-    public function environmentVariables(string $environment)
+    public function environmentVariables(string $environment): \Bitbucket\Api\Repositories\Workspaces\Deployments\EnvironmentVariables
     {
         return new EnvironmentVariables($this->getClient(), $this->workspace, $this->repo, $environment);
     }
@@ -60,7 +60,7 @@ class Deployments extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildDeploymentsUri(string ...$parts)
+    protected function buildDeploymentsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'deployments', ...$parts);
     }

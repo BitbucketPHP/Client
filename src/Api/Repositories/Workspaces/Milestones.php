@@ -27,7 +27,7 @@ class Milestones extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildMilestonesUri();
 
@@ -39,7 +39,7 @@ class Milestones extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $milestone, array $params = [])
+    public function show(string $milestone, array $params = []): array
     {
         $uri = $this->buildMilestonesUri($milestone);
 
@@ -51,7 +51,7 @@ class Milestones extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildMilestonesUri(string ...$parts)
+    protected function buildMilestonesUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'milestones', ...$parts);
     }

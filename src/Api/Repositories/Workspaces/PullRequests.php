@@ -35,7 +35,7 @@ class PullRequests extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildPullRequestsUri();
 
@@ -47,7 +47,7 @@ class PullRequests extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function activity(array $params = [])
+    public function activity(array $params = []): array
     {
         $uri = $this->buildPullRequestsUri('activity');
 
@@ -59,7 +59,7 @@ class PullRequests extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildPullRequestsUri();
 
@@ -71,7 +71,7 @@ class PullRequests extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $pr, array $params = [])
+    public function show(string $pr, array $params = []): array
     {
         $uri = $this->buildPullRequestsUri($pr);
 
@@ -83,7 +83,7 @@ class PullRequests extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function activityByPr(string $pr, array $params = [])
+    public function activityByPr(string $pr, array $params = []): array
     {
         $uri = $this->buildPullRequestsUri($pr, 'activity');
 
@@ -95,7 +95,7 @@ class PullRequests extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function update(string $pr, array $params = [])
+    public function update(string $pr, array $params = []): array
     {
         $uri = $this->buildPullRequestsUri($pr);
 
@@ -107,7 +107,7 @@ class PullRequests extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function decline(string $pr, array $params = [])
+    public function decline(string $pr, array $params = []): array
     {
         $uri = $this->buildPullRequestsUri($pr, 'decline');
 
@@ -119,7 +119,7 @@ class PullRequests extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function merge(string $pr, array $params = [])
+    public function merge(string $pr, array $params = []): array
     {
         $uri = $this->buildPullRequestsUri($pr, 'merge');
 
@@ -131,7 +131,7 @@ class PullRequests extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function mergeTaskStatus(string $pr, string $task, array $params = [])
+    public function mergeTaskStatus(string $pr, string $task, array $params = []): array
     {
         $uri = $this->buildPullRequestsUri($pr, 'merge', 'task-status', $task);
 
@@ -141,7 +141,7 @@ class PullRequests extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Approval
      */
-    public function approval(string $pr)
+    public function approval(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\Approval
     {
         return new Approval($this->getClient(), $this->workspace, $this->repo, $pr);
     }
@@ -149,7 +149,7 @@ class PullRequests extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Comments
      */
-    public function comments(string $pr)
+    public function comments(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\Comments
     {
         return new Comments($this->getClient(), $this->workspace, $this->repo, $pr);
     }
@@ -157,7 +157,7 @@ class PullRequests extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Commits
      */
-    public function commits(string $pr)
+    public function commits(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\Commits
     {
         return new PullRequestsCommits($this->getClient(), $this->workspace, $this->repo, $pr);
     }
@@ -165,7 +165,7 @@ class PullRequests extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Diff
      */
-    public function diff(string $pr)
+    public function diff(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\Diff
     {
         return new Diff($this->getClient(), $this->workspace, $this->repo, $pr);
     }
@@ -173,7 +173,7 @@ class PullRequests extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\DiffStat
      */
-    public function diffstat(string $pr)
+    public function diffstat(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\DiffStat
     {
         return new DiffStat($this->getClient(), $this->workspace, $this->repo, $pr);
     }
@@ -181,7 +181,7 @@ class PullRequests extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Patch
      */
-    public function patch(string $pr)
+    public function patch(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\Patch
     {
         return new Patch($this->getClient(), $this->workspace, $this->repo, $pr);
     }
@@ -189,7 +189,7 @@ class PullRequests extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Properties
      */
-    public function properties(string $pr)
+    public function properties(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\Properties
     {
         return new PullRequestsProperties($this->getClient(), $this->workspace, $this->repo, $pr);
     }
@@ -197,7 +197,7 @@ class PullRequests extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Statuses
      */
-    public function statuses(string $pr)
+    public function statuses(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\Statuses
     {
         return new Statuses($this->getClient(), $this->workspace, $this->repo, $pr);
     }
@@ -207,7 +207,7 @@ class PullRequests extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildPullRequestsUri(string ...$parts)
+    protected function buildPullRequestsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pullrequests', ...$parts);
     }

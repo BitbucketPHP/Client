@@ -27,7 +27,7 @@ class KnownHosts extends AbstractSshApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildKnownHostsUri());
 
@@ -39,7 +39,7 @@ class KnownHosts extends AbstractSshApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildKnownHostsUri());
 
@@ -51,7 +51,7 @@ class KnownHosts extends AbstractSshApi
      *
      * @return array
      */
-    public function show(string $host, array $params = [])
+    public function show(string $host, array $params = []): array
     {
         $uri = $this->buildKnownHostsUri($host);
 
@@ -63,7 +63,7 @@ class KnownHosts extends AbstractSshApi
      *
      * @return array
      */
-    public function update(string $host, array $params = [])
+    public function update(string $host, array $params = []): array
     {
         $uri = $this->buildKnownHostsUri($host);
 
@@ -75,7 +75,7 @@ class KnownHosts extends AbstractSshApi
      *
      * @return array
      */
-    public function remove(string $host, array $params = [])
+    public function remove(string $host, array $params = []): array
     {
         $uri = $this->buildKnownHostsUri($host);
 
@@ -87,7 +87,7 @@ class KnownHosts extends AbstractSshApi
      *
      * @return string
      */
-    protected function buildKnownHostsUri(string ...$parts)
+    protected function buildKnownHostsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', 'known_hosts', ...$parts);
     }

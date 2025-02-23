@@ -27,7 +27,7 @@ class Ssh extends AbstractPipelinesConfigApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh\KeyPair
      */
-    public function keyPair()
+    public function keyPair(): \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh\KeyPair
     {
         return new KeyPair($this->getClient(), $this->workspace, $this->repo);
     }
@@ -35,7 +35,7 @@ class Ssh extends AbstractPipelinesConfigApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh\KnownHosts
      */
-    public function knownHosts()
+    public function knownHosts(): \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh\KnownHosts
     {
         return new KnownHosts($this->getClient(), $this->workspace, $this->repo);
     }
@@ -45,7 +45,7 @@ class Ssh extends AbstractPipelinesConfigApi
      *
      * @return string
      */
-    protected function buildSshUri(string ...$parts)
+    protected function buildSshUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', ...$parts);
     }

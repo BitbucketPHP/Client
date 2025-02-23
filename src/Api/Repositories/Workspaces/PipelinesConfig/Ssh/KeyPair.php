@@ -27,7 +27,7 @@ class KeyPair extends AbstractSshApi
      *
      * @return array
      */
-    public function show(array $params = [])
+    public function show(array $params = []): array
     {
         $uri = $this->buildKeyPairUri();
 
@@ -39,7 +39,7 @@ class KeyPair extends AbstractSshApi
      *
      * @return array
      */
-    public function update(array $params = [])
+    public function update(array $params = []): array
     {
         $uri = $this->buildKeyPairUri();
 
@@ -51,7 +51,7 @@ class KeyPair extends AbstractSshApi
      *
      * @return array
      */
-    public function remove(array $params = [])
+    public function remove(array $params = []): array
     {
         $uri = $this->buildKeyPairUri();
 
@@ -63,7 +63,7 @@ class KeyPair extends AbstractSshApi
      *
      * @return string
      */
-    protected function buildKeyPairUri(string ...$parts)
+    protected function buildKeyPairUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines_config', 'ssh', 'key_pair', ...$parts);
     }

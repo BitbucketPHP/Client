@@ -27,7 +27,7 @@ class Forks extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildForksUri();
 
@@ -39,7 +39,7 @@ class Forks extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildForksUri();
 
@@ -51,7 +51,7 @@ class Forks extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildForksUri(string ...$parts)
+    protected function buildForksUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'forks', ...$parts);
     }

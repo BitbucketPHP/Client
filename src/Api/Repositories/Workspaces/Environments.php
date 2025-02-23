@@ -27,7 +27,7 @@ class Environments extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildEnvironmentsUri());
 
@@ -39,7 +39,7 @@ class Environments extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $env, array $params = [])
+    public function show(string $env, array $params = []): array
     {
         $uri = $this->buildEnvironmentsUri($env);
 
@@ -51,7 +51,7 @@ class Environments extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildEnvironmentsUri());
 
@@ -63,7 +63,7 @@ class Environments extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function update(string $env, array $params = [])
+    public function update(string $env, array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildEnvironmentsUri($env, 'changes'));
 
@@ -75,7 +75,7 @@ class Environments extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function remove(string $env)
+    public function remove(string $env): array
     {
         $uri = $this->buildEnvironmentsUri($env);
 
@@ -87,7 +87,7 @@ class Environments extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildEnvironmentsUri(string ...$parts)
+    protected function buildEnvironmentsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'environments', ...$parts);
     }

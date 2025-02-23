@@ -27,7 +27,7 @@ class Variables extends AbstractPipelinesConfigApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildVariablesUri());
 
@@ -39,7 +39,7 @@ class Variables extends AbstractPipelinesConfigApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildVariablesUri());
 
@@ -51,7 +51,7 @@ class Variables extends AbstractPipelinesConfigApi
      *
      * @return array
      */
-    public function show(string $variable, array $params = [])
+    public function show(string $variable, array $params = []): array
     {
         $uri = $this->buildVariablesUri($variable);
 
@@ -63,7 +63,7 @@ class Variables extends AbstractPipelinesConfigApi
      *
      * @return array
      */
-    public function update(string $variable, array $params = [])
+    public function update(string $variable, array $params = []): array
     {
         $uri = $this->buildVariablesUri($variable);
 
@@ -75,7 +75,7 @@ class Variables extends AbstractPipelinesConfigApi
      *
      * @return array
      */
-    public function remove(string $variable, array $params = [])
+    public function remove(string $variable, array $params = []): array
     {
         $uri = $this->buildVariablesUri($variable);
 
@@ -87,7 +87,7 @@ class Variables extends AbstractPipelinesConfigApi
      *
      * @return string
      */
-    protected function buildVariablesUri(string ...$parts)
+    protected function buildVariablesUri(string ...$parts): string
     {
         return UriBuilder::build('workspaces', $this->workspace, 'pipelines-config', 'variables', ...$parts);
     }

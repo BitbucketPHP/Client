@@ -25,7 +25,7 @@ class Users extends AbstractAddonApi
     /**
      * @return \Bitbucket\Api\Addon\Users\Events
      */
-    public function events(string $username)
+    public function events(string $username): \Bitbucket\Api\Addon\Users\Events
     {
         return new Events($this->getClient(), $username);
     }

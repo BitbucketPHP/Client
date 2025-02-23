@@ -27,7 +27,7 @@ class EnvironmentVariables extends AbstractDeploymentsApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildEnvironmentVariablesUri();
 
@@ -39,7 +39,7 @@ class EnvironmentVariables extends AbstractDeploymentsApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildEnvironmentVariablesUri();
 
@@ -51,7 +51,7 @@ class EnvironmentVariables extends AbstractDeploymentsApi
      *
      * @return array
      */
-    public function update(string $variable, array $params = [])
+    public function update(string $variable, array $params = []): array
     {
         $uri = $this->buildEnvironmentVariablesUri($variable);
 
@@ -63,7 +63,7 @@ class EnvironmentVariables extends AbstractDeploymentsApi
      *
      * @return array
      */
-    public function remove(string $variable, array $params = [])
+    public function remove(string $variable, array $params = []): array
     {
         $uri = $this->buildEnvironmentVariablesUri($variable);
 
@@ -75,7 +75,7 @@ class EnvironmentVariables extends AbstractDeploymentsApi
      *
      * @return string
      */
-    protected function buildEnvironmentVariablesUri(string ...$parts)
+    protected function buildEnvironmentVariablesUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'deployments_config', 'environments', $this->environment, 'variables', ...$parts);
     }

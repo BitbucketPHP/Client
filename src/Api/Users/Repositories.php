@@ -27,7 +27,7 @@ class Repositories extends AbstractUsersApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildRepositoriesUri();
 
@@ -39,7 +39,7 @@ class Repositories extends AbstractUsersApi
      *
      * @return string
      */
-    protected function buildRepositoriesUri(string ...$parts)
+    protected function buildRepositoriesUri(string ...$parts): string
     {
         return UriBuilder::build('users', $this->username, 'repositories', ...$parts);
     }

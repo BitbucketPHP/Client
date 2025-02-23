@@ -27,7 +27,7 @@ class Projects extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildProjectsUri());
 
@@ -39,7 +39,7 @@ class Projects extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildProjectsUri());
 
@@ -51,7 +51,7 @@ class Projects extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $project, array $params = [])
+    public function show(string $project, array $params = []): array
     {
         $uri = $this->buildProjectsUri($project);
 
@@ -63,7 +63,7 @@ class Projects extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function update(string $project, array $params = [])
+    public function update(string $project, array $params = []): array
     {
         $uri = $this->buildProjectsUri($project);
 
@@ -75,7 +75,7 @@ class Projects extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function remove(string $project, array $params = [])
+    public function remove(string $project, array $params = []): array
     {
         $uri = $this->buildProjectsUri($project);
 
@@ -87,7 +87,7 @@ class Projects extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildProjectsUri(string ...$parts)
+    protected function buildProjectsUri(string ...$parts): string
     {
         return UriBuilder::build('workspaces', $this->workspace, 'projects', ...$parts);
     }

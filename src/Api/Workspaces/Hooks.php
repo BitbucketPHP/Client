@@ -27,7 +27,7 @@ class Hooks extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildHooksUri();
 
@@ -39,7 +39,7 @@ class Hooks extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildHooksUri();
 
@@ -51,7 +51,7 @@ class Hooks extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $hook, array $params = [])
+    public function show(string $hook, array $params = []): array
     {
         $uri = $this->buildHooksUri($hook);
 
@@ -63,7 +63,7 @@ class Hooks extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function update(string $hook, array $params = [])
+    public function update(string $hook, array $params = []): array
     {
         $uri = $this->buildHooksUri($hook);
 
@@ -75,7 +75,7 @@ class Hooks extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function remove(string $hook, array $params = [])
+    public function remove(string $hook, array $params = []): array
     {
         $uri = $this->buildHooksUri($hook);
 
@@ -87,7 +87,7 @@ class Hooks extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildHooksUri(string ...$parts)
+    protected function buildHooksUri(string ...$parts): string
     {
         return UriBuilder::build('workspaces', $this->workspace, 'hooks', ...$parts);
     }

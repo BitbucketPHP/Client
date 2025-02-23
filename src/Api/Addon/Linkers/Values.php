@@ -27,7 +27,7 @@ class Values extends AbstractLinkersApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildValuesUri());
 
@@ -39,7 +39,7 @@ class Values extends AbstractLinkersApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildValuesUri());
 
@@ -51,7 +51,7 @@ class Values extends AbstractLinkersApi
      *
      * @return array
      */
-    public function show(string $id, array $params = [])
+    public function show(string $id, array $params = []): array
     {
         $uri = $this->buildValuesUri($id);
 
@@ -63,7 +63,7 @@ class Values extends AbstractLinkersApi
      *
      * @return array
      */
-    public function update(string $id, array $params = [])
+    public function update(string $id, array $params = []): array
     {
         $uri = $this->buildValuesUri($id);
 
@@ -75,7 +75,7 @@ class Values extends AbstractLinkersApi
      *
      * @return array
      */
-    public function remove(string $id, array $params = [])
+    public function remove(string $id, array $params = []): array
     {
         $uri = $this->buildValuesUri($id);
 
@@ -87,7 +87,7 @@ class Values extends AbstractLinkersApi
      *
      * @return string
      */
-    protected function buildValuesUri(string ...$parts)
+    protected function buildValuesUri(string ...$parts): string
     {
         return UriBuilder::build('addon', 'linkers', $this->linker, 'values', ...$parts);
     }

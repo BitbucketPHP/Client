@@ -26,7 +26,7 @@ class PipelinesConfig extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Workspaces\PipelinesConfig\Variables
      */
-    public function variables()
+    public function variables(): \Bitbucket\Api\Workspaces\PipelinesConfig\Variables
     {
         return new Variables($this->getClient(), $this->workspace);
     }
@@ -36,7 +36,7 @@ class PipelinesConfig extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildPipelinesConfigUri(string ...$parts)
+    protected function buildPipelinesConfigUri(string ...$parts): string
     {
         return UriBuilder::build('workspaces', $this->workspace, 'pipelines_config', ...$parts);
     }

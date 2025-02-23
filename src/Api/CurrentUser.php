@@ -27,7 +27,7 @@ class CurrentUser extends AbstractApi
      *
      * @return array
      */
-    public function show(array $params = [])
+    public function show(array $params = []): array
     {
         $uri = $this->buildCurrentUserUri();
 
@@ -39,7 +39,7 @@ class CurrentUser extends AbstractApi
      *
      * @return array
      */
-    public function listEmails(array $params = [])
+    public function listEmails(array $params = []): array
     {
         $uri = $this->buildCurrentUserUri('emails');
 
@@ -51,7 +51,7 @@ class CurrentUser extends AbstractApi
      *
      * @return array
      */
-    public function showEmail(string $email, array $params = [])
+    public function showEmail(string $email, array $params = []): array
     {
         $uri = $this->buildCurrentUserUri('emails', $email);
 
@@ -63,7 +63,7 @@ class CurrentUser extends AbstractApi
      *
      * @return array
      */
-    public function listRepositoryPermissions(array $params = [])
+    public function listRepositoryPermissions(array $params = []): array
     {
         $uri = $this->buildCurrentUserUri('permissions', 'repositories');
 
@@ -75,7 +75,7 @@ class CurrentUser extends AbstractApi
      *
      * @return array
      */
-    public function listTeamPermissions(array $params = [])
+    public function listTeamPermissions(array $params = []): array
     {
         $uri = $this->buildCurrentUserUri('permissions', 'teams');
 
@@ -87,7 +87,7 @@ class CurrentUser extends AbstractApi
      *
      * @return array
      */
-    public function listWorkspacePermissions(array $params = [])
+    public function listWorkspacePermissions(array $params = []): array
     {
         $uri = $this->buildCurrentUserUri('permissions', 'workspaces');
 
@@ -99,7 +99,7 @@ class CurrentUser extends AbstractApi
      *
      * @return array
      */
-    public function listWorkspaces(array $params = [])
+    public function listWorkspaces(array $params = []): array
     {
         $uri = UriBuilder::build('workspaces');
 
@@ -111,7 +111,7 @@ class CurrentUser extends AbstractApi
      *
      * @return string
      */
-    protected function buildCurrentUserUri(string ...$parts)
+    protected function buildCurrentUserUri(string ...$parts): string
     {
         return UriBuilder::build('user', ...$parts);
     }

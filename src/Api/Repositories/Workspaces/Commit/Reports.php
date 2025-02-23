@@ -28,7 +28,7 @@ class Reports extends AbstractCommitApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildReportsUri();
 
@@ -40,7 +40,7 @@ class Reports extends AbstractCommitApi
      *
      * @return array
      */
-    public function create(string $report, array $params = [])
+    public function create(string $report, array $params = []): array
     {
         $uri = $this->buildReportsUri($report);
 
@@ -52,7 +52,7 @@ class Reports extends AbstractCommitApi
      *
      * @return array
      */
-    public function show(string $report, array $params = [])
+    public function show(string $report, array $params = []): array
     {
         $uri = $this->buildReportsUri($report);
 
@@ -62,7 +62,7 @@ class Reports extends AbstractCommitApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Reports\Annotations
      */
-    public function annotations()
+    public function annotations(): \Bitbucket\Api\Repositories\Workspaces\Commit\Reports\Annotations
     {
         return new Annotations($this->getClient(), $this->workspace, $this->repo, $this->commit);
     }
@@ -72,7 +72,7 @@ class Reports extends AbstractCommitApi
      *
      * @return string
      */
-    protected function buildReportsUri(string ...$parts)
+    protected function buildReportsUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'reports', ...$parts);
     }

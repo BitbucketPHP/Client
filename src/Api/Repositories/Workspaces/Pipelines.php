@@ -29,7 +29,7 @@ class Pipelines extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildPipelinesUri());
 
@@ -41,7 +41,7 @@ class Pipelines extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildPipelinesUri());
 
@@ -53,7 +53,7 @@ class Pipelines extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function show(string $pipeline, array $params = [])
+    public function show(string $pipeline, array $params = []): array
     {
         $uri = $this->buildPipelinesUri($pipeline);
 
@@ -65,7 +65,7 @@ class Pipelines extends AbstractWorkspacesApi
      *
      * @return array
      */
-    public function stop(string $pipeline, array $params = [])
+    public function stop(string $pipeline, array $params = []): array
     {
         $uri = $this->buildPipelinesUri($pipeline, 'stopPipeline');
 
@@ -75,7 +75,7 @@ class Pipelines extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\Pipelines\RemoteTriggers
      */
-    public function remoteTriggers(string $pipeline)
+    public function remoteTriggers(string $pipeline): \Bitbucket\Api\Repositories\Workspaces\Pipelines\RemoteTriggers
     {
         return new RemoteTriggers($this->getClient(), $this->workspace, $this->repo, $pipeline);
     }
@@ -83,7 +83,7 @@ class Pipelines extends AbstractWorkspacesApi
     /**
      * @return \Bitbucket\Api\Repositories\Workspaces\Pipelines\Steps
      */
-    public function steps(string $pipeline)
+    public function steps(string $pipeline): \Bitbucket\Api\Repositories\Workspaces\Pipelines\Steps
     {
         return new Steps($this->getClient(), $this->workspace, $this->repo, $pipeline);
     }
@@ -93,7 +93,7 @@ class Pipelines extends AbstractWorkspacesApi
      *
      * @return string
      */
-    protected function buildPipelinesUri(string ...$parts)
+    protected function buildPipelinesUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pipelines', ...$parts);
     }

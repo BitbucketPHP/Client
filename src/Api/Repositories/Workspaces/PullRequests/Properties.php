@@ -27,7 +27,7 @@ class Properties extends AbstractPullRequestsApi
      *
      * @return array
      */
-    public function show(string $app, string $property, array $params = [])
+    public function show(string $app, string $property, array $params = []): array
     {
         $uri = $this->buildPropertiesUri($app, $property);
 
@@ -39,7 +39,7 @@ class Properties extends AbstractPullRequestsApi
      *
      * @return array
      */
-    public function update(string $app, string $property, array $params = [])
+    public function update(string $app, string $property, array $params = []): array
     {
         $uri = $this->buildPropertiesUri($app, $property);
 
@@ -51,7 +51,7 @@ class Properties extends AbstractPullRequestsApi
      *
      * @return array
      */
-    public function remove(string $app, string $property, array $params = [])
+    public function remove(string $app, string $property, array $params = []): array
     {
         $uri = $this->buildPropertiesUri($app, $property);
 
@@ -63,7 +63,7 @@ class Properties extends AbstractPullRequestsApi
      *
      * @return string
      */
-    protected function buildPropertiesUri(string ...$parts)
+    protected function buildPropertiesUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'pullrequests', $this->pr, 'properties', ...$parts);
     }

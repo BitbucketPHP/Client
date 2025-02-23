@@ -27,7 +27,7 @@ class Branches extends AbstractRefsApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = $this->buildBranchesUri();
 
@@ -39,7 +39,7 @@ class Branches extends AbstractRefsApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildBranchesUri();
 
@@ -51,7 +51,7 @@ class Branches extends AbstractRefsApi
      *
      * @return array
      */
-    public function show(string $branch, array $params = [])
+    public function show(string $branch, array $params = []): array
     {
         $uri = $this->buildBranchesUri($branch);
 
@@ -63,7 +63,7 @@ class Branches extends AbstractRefsApi
      *
      * @return array
      */
-    public function remove(string $branch, array $params = [])
+    public function remove(string $branch, array $params = []): array
     {
         $uri = $this->buildBranchesUri($branch);
 
@@ -75,7 +75,7 @@ class Branches extends AbstractRefsApi
      *
      * @return string
      */
-    protected function buildBranchesUri(string ...$parts)
+    protected function buildBranchesUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'refs', 'branches', ...$parts);
     }

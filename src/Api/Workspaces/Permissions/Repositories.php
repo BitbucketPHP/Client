@@ -27,7 +27,7 @@ class Repositories extends AbstractPermissionsApi
      *
      * @return array
      */
-    public function list(array $params = [])
+    public function list(array $params = []): array
     {
         $uri = UriBuilder::appendSeparator($this->buildRepositoriesUri());
 
@@ -39,7 +39,7 @@ class Repositories extends AbstractPermissionsApi
      *
      * @return array
      */
-    public function show(string $repo, array $params = [])
+    public function show(string $repo, array $params = []): array
     {
         $uri = $this->buildRepositoriesUri($repo);
 
@@ -51,7 +51,7 @@ class Repositories extends AbstractPermissionsApi
      *
      * @return string
      */
-    protected function buildRepositoriesUri(string ...$parts)
+    protected function buildRepositoriesUri(string ...$parts): string
     {
         return UriBuilder::build('workspaces', $this->workspace, 'permissions', 'repositories', ...$parts);
     }

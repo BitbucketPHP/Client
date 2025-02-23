@@ -29,7 +29,7 @@ class Addon extends AbstractApi
      *
      * @return array
      */
-    public function update(array $params = [])
+    public function update(array $params = []): array
     {
         $uri = $this->buildAddonUri();
 
@@ -41,7 +41,7 @@ class Addon extends AbstractApi
      *
      * @return array
      */
-    public function remove(array $params = [])
+    public function remove(array $params = []): array
     {
         $uri = $this->buildAddonUri();
 
@@ -51,7 +51,7 @@ class Addon extends AbstractApi
     /**
      * @return \Bitbucket\Api\Addon\Linkers
      */
-    public function linkers()
+    public function linkers(): \Bitbucket\Api\Addon\Linkers
     {
         return new Linkers($this->getClient());
     }
@@ -59,7 +59,7 @@ class Addon extends AbstractApi
     /**
      * @return \Bitbucket\Api\Addon\Users
      */
-    public function users()
+    public function users(): \Bitbucket\Api\Addon\Users
     {
         return new UsersAddon($this->getClient());
     }
@@ -69,7 +69,7 @@ class Addon extends AbstractApi
      *
      * @return string
      */
-    protected function buildAddonUri(string ...$parts)
+    protected function buildAddonUri(string ...$parts): string
     {
         return UriBuilder::build('addon', ...$parts);
     }

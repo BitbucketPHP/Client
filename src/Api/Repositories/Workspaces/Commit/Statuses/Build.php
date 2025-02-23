@@ -27,7 +27,7 @@ class Build extends AbstractStatusesApi
      *
      * @return array
      */
-    public function create(array $params = [])
+    public function create(array $params = []): array
     {
         $uri = $this->buildBuildUri();
 
@@ -39,7 +39,7 @@ class Build extends AbstractStatusesApi
      *
      * @return array
      */
-    public function show(string $key, array $params = [])
+    public function show(string $key, array $params = []): array
     {
         $uri = $this->buildBuildUri(...\explode('/', $key));
 
@@ -51,7 +51,7 @@ class Build extends AbstractStatusesApi
      *
      * @return array
      */
-    public function update(string $key, array $params = [])
+    public function update(string $key, array $params = []): array
     {
         $uri = $this->buildBuildUri(...\explode('/', $key));
 
@@ -63,7 +63,7 @@ class Build extends AbstractStatusesApi
      *
      * @return string
      */
-    protected function buildBuildUri(string ...$parts)
+    protected function buildBuildUri(string ...$parts): string
     {
         return UriBuilder::build('repositories', $this->workspace, $this->repo, 'commit', $this->commit, 'statuses', 'build', ...$parts);
     }
