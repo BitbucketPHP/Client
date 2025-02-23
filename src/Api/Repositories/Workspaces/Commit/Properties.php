@@ -23,10 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Properties extends AbstractCommitApi
 {
     /**
-     * @param string $app
-     * @param string $property
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -39,10 +35,6 @@ class Properties extends AbstractCommitApi
     }
 
     /**
-     * @param string $app
-     * @param string $property
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -55,10 +47,6 @@ class Properties extends AbstractCommitApi
     }
 
     /**
-     * @param string $app
-     * @param string $property
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -72,8 +60,6 @@ class Properties extends AbstractCommitApi
 
     /**
      * Build the properties URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

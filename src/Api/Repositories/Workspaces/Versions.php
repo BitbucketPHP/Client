@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Versions extends AbstractWorkspacesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,9 +35,6 @@ class Versions extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $version
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -53,8 +48,6 @@ class Versions extends AbstractWorkspacesApi
 
     /**
      * Build the versions URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

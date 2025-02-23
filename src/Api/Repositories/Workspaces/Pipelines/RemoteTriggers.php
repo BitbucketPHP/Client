@@ -23,9 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class RemoteTriggers extends AbstractPipelinesApi
 {
     /**
-     * @param string $key
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -39,8 +36,6 @@ class RemoteTriggers extends AbstractPipelinesApi
 
     /**
      * Build the remote triggers URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

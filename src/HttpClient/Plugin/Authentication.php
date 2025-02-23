@@ -40,7 +40,6 @@ final class Authentication implements Plugin
     /**
      * Handle the request and return the response coming from the next callable.
      *
-     * @param \Psr\Http\Message\RequestInterface                     $request
      * @param callable(RequestInterface): Promise<ResponseInterface> $next
      * @param callable(RequestInterface): Promise<ResponseInterface> $first
      *
@@ -56,13 +55,7 @@ final class Authentication implements Plugin
     /**
      * Build the authentication header to be attached to the request.
      *
-     * @param string      $method
-     * @param string      $token
-     * @param string|null $password
-     *
      * @throws \Bitbucket\Exception\RuntimeException
-     *
-     * @return string
      */
     private static function buildAuthorizationHeader(string $method, string $token, ?string $password = null): string
     {

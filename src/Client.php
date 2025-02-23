@@ -100,10 +100,6 @@ class Client
 
     /**
      * Create a Bitbucket\Client using an HTTP client.
-     *
-     * @param \Psr\Http\Client\ClientInterface $httpClient
-     *
-     * @return Client
      */
     public static function createWithHttpClient(ClientInterface $httpClient): self
     {
@@ -112,69 +108,41 @@ class Client
         return new self($builder);
     }
 
-    /**
-     * @return \Bitbucket\Api\Addon
-     */
     public function addon(): Addon
     {
         return new Addon($this);
     }
 
-    /**
-     * @return \Bitbucket\Api\CurrentUser
-     */
     public function currentUser(): CurrentUser
     {
         return new CurrentUser($this);
     }
 
-    /**
-     * @return \Bitbucket\Api\HookEvents
-     */
     public function hookEvents(): HookEvents
     {
         return new HookEvents($this);
     }
 
-    /**
-     * @return \Bitbucket\Api\PullRequests
-     */
     public function pullRequests(): PullRequests
     {
         return new PullRequests($this);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories
-     */
     public function repositories(): Repositories
     {
         return new Repositories($this);
     }
 
-    /**
-     * @return \Bitbucket\Api\Snippets
-     */
     public function snippets(): Snippets
     {
         return new Snippets($this);
     }
 
-    /**
-     * @param string $username
-     *
-     * @return \Bitbucket\Api\Users
-     */
     public function users(string $username): Users
     {
         return new Users($this, $username);
     }
 
-    /**
-     * @param string $workspace
-     *
-     * @return \Bitbucket\Api\Workspaces
-     */
     public function workspaces(string $workspace): Workspaces
     {
         return new Workspaces($this, $workspace);
@@ -182,12 +150,6 @@ class Client
 
     /**
      * Authenticate a user for all next requests.
-     *
-     * @param string      $method
-     * @param string      $token
-     * @param string|null $password
-     *
-     * @return void
      */
     public function authenticate(string $method, string $token, ?string $password = null): void
     {
@@ -197,10 +159,6 @@ class Client
 
     /**
      * Set the base URL.
-     *
-     * @param string $url
-     *
-     * @return void
      */
     public function setUrl(string $url): void
     {
@@ -210,8 +168,6 @@ class Client
 
     /**
      * Get the last response.
-     *
-     * @return \Psr\Http\Message\ResponseInterface|null
      */
     public function getLastResponse(): ?ResponseInterface
     {
@@ -220,8 +176,6 @@ class Client
 
     /**
      * Get the HTTP client.
-     *
-     * @return \Http\Client\Common\HttpMethodsClientInterface
      */
     public function getHttpClient(): HttpMethodsClientInterface
     {
@@ -230,8 +184,6 @@ class Client
 
     /**
      * Get the HTTP client builder.
-     *
-     * @return \Bitbucket\HttpClient\Builder
      */
     protected function getHttpClientBuilder(): Builder
     {

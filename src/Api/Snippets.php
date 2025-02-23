@@ -27,8 +27,6 @@ use Http\Message\MultipartStream\MultipartStreamBuilder;
 class Snippets extends AbstractApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -41,8 +39,6 @@ class Snippets extends AbstractApi
     }
 
     /**
-     * @param \Bitbucket\HttpClient\Message\FileResource $file
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -57,8 +53,6 @@ class Snippets extends AbstractApi
     }
 
     /**
-     * @param string $workspace
-     *
      * @return \Bitbucket\Api\Snippets\Workspaces
      */
     public function workspaces(string $workspace)
@@ -68,8 +62,6 @@ class Snippets extends AbstractApi
 
     /**
      * Build the snippets URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

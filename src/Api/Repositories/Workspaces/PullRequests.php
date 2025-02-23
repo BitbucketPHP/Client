@@ -31,8 +31,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class PullRequests extends AbstractWorkspacesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -45,8 +43,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -59,8 +55,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -73,9 +67,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pr
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -88,9 +79,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pr
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -103,9 +91,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pr
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -118,9 +103,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pr
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -133,9 +115,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pr
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -148,10 +127,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pr
-     * @param string $task
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -164,8 +139,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pr
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Approval
      */
     public function approval(string $pr)
@@ -174,8 +147,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pr
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Comments
      */
     public function comments(string $pr)
@@ -184,8 +155,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pr
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Commits
      */
     public function commits(string $pr)
@@ -194,8 +163,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pr
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Diff
      */
     public function diff(string $pr)
@@ -204,8 +171,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pr
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\DiffStat
      */
     public function diffstat(string $pr)
@@ -214,8 +179,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pr
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Patch
      */
     public function patch(string $pr)
@@ -224,8 +187,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pr
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Properties
      */
     public function properties(string $pr)
@@ -234,8 +195,6 @@ class PullRequests extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pr
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Statuses
      */
     public function statuses(string $pr)
@@ -245,8 +204,6 @@ class PullRequests extends AbstractWorkspacesApi
 
     /**
      * Build the pull requests URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

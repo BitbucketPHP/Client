@@ -24,8 +24,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Linkers extends AbstractAddonApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -38,9 +36,6 @@ class Linkers extends AbstractAddonApi
     }
 
     /**
-     * @param string $linker
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -53,8 +48,6 @@ class Linkers extends AbstractAddonApi
     }
 
     /**
-     * @param string $linker
-     *
      * @return \Bitbucket\Api\Addon\Linkers\Values
      */
     public function values(string $linker)
@@ -64,8 +57,6 @@ class Linkers extends AbstractAddonApi
 
     /**
      * Build the linkers URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

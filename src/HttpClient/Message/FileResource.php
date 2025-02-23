@@ -23,9 +23,7 @@ final class FileResource
     /**
      * Create a new file resource instance.
      *
-     * @param string                                            $name
      * @param string|resource|\Psr\Http\Message\StreamInterface $resource
-     * @param array                                             $options
      *
      * @return void
      */
@@ -38,8 +36,6 @@ final class FileResource
 
     /**
      * Get the name.
-     *
-     * @return string
      */
     public function getName(): string
     {
@@ -58,8 +54,6 @@ final class FileResource
 
     /**
      * Get the options.
-     *
-     * @return array
      */
     public function getOptions(): array
     {

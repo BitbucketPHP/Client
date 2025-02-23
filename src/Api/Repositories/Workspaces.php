@@ -50,8 +50,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Workspaces extends AbstractRepositoriesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -64,9 +62,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -79,9 +74,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -94,9 +86,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -109,9 +98,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -124,8 +110,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\BranchingModel
      */
     public function branchingModel(string $repo)
@@ -134,8 +118,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\BranchRestrictions
      */
     public function branchRestrictions(string $repo)
@@ -144,8 +126,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Commit
      */
     public function commit(string $repo)
@@ -154,8 +134,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Commits
      */
     public function commits(string $repo)
@@ -164,8 +142,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Components
      */
     public function components(string $repo)
@@ -174,8 +150,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\DefaultReviewers
      */
     public function defaultReviewers(string $repo)
@@ -184,8 +158,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\DeployKeys
      */
     public function deployKeys(string $repo)
@@ -194,8 +166,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Deployments
      */
     public function deployments(string $repo)
@@ -204,8 +174,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Diffs
      */
     public function diffs(string $repo)
@@ -214,8 +182,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\DiffStat
      */
     public function diffStat(string $repo)
@@ -224,8 +190,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Downloads
      */
     public function downloads(string $repo)
@@ -234,8 +198,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Environments
      */
     public function environments(string $repo)
@@ -244,8 +206,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\FileHistory
      */
     public function fileHistory(string $repo)
@@ -254,8 +214,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Forks
      */
     public function forks(string $repo)
@@ -264,8 +222,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Hooks
      */
     public function hooks(string $repo)
@@ -274,8 +230,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Issues
      */
     public function issues(string $repo)
@@ -284,8 +238,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\MergeBases
      */
     public function mergeBases(string $repo)
@@ -294,8 +246,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Milestones
      */
     public function milestones(string $repo)
@@ -304,8 +254,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Patches
      */
     public function patches(string $repo)
@@ -314,8 +262,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Pipelines
      */
     public function pipelines(string $repo)
@@ -324,8 +270,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig
      */
     public function pipelinesConfig(string $repo)
@@ -334,8 +278,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Properties
      */
     public function properties(string $repo)
@@ -344,8 +286,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests
      */
     public function pullRequests(string $repo)
@@ -354,8 +294,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Refs
      */
     public function refs(string $repo)
@@ -364,8 +302,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Src
      */
     public function src(string $repo)
@@ -374,8 +310,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Versions
      */
     public function versions(string $repo)
@@ -384,8 +318,6 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @param string $repo
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Watchers
      */
     public function watchers(string $repo)
@@ -395,8 +327,6 @@ class Workspaces extends AbstractRepositoriesApi
 
     /**
      * Build the workspaces URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

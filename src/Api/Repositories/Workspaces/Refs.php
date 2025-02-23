@@ -25,8 +25,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Refs extends AbstractWorkspacesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -56,8 +54,6 @@ class Refs extends AbstractWorkspacesApi
 
     /**
      * Build the refs URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

@@ -23,9 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class PullRequests extends AbstractApi
 {
     /**
-     * @param string $username
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -39,8 +36,6 @@ class PullRequests extends AbstractApi
 
     /**
      * Build the pull requests URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

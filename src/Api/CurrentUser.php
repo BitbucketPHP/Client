@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class CurrentUser extends AbstractApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,8 +35,6 @@ class CurrentUser extends AbstractApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -51,9 +47,6 @@ class CurrentUser extends AbstractApi
     }
 
     /**
-     * @param string $email
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -66,8 +59,6 @@ class CurrentUser extends AbstractApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -80,8 +71,6 @@ class CurrentUser extends AbstractApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -94,8 +83,6 @@ class CurrentUser extends AbstractApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -108,8 +95,6 @@ class CurrentUser extends AbstractApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -123,8 +108,6 @@ class CurrentUser extends AbstractApi
 
     /**
      * Build the current user URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

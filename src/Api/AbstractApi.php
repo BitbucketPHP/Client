@@ -45,8 +45,6 @@ abstract class AbstractApi
 
     /**
      * Get the bitbucket client instance.
-     *
-     * @return Client
      */
     protected function getClient(): Client
     {
@@ -56,13 +54,9 @@ abstract class AbstractApi
     /**
      * Send a GET request with query params and return the raw response.
      *
-     * @param string               $uri
-     * @param array                $params
      * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
-     *
-     * @return \Psr\Http\Message\ResponseInterface
      */
     protected function getAsResponse(string $uri, array $params = [], array $headers = []): ResponseInterface
     {
@@ -76,13 +70,9 @@ abstract class AbstractApi
     /**
      * Send a GET request with query params.
      *
-     * @param string               $uri
-     * @param array                $params
      * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     protected function get(string $uri, array $params = [], array $headers = []): array
     {
@@ -94,13 +84,9 @@ abstract class AbstractApi
     /**
      * Send a POST request with JSON-encoded params.
      *
-     * @param string               $uri
-     * @param array                $params
      * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     protected function post(string $uri, array $params = [], array $headers = []): array
     {
@@ -116,11 +102,9 @@ abstract class AbstractApi
     /**
      * Send a POST request with raw data.
      *
-     * @param array<string,string>                          $headers
+     * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     protected function postRaw(string $uri, string|StreamInterface|null $body = null, array $headers = []): array
     {
@@ -132,13 +116,9 @@ abstract class AbstractApi
     /**
      * Send a PUT request with JSON-encoded params.
      *
-     * @param string               $uri
-     * @param array                $params
      * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     protected function put(string $uri, array $params = [], array $headers = []): array
     {
@@ -154,11 +134,9 @@ abstract class AbstractApi
     /**
      * Send a PUT request with raw data.
      *
-     * @param array<string,string>                          $headers
+     * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     protected function putRaw(string $uri, string|StreamInterface|null $body = null, array $headers = []): array
     {
@@ -170,13 +148,9 @@ abstract class AbstractApi
     /**
      * Send a DELETE request with JSON-encoded params.
      *
-     * @param string               $uri
-     * @param array                $params
      * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     protected function delete(string $uri, array $params = [], array $headers = []): array
     {
@@ -192,11 +166,9 @@ abstract class AbstractApi
     /**
      * Send a DELETE request with raw data.
      *
-     * @param array<string,string>                          $headers
+     * @param array<string,string> $headers
      *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     protected function deleteRaw(string $uri, string|StreamInterface|null $body = null, array $headers = []): array
     {
@@ -207,11 +179,6 @@ abstract class AbstractApi
 
     /**
      * Prepare the request URI.
-     *
-     * @param string $uri
-     * @param array  $query
-     *
-     * @return string
      */
     private static function prepareUri(string $uri, array $query = []): string
     {
@@ -220,10 +187,6 @@ abstract class AbstractApi
 
     /**
      * Prepare the request JSON body.
-     *
-     * @param array $params
-     *
-     * @return string|null
      */
     private static function prepareJsonBody(array $params): ?string
     {

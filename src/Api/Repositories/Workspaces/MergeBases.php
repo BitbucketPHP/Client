@@ -23,9 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class MergeBases extends AbstractWorkspacesApi
 {
     /**
-     * @param string $spec
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -39,8 +36,6 @@ class MergeBases extends AbstractWorkspacesApi
 
     /**
      * Build the merge base URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

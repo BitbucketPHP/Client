@@ -23,9 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class DiffStat extends AbstractWorkspacesApi
 {
     /**
-     * @param string $spec
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -39,8 +36,6 @@ class DiffStat extends AbstractWorkspacesApi
 
     /**
      * Build the diff stat URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

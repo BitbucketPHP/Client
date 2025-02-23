@@ -33,8 +33,6 @@ use Http\Message\MultipartStream\MultipartStreamBuilder;
 class Workspaces extends AbstractSnippetsApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -47,8 +45,6 @@ class Workspaces extends AbstractSnippetsApi
     }
 
     /**
-     * @param \Bitbucket\HttpClient\Message\FileResource $file
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -63,9 +59,6 @@ class Workspaces extends AbstractSnippetsApi
     }
 
     /**
-     * @param string $snippet
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -78,9 +71,6 @@ class Workspaces extends AbstractSnippetsApi
     }
 
     /**
-     * @param string $snippet
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -93,7 +83,6 @@ class Workspaces extends AbstractSnippetsApi
     }
 
     /**
-     * @param string                                       $snippet
      * @param \Bitbucket\HttpClient\Message\FileResource[] $files
      *
      * @throws \Http\Client\Exception
@@ -116,9 +105,6 @@ class Workspaces extends AbstractSnippetsApi
     }
 
     /**
-     * @param string $snippet
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -131,8 +117,6 @@ class Workspaces extends AbstractSnippetsApi
     }
 
     /**
-     * @param string $snippet
-     *
      * @return \Bitbucket\Api\Snippets\Workspaces\Comments
      */
     public function comments(string $snippet)
@@ -141,8 +125,6 @@ class Workspaces extends AbstractSnippetsApi
     }
 
     /**
-     * @param string $snippet
-     *
      * @return \Bitbucket\Api\Snippets\Workspaces\Commits
      */
     public function commits(string $snippet)
@@ -151,8 +133,6 @@ class Workspaces extends AbstractSnippetsApi
     }
 
     /**
-     * @param string $snippet
-     *
      * @return \Bitbucket\Api\Snippets\Workspaces\Diffs
      */
     public function diffs(string $snippet)
@@ -161,8 +141,6 @@ class Workspaces extends AbstractSnippetsApi
     }
 
     /**
-     * @param string $snippet
-     *
      * @return \Bitbucket\Api\Snippets\Workspaces\Files
      */
     public function files(string $snippet)
@@ -171,8 +149,6 @@ class Workspaces extends AbstractSnippetsApi
     }
 
     /**
-     * @param string $snippet
-     *
      * @return \Bitbucket\Api\Snippets\Workspaces\Patches
      */
     public function patches(string $snippet)
@@ -181,8 +157,6 @@ class Workspaces extends AbstractSnippetsApi
     }
 
     /**
-     * @param string $snippet
-     *
      * @return \Bitbucket\Api\Snippets\Workspaces\Watchers
      */
     public function watchers(string $snippet)
@@ -191,8 +165,6 @@ class Workspaces extends AbstractSnippetsApi
     }
 
     /**
-     * @param string $snippet
-     *
      * @return \Bitbucket\Api\Snippets\Workspaces\Watching
      */
     public function watching(string $snippet)
@@ -202,8 +174,6 @@ class Workspaces extends AbstractSnippetsApi
 
     /**
      * Build the workspaces URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

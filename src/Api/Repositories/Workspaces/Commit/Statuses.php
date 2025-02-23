@@ -24,8 +24,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Statuses extends AbstractCommitApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -47,8 +45,6 @@ class Statuses extends AbstractCommitApi
 
     /**
      * Build the statuses URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

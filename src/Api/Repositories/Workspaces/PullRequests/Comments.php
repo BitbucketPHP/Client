@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Comments extends AbstractPullRequestsApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,9 +35,6 @@ class Comments extends AbstractPullRequestsApi
     }
 
     /**
-     * @param string $comment
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -52,8 +47,6 @@ class Comments extends AbstractPullRequestsApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -66,9 +59,6 @@ class Comments extends AbstractPullRequestsApi
     }
 
     /**
-     * @param string $comment
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -81,8 +71,6 @@ class Comments extends AbstractPullRequestsApi
     }
 
     /**
-     * @param string $comment
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -96,8 +84,6 @@ class Comments extends AbstractPullRequestsApi
 
     /**
      * Build the comments URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

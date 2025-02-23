@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Build extends AbstractStatusesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,9 +35,6 @@ class Build extends AbstractStatusesApi
     }
 
     /**
-     * @param string $key
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -52,9 +47,6 @@ class Build extends AbstractStatusesApi
     }
 
     /**
-     * @param string $key
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -68,8 +60,6 @@ class Build extends AbstractStatusesApi
 
     /**
      * Build the build URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

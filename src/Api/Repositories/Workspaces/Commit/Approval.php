@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Approval extends AbstractCommitApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,8 +35,6 @@ class Approval extends AbstractCommitApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -52,8 +48,6 @@ class Approval extends AbstractCommitApi
 
     /**
      * Build the approval URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

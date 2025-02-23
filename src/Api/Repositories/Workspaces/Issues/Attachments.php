@@ -26,8 +26,6 @@ use Http\Message\MultipartStream\MultipartStreamBuilder;
 class Attachments extends AbstractIssuesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -40,8 +38,6 @@ class Attachments extends AbstractIssuesApi
     }
 
     /**
-     * @param \Bitbucket\HttpClient\Message\FileResource $file
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -56,9 +52,6 @@ class Attachments extends AbstractIssuesApi
     }
 
     /**
-     * @param string $filename
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return \Psr\Http\Message\StreamInterface
@@ -71,9 +64,6 @@ class Attachments extends AbstractIssuesApi
     }
 
     /**
-     * @param string $filename
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -87,8 +77,6 @@ class Attachments extends AbstractIssuesApi
 
     /**
      * Build the attachments URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

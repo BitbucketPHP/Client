@@ -34,8 +34,6 @@ class PipelinesConfig extends AbstractWorkspacesApi
     /**
      * Build the pipelines config URI from the given parts.
      *
-     * @param string ...$parts
-     *
      * @return string
      */
     protected function buildPipelinesConfigUri(string ...$parts)

@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Repositories extends AbstractPermissionsApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,9 +35,6 @@ class Repositories extends AbstractPermissionsApi
     }
 
     /**
-     * @param string $repo
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -53,8 +48,6 @@ class Repositories extends AbstractPermissionsApi
 
     /**
      * Build the repositories URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

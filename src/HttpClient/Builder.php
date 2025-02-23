@@ -63,9 +63,6 @@ final class Builder
         $this->pluginClient = null;
     }
 
-    /**
-     * @return \Http\Client\Common\HttpMethodsClientInterface
-     */
     public function getHttpClient(): HttpMethodsClientInterface
     {
         if (null === $this->pluginClient) {
@@ -86,10 +83,6 @@ final class Builder
 
     /**
      * Add a new plugin to the end of the plugin chain.
-     *
-     * @param \Http\Client\Common\Plugin $plugin
-     *
-     * @return void
      */
     public function addPlugin(Plugin $plugin): void
     {
@@ -99,10 +92,6 @@ final class Builder
 
     /**
      * Remove a plugin by its fully qualified class name (FQCN).
-     *
-     * @param string $fqcn
-     *
-     * @return void
      */
     public function removePlugin(string $fqcn): void
     {
@@ -116,11 +105,6 @@ final class Builder
 
     /**
      * Add a cache plugin to cache responses locally.
-     *
-     * @param \Psr\Cache\CacheItemPoolInterface $cachePool
-     * @param array                             $config
-     *
-     * @return void
      */
     public function addCache(CacheItemPoolInterface $cachePool, array $config = []): void
     {
@@ -134,8 +118,6 @@ final class Builder
 
     /**
      * Remove the cache plugin.
-     *
-     * @return void
      */
     public function removeCache(): void
     {

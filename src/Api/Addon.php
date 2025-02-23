@@ -25,8 +25,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Addon extends AbstractApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -39,8 +37,6 @@ class Addon extends AbstractApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -70,8 +66,6 @@ class Addon extends AbstractApi
 
     /**
      * Build the addon URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

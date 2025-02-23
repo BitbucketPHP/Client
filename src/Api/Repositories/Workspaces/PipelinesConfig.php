@@ -32,8 +32,6 @@ class PipelinesConfig extends AbstractWorkspacesApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -46,8 +44,6 @@ class PipelinesConfig extends AbstractWorkspacesApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -61,8 +57,6 @@ class PipelinesConfig extends AbstractWorkspacesApi
 
     /**
      * Build the pipelines config URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

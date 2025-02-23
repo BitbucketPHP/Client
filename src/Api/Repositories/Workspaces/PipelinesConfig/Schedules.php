@@ -24,8 +24,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Schedules extends AbstractPipelinesConfigApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -38,8 +36,6 @@ class Schedules extends AbstractPipelinesConfigApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -52,9 +48,6 @@ class Schedules extends AbstractPipelinesConfigApi
     }
 
     /**
-     * @param string $schedule
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -67,9 +60,6 @@ class Schedules extends AbstractPipelinesConfigApi
     }
 
     /**
-     * @param string $schedule
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -82,9 +72,6 @@ class Schedules extends AbstractPipelinesConfigApi
     }
 
     /**
-     * @param string $schedule
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -97,8 +84,6 @@ class Schedules extends AbstractPipelinesConfigApi
     }
 
     /**
-     * @param string $schedule
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Schedules\Executions
      */
     public function executions(string $schedule)
@@ -108,8 +93,6 @@ class Schedules extends AbstractPipelinesConfigApi
 
     /**
      * Build the schedules URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

@@ -25,8 +25,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Permissions extends AbstractWorkspacesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -48,8 +46,6 @@ class Permissions extends AbstractWorkspacesApi
 
     /**
      * Build the permissions URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

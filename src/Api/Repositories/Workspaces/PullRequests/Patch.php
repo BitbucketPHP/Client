@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Patch extends AbstractPullRequestsApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return \Psr\Http\Message\StreamInterface
@@ -38,8 +36,6 @@ class Patch extends AbstractPullRequestsApi
 
     /**
      * Build the patch URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

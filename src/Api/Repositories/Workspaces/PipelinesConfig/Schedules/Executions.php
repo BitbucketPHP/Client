@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Executions extends AbstractSchedulesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -38,8 +36,6 @@ class Executions extends AbstractSchedulesApi
 
     /**
      * Build the executions URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

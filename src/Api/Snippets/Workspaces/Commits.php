@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Commits extends AbstractWorkspacesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,9 +35,6 @@ class Commits extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $commit
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -53,8 +48,6 @@ class Commits extends AbstractWorkspacesApi
 
     /**
      * Build the commits URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

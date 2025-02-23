@@ -24,8 +24,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Reports extends AbstractCommitApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -38,9 +36,6 @@ class Reports extends AbstractCommitApi
     }
 
     /**
-     * @param string $report
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -53,9 +48,6 @@ class Reports extends AbstractCommitApi
     }
 
     /**
-     * @param string $report
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -77,8 +69,6 @@ class Reports extends AbstractCommitApi
 
     /**
      * Build the reports URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Milestones extends AbstractWorkspacesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,9 +35,6 @@ class Milestones extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $milestone
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -53,8 +48,6 @@ class Milestones extends AbstractWorkspacesApi
 
     /**
      * Build the milestones URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

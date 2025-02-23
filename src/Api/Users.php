@@ -61,8 +61,6 @@ class Users extends AbstractApi
     /**
      * Build the users URI from the given parts.
      *
-     * @param string ...$parts
-     *
      * @return string
      */
     protected function buildUsersUri(string ...$parts)

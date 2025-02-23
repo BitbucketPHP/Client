@@ -26,8 +26,6 @@ use Psr\Http\Message\ResponseInterface;
 final class MockedClient
 {
     /**
-     * @param \Psr\Http\Message\ResponseInterface $response
-     *
      * @return \Bitbucket\Client
      */
     public static function create(ResponseInterface $response)
@@ -38,8 +36,6 @@ final class MockedClient
     }
 
     /**
-     * @param \Psr\Http\Message\ResponseInterface $response
-     *
      * @return \Psr\Http\Message\ResponseFactoryInterface
      */
     private static function createResponseFactory(ResponseInterface $response)

@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class BuildNumber extends AbstractPipelinesConfigApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -38,8 +36,6 @@ class BuildNumber extends AbstractPipelinesConfigApi
 
     /**
      * Build the build number URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

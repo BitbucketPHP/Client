@@ -43,8 +43,6 @@ class Ssh extends AbstractPipelinesConfigApi
     /**
      * Build the ssh URI from the given parts.
      *
-     * @param string ...$parts
-     *
      * @return string
      */
     protected function buildSshUri(string ...$parts)

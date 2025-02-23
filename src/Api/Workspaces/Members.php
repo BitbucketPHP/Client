@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Members extends AbstractWorkspacesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,9 +35,6 @@ class Members extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $member
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -53,8 +48,6 @@ class Members extends AbstractWorkspacesApi
 
     /**
      * Build the members URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

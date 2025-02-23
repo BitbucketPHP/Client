@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class SshKeys extends AbstractUsersApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,8 +35,6 @@ class SshKeys extends AbstractUsersApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -51,9 +47,6 @@ class SshKeys extends AbstractUsersApi
     }
 
     /**
-     * @param string $id
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -66,9 +59,6 @@ class SshKeys extends AbstractUsersApi
     }
 
     /**
-     * @param string $id
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -81,9 +71,6 @@ class SshKeys extends AbstractUsersApi
     }
 
     /**
-     * @param string $id
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -97,8 +84,6 @@ class SshKeys extends AbstractUsersApi
 
     /**
      * Build the ssh keys URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

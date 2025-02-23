@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Commits extends AbstractPullRequestsApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -38,8 +36,6 @@ class Commits extends AbstractPullRequestsApi
 
     /**
      * Build the commits URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

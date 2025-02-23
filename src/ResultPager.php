@@ -59,13 +59,7 @@ final class ResultPager implements ResultPagerInterface
     /**
      * Fetch a single result from an api call.
      *
-     * @param \Bitbucket\Api\AbstractApi $api
-     * @param string                     $method
-     * @param array                      $parameters
-     *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function fetch(AbstractApi $api, string $method, array $parameters = []): array
     {
@@ -84,13 +78,7 @@ final class ResultPager implements ResultPagerInterface
     /**
      * Fetch all results from an api call.
      *
-     * @param \Bitbucket\Api\AbstractApi $api
-     * @param string                     $method
-     * @param array                      $parameters
-     *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function fetchAll(AbstractApi $api, string $method, array $parameters = []): array
     {
@@ -100,13 +88,7 @@ final class ResultPager implements ResultPagerInterface
     /**
      * Lazily fetch all results from an api call.
      *
-     * @param \Bitbucket\Api\AbstractApi $api
-     * @param string                     $method
-     * @param array                      $parameters
-     *
      * @throws \Http\Client\Exception
-     *
-     * @return \Generator
      */
     public function fetchAllLazy(AbstractApi $api, string $method, array $parameters = []): Generator
     {
@@ -125,8 +107,6 @@ final class ResultPager implements ResultPagerInterface
 
     /**
      * Check to determine the availability of a next page.
-     *
-     * @return bool
      */
     public function hasNext(): bool
     {
@@ -137,8 +117,6 @@ final class ResultPager implements ResultPagerInterface
      * Fetch the next page.
      *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function fetchNext(): array
     {
@@ -147,8 +125,6 @@ final class ResultPager implements ResultPagerInterface
 
     /**
      * Check to determine the availability of a previous page.
-     *
-     * @return bool
      */
     public function hasPrevious(): bool
     {
@@ -159,8 +135,6 @@ final class ResultPager implements ResultPagerInterface
      * Fetch the previous page.
      *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function fetchPrevious(): array
     {
@@ -169,8 +143,6 @@ final class ResultPager implements ResultPagerInterface
 
     /**
      * Refresh the pagination property.
-     *
-     * @return void
      */
     private function postFetch(): void
     {
@@ -180,11 +152,7 @@ final class ResultPager implements ResultPagerInterface
     }
 
     /**
-     * @param string $key
-     *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     private function get(string $key): array
     {
@@ -203,12 +171,6 @@ final class ResultPager implements ResultPagerInterface
         return $content;
     }
 
-    /**
-     * @param \Bitbucket\Api\AbstractApi $api
-     * @param int                        $perPage
-     *
-     * @return \Bitbucket\Api\AbstractApi
-     */
     private static function bindPerPage(AbstractApi $api, int $perPage): AbstractApi
     {
         /** @var Closure(AbstractApi): AbstractApi */
@@ -224,11 +186,7 @@ final class ResultPager implements ResultPagerInterface
     }
 
     /**
-     * @param array $result
-     *
      * @throws \Bitbucket\Exception\RuntimeException
-     *
-     * @return array
      */
     private static function getValues(array $result): array
     {

@@ -25,9 +25,6 @@ use Http\Message\MultipartStream\MultipartStreamBuilder;
 class Files extends AbstractWorkspacesApi
 {
     /**
-     * @param string $commit
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -40,10 +37,6 @@ class Files extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $commit
-     * @param string $uri
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return \Psr\Http\Message\StreamInterface
@@ -56,9 +49,6 @@ class Files extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $commit
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -71,7 +61,6 @@ class Files extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string                                       $commit
      * @param \Bitbucket\HttpClient\Message\FileResource[] $files
      *
      * @throws \Http\Client\Exception
@@ -94,9 +83,6 @@ class Files extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $commit
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -110,8 +96,6 @@ class Files extends AbstractWorkspacesApi
 
     /**
      * Build the files URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

@@ -19,8 +19,6 @@ namespace Bitbucket\Tests;
 final class Resource
 {
     /**
-     * @param string $path
-     *
      * @return string
      */
     public static function get(string $path)

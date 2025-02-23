@@ -23,9 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Diffs extends AbstractWorkspacesApi
 {
     /**
-     * @param string $spec
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return \Psr\Http\Message\StreamInterface
@@ -39,8 +36,6 @@ class Diffs extends AbstractWorkspacesApi
 
     /**
      * Build the diff URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

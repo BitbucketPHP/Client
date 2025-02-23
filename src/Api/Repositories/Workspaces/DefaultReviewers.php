@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class DefaultReviewers extends AbstractWorkspacesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,9 +35,6 @@ class DefaultReviewers extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $reviewer
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -52,9 +47,6 @@ class DefaultReviewers extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $reviewer
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -67,9 +59,6 @@ class DefaultReviewers extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $reviewer
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -83,8 +72,6 @@ class DefaultReviewers extends AbstractWorkspacesApi
 
     /**
      * Build the default reviewers URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

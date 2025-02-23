@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Forks extends AbstractWorkspacesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,8 +35,6 @@ class Forks extends AbstractWorkspacesApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -52,8 +48,6 @@ class Forks extends AbstractWorkspacesApi
 
     /**
      * Build the forks URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

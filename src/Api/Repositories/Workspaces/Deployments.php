@@ -24,8 +24,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Deployments extends AbstractWorkspacesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -38,9 +36,6 @@ class Deployments extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $deployments
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -53,8 +48,6 @@ class Deployments extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $environment
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Deployments\EnvironmentVariables
      */
     public function environmentVariables(string $environment)
@@ -64,8 +57,6 @@ class Deployments extends AbstractWorkspacesApi
 
     /**
      * Build the deployments URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

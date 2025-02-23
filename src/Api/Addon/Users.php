@@ -23,8 +23,6 @@ use Bitbucket\Api\Addon\Users\Events;
 class Users extends AbstractAddonApi
 {
     /**
-     * @param string $username
-     *
      * @return \Bitbucket\Api\Addon\Users\Events
      */
     public function events(string $username)

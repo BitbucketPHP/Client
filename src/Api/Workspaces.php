@@ -37,8 +37,6 @@ class Workspaces extends AbstractApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -51,8 +49,6 @@ class Workspaces extends AbstractApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -106,8 +102,6 @@ class Workspaces extends AbstractApi
 
     /**
      * Build the workspaces URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

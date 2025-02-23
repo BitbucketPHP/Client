@@ -25,8 +25,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Pipelines extends AbstractWorkspacesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -39,8 +37,6 @@ class Pipelines extends AbstractWorkspacesApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -53,9 +49,6 @@ class Pipelines extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pipeline
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -68,9 +61,6 @@ class Pipelines extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pipeline
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -83,8 +73,6 @@ class Pipelines extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pipeline
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Pipelines\RemoteTriggers
      */
     public function remoteTriggers(string $pipeline)
@@ -93,8 +81,6 @@ class Pipelines extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $pipeline
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Pipelines\Steps
      */
     public function steps(string $pipeline)
@@ -104,8 +90,6 @@ class Pipelines extends AbstractWorkspacesApi
 
     /**
      * Build the pipelines URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

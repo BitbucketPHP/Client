@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Variables extends AbstractPipelinesConfigApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,8 +35,6 @@ class Variables extends AbstractPipelinesConfigApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -51,9 +47,6 @@ class Variables extends AbstractPipelinesConfigApi
     }
 
     /**
-     * @param string $variable
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -66,9 +59,6 @@ class Variables extends AbstractPipelinesConfigApi
     }
 
     /**
-     * @param string $variable
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -81,9 +71,6 @@ class Variables extends AbstractPipelinesConfigApi
     }
 
     /**
-     * @param string $variable
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -97,8 +84,6 @@ class Variables extends AbstractPipelinesConfigApi
 
     /**
      * Build the variables URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

@@ -23,10 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class FileHistory extends AbstractWorkspacesApi
 {
     /**
-     * @param string $commit
-     * @param string $uri
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -40,8 +36,6 @@ class FileHistory extends AbstractWorkspacesApi
 
     /**
      * Build the file history URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

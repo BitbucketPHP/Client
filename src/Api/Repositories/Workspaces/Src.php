@@ -25,8 +25,6 @@ use Http\Message\MultipartStream\MultipartStreamBuilder;
 class Src extends AbstractWorkspacesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -84,10 +82,6 @@ class Src extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $commit
-     * @param string $filepath
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -104,10 +98,6 @@ class Src extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $commit
-     * @param string $filepath
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return \Psr\Http\Message\StreamInterface
@@ -121,8 +111,6 @@ class Src extends AbstractWorkspacesApi
 
     /**
      * Build the src URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

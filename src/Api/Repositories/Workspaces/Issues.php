@@ -28,8 +28,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Issues extends AbstractWorkspacesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -42,8 +40,6 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -56,9 +52,6 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $issue
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -71,9 +64,6 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $issue
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -86,9 +76,6 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $issue
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -101,8 +88,6 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $issue
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Attachments
      */
     public function attachments(string $issue)
@@ -111,8 +96,6 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $issue
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Changes
      */
     public function changes(string $issue)
@@ -121,8 +104,6 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $issue
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Comments
      */
     public function comments(string $issue)
@@ -131,8 +112,6 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $issue
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Voting
      */
     public function voting(string $issue)
@@ -141,8 +120,6 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $issue
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Watching
      */
     public function watching(string $issue)
@@ -152,8 +129,6 @@ class Issues extends AbstractWorkspacesApi
 
     /**
      * Build the issues URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

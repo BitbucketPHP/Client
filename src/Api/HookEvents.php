@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class HookEvents extends AbstractApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,8 +35,6 @@ class HookEvents extends AbstractApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -51,8 +47,6 @@ class HookEvents extends AbstractApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -65,8 +59,6 @@ class HookEvents extends AbstractApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -80,8 +72,6 @@ class HookEvents extends AbstractApi
 
     /**
      * Build the hook events URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class KeyPair extends AbstractSshApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,8 +35,6 @@ class KeyPair extends AbstractSshApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -51,8 +47,6 @@ class KeyPair extends AbstractSshApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -66,8 +60,6 @@ class KeyPair extends AbstractSshApi
 
     /**
      * Build the key pair URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Steps extends AbstractPipelinesApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,9 +35,6 @@ class Steps extends AbstractPipelinesApi
     }
 
     /**
-     * @param string $step
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -52,9 +47,6 @@ class Steps extends AbstractPipelinesApi
     }
 
     /**
-     * @param string $step
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return \Psr\Http\Message\StreamInterface
@@ -67,10 +59,6 @@ class Steps extends AbstractPipelinesApi
     }
 
     /**
-     * @param string $step
-     * @param string $uuid
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return \Psr\Http\Message\StreamInterface
@@ -83,9 +71,6 @@ class Steps extends AbstractPipelinesApi
     }
 
     /**
-     * @param string $step
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -99,8 +84,6 @@ class Steps extends AbstractPipelinesApi
 
     /**
      * Build the steps URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

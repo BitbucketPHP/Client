@@ -23,8 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Branches extends AbstractRefsApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -37,8 +35,6 @@ class Branches extends AbstractRefsApi
     }
 
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -51,9 +47,6 @@ class Branches extends AbstractRefsApi
     }
 
     /**
-     * @param string $branch
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -66,9 +59,6 @@ class Branches extends AbstractRefsApi
     }
 
     /**
-     * @param string $branch
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -82,8 +72,6 @@ class Branches extends AbstractRefsApi
 
     /**
      * Build the branches URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

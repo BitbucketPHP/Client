@@ -23,9 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Patches extends AbstractWorkspacesApi
 {
     /**
-     * @param string $spec
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return \Psr\Http\Message\StreamInterface
@@ -39,8 +36,6 @@ class Patches extends AbstractWorkspacesApi
 
     /**
      * Build the patches URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

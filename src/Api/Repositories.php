@@ -24,8 +24,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Repositories extends AbstractApi
 {
     /**
-     * @param array $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -38,8 +36,6 @@ class Repositories extends AbstractApi
     }
 
     /**
-     * @param string $workspace
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces
      */
     public function workspaces(string $workspace)
@@ -49,8 +45,6 @@ class Repositories extends AbstractApi
 
     /**
      * Build the repositories URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

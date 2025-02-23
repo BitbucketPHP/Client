@@ -23,9 +23,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Events extends AbstractUsersApi
 {
     /**
-     * @param string $event
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -39,8 +36,6 @@ class Events extends AbstractUsersApi
 
     /**
      * Build the events URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */

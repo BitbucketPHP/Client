@@ -26,10 +26,6 @@ final class UriBuilder
 {
     /**
      * Build a URI from the given parts.
-     *
-     * @param string ...$parts
-     *
-     * @return string
      */
     public static function build(string ...$parts): string
     {
@@ -47,10 +43,6 @@ final class UriBuilder
 
     /**
      * Append a URI separator to the given URI.
-     *
-     * @param string $uri
-     *
-     * @return string
      */
     public static function appendSeparator(string $uri): string
     {

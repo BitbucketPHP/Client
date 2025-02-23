@@ -29,9 +29,6 @@ use Bitbucket\HttpClient\Util\UriBuilder;
 class Commit extends AbstractWorkspacesApi
 {
     /**
-     * @param string $commit
-     * @param array  $params
-     *
      * @throws \Http\Client\Exception
      *
      * @return array
@@ -44,8 +41,6 @@ class Commit extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $commit
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Approval
      */
     public function approval(string $commit)
@@ -54,8 +49,6 @@ class Commit extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $commit
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Comments
      */
     public function comments(string $commit)
@@ -64,8 +57,6 @@ class Commit extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $commit
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Properties
      */
     public function properties(string $commit)
@@ -74,8 +65,6 @@ class Commit extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $commit
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Commit\PullRequests
      */
     public function pullRequests(string $commit)
@@ -84,8 +73,6 @@ class Commit extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $commit
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Reports
      */
     public function reports(string $commit)
@@ -94,8 +81,6 @@ class Commit extends AbstractWorkspacesApi
     }
 
     /**
-     * @param string $commit
-     *
      * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Statuses
      */
     public function statuses(string $commit)
@@ -105,8 +90,6 @@ class Commit extends AbstractWorkspacesApi
 
     /**
      * Build the commit URI from the given parts.
-     *
-     * @param string ...$parts
      *
      * @return string
      */
