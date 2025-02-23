@@ -24,8 +24,6 @@ class Comments extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Comments extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -48,8 +44,6 @@ class Comments extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $comment, array $params = []): array
     {
@@ -60,8 +54,6 @@ class Comments extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(string $comment, array $params = []): array
     {
@@ -72,8 +64,6 @@ class Comments extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(string $comment, array $params = []): array
     {
@@ -84,8 +74,6 @@ class Comments extends AbstractWorkspacesApi
 
     /**
      * Build the comments URI from the given parts.
-     *
-     * @return string
      */
     protected function buildCommentsUri(string ...$parts): string
     {

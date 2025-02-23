@@ -32,8 +32,6 @@ class PullRequests extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -44,8 +42,6 @@ class PullRequests extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function activity(array $params = []): array
     {
@@ -56,8 +52,6 @@ class PullRequests extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -68,8 +62,6 @@ class PullRequests extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $pr, array $params = []): array
     {
@@ -80,8 +72,6 @@ class PullRequests extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function activityByPr(string $pr, array $params = []): array
     {
@@ -92,8 +82,6 @@ class PullRequests extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(string $pr, array $params = []): array
     {
@@ -104,8 +92,6 @@ class PullRequests extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function decline(string $pr, array $params = []): array
     {
@@ -116,8 +102,6 @@ class PullRequests extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function merge(string $pr, array $params = []): array
     {
@@ -128,8 +112,6 @@ class PullRequests extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function mergeTaskStatus(string $pr, string $task, array $params = []): array
     {
@@ -138,74 +120,48 @@ class PullRequests extends AbstractWorkspacesApi
         return $this->get($uri, $params);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Approval
-     */
-    public function approval(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\Approval
+    public function approval(string $pr): Approval
     {
         return new Approval($this->getClient(), $this->workspace, $this->repo, $pr);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Comments
-     */
-    public function comments(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\Comments
+    public function comments(string $pr): Comments
     {
         return new Comments($this->getClient(), $this->workspace, $this->repo, $pr);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Commits
-     */
-    public function commits(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\Commits
+    public function commits(string $pr): PullRequestsCommits
     {
         return new PullRequestsCommits($this->getClient(), $this->workspace, $this->repo, $pr);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Diff
-     */
-    public function diff(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\Diff
+    public function diff(string $pr): Diff
     {
         return new Diff($this->getClient(), $this->workspace, $this->repo, $pr);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\DiffStat
-     */
-    public function diffstat(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\DiffStat
+    public function diffstat(string $pr): DiffStat
     {
         return new DiffStat($this->getClient(), $this->workspace, $this->repo, $pr);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Patch
-     */
-    public function patch(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\Patch
+    public function patch(string $pr): Patch
     {
         return new Patch($this->getClient(), $this->workspace, $this->repo, $pr);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Properties
-     */
-    public function properties(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\Properties
+    public function properties(string $pr): PullRequestsProperties
     {
         return new PullRequestsProperties($this->getClient(), $this->workspace, $this->repo, $pr);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\PullRequests\Statuses
-     */
-    public function statuses(string $pr): \Bitbucket\Api\Repositories\Workspaces\PullRequests\Statuses
+    public function statuses(string $pr): Statuses
     {
         return new Statuses($this->getClient(), $this->workspace, $this->repo, $pr);
     }
 
     /**
      * Build the pull requests URI from the given parts.
-     *
-     * @return string
      */
     protected function buildPullRequestsUri(string ...$parts): string
     {

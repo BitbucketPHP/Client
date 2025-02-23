@@ -24,8 +24,6 @@ class FileHistory extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(string $commit, string $uri, array $params = []): array
     {
@@ -36,8 +34,6 @@ class FileHistory extends AbstractWorkspacesApi
 
     /**
      * Build the file history URI from the given parts.
-     *
-     * @return string
      */
     protected function buildFileHistoryUri(string ...$parts): string
     {

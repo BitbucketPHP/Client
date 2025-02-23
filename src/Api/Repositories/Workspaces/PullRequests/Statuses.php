@@ -24,8 +24,6 @@ class Statuses extends AbstractPullRequestsApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Statuses extends AbstractPullRequestsApi
 
     /**
      * Build the statuses URI from the given parts.
-     *
-     * @return string
      */
     protected function buildStatusesUri(string ...$parts): string
     {

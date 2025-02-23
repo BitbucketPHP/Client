@@ -24,8 +24,6 @@ class Environments extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Environments extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $env, array $params = []): array
     {
@@ -48,8 +44,6 @@ class Environments extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -60,8 +54,6 @@ class Environments extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(string $env, array $params = []): array
     {
@@ -72,8 +64,6 @@ class Environments extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(string $env): array
     {
@@ -84,8 +74,6 @@ class Environments extends AbstractWorkspacesApi
 
     /**
      * Build the environments URI from the given parts.
-     *
-     * @return string
      */
     protected function buildEnvironmentsUri(string ...$parts): string
     {

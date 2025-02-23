@@ -24,8 +24,6 @@ class Watchers extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Watchers extends AbstractWorkspacesApi
 
     /**
      * Build the watchers URI from the given parts.
-     *
-     * @return string
      */
     protected function buildWatchersUri(string ...$parts): string
     {

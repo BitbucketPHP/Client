@@ -24,8 +24,6 @@ class Diffs extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return \Psr\Http\Message\StreamInterface
      */
     public function download(string $commit, array $params = []): \Psr\Http\Message\StreamInterface
     {
@@ -36,8 +34,6 @@ class Diffs extends AbstractWorkspacesApi
 
     /**
      * Build the diffs URI from the given parts.
-     *
-     * @return string
      */
     protected function buildDiffsUri(string ...$parts): string
     {

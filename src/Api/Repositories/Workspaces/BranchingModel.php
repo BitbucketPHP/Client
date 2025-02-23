@@ -24,8 +24,6 @@ class BranchingModel extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(array $params = []): array
     {
@@ -36,8 +34,6 @@ class BranchingModel extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function showSettings(array $params = []): array
     {
@@ -48,8 +44,6 @@ class BranchingModel extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function updateSettings(array $params = []): array
     {
@@ -60,8 +54,6 @@ class BranchingModel extends AbstractWorkspacesApi
 
     /**
      * Build the branching model URI from the given parts.
-     *
-     * @return string
      */
     protected function buildBranchingModelUri(string ...$parts): string
     {

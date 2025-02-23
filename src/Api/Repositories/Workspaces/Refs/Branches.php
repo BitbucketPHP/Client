@@ -24,8 +24,6 @@ class Branches extends AbstractRefsApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Branches extends AbstractRefsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -48,8 +44,6 @@ class Branches extends AbstractRefsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $branch, array $params = []): array
     {
@@ -60,8 +54,6 @@ class Branches extends AbstractRefsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(string $branch, array $params = []): array
     {
@@ -72,8 +64,6 @@ class Branches extends AbstractRefsApi
 
     /**
      * Build the branches URI from the given parts.
-     *
-     * @return string
      */
     protected function buildBranchesUri(string ...$parts): string
     {

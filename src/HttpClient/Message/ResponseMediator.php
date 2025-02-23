@@ -44,8 +44,6 @@ final class ResponseMediator
      * If the there is no response body, we will always return the empty array.
      *
      * @throws \Bitbucket\Exception\RuntimeException
-     *
-     * @return array
      */
     public static function getContent(ResponseInterface $response): array
     {
@@ -81,9 +79,6 @@ final class ResponseMediator
         }
     }
 
-    /**
-     * @return bool
-     */
     private static function paginationFilter(string|int $key): bool
     {
         return \in_array($key, ['size', 'page', 'pagelen', 'next', 'previous'], true);

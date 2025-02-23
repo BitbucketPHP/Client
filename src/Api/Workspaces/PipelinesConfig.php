@@ -23,18 +23,13 @@ use Bitbucket\HttpClient\Util\UriBuilder;
  */
 class PipelinesConfig extends AbstractWorkspacesApi
 {
-    /**
-     * @return \Bitbucket\Api\Workspaces\PipelinesConfig\Variables
-     */
-    public function variables(): \Bitbucket\Api\Workspaces\PipelinesConfig\Variables
+    public function variables(): Variables
     {
         return new Variables($this->getClient(), $this->workspace);
     }
 
     /**
      * Build the pipelines config URI from the given parts.
-     *
-     * @return string
      */
     protected function buildPipelinesConfigUri(string ...$parts): string
     {

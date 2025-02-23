@@ -24,8 +24,6 @@ class Steps extends AbstractPipelinesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Steps extends AbstractPipelinesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $step, array $params = []): array
     {
@@ -48,8 +44,6 @@ class Steps extends AbstractPipelinesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return \Psr\Http\Message\StreamInterface
      */
     public function log(string $step, array $params = []): \Psr\Http\Message\StreamInterface
     {
@@ -60,8 +54,6 @@ class Steps extends AbstractPipelinesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return \Psr\Http\Message\StreamInterface
      */
     public function specificLog(string $step, string $uuid, array $params = []): \Psr\Http\Message\StreamInterface
     {
@@ -72,8 +64,6 @@ class Steps extends AbstractPipelinesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function stop(string $step, array $params = []): array
     {
@@ -84,8 +74,6 @@ class Steps extends AbstractPipelinesApi
 
     /**
      * Build the steps URI from the given parts.
-     *
-     * @return string
      */
     protected function buildStepsUri(string ...$parts): string
     {

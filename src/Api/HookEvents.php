@@ -24,8 +24,6 @@ class HookEvents extends AbstractApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function listUserEvents(array $params = []): array
     {
@@ -36,8 +34,6 @@ class HookEvents extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function listRepositoryEvents(array $params = []): array
     {
@@ -48,8 +44,6 @@ class HookEvents extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function listTeamEvents(array $params = []): array
     {
@@ -60,8 +54,6 @@ class HookEvents extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function listWorkspaceEvents(array $params = []): array
     {
@@ -72,8 +64,6 @@ class HookEvents extends AbstractApi
 
     /**
      * Build the hook events URI from the given parts.
-     *
-     * @return string
      */
     protected function buildHookEventsUri(string ...$parts): string
     {

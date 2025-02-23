@@ -28,8 +28,6 @@ class Snippets extends AbstractApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -40,8 +38,6 @@ class Snippets extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(FileResource $file): array
     {
@@ -52,18 +48,13 @@ class Snippets extends AbstractApi
         return $this->postRaw($uri, $builder->build(), $headers);
     }
 
-    /**
-     * @return \Bitbucket\Api\Snippets\Workspaces
-     */
-    public function workspaces(string $workspace): \Bitbucket\Api\Snippets\Workspaces
+    public function workspaces(string $workspace): SnippetsWorkspaces
     {
         return new SnippetsWorkspaces($this->getClient(), $workspace);
     }
 
     /**
      * Build the snippets URI from the given parts.
-     *
-     * @return string
      */
     protected function buildSnippetsUri(string ...$parts): string
     {

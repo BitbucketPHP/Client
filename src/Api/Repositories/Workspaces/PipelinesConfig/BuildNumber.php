@@ -24,8 +24,6 @@ class BuildNumber extends AbstractPipelinesConfigApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(array $params = []): array
     {
@@ -36,8 +34,6 @@ class BuildNumber extends AbstractPipelinesConfigApi
 
     /**
      * Build the build number URI from the given parts.
-     *
-     * @return string
      */
     protected function buildBuildNumberUri(string ...$parts): string
     {

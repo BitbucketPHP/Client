@@ -18,9 +18,6 @@ namespace Bitbucket\Tests;
  */
 final class Resource
 {
-    /**
-     * @return string
-     */
     public static function get(string $path): string
     {
         $content = @\file_get_contents(\sprintf('%s/Resource/%s', __DIR__, $path));

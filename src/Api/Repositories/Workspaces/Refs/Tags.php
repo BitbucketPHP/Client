@@ -24,8 +24,6 @@ class Tags extends AbstractRefsApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Tags extends AbstractRefsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -48,8 +44,6 @@ class Tags extends AbstractRefsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $tag, array $params = []): array
     {
@@ -60,8 +54,6 @@ class Tags extends AbstractRefsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(string $tag, array $params = []): array
     {
@@ -72,8 +64,6 @@ class Tags extends AbstractRefsApi
 
     /**
      * Build the tags URI from the given parts.
-     *
-     * @return string
      */
     protected function buildTagsUri(string ...$parts): string
     {

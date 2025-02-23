@@ -25,8 +25,6 @@ class Statuses extends AbstractCommitApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -35,18 +33,13 @@ class Statuses extends AbstractCommitApi
         return $this->get($uri, $params);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Statuses\Build
-     */
-    public function build(): \Bitbucket\Api\Repositories\Workspaces\Commit\Statuses\Build
+    public function build(): Build
     {
         return new Build($this->getClient(), $this->workspace, $this->repo, $this->commit);
     }
 
     /**
      * Build the statuses URI from the given parts.
-     *
-     * @return string
      */
     protected function buildStatusesUri(string ...$parts): string
     {

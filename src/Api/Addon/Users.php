@@ -22,10 +22,7 @@ use Bitbucket\Api\Addon\Users\Events;
  */
 class Users extends AbstractAddonApi
 {
-    /**
-     * @return \Bitbucket\Api\Addon\Users\Events
-     */
-    public function events(string $username): \Bitbucket\Api\Addon\Users\Events
+    public function events(string $username): Events
     {
         return new Events($this->getClient(), $username);
     }

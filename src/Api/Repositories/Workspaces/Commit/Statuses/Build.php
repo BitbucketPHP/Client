@@ -24,8 +24,6 @@ class Build extends AbstractStatusesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Build extends AbstractStatusesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $key, array $params = []): array
     {
@@ -48,8 +44,6 @@ class Build extends AbstractStatusesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(string $key, array $params = []): array
     {
@@ -60,8 +54,6 @@ class Build extends AbstractStatusesApi
 
     /**
      * Build the build URI from the given parts.
-     *
-     * @return string
      */
     protected function buildBuildUri(string ...$parts): string
     {

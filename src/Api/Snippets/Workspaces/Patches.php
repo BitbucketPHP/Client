@@ -24,8 +24,6 @@ class Patches extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return \Psr\Http\Message\StreamInterface
      */
     public function download(string $commit, array $params = []): \Psr\Http\Message\StreamInterface
     {
@@ -36,8 +34,6 @@ class Patches extends AbstractWorkspacesApi
 
     /**
      * Build the patches URI from the given parts.
-     *
-     * @return string
      */
     protected function buildPatchesUri(string ...$parts): string
     {

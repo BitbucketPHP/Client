@@ -26,8 +26,6 @@ class Src extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -40,8 +38,6 @@ class Src extends AbstractWorkspacesApi
      * @param array<string,string> $params
      *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -55,8 +51,6 @@ class Src extends AbstractWorkspacesApi
      * @param array<string,string>                         $params
      *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function createWithFiles(array $files, array $params = []): array
     {
@@ -83,8 +77,6 @@ class Src extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $commit, string $filepath, array $params = []): array
     {
@@ -99,8 +91,6 @@ class Src extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return \Psr\Http\Message\StreamInterface
      */
     public function download(string $commit, string $filepath, array $params = []): \Psr\Http\Message\StreamInterface
     {
@@ -111,8 +101,6 @@ class Src extends AbstractWorkspacesApi
 
     /**
      * Build the src URI from the given parts.
-     *
-     * @return string
      */
     protected function buildSrcUri(string ...$parts): string
     {

@@ -24,8 +24,6 @@ class Members extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Members extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $member, array $params = []): array
     {
@@ -48,8 +44,6 @@ class Members extends AbstractWorkspacesApi
 
     /**
      * Build the members URI from the given parts.
-     *
-     * @return string
      */
     protected function buildMembersUri(string ...$parts): string
     {

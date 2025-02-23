@@ -24,8 +24,6 @@ class Patch extends AbstractPullRequestsApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return \Psr\Http\Message\StreamInterface
      */
     public function download(array $params = []): \Psr\Http\Message\StreamInterface
     {
@@ -36,8 +34,6 @@ class Patch extends AbstractPullRequestsApi
 
     /**
      * Build the patch URI from the given parts.
-     *
-     * @return string
      */
     protected function buildPatchUri(string ...$parts): string
     {

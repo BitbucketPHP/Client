@@ -34,34 +34,23 @@ class Users extends AbstractApi
         $this->username = $username;
     }
 
-    /**
-     * @return \Bitbucket\Api\Users\Properties
-     */
-    public function properties(): \Bitbucket\Api\Users\Properties
+    public function properties(): Properties
     {
         return new Properties($this->getClient(), $this->username);
     }
 
-    /**
-     * @return \Bitbucket\Api\Users\Repositories
-     */
-    public function repositories(): \Bitbucket\Api\Users\Repositories
+    public function repositories(): UsersRepositories
     {
         return new UsersRepositories($this->getClient(), $this->username);
     }
 
-    /**
-     * @return \Bitbucket\Api\Users\SshKeys
-     */
-    public function sshKeys(): \Bitbucket\Api\Users\SshKeys
+    public function sshKeys(): SshKeys
     {
         return new SshKeys($this->getClient(), $this->username);
     }
 
     /**
      * Build the users URI from the given parts.
-     *
-     * @return string
      */
     protected function buildUsersUri(string ...$parts): string
     {

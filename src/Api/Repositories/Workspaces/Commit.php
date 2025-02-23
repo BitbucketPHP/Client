@@ -30,8 +30,6 @@ class Commit extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $commit, array $params = []): array
     {
@@ -40,58 +38,38 @@ class Commit extends AbstractWorkspacesApi
         return $this->get($uri, $params);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Approval
-     */
-    public function approval(string $commit): \Bitbucket\Api\Repositories\Workspaces\Commit\Approval
+    public function approval(string $commit): Approval
     {
         return new Approval($this->getClient(), $this->workspace, $this->repo, $commit);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Comments
-     */
-    public function comments(string $commit): \Bitbucket\Api\Repositories\Workspaces\Commit\Comments
+    public function comments(string $commit): Comments
     {
         return new Comments($this->getClient(), $this->workspace, $this->repo, $commit);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Properties
-     */
-    public function properties(string $commit): \Bitbucket\Api\Repositories\Workspaces\Commit\Properties
+    public function properties(string $commit): CommitProperties
     {
         return new CommitProperties($this->getClient(), $this->workspace, $this->repo, $commit);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Commit\PullRequests
-     */
-    public function pullRequests(string $commit): \Bitbucket\Api\Repositories\Workspaces\Commit\PullRequests
+    public function pullRequests(string $commit): CommitPullRequests
     {
         return new CommitPullRequests($this->getClient(), $this->workspace, $this->repo, $commit);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Reports
-     */
-    public function reports(string $commit): \Bitbucket\Api\Repositories\Workspaces\Commit\Reports
+    public function reports(string $commit): Reports
     {
         return new Reports($this->getClient(), $this->workspace, $this->repo, $commit);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Commit\Statuses
-     */
-    public function statuses(string $commit): \Bitbucket\Api\Repositories\Workspaces\Commit\Statuses
+    public function statuses(string $commit): Statuses
     {
         return new Statuses($this->getClient(), $this->workspace, $this->repo, $commit);
     }
 
     /**
      * Build the commit URI from the given parts.
-     *
-     * @return string
      */
     protected function buildCommitUri(string ...$parts): string
     {

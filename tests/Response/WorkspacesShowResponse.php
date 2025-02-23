@@ -22,9 +22,6 @@ use GuzzleHttp\Psr7\Response;
  */
 final class WorkspacesShowResponse
 {
-    /**
-     * @return \Psr\Http\Message\ResponseInterface
-     */
     public static function create(): \Psr\Http\Message\ResponseInterface
     {
         $body = Resource::get('workspaces-show-success.json');

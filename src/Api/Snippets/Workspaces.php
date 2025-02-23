@@ -34,8 +34,6 @@ class Workspaces extends AbstractSnippetsApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -46,8 +44,6 @@ class Workspaces extends AbstractSnippetsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(FileResource $file): array
     {
@@ -60,8 +56,6 @@ class Workspaces extends AbstractSnippetsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $snippet, array $params = []): array
     {
@@ -72,8 +66,6 @@ class Workspaces extends AbstractSnippetsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(string $snippet, array $params = []): array
     {
@@ -86,8 +78,6 @@ class Workspaces extends AbstractSnippetsApi
      * @param \Bitbucket\HttpClient\Message\FileResource[] $files
      *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function updateFiles(string $snippet, array $files): array
     {
@@ -106,8 +96,6 @@ class Workspaces extends AbstractSnippetsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(string $snippet, array $params = []): array
     {
@@ -116,66 +104,43 @@ class Workspaces extends AbstractSnippetsApi
         return $this->delete($uri, $params);
     }
 
-    /**
-     * @return \Bitbucket\Api\Snippets\Workspaces\Comments
-     */
-    public function comments(string $snippet): \Bitbucket\Api\Snippets\Workspaces\Comments
+    public function comments(string $snippet): Comments
     {
         return new Comments($this->getClient(), $this->workspace, $snippet);
     }
 
-    /**
-     * @return \Bitbucket\Api\Snippets\Workspaces\Commits
-     */
-    public function commits(string $snippet): \Bitbucket\Api\Snippets\Workspaces\Commits
+    public function commits(string $snippet): Commits
     {
         return new Commits($this->getClient(), $this->workspace, $snippet);
     }
 
-    /**
-     * @return \Bitbucket\Api\Snippets\Workspaces\Diffs
-     */
-    public function diffs(string $snippet): \Bitbucket\Api\Snippets\Workspaces\Diffs
+    public function diffs(string $snippet): Diffs
     {
         return new Diffs($this->getClient(), $this->workspace, $snippet);
     }
 
-    /**
-     * @return \Bitbucket\Api\Snippets\Workspaces\Files
-     */
-    public function files(string $snippet): \Bitbucket\Api\Snippets\Workspaces\Files
+    public function files(string $snippet): Files
     {
         return new Files($this->getClient(), $this->workspace, $snippet);
     }
 
-    /**
-     * @return \Bitbucket\Api\Snippets\Workspaces\Patches
-     */
-    public function patches(string $snippet): \Bitbucket\Api\Snippets\Workspaces\Patches
+    public function patches(string $snippet): Patches
     {
         return new Patches($this->getClient(), $this->workspace, $snippet);
     }
 
-    /**
-     * @return \Bitbucket\Api\Snippets\Workspaces\Watchers
-     */
-    public function watchers(string $snippet): \Bitbucket\Api\Snippets\Workspaces\Watchers
+    public function watchers(string $snippet): Watchers
     {
         return new Watchers($this->getClient(), $this->workspace, $snippet);
     }
 
-    /**
-     * @return \Bitbucket\Api\Snippets\Workspaces\Watching
-     */
-    public function watching(string $snippet): \Bitbucket\Api\Snippets\Workspaces\Watching
+    public function watching(string $snippet): Watching
     {
         return new Watching($this->getClient(), $this->workspace, $snippet);
     }
 
     /**
      * Build the workspaces URI from the given parts.
-     *
-     * @return string
      */
     protected function buildWorkspacesUri(string ...$parts): string
     {

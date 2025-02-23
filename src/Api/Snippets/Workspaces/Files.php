@@ -26,8 +26,6 @@ class Files extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $commit, array $params = []): array
     {
@@ -38,8 +36,6 @@ class Files extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return \Psr\Http\Message\StreamInterface
      */
     public function download(string $commit, string $uri, array $params = []): \Psr\Http\Message\StreamInterface
     {
@@ -50,8 +46,6 @@ class Files extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(string $commit, array $params = []): array
     {
@@ -64,8 +58,6 @@ class Files extends AbstractWorkspacesApi
      * @param \Bitbucket\HttpClient\Message\FileResource[] $files
      *
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function updateFiles(string $commit, array $files): array
     {
@@ -84,8 +76,6 @@ class Files extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(string $commit, array $params = []): array
     {
@@ -96,8 +86,6 @@ class Files extends AbstractWorkspacesApi
 
     /**
      * Build the files URI from the given parts.
-     *
-     * @return string
      */
     protected function buildFilesUri(string ...$parts): string
     {

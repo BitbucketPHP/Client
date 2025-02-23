@@ -24,8 +24,6 @@ class Annotations extends AbstractReportsApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Annotations extends AbstractReportsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -48,8 +44,6 @@ class Annotations extends AbstractReportsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $annotation, array $params = []): array
     {
@@ -60,8 +54,6 @@ class Annotations extends AbstractReportsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(string $annotation, array $params = []): array
     {
@@ -72,8 +64,6 @@ class Annotations extends AbstractReportsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(string $annotation, array $params = []): array
     {
@@ -84,8 +74,6 @@ class Annotations extends AbstractReportsApi
 
     /**
      * Annotations the build URI from the given parts.
-     *
-     * @return string
      */
     protected function buildAnnotationsUri(string ...$parts): string
     {

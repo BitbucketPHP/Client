@@ -24,8 +24,6 @@ class DeployKeys extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class DeployKeys extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -48,8 +44,6 @@ class DeployKeys extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $id, array $params = []): array
     {
@@ -60,8 +54,6 @@ class DeployKeys extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(string $id, array $params = []): array
     {
@@ -72,8 +64,6 @@ class DeployKeys extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(string $id, array $params = []): array
     {
@@ -84,8 +74,6 @@ class DeployKeys extends AbstractWorkspacesApi
 
     /**
      * Build the deploy keys URI from the given parts.
-     *
-     * @return string
      */
     protected function buildDeployKeysUri(string ...$parts): string
     {

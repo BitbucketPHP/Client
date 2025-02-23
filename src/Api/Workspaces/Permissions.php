@@ -26,8 +26,6 @@ class Permissions extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,18 +34,13 @@ class Permissions extends AbstractWorkspacesApi
         return $this->get($uri, $params);
     }
 
-    /**
-     * @return \Bitbucket\Api\Workspaces\Permissions\Repositories
-     */
-    public function repositories(): \Bitbucket\Api\Workspaces\Permissions\Repositories
+    public function repositories(): Repositories
     {
         return new Repositories($this->getClient(), $this->workspace);
     }
 
     /**
      * Build the permissions URI from the given parts.
-     *
-     * @return string
      */
     protected function buildPermissionsUri(string ...$parts): string
     {

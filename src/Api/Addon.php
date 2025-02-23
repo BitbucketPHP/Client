@@ -26,8 +26,6 @@ class Addon extends AbstractApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(array $params = []): array
     {
@@ -38,8 +36,6 @@ class Addon extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(array $params = []): array
     {
@@ -48,26 +44,18 @@ class Addon extends AbstractApi
         return $this->delete($uri, $params);
     }
 
-    /**
-     * @return \Bitbucket\Api\Addon\Linkers
-     */
-    public function linkers(): \Bitbucket\Api\Addon\Linkers
+    public function linkers(): Linkers
     {
         return new Linkers($this->getClient());
     }
 
-    /**
-     * @return \Bitbucket\Api\Addon\Users
-     */
-    public function users(): \Bitbucket\Api\Addon\Users
+    public function users(): UsersAddon
     {
         return new UsersAddon($this->getClient());
     }
 
     /**
      * Build the addon URI from the given parts.
-     *
-     * @return string
      */
     protected function buildAddonUri(string ...$parts): string
     {

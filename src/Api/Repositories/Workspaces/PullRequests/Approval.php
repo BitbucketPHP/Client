@@ -24,8 +24,6 @@ class Approval extends AbstractPullRequestsApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function approve(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Approval extends AbstractPullRequestsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function redact(array $params = []): array
     {
@@ -48,8 +44,6 @@ class Approval extends AbstractPullRequestsApi
 
     /**
      * Build the approval URI from the given parts.
-     *
-     * @return string
      */
     protected function buildApprovalUri(string ...$parts): string
     {

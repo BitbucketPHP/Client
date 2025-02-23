@@ -26,8 +26,6 @@ class Pipelines extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -38,8 +36,6 @@ class Pipelines extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -50,8 +46,6 @@ class Pipelines extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $pipeline, array $params = []): array
     {
@@ -62,8 +56,6 @@ class Pipelines extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function stop(string $pipeline, array $params = []): array
     {
@@ -72,26 +64,18 @@ class Pipelines extends AbstractWorkspacesApi
         return $this->post($uri, $params);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Pipelines\RemoteTriggers
-     */
-    public function remoteTriggers(string $pipeline): \Bitbucket\Api\Repositories\Workspaces\Pipelines\RemoteTriggers
+    public function remoteTriggers(string $pipeline): RemoteTriggers
     {
         return new RemoteTriggers($this->getClient(), $this->workspace, $this->repo, $pipeline);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Pipelines\Steps
-     */
-    public function steps(string $pipeline): \Bitbucket\Api\Repositories\Workspaces\Pipelines\Steps
+    public function steps(string $pipeline): Steps
     {
         return new Steps($this->getClient(), $this->workspace, $this->repo, $pipeline);
     }
 
     /**
      * Build the pipelines URI from the given parts.
-     *
-     * @return string
      */
     protected function buildPipelinesUri(string ...$parts): string
     {

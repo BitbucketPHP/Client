@@ -25,8 +25,6 @@ class Linkers extends AbstractAddonApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -37,8 +35,6 @@ class Linkers extends AbstractAddonApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $linker, array $params = []): array
     {
@@ -47,18 +43,13 @@ class Linkers extends AbstractAddonApi
         return $this->get($uri, $params);
     }
 
-    /**
-     * @return \Bitbucket\Api\Addon\Linkers\Values
-     */
-    public function values(string $linker): \Bitbucket\Api\Addon\Linkers\Values
+    public function values(string $linker): Values
     {
         return new Values($this->getClient(), $linker);
     }
 
     /**
      * Build the linkers URI from the given parts.
-     *
-     * @return string
      */
     protected function buildLinkersUri(string ...$parts): string
     {

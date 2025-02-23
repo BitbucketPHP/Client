@@ -25,20 +25,14 @@ use Psr\Http\Message\ResponseInterface;
  */
 final class MockedClient
 {
-    /**
-     * @return \Bitbucket\Client
-     */
-    public static function create(ResponseInterface $response): \Bitbucket\Client
+    public static function create(ResponseInterface $response): Client
     {
         $client = new MockClient(self::createResponseFactory($response));
 
         return new Client(new Builder($client));
     }
 
-    /**
-     * @return \Psr\Http\Message\ResponseFactoryInterface
-     */
-    private static function createResponseFactory(ResponseInterface $response): \Psr\Http\Message\ResponseFactoryInterface
+    private static function createResponseFactory(ResponseInterface $response): ResponseFactoryInterface
     {
         return new class($response) implements ResponseFactoryInterface {
             public function __construct(

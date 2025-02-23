@@ -24,8 +24,6 @@ class Forks extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Forks extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -48,8 +44,6 @@ class Forks extends AbstractWorkspacesApi
 
     /**
      * Build the forks URI from the given parts.
-     *
-     * @return string
      */
     protected function buildForksUri(string ...$parts): string
     {

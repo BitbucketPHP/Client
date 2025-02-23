@@ -24,8 +24,6 @@ class Voting extends AbstractIssuesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function check(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Voting extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function vote(array $params = []): array
     {
@@ -48,8 +44,6 @@ class Voting extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function retract(array $params = []): array
     {
@@ -60,8 +54,6 @@ class Voting extends AbstractIssuesApi
 
     /**
      * Build the voting URI from the given parts.
-     *
-     * @return string
      */
     protected function buildVotingUri(string ...$parts): string
     {

@@ -24,8 +24,6 @@ class MergeBases extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $spec, array $params = []): array
     {
@@ -36,8 +34,6 @@ class MergeBases extends AbstractWorkspacesApi
 
     /**
      * Build the merge base URI from the given parts.
-     *
-     * @return string
      */
     protected function buildMergeBasesUri(string ...$parts): string
     {

@@ -24,8 +24,6 @@ class Watching extends AbstractIssuesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function check(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Watching extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function watch(array $params = []): array
     {
@@ -48,8 +44,6 @@ class Watching extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function ignore(array $params = []): array
     {
@@ -60,8 +54,6 @@ class Watching extends AbstractIssuesApi
 
     /**
      * Build the watching URI from the given parts.
-     *
-     * @return string
      */
     protected function buildWatchingUri(string ...$parts): string
     {

@@ -24,8 +24,6 @@ class CurrentUser extends AbstractApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(array $params = []): array
     {
@@ -36,8 +34,6 @@ class CurrentUser extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function listEmails(array $params = []): array
     {
@@ -48,8 +44,6 @@ class CurrentUser extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function showEmail(string $email, array $params = []): array
     {
@@ -60,8 +54,6 @@ class CurrentUser extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function listRepositoryPermissions(array $params = []): array
     {
@@ -72,8 +64,6 @@ class CurrentUser extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function listTeamPermissions(array $params = []): array
     {
@@ -84,8 +74,6 @@ class CurrentUser extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function listWorkspacePermissions(array $params = []): array
     {
@@ -96,8 +84,6 @@ class CurrentUser extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function listWorkspaces(array $params = []): array
     {
@@ -108,8 +94,6 @@ class CurrentUser extends AbstractApi
 
     /**
      * Build the current user URI from the given parts.
-     *
-     * @return string
      */
     protected function buildCurrentUserUri(string ...$parts): string
     {

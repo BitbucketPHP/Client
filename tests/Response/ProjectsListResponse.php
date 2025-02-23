@@ -22,9 +22,6 @@ use GuzzleHttp\Psr7\Response;
  */
 final class ProjectsListResponse
 {
-    /**
-     * @return \Psr\Http\Message\ResponseInterface
-     */
     public static function create(): \Psr\Http\Message\ResponseInterface
     {
         $body = Resource::get('projects-list-success.json');

@@ -25,8 +25,6 @@ class Repositories extends AbstractApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -35,18 +33,13 @@ class Repositories extends AbstractApi
         return $this->get($uri, $params);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces
-     */
-    public function workspaces(string $workspace): \Bitbucket\Api\Repositories\Workspaces
+    public function workspaces(string $workspace): RepositoriesWorkspaces
     {
         return new RepositoriesWorkspaces($this->getClient(), $workspace);
     }
 
     /**
      * Build the repositories URI from the given parts.
-     *
-     * @return string
      */
     protected function buildRepositoriesUri(string ...$parts): string
     {

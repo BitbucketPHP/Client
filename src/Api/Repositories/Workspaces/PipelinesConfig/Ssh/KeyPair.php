@@ -24,8 +24,6 @@ class KeyPair extends AbstractSshApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(array $params = []): array
     {
@@ -36,8 +34,6 @@ class KeyPair extends AbstractSshApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(array $params = []): array
     {
@@ -48,8 +44,6 @@ class KeyPair extends AbstractSshApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(array $params = []): array
     {
@@ -60,8 +54,6 @@ class KeyPair extends AbstractSshApi
 
     /**
      * Build the key pair URI from the given parts.
-     *
-     * @return string
      */
     protected function buildKeyPairUri(string ...$parts): string
     {

@@ -24,8 +24,6 @@ class Executions extends AbstractSchedulesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Executions extends AbstractSchedulesApi
 
     /**
      * Build the executions URI from the given parts.
-     *
-     * @return string
      */
     protected function buildExecutionsUri(string ...$parts): string
     {

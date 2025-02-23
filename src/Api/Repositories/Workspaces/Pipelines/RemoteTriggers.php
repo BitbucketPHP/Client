@@ -24,8 +24,6 @@ class RemoteTriggers extends AbstractPipelinesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(string $key, array $params = []): array
     {
@@ -36,8 +34,6 @@ class RemoteTriggers extends AbstractPipelinesApi
 
     /**
      * Build the remote triggers URI from the given parts.
-     *
-     * @return string
      */
     protected function buildRemoteTriggersUri(string ...$parts): string
     {

@@ -27,8 +27,6 @@ class Downloads extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -39,8 +37,6 @@ class Downloads extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function upload(FileResource $file): array
     {
@@ -53,8 +49,6 @@ class Downloads extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return \Psr\Http\Message\StreamInterface
      */
     public function download(string $filename, array $params = []): \Psr\Http\Message\StreamInterface
     {
@@ -65,8 +59,6 @@ class Downloads extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(string $filename, array $params = []): array
     {
@@ -77,8 +69,6 @@ class Downloads extends AbstractWorkspacesApi
 
     /**
      * Build the downloads URI from the given parts.
-     *
-     * @return string
      */
     protected function buildDownloadsUri(string ...$parts): string
     {

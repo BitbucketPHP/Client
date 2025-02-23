@@ -24,8 +24,6 @@ class Changes extends AbstractIssuesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Changes extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -48,8 +44,6 @@ class Changes extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $change, array $params = []): array
     {
@@ -60,8 +54,6 @@ class Changes extends AbstractIssuesApi
 
     /**
      * Build the changes URI from the given parts.
-     *
-     * @return string
      */
     protected function buildChangesUri(string ...$parts): string
     {

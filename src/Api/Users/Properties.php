@@ -24,8 +24,6 @@ class Properties extends AbstractUsersApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $app, string $property, array $params = []): array
     {
@@ -36,8 +34,6 @@ class Properties extends AbstractUsersApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(string $app, string $property, array $params = []): array
     {
@@ -48,8 +44,6 @@ class Properties extends AbstractUsersApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(string $app, string $property, array $params = []): array
     {
@@ -60,8 +54,6 @@ class Properties extends AbstractUsersApi
 
     /**
      * Build the properties URI from the given parts.
-     *
-     * @return string
      */
     protected function buildPropertiesUri(string ...$parts): string
     {

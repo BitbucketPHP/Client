@@ -24,8 +24,6 @@ class Versions extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Versions extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $version, array $params = []): array
     {
@@ -48,8 +44,6 @@ class Versions extends AbstractWorkspacesApi
 
     /**
      * Build the versions URI from the given parts.
-     *
-     * @return string
      */
     protected function buildVersionsUri(string ...$parts): string
     {

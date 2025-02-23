@@ -26,8 +26,6 @@ class Refs extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,26 +34,18 @@ class Refs extends AbstractWorkspacesApi
         return $this->get($uri, $params);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Refs\Branches
-     */
-    public function branches(): \Bitbucket\Api\Repositories\Workspaces\Refs\Branches
+    public function branches(): Branches
     {
         return new Branches($this->getClient(), $this->workspace, $this->repo);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Refs\Tags
-     */
-    public function tags(): \Bitbucket\Api\Repositories\Workspaces\Refs\Tags
+    public function tags(): Tags
     {
         return new Tags($this->getClient(), $this->workspace, $this->repo);
     }
 
     /**
      * Build the refs URI from the given parts.
-     *
-     * @return string
      */
     protected function buildRefsUri(string ...$parts): string
     {

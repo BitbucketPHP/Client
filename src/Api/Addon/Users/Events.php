@@ -24,8 +24,6 @@ class Events extends AbstractUsersApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(string $event, array $params = []): array
     {
@@ -36,8 +34,6 @@ class Events extends AbstractUsersApi
 
     /**
      * Build the events URI from the given parts.
-     *
-     * @return string
      */
     protected function buildEventsUri(string ...$parts): string
     {

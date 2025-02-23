@@ -24,8 +24,6 @@ class Repositories extends AbstractUsersApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Repositories extends AbstractUsersApi
 
     /**
      * Build the repositories URI from the given parts.
-     *
-     * @return string
      */
     protected function buildRepositoriesUri(string ...$parts): string
     {

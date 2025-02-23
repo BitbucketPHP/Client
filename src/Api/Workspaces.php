@@ -38,8 +38,6 @@ class Workspaces extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(array $params = []): array
     {
@@ -50,8 +48,6 @@ class Workspaces extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function codeSearch(array $params = []): array
     {
@@ -60,50 +56,33 @@ class Workspaces extends AbstractApi
         return $this->get($uri, $params);
     }
 
-    /**
-     * @return \Bitbucket\Api\Workspaces\Hooks
-     */
-    public function hooks(): \Bitbucket\Api\Workspaces\Hooks
+    public function hooks(): Hooks
     {
         return new Hooks($this->getClient(), $this->workspace);
     }
 
-    /**
-     * @return \Bitbucket\Api\Workspaces\Members
-     */
-    public function members(): \Bitbucket\Api\Workspaces\Members
+    public function members(): Members
     {
         return new Members($this->getClient(), $this->workspace);
     }
 
-    /**
-     * @return \Bitbucket\Api\Workspaces\Permissions
-     */
-    public function permissions(): \Bitbucket\Api\Workspaces\Permissions
+    public function permissions(): Permissions
     {
         return new Permissions($this->getClient(), $this->workspace);
     }
 
-    /**
-     * @return \Bitbucket\Api\Workspaces\PipelinesConfig
-     */
-    public function pipelinesConfig(): \Bitbucket\Api\Workspaces\PipelinesConfig
+    public function pipelinesConfig(): PipelinesConfig
     {
         return new PipelinesConfig($this->getClient(), $this->workspace);
     }
 
-    /**
-     * @return \Bitbucket\Api\Workspaces\Projects
-     */
-    public function projects(): \Bitbucket\Api\Workspaces\Projects
+    public function projects(): Projects
     {
         return new Projects($this->getClient(), $this->workspace);
     }
 
     /**
      * Build the workspaces URI from the given parts.
-     *
-     * @return string
      */
     protected function buildWorkspacesUri(string ...$parts): string
     {

@@ -23,18 +23,13 @@ use Bitbucket\HttpClient\Util\UriBuilder;
  */
 class PipelinesConfig extends AbstractWorkspacesApi
 {
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Variables
-     */
-    public function variables(): \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Variables
+    public function variables(): Variables
     {
         return new Variables($this->getClient(), $this->workspace, $this->repo);
     }
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(array $params = []): array
     {
@@ -45,8 +40,6 @@ class PipelinesConfig extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(array $params = []): array
     {
@@ -57,8 +50,6 @@ class PipelinesConfig extends AbstractWorkspacesApi
 
     /**
      * Build the pipelines config URI from the given parts.
-     *
-     * @return string
      */
     protected function buildPipelinesConfigUri(string ...$parts): string
     {

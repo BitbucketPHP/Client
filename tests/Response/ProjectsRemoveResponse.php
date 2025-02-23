@@ -22,9 +22,6 @@ use GuzzleHttp\Psr7\Response;
  */
 final class ProjectsRemoveResponse
 {
-    /**
-     * @return \Psr\Http\Message\ResponseInterface
-     */
     public static function create(): \Psr\Http\Message\ResponseInterface
     {
         $body = Resource::get('projects-remove-success.json');

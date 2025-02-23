@@ -24,8 +24,6 @@ class PullRequests extends AbstractApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(string $username, array $params = []): array
     {
@@ -36,8 +34,6 @@ class PullRequests extends AbstractApi
 
     /**
      * Build the pull requests URI from the given parts.
-     *
-     * @return string
      */
     protected function buildPullRequestsUri(string ...$parts): string
     {

@@ -24,8 +24,6 @@ class EnvironmentVariables extends AbstractDeploymentsApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class EnvironmentVariables extends AbstractDeploymentsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -48,8 +44,6 @@ class EnvironmentVariables extends AbstractDeploymentsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(string $variable, array $params = []): array
     {
@@ -60,8 +54,6 @@ class EnvironmentVariables extends AbstractDeploymentsApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(string $variable, array $params = []): array
     {
@@ -72,8 +64,6 @@ class EnvironmentVariables extends AbstractDeploymentsApi
 
     /**
      * Build the variables URI from the given parts.
-     *
-     * @return string
      */
     protected function buildEnvironmentVariablesUri(string ...$parts): string
     {

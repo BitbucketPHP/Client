@@ -24,26 +24,18 @@ use Bitbucket\HttpClient\Util\UriBuilder;
  */
 class Ssh extends AbstractPipelinesConfigApi
 {
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh\KeyPair
-     */
-    public function keyPair(): \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh\KeyPair
+    public function keyPair(): KeyPair
     {
         return new KeyPair($this->getClient(), $this->workspace, $this->repo);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh\KnownHosts
-     */
-    public function knownHosts(): \Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh\KnownHosts
+    public function knownHosts(): KnownHosts
     {
         return new KnownHosts($this->getClient(), $this->workspace, $this->repo);
     }
 
     /**
      * Build the ssh URI from the given parts.
-     *
-     * @return string
      */
     protected function buildSshUri(string ...$parts): string
     {

@@ -29,8 +29,6 @@ class Issues extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -41,8 +39,6 @@ class Issues extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -53,8 +49,6 @@ class Issues extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $issue, array $params = []): array
     {
@@ -65,8 +59,6 @@ class Issues extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(string $issue, array $params = []): array
     {
@@ -77,8 +69,6 @@ class Issues extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(string $issue, array $params = []): array
     {
@@ -87,50 +77,33 @@ class Issues extends AbstractWorkspacesApi
         return $this->delete($uri, $params);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Attachments
-     */
-    public function attachments(string $issue): \Bitbucket\Api\Repositories\Workspaces\Issues\Attachments
+    public function attachments(string $issue): Attachments
     {
         return new Attachments($this->getClient(), $this->workspace, $this->repo, $issue);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Changes
-     */
-    public function changes(string $issue): \Bitbucket\Api\Repositories\Workspaces\Issues\Changes
+    public function changes(string $issue): Changes
     {
         return new Changes($this->getClient(), $this->workspace, $this->repo, $issue);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Comments
-     */
-    public function comments(string $issue): \Bitbucket\Api\Repositories\Workspaces\Issues\Comments
+    public function comments(string $issue): Comments
     {
         return new Comments($this->getClient(), $this->workspace, $this->repo, $issue);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Voting
-     */
-    public function voting(string $issue): \Bitbucket\Api\Repositories\Workspaces\Issues\Voting
+    public function voting(string $issue): Voting
     {
         return new Voting($this->getClient(), $this->workspace, $this->repo, $issue);
     }
 
-    /**
-     * @return \Bitbucket\Api\Repositories\Workspaces\Issues\Watching
-     */
-    public function watching(string $issue): \Bitbucket\Api\Repositories\Workspaces\Issues\Watching
+    public function watching(string $issue): Watching
     {
         return new Watching($this->getClient(), $this->workspace, $this->repo, $issue);
     }
 
     /**
      * Build the issues URI from the given parts.
-     *
-     * @return string
      */
     protected function buildIssuesUri(string ...$parts): string
     {

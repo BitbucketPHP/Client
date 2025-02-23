@@ -24,8 +24,6 @@ class DiffStat extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function download(string $spec, array $params = []): array
     {
@@ -36,8 +34,6 @@ class DiffStat extends AbstractWorkspacesApi
 
     /**
      * Build the diff stat URI from the given parts.
-     *
-     * @return string
      */
     protected function buildDiffStatUri(string ...$parts): string
     {

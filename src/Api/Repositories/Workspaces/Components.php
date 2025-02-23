@@ -24,8 +24,6 @@ class Components extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Components extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $component, array $params = []): array
     {
@@ -48,8 +44,6 @@ class Components extends AbstractWorkspacesApi
 
     /**
      * Build the components URI from the given parts.
-     *
-     * @return string
      */
     protected function buildComponentsUri(string ...$parts): string
     {

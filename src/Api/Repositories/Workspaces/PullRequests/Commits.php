@@ -24,8 +24,6 @@ class Commits extends AbstractPullRequestsApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Commits extends AbstractPullRequestsApi
 
     /**
      * Build the commits URI from the given parts.
-     *
-     * @return string
      */
     protected function buildCommitsUri(string ...$parts): string
     {

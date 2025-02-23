@@ -24,8 +24,6 @@ class Projects extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function list(array $params = []): array
     {
@@ -36,8 +34,6 @@ class Projects extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function create(array $params = []): array
     {
@@ -48,8 +44,6 @@ class Projects extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function show(string $project, array $params = []): array
     {
@@ -60,8 +54,6 @@ class Projects extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function update(string $project, array $params = []): array
     {
@@ -72,8 +64,6 @@ class Projects extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
-     *
-     * @return array
      */
     public function remove(string $project, array $params = []): array
     {
@@ -84,8 +74,6 @@ class Projects extends AbstractWorkspacesApi
 
     /**
      * Build the projects URI from the given parts.
-     *
-     * @return string
      */
     protected function buildProjectsUri(string ...$parts): string
     {
