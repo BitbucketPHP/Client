@@ -30,23 +30,9 @@ use Psr\Http\Message\ResponseInterface;
  */
 final class Authentication implements Plugin
 {
-    /**
-     * The authorization header.
-     *
-     * @var string
-     */
-    private $header;
+    private readonly string $header;
 
-    /**
-     * Create a new authentication plugin instance.
-     *
-     * @param string      $method
-     * @param string      $token
-     * @param string|null $password
-     *
-     * @return void
-     */
-    public function __construct(string $method, string $token, string $password = null)
+    public function __construct(string $method, string $token, ?string $password = null)
     {
         $this->header = self::buildAuthorizationHeader($method, $token, $password);
     }
@@ -78,7 +64,7 @@ final class Authentication implements Plugin
      *
      * @return string
      */
-    private static function buildAuthorizationHeader(string $method, string $token, string $password = null): string
+    private static function buildAuthorizationHeader(string $method, string $token, ?string $password = null): string
     {
         switch ($method) {
             case Client::AUTH_HTTP_PASSWORD:

@@ -36,67 +36,31 @@ use Psr\Http\Message\StreamFactoryInterface;
  */
 final class Builder
 {
-    /**
-     * The object that sends HTTP messages.
-     *
-     * @var \Psr\Http\Client\ClientInterface
-     */
-    private $httpClient;
+    private readonly ClientInterface $httpClient;
+    private readonly RequestFactoryInterface $requestFactory;
+    private readonly StreamFactoryInterface $streamFactory;
 
     /**
-     * The HTTP request factory.
-     *
-     * @var \Psr\Http\Message\RequestFactoryInterface
+     * @var Plugin[]
      */
-    private $requestFactory;
+    private array $plugins = [];
 
-    /**
-     * The HTTP stream factory.
-     *
-     * @var \Psr\Http\Message\StreamFactoryInterface
-     */
-    private $streamFactory;
+    private ?CachePlugin $cachePlugin;
 
-    /**
-     * The currently registered plugins.
-     *
-     * @var \Http\Client\Common\Plugin[]
-     */
-    private $plugins = [];
+    private ?HttpMethodsClientInterface $pluginClient;
 
-    /**
-     * The cache plugin to use.
-     *
-     * This plugin is specially treated because it has to be the very last plugin.
-     *
-     * @var \Http\Client\Common\Plugin\CachePlugin|null
-     */
-    private $cachePlugin;
-
-    /**
-     * A HTTP client with all our plugins.
-     *
-     * @var \Http\Client\Common\HttpMethodsClientInterface|null
-     */
-    private $pluginClient;
-
-    /**
-     * Create a new http client builder instance.
-     *
-     * @param \Psr\Http\Client\ClientInterface|null          $httpClient
-     * @param \Psr\Http\Message\RequestFactoryInterface|null $requestFactory
-     * @param \Psr\Http\Message\StreamFactoryInterface|null  $streamFactory
-     *
-     * @return void
-     */
     public function __construct(
-        ClientInterface $httpClient = null,
-        RequestFactoryInterface $requestFactory = null,
-        StreamFactoryInterface $streamFactory = null
+        ?ClientInterface $httpClient = null,
+        ?RequestFactoryInterface $requestFactory = null,
+        ?StreamFactoryInterface $streamFactory = null,
     ) {
         $this->httpClient = $httpClient ?? Psr18ClientDiscovery::find();
         $this->requestFactory = $requestFactory ?? Psr17FactoryDiscovery::findRequestFactory();
         $this->streamFactory = $streamFactory ?? Psr17FactoryDiscovery::findStreamFactory();
+
+        $this->plugins = [];
+        $this->cachePlugin = null;
+        $this->pluginClient = null;
     }
 
     /**

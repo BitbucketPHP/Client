@@ -23,21 +23,8 @@ use Bitbucket\Client;
  */
 abstract class AbstractUsersApi extends AbstractApi
 {
-    /**
-     * The username.
-     *
-     * @var string
-     */
-    protected $username;
+    protected readonly string $username;
 
-    /**
-     * Create a new API instance.
-     *
-     * @param Client $client
-     * @param string $username
-     *
-     * @return void
-     */
     public function __construct(Client $client, string $username)
     {
         parent::__construct($client);

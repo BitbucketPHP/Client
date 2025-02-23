@@ -1,12 +1,62 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Property Bitbucket\\\\Api\\\\AbstractApi\\:\\:\\$perPage is never written, only read\\.$#"
+			message: '#^Property Bitbucket\\Api\\AbstractApi\:\:\$perPage is never written, only read\.$#'
+			identifier: property.onlyRead
 			count: 1
 			path: src/Api/AbstractApi.php
 
 		-
-			message: "#^Variable method call on Bitbucket\\\\Api\\\\AbstractApi\\.$#"
+			message: '#^Parameter \#3 \$options of method Http\\Message\\MultipartStream\\MultipartStreamBuilder\:\:addResource\(\) expects array\{headers\?\: array\<string, string\>, filename\?\: string\}, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Api/Repositories/Workspaces/Downloads.php
+
+		-
+			message: '#^Parameter \#3 \$options of method Http\\Message\\MultipartStream\\MultipartStreamBuilder\:\:addResource\(\) expects array\{headers\?\: array\<string, string\>, filename\?\: string\}, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Api/Repositories/Workspaces/Issues/Attachments.php
+
+		-
+			message: '#^Parameter \#3 \$options of method Http\\Message\\MultipartStream\\MultipartStreamBuilder\:\:addResource\(\) expects array\{headers\?\: array\<string, string\>, filename\?\: string\}, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Api/Repositories/Workspaces/Src.php
+
+		-
+			message: '#^Parameter \#3 \$options of method Http\\Message\\MultipartStream\\MultipartStreamBuilder\:\:addResource\(\) expects array\{headers\?\: array\<string, string\>, filename\?\: string\}, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Api/Snippets.php
+
+		-
+			message: '#^Parameter \#3 \$options of method Http\\Message\\MultipartStream\\MultipartStreamBuilder\:\:addResource\(\) expects array\{headers\?\: array\<string, string\>, filename\?\: string\}, array given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Api/Snippets/Workspaces.php
+
+		-
+			message: '#^Parameter \#3 \$options of method Http\\Message\\MultipartStream\\MultipartStreamBuilder\:\:addResource\(\) expects array\{headers\?\: array\<string, string\>, filename\?\: string\}, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Api/Snippets/Workspaces/Files.php
+
+		-
+			message: '#^PHPDoc tag @var with type string is not subtype of native type non\-empty\-string\|false\.$#'
+			identifier: varTag.nativeType
+			count: 1
+			path: src/HttpClient/Util/JsonArray.php
+
+		-
+			message: '#^PHPDoc tag @var with type Closure\(Bitbucket\\Api\\AbstractApi\)\: Bitbucket\\Api\\AbstractApi is not subtype of type Closure\(Bitbucket\\Api\\AbstractApi\)\: Bitbucket\\Api\\AbstractApi\.$#'
+			identifier: varTag.type
+			count: 1
+			path: src/ResultPager.php
+
+		-
+			message: '#^Variable method call on Bitbucket\\Api\\AbstractApi\.$#'
+			identifier: method.dynamicName
 			count: 1
 			path: src/ResultPager.php
 

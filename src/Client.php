@@ -76,30 +76,12 @@ class Client
      *
      * @var string
      */
-    private const USER_AGENT = 'bitbucket-php-api-client/4.7';
+    private const USER_AGENT = 'bitbucket-php-api-client/5.0';
 
-    /**
-     * The HTTP client builder.
-     *
-     * @var \Bitbucket\HttpClient\Builder
-     */
-    private $httpClientBuilder;
+    private readonly Builder $httpClientBuilder;
+    private readonly History $responseHistory;
 
-    /**
-     * The response history plugin.
-     *
-     * @var \Bitbucket\HttpClient\Plugin\History
-     */
-    private $responseHistory;
-
-    /**
-     * Create a new Bitbucket API client instance.
-     *
-     * @param \Bitbucket\HttpClient\Builder|null $httpClientBuilder
-     *
-     * @return void
-     */
-    public function __construct(Builder $httpClientBuilder = null)
+    public function __construct(?Builder $httpClientBuilder = null)
     {
         $this->httpClientBuilder = $builder = $httpClientBuilder ?? new Builder();
         $this->responseHistory = new History();
@@ -207,7 +189,7 @@ class Client
      *
      * @return void
      */
-    public function authenticate(string $method, string $token, string $password = null): void
+    public function authenticate(string $method, string $token, ?string $password = null): void
     {
         $this->getHttpClientBuilder()->removePlugin(Authentication::class);
         $this->getHttpClientBuilder()->addPlugin(new Authentication($method, $token, $password));

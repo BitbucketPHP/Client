@@ -23,23 +23,8 @@ use Bitbucket\Client;
  */
 abstract class AbstractPullRequestsApi extends AbstractWorkspacesApi
 {
-    /**
-     * The pr.
-     *
-     * @var string
-     */
-    protected $pr;
+    protected readonly string $pr;
 
-    /**
-     * Create a new API instance.
-     *
-     * @param Client $client
-     * @param string $workspace
-     * @param string $repo
-     * @param string $pr
-     *
-     * @return void
-     */
     public function __construct(Client $client, string $workspace, string $repo, string $pr)
     {
         parent::__construct($client, $workspace, $repo);

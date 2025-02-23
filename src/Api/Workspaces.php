@@ -28,21 +28,8 @@ use Bitbucket\HttpClient\Util\UriBuilder;
  */
 class Workspaces extends AbstractApi
 {
-    /**
-     * The workspace.
-     *
-     * @var string
-     */
-    protected $workspace;
+    protected readonly string $workspace;
 
-    /**
-     * Create a new API instance.
-     *
-     * @param Client $client
-     * @param string $workspace
-     *
-     * @return void
-     */
     public function __construct(Client $client, string $workspace)
     {
         parent::__construct($client);

@@ -23,23 +23,8 @@ use Bitbucket\Client;
  */
 abstract class AbstractCommitApi extends AbstractWorkspacesApi
 {
-    /**
-     * The commit.
-     *
-     * @var string
-     */
-    protected $commit;
+    protected readonly string $commit;
 
-    /**
-     * Create a new API instance.
-     *
-     * @param Client $client
-     * @param string $workspace
-     * @param string $repo
-     * @param string $commit
-     *
-     * @return void
-     */
     public function __construct(Client $client, string $workspace, string $repo, string $commit)
     {
         parent::__construct($client, $workspace, $repo);

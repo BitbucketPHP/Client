@@ -18,6 +18,7 @@ use Bitbucket\HttpClient\Message\ResponseMediator;
 use Bitbucket\HttpClient\Util\JsonArray;
 use Bitbucket\HttpClient\Util\QueryStringBuilder;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
 
 /**
  * @author Joseph Bielawski <stloyd@gmail.com>
@@ -32,30 +33,14 @@ abstract class AbstractApi
      */
     private const URI_PREFIX = '/2.0/';
 
-    /**
-     * The client instance.
-     *
-     * @var Client
-     */
-    private $client;
+    private readonly Client $client;
 
-    /**
-     * The per page parameter.
-     *
-     * @var int|null
-     */
-    private $perPage;
+    private ?int $perPage;
 
-    /**
-     * Create a new API instance.
-     *
-     * @param Client $client
-     *
-     * @return void
-     */
     public function __construct(Client $client)
     {
         $this->client = $client;
+        $this->perPage = null;
     }
 
     /**
@@ -131,15 +116,13 @@ abstract class AbstractApi
     /**
      * Send a POST request with raw data.
      *
-     * @param string                                        $uri
-     * @param string|\Psr\Http\Message\StreamInterface|null $body
      * @param array<string,string>                          $headers
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    protected function postRaw(string $uri, $body = null, array $headers = []): array
+    protected function postRaw(string $uri, string|StreamInterface|null $body = null, array $headers = []): array
     {
         $response = $this->client->getHttpClient()->post(self::prepareUri($uri), $headers, $body ?? '');
 
@@ -171,15 +154,13 @@ abstract class AbstractApi
     /**
      * Send a PUT request with raw data.
      *
-     * @param string                                        $uri
-     * @param string|\Psr\Http\Message\StreamInterface|null $body
      * @param array<string,string>                          $headers
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    protected function putRaw(string $uri, $body = null, array $headers = []): array
+    protected function putRaw(string $uri, string|StreamInterface|null $body = null, array $headers = []): array
     {
         $response = $this->client->getHttpClient()->put(self::prepareUri($uri), $headers, $body ?? '');
 
@@ -211,15 +192,13 @@ abstract class AbstractApi
     /**
      * Send a DELETE request with raw data.
      *
-     * @param string                                        $uri
-     * @param string|\Psr\Http\Message\StreamInterface|null $body
      * @param array<string,string>                          $headers
      *
      * @throws \Http\Client\Exception
      *
      * @return array
      */
-    protected function deleteRaw(string $uri, $body = null, array $headers = []): array
+    protected function deleteRaw(string $uri, string|StreamInterface|null $body = null, array $headers = []): array
     {
         $response = $this->client->getHttpClient()->delete(self::prepareUri($uri), $headers, $body ?? '');
 

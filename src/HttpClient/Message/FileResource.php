@@ -21,27 +21,6 @@ namespace Bitbucket\HttpClient\Message;
 final class FileResource
 {
     /**
-     * The name.
-     *
-     * @var string
-     */
-    private $name;
-
-    /**
-     * The resource.
-     *
-     * @var string|resource|\Psr\Http\Message\StreamInterface
-     */
-    private $resource;
-
-    /**
-     * The options.
-     *
-     * @var array
-     */
-    private $options;
-
-    /**
      * Create a new file resource instance.
      *
      * @param string                                            $name
@@ -50,11 +29,11 @@ final class FileResource
      *
      * @return void
      */
-    public function __construct(string $name, $resource, array $options = [])
-    {
-        $this->name = $name;
-        $this->resource = $resource;
-        $this->options = $options;
+    public function __construct(
+        private readonly string $name,
+        private readonly mixed $resource,
+        private readonly array $options = [],
+    ) {
     }
 
     /**

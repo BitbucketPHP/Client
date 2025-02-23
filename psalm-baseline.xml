@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.23.1@8471a896ccea3526b26d082f4461eeea467f10a4">
+<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0">
+  <file src="src/Api/Repositories/Workspaces/Downloads.php">
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$file->getOptions()]]></code>
+    </MixedArgumentTypeCoercion>
+  </file>
+  <file src="src/Api/Repositories/Workspaces/Issues/Attachments.php">
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$file->getOptions()]]></code>
+    </MixedArgumentTypeCoercion>
+  </file>
+  <file src="src/Api/Repositories/Workspaces/Src.php">
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$file->getOptions()]]></code>
+    </MixedArgumentTypeCoercion>
+  </file>
+  <file src="src/Api/Snippets.php">
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$file->getOptions()]]></code>
+    </MixedArgumentTypeCoercion>
+  </file>
+  <file src="src/Api/Snippets/Workspaces.php">
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$file->getOptions()]]></code>
+      <code><![CDATA[$file->getOptions()]]></code>
+    </MixedArgumentTypeCoercion>
+  </file>
+  <file src="src/Api/Snippets/Workspaces/Files.php">
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$file->getOptions()]]></code>
+    </MixedArgumentTypeCoercion>
+  </file>
+  <file src="src/HttpClient/Message/ResponseMediator.php">
+    <InvalidArgument>
+      <code><![CDATA[[self::class, 'paginationFilter']]]></code>
+    </InvalidArgument>
+  </file>
   <file src="src/ResultPager.php">
     <InaccessibleProperty>
       <code><![CDATA[$clone->perPage]]></code>

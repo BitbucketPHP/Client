@@ -23,22 +23,8 @@ use Bitbucket\Client;
  */
 abstract class AbstractWorkspacesApi extends AbstractSnippetsApi
 {
-    /**
-     * The snippet.
-     *
-     * @var string
-     */
-    protected $snippet;
+    protected readonly string $snippet;
 
-    /**
-     * Create a new API instance.
-     *
-     * @param Client $client
-     * @param string $workspace
-     * @param string $snippet
-     *
-     * @return void
-     */
     public function __construct(Client $client, string $workspace, string $snippet)
     {
         parent::__construct($client, $workspace);

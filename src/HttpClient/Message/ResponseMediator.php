@@ -90,7 +90,7 @@ final class ResponseMediator
      *
      * @return bool
      */
-    private static function paginationFilter($key)
+    private static function paginationFilter(string|int $key)
     {
         return \in_array($key, ['size', 'page', 'pagelen', 'next', 'previous'], true);
     }

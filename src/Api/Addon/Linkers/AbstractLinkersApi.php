@@ -23,21 +23,8 @@ use Bitbucket\Client;
  */
 abstract class AbstractLinkersApi extends AbstractAddonApi
 {
-    /**
-     * The linker.
-     *
-     * @var string
-     */
-    protected $linker;
+    protected readonly string $linker;
 
-    /**
-     * Create a new API instance.
-     *
-     * @param Client $client
-     * @param string $linker
-     *
-     * @return void
-     */
     public function __construct(Client $client, string $linker)
     {
         parent::__construct($client);

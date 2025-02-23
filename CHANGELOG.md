@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V5.0 (UPCOMING)
+
+* Added PHP 8.4 support
+* Dropped PHP 7.4 and 8.0 support
+
+
 ## V4.7 (17/03/2024)
 
 * Add support for `php-http/cache-plugin:^2.0`
