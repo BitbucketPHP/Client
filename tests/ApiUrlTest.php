@@ -7,8 +7,8 @@ namespace Bitbucket\Tests;
 use Bitbucket\Client;
 use Bitbucket\HttpClient\Builder;
 use Http\Mock\Client as MockClient;
-use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests API URLs constructed in Src and Downloads API classes.
