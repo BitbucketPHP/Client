@@ -16,6 +16,7 @@ namespace Bitbucket\Api\Repositories\Workspaces;
 use Bitbucket\Api\Repositories\Workspaces\Pipelines\RemoteTriggers;
 use Bitbucket\Api\Repositories\Workspaces\Pipelines\Steps;
 use Bitbucket\HttpClient\Util\UriBuilder;
+use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh;
 
 /**
  * The pipelines API class.
@@ -63,7 +64,12 @@ class Pipelines extends AbstractWorkspacesApi
 
         return $this->post($uri, $params);
     }
-
+    
+    public function ssh(): Ssh
+    {
+        return new Ssh($this->getClient(), $this->workspace, $this->repo);
+    }
+    
     public function remoteTriggers(string $pipeline): RemoteTriggers
     {
         return new RemoteTriggers($this->getClient(), $this->workspace, $this->repo, $pipeline);
