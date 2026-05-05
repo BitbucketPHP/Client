@@ -54,10 +54,22 @@ class CurrentUser extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated use listRepositoryPermissionsForWorkspace() instead
      */
     public function listRepositoryPermissions(array $params = []): array
     {
         $uri = $this->buildCurrentUserUri('permissions', 'repositories');
+
+        return $this->get($uri, $params);
+    }
+
+    /**
+     * @throws \Http\Client\Exception
+     */
+    public function listRepositoryPermissionsForWorkspace(string $workspace, array $params = []): array
+    {
+        $uri = $this->buildCurrentUserUri('workspaces', $workspace, 'permissions', 'repositories');
 
         return $this->get($uri, $params);
     }
