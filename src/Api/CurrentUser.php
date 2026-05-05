@@ -68,7 +68,7 @@ class CurrentUser extends AbstractApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Teams have been superseded by workspaces.
+     * @deprecated teams have been superseded by workspaces
      */
     public function listTeamPermissions(array $params = []): array
     {
