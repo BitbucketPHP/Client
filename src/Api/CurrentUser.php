@@ -94,6 +94,8 @@ class CurrentUser extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated use workspaces()->list() instead
      */
     public function listWorkspaces(array $params = []): array
     {
