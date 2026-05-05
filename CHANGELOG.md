@@ -5,6 +5,7 @@ CHANGE LOG
 ## V5.1 (UPCOMING)
 
 * Add PHP 8.5 support
+* Fixed the current user workspaces endpoint
 
 
 ## V5.0 (23/02/2025)
