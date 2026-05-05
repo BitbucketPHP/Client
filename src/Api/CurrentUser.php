@@ -75,7 +75,7 @@ class CurrentUser extends AbstractApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Use showWorkspacePermission() instead.
+     * @deprecated use showWorkspacePermission() instead
      */
     public function listWorkspacePermissions(array $params = []): array
     {
