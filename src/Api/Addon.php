@@ -44,6 +44,9 @@ class Addon extends AbstractApi
         return $this->delete($uri, $params);
     }
 
+    /**
+     * @deprecated bitbucket has deprecated addon linker APIs
+     */
     public function linkers(): Linkers
     {
         return new Linkers($this->getClient());
