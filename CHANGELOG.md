@@ -8,6 +8,7 @@ CHANGE LOG
 * Fixed the current user workspaces endpoint
 * Added the current user workspaces API
 * Added the workspace pull requests endpoint for a selected user
+* Documented Bitbucket API migration paths
 * Deprecated current user workspaces pass-through methods
 * Deprecated the top-level pull requests pass-through method
 * Deprecated repository listing pass-through methods
