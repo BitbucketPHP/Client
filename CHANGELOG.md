@@ -4,7 +4,7 @@ CHANGE LOG
 
 ## V5.1 (UPCOMING)
 
-* TBC
+* Add PHP 8.5 support
 
 
 ## V5.0 (23/02/2025)

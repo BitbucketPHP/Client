@@ -23,7 +23,7 @@ Check out the [change log](CHANGELOG.md), [releases](https://github.com/Bitbucke
 
 ## Installation
 
-This version supports [PHP](https://php.net) 8.1-8.4. To get started, simply require the project using [Composer](https://getcomposer.org). You will also need to install packages that "provide" [`psr/http-client-implementation`](https://packagist.org/providers/psr/http-client-implementation) and [`psr/http-factory-implementation`](https://packagist.org/providers/psr/http-factory-implementation).
+This version supports [PHP](https://php.net) 8.1-8.5. To get started, simply require the project using [Composer](https://getcomposer.org). You will also need to install packages that "provide" [`psr/http-client-implementation`](https://packagist.org/providers/psr/http-client-implementation) and [`psr/http-factory-implementation`](https://packagist.org/providers/psr/http-factory-implementation).
 
 ### Standard Installation
 
@@ -124,7 +124,7 @@ $paginator = new Bitbucket\ResultPager($client);
 
 $branchesClient = $client->repositories()
     ->workspaces('atlassianlabs')
-    ->refs('stash-log-parser'])
+    ->refs('stash-log-parser')
     ->branches();
 
 $branches = $paginator->fetchAll($branchesClient, 'list');
