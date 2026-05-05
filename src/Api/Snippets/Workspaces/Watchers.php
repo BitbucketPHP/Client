@@ -24,6 +24,8 @@ class Watchers extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated Bitbucket has deprecated listing snippet watchers.
      */
     public function list(array $params = []): array
     {
