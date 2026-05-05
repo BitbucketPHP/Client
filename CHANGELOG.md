@@ -11,6 +11,7 @@ CHANGE LOG
 * Deprecated current user workspaces pass-through methods
 * Deprecated the top-level pull requests pass-through method
 * Deprecated repository listing pass-through methods
+* Deprecated the global snippets listing pass-through method
 
 
 ## V5.0 (23/02/2025)
