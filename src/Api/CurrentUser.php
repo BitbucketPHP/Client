@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api;
 
+use Bitbucket\Api\CurrentUser\Workspaces as CurrentUserWorkspaces;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
@@ -54,6 +55,8 @@ class CurrentUser extends AbstractApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated use workspaces()->listRepositoryPermissions() instead
      */
     public function listRepositoryPermissions(array $params = []): array
     {
@@ -75,7 +78,7 @@ class CurrentUser extends AbstractApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated use showWorkspacePermission() instead
+     * @deprecated use workspaces()->showPermission() instead
      */
     public function listWorkspacePermissions(array $params = []): array
     {
@@ -84,14 +87,9 @@ class CurrentUser extends AbstractApi
         return $this->get($uri, $params);
     }
 
-    /**
-     * @throws \Http\Client\Exception
-     */
-    public function showWorkspacePermission(string $workspace, array $params = []): array
+    public function workspaces(): CurrentUserWorkspaces
     {
-        $uri = $this->buildCurrentUserUri('workspaces', $workspace, 'permission');
-
-        return $this->get($uri, $params);
+        return new CurrentUserWorkspaces($this->getClient());
     }
 
     /**
@@ -99,9 +97,7 @@ class CurrentUser extends AbstractApi
      */
     public function listWorkspaces(array $params = []): array
     {
-        $uri = $this->buildCurrentUserUri('workspaces');
-
-        return $this->get($uri, $params);
+        return $this->workspaces()->list($params);
     }
 
     /**

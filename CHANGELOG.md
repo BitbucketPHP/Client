@@ -6,7 +6,7 @@ CHANGE LOG
 
 * Add PHP 8.5 support
 * Fixed the current user workspaces endpoint
-* Added the current user workspace permission endpoint
+* Added the current user workspaces API
 
 
 ## V5.0 (23/02/2025)
