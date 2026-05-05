@@ -87,7 +87,7 @@ class CurrentUser extends AbstractApi
      */
     public function listWorkspaces(array $params = []): array
     {
-        $uri = UriBuilder::build('workspaces');
+        $uri = $this->buildCurrentUserUri('workspaces');
 
         return $this->get($uri, $params);
     }
