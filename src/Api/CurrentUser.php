@@ -56,7 +56,7 @@ class CurrentUser extends AbstractApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated use workspaces()->listRepositoryPermissions() instead
+     * @deprecated use workspaces()->permissions($workspace)->repositories()->list() instead
      */
     public function listRepositoryPermissions(array $params = []): array
     {
@@ -78,7 +78,7 @@ class CurrentUser extends AbstractApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated use workspaces()->showPermission() instead
+     * @deprecated use workspaces()->permissions($workspace)->show() instead
      */
     public function listWorkspacePermissions(array $params = []): array
     {

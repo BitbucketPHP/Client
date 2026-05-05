@@ -11,38 +11,32 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api\CurrentUser;
+namespace Bitbucket\Api\CurrentUser\Workspaces\Permissions;
 
-use Bitbucket\Api\CurrentUser\Workspaces\Permissions;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
- * The workspaces API class.
+ * The repositories API class.
  *
  * @author Graham Campbell <hello@gjcampbell.co.uk>
  */
-class Workspaces extends AbstractCurrentUserApi
+class Repositories extends AbstractPermissionsApi
 {
     /**
      * @throws \Http\Client\Exception
      */
     public function list(array $params = []): array
     {
-        $uri = $this->buildWorkspacesUri();
+        $uri = UriBuilder::appendSeparator($this->buildRepositoriesUri());
 
         return $this->get($uri, $params);
     }
 
-    public function permissions(string $workspace): Permissions
-    {
-        return new Permissions($this->getClient(), $workspace);
-    }
-
     /**
-     * Build the workspaces URI from the given parts.
+     * Build the repositories URI from the given parts.
      */
-    protected function buildWorkspacesUri(string ...$parts): string
+    protected function buildRepositoriesUri(string ...$parts): string
     {
-        return UriBuilder::build('user', 'workspaces', ...$parts);
+        return UriBuilder::build('user', 'workspaces', $this->workspace, 'permissions', 'repositories', ...$parts);
     }
 }
