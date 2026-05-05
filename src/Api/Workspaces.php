@@ -50,7 +50,7 @@ class Workspaces extends AbstractApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated legacy code search.
+     * @deprecated bitbucket has deprecated legacy code search
      */
     public function codeSearch(array $params = []): array
     {
