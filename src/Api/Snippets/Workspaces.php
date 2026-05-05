@@ -130,7 +130,7 @@ class Workspaces extends AbstractSnippetsApi
     }
 
     /**
-     * @deprecated Bitbucket has deprecated listing snippet watchers.
+     * @deprecated bitbucket has deprecated listing snippet watchers
      */
     public function watchers(string $snippet): Watchers
     {
