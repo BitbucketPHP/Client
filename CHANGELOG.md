@@ -10,6 +10,7 @@ CHANGE LOG
 * Added the workspace pull requests endpoint for a selected user
 * Deprecated current user workspaces pass-through methods
 * Deprecated the top-level pull requests pass-through method
+* Deprecated repository listing pass-through methods
 
 
 ## V5.0 (23/02/2025)

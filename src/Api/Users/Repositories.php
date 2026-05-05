@@ -24,6 +24,8 @@ class Repositories extends AbstractUsersApi
 {
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated use repositories()->workspaces($workspace)->list() instead
      */
     public function list(array $params = []): array
     {
