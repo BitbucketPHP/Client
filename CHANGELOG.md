@@ -15,6 +15,7 @@ CHANGE LOG
 * Deprecated snippet watchers listing methods
 * Deprecated workspace code search
 * Deprecated addon linker methods
+* Deprecated native issue tracker methods
 
 
 ## V5.0 (23/02/2025)
