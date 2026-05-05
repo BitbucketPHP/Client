@@ -24,6 +24,8 @@ class Changes extends AbstractIssuesApi
 {
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function list(array $params = []): array
     {
@@ -34,6 +36,8 @@ class Changes extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function create(array $params = []): array
     {
@@ -44,6 +48,8 @@ class Changes extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function show(string $change, array $params = []): array
     {

@@ -27,6 +27,8 @@ class Attachments extends AbstractIssuesApi
 {
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function list(array $params = []): array
     {
@@ -37,6 +39,8 @@ class Attachments extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function upload(FileResource $file): array
     {
@@ -49,6 +53,8 @@ class Attachments extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function download(string $filename, array $params = []): \Psr\Http\Message\StreamInterface
     {
@@ -59,6 +65,8 @@ class Attachments extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function remove(string $filename, array $params = []): array
     {

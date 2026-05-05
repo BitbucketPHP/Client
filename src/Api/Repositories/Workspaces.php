@@ -119,6 +119,9 @@ class Workspaces extends AbstractRepositoriesApi
         return new Commits($this->getClient(), $this->workspace, $repo);
     }
 
+    /**
+     * @deprecated bitbucket has deprecated native issue tracker APIs
+     */
     public function components(string $repo): Components
     {
         return new Components($this->getClient(), $this->workspace, $repo);
@@ -174,6 +177,9 @@ class Workspaces extends AbstractRepositoriesApi
         return new Hooks($this->getClient(), $this->workspace, $repo);
     }
 
+    /**
+     * @deprecated bitbucket has deprecated native issue tracker APIs
+     */
     public function issues(string $repo): Issues
     {
         return new Issues($this->getClient(), $this->workspace, $repo);
@@ -184,6 +190,9 @@ class Workspaces extends AbstractRepositoriesApi
         return new MergeBases($this->getClient(), $this->workspace, $repo);
     }
 
+    /**
+     * @deprecated bitbucket has deprecated native issue tracker APIs
+     */
     public function milestones(string $repo): Milestones
     {
         return new Milestones($this->getClient(), $this->workspace, $repo);
@@ -224,6 +233,9 @@ class Workspaces extends AbstractRepositoriesApi
         return new Src($this->getClient(), $this->workspace, $repo);
     }
 
+    /**
+     * @deprecated bitbucket has deprecated native issue tracker APIs
+     */
     public function versions(string $repo): Versions
     {
         return new Versions($this->getClient(), $this->workspace, $repo);

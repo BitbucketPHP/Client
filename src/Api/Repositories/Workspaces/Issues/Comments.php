@@ -24,6 +24,8 @@ class Comments extends AbstractIssuesApi
 {
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function list(array $params = []): array
     {
@@ -34,6 +36,8 @@ class Comments extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function show(string $comment, array $params = []): array
     {
@@ -44,6 +48,8 @@ class Comments extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function create(array $params = []): array
     {
@@ -54,6 +60,8 @@ class Comments extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function update(string $comment, array $params = []): array
     {
@@ -64,6 +72,8 @@ class Comments extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function remove(string $comment): array
     {

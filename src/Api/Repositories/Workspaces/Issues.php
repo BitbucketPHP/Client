@@ -29,6 +29,8 @@ class Issues extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function list(array $params = []): array
     {
@@ -39,6 +41,8 @@ class Issues extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function create(array $params = []): array
     {
@@ -49,6 +53,8 @@ class Issues extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function show(string $issue, array $params = []): array
     {
@@ -59,6 +65,8 @@ class Issues extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function update(string $issue, array $params = []): array
     {
@@ -69,6 +77,8 @@ class Issues extends AbstractWorkspacesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function remove(string $issue, array $params = []): array
     {
@@ -77,26 +87,41 @@ class Issues extends AbstractWorkspacesApi
         return $this->delete($uri, $params);
     }
 
+    /**
+     * @deprecated bitbucket has deprecated native issue tracker APIs
+     */
     public function attachments(string $issue): Attachments
     {
         return new Attachments($this->getClient(), $this->workspace, $this->repo, $issue);
     }
 
+    /**
+     * @deprecated bitbucket has deprecated native issue tracker APIs
+     */
     public function changes(string $issue): Changes
     {
         return new Changes($this->getClient(), $this->workspace, $this->repo, $issue);
     }
 
+    /**
+     * @deprecated bitbucket has deprecated native issue tracker APIs
+     */
     public function comments(string $issue): Comments
     {
         return new Comments($this->getClient(), $this->workspace, $this->repo, $issue);
     }
 
+    /**
+     * @deprecated bitbucket has deprecated native issue tracker APIs
+     */
     public function voting(string $issue): Voting
     {
         return new Voting($this->getClient(), $this->workspace, $this->repo, $issue);
     }
 
+    /**
+     * @deprecated bitbucket has deprecated native issue tracker APIs
+     */
     public function watching(string $issue): Watching
     {
         return new Watching($this->getClient(), $this->workspace, $this->repo, $issue);

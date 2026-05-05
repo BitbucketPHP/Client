@@ -24,6 +24,8 @@ class Voting extends AbstractIssuesApi
 {
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function check(array $params = []): array
     {
@@ -34,6 +36,8 @@ class Voting extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function vote(array $params = []): array
     {
@@ -44,6 +48,8 @@ class Voting extends AbstractIssuesApi
 
     /**
      * @throws \Http\Client\Exception
+     *
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function retract(array $params = []): array
     {
