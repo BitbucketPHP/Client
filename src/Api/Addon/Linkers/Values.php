@@ -25,7 +25,7 @@ class Values extends AbstractLinkersApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated addon linker APIs.
+     * @deprecated bitbucket has deprecated addon linker APIs
      */
     public function list(array $params = []): array
     {
@@ -37,7 +37,7 @@ class Values extends AbstractLinkersApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated addon linker APIs.
+     * @deprecated bitbucket has deprecated addon linker APIs
      */
     public function create(array $params = []): array
     {
@@ -49,7 +49,7 @@ class Values extends AbstractLinkersApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated addon linker APIs.
+     * @deprecated bitbucket has deprecated addon linker APIs
      */
     public function show(string $id, array $params = []): array
     {
@@ -61,7 +61,7 @@ class Values extends AbstractLinkersApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated addon linker APIs.
+     * @deprecated bitbucket has deprecated addon linker APIs
      */
     public function update(string $id, array $params = []): array
     {
@@ -73,7 +73,7 @@ class Values extends AbstractLinkersApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated addon linker APIs.
+     * @deprecated bitbucket has deprecated addon linker APIs
      */
     public function remove(string $id, array $params = []): array
     {

@@ -45,7 +45,7 @@ class Addon extends AbstractApi
     }
 
     /**
-     * @deprecated Bitbucket has deprecated addon linker APIs.
+     * @deprecated bitbucket has deprecated addon linker APIs
      */
     public function linkers(): Linkers
     {

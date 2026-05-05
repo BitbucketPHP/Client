@@ -26,7 +26,7 @@ class Linkers extends AbstractAddonApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated addon linker APIs.
+     * @deprecated bitbucket has deprecated addon linker APIs
      */
     public function list(array $params = []): array
     {
@@ -38,7 +38,7 @@ class Linkers extends AbstractAddonApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated addon linker APIs.
+     * @deprecated bitbucket has deprecated addon linker APIs
      */
     public function show(string $linker, array $params = []): array
     {
@@ -48,7 +48,7 @@ class Linkers extends AbstractAddonApi
     }
 
     /**
-     * @deprecated Bitbucket has deprecated addon linker APIs.
+     * @deprecated bitbucket has deprecated addon linker APIs
      */
     public function values(string $linker): Values
     {
