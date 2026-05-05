@@ -129,6 +129,9 @@ class Workspaces extends AbstractSnippetsApi
         return new Patches($this->getClient(), $this->workspace, $snippet);
     }
 
+    /**
+     * @deprecated bitbucket has deprecated listing snippet watchers
+     */
     public function watchers(string $snippet): Watchers
     {
         return new Watchers($this->getClient(), $this->workspace, $snippet);
