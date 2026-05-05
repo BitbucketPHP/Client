@@ -13,6 +13,9 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Repositories\Workspaces;
 
+use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\BuildNumber;
+use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Schedules;
+use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Ssh;
 use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig\Variables;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
@@ -23,6 +26,21 @@ use Bitbucket\HttpClient\Util\UriBuilder;
  */
 class PipelinesConfig extends AbstractWorkspacesApi
 {
+    public function buildNumber(): BuildNumber
+    {
+        return new BuildNumber($this->getClient(), $this->workspace, $this->repo);
+    }
+
+    public function schedules(): Schedules
+    {
+        return new Schedules($this->getClient(), $this->workspace, $this->repo);
+    }
+
+    public function ssh(): Ssh
+    {
+        return new Ssh($this->getClient(), $this->workspace, $this->repo);
+    }
+
     public function variables(): Variables
     {
         return new Variables($this->getClient(), $this->workspace, $this->repo);
