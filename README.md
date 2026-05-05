@@ -44,7 +44,7 @@ We are decoupled from any HTTP messaging client by using [PSR-7](https://www.php
 
 ## Usage
 
-The main point of entry is the `Bitbucket\Client` class. Simply create a new instance of that, authenticate, and you're good to go! As of time of writing (Tuesday 29th June 2020), every endpoint (excluding issue export and import, and various deprecated endpoints) available on the Bitbucket API 2.0 is also available through this PHP client. We'd recommend looking through the [Bitbucket documentation](https://developer.atlassian.com/cloud/bitbucket/rest/intro/), and also the [source code](https://github.com/BitbucketPHP/Client/tree/5.0/src) to get a full picture of what is available to use.
+The main point of entry is the `Bitbucket\Client` class. Simply create a new instance of that, authenticate, and you're good to go! As of time of writing (Tuesday 29th June 2020), every endpoint (excluding issue export and import, and various deprecated endpoints) available on the Bitbucket API 2.0 is also available through this PHP client. We'd recommend looking through the [Bitbucket documentation](https://developer.atlassian.com/cloud/bitbucket/rest/intro/), and also the [source code](https://github.com/BitbucketPHP/Client/tree/5.1/src) to get a full picture of what is available to use.
 
 ### Authentication
 
@@ -129,6 +129,39 @@ $branchesClient = $client->repositories()
 
 $branches = $paginator->fetchAll($branchesClient, 'list');
 ```
+
+
+### Migrating Deprecated Bitbucket Endpoints
+
+Bitbucket is removing or deprecating several cross-workspace endpoints. This client keeps the older methods available in v5.1, but marks them as deprecated where Bitbucket has published a supported replacement or removal notice.
+
+| Deprecated usage | Replacement |
+| --- | --- |
+| `$client->currentUser()->listWorkspaces()` | `$client->currentUser()->workspaces()->list()` |
+| `$client->currentUser()->listWorkspacePermissions()` | `$client->currentUser()->workspaces()->permissions($workspace)->show()` |
+| `$client->currentUser()->listRepositoryPermissions()` | `$client->currentUser()->workspaces()->permissions($workspace)->repositories()->list()` |
+| `$client->currentUser()->listTeamPermissions()` | Workspace APIs, where applicable |
+| `$client->pullRequests()->list($selectedUser)` | `$client->workspaces($workspace)->pullRequests()->list($selectedUser)` |
+| `$client->repositories()->list()` | `$client->repositories()->workspaces($workspace)->list()` |
+| `$client->users($user)->repositories()->list()` | `$client->repositories()->workspaces($workspace)->list()` |
+| `$client->snippets()->list()` | `$client->snippets()->workspaces($workspace)->list()` |
+
+The replacement endpoints are usually workspace-scoped. If your application previously relied on cross-workspace results, enumerate the current user's workspaces and aggregate the workspace-scoped results in your application code.
+
+```php
+$paginator = new Bitbucket\ResultPager($client);
+
+foreach ($paginator->fetchAll($client->currentUser()->workspaces(), 'list') as $workspaceAccess) {
+    $workspace = $workspaceAccess['workspace']['slug'];
+
+    $permissions = $paginator->fetchAll(
+        $client->currentUser()->workspaces()->permissions($workspace)->repositories(),
+        'list'
+    );
+}
+```
+
+The supported current user workspaces endpoint returns `workspace_access` values, not the old workspace object shape. The workspace details are available under the `workspace` key on each result.
 
 
 ## Contributing
