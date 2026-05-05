@@ -30,7 +30,7 @@ class Issues extends AbstractWorkspacesApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function list(array $params = []): array
     {
@@ -42,7 +42,7 @@ class Issues extends AbstractWorkspacesApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function create(array $params = []): array
     {
@@ -54,7 +54,7 @@ class Issues extends AbstractWorkspacesApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function show(string $issue, array $params = []): array
     {
@@ -66,7 +66,7 @@ class Issues extends AbstractWorkspacesApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function update(string $issue, array $params = []): array
     {
@@ -78,7 +78,7 @@ class Issues extends AbstractWorkspacesApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function remove(string $issue, array $params = []): array
     {
@@ -88,7 +88,7 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function attachments(string $issue): Attachments
     {
@@ -96,7 +96,7 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function changes(string $issue): Changes
     {
@@ -104,7 +104,7 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function comments(string $issue): Comments
     {
@@ -112,7 +112,7 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function voting(string $issue): Voting
     {
@@ -120,7 +120,7 @@ class Issues extends AbstractWorkspacesApi
     }
 
     /**
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function watching(string $issue): Watching
     {

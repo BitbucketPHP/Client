@@ -25,7 +25,7 @@ class Components extends AbstractWorkspacesApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function list(array $params = []): array
     {
@@ -37,7 +37,7 @@ class Components extends AbstractWorkspacesApi
     /**
      * @throws \Http\Client\Exception
      *
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function show(string $component, array $params = []): array
     {

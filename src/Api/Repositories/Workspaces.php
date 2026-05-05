@@ -120,7 +120,7 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function components(string $repo): Components
     {
@@ -178,7 +178,7 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function issues(string $repo): Issues
     {
@@ -191,7 +191,7 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function milestones(string $repo): Milestones
     {
@@ -234,7 +234,7 @@ class Workspaces extends AbstractRepositoriesApi
     }
 
     /**
-     * @deprecated Bitbucket has deprecated native issue tracker APIs.
+     * @deprecated bitbucket has deprecated native issue tracker APIs
      */
     public function versions(string $repo): Versions
     {
