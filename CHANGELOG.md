@@ -14,6 +14,7 @@ CHANGE LOG
 * Deprecated the global snippets listing pass-through method
 * Deprecated snippet watchers listing methods
 * Deprecated workspace code search
+* Deprecated addon linker methods
 
 
 ## V5.0 (23/02/2025)
