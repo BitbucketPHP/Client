@@ -16,6 +16,7 @@ CHANGE LOG
 * Deprecated workspace code search
 * Deprecated addon linker methods
 * Deprecated native issue tracker methods
+* Deprecated current user team permissions
 
 
 ## V5.0 (23/02/2025)
