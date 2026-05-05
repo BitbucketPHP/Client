@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Bitbucket\Api;
+namespace Bitbucket\Api\Workspaces;
 
 use Bitbucket\HttpClient\Util\UriBuilder;
 
@@ -20,16 +20,14 @@ use Bitbucket\HttpClient\Util\UriBuilder;
  *
  * @author Graham Campbell <hello@gjcampbell.co.uk>
  */
-class PullRequests extends AbstractApi
+class PullRequests extends AbstractWorkspacesApi
 {
     /**
      * @throws \Http\Client\Exception
-     *
-     * @deprecated use workspaces($workspace)->pullRequests()->list() instead
      */
-    public function list(string $username, array $params = []): array
+    public function list(string $selectedUser, array $params = []): array
     {
-        $uri = $this->buildPullRequestsUri($username);
+        $uri = $this->buildPullRequestsUri($selectedUser);
 
         return $this->get($uri, $params);
     }
@@ -39,6 +37,6 @@ class PullRequests extends AbstractApi
      */
     protected function buildPullRequestsUri(string ...$parts): string
     {
-        return UriBuilder::build('pullrequests', ...$parts);
+        return UriBuilder::build('workspaces', $this->workspace, 'pullrequests', ...$parts);
     }
 }

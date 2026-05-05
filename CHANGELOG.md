@@ -8,6 +8,7 @@ CHANGE LOG
 * Fixed the current user workspaces endpoint
 * Added the current user workspaces API
 * Deprecated current user workspaces pass-through methods
+* Added the workspace pull requests endpoint for a selected user
 
 
 ## V5.0 (23/02/2025)
