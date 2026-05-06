@@ -9,6 +9,7 @@ CHANGE LOG
 * Added the current user workspaces API
 * Added the workspace pull requests endpoint for a selected user
 * Added repository pipelines config subresources
+* Added repository permissions config APIs
 * Fixed result pager pagination when using partial response fields
 * Fixed result pager previous-page navigation
 * Fixed source directory listings for specific revisions
