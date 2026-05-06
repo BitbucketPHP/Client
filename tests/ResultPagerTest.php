@@ -33,15 +33,15 @@ class ResultPagerTest extends TestCase
 
         $httpClient->addResponse(self::jsonResponse([
             'pagelen' => 1,
-            'next'    => 'https://api.bitbucket.org/2.0/repositories/my-workspace/my-repo/refs/tags?page=2',
-            'values'  => [
+            'next' => 'https://api.bitbucket.org/2.0/repositories/my-workspace/my-repo/refs/tags?page=2',
+            'values' => [
                 ['name' => 'v1.0.0'],
             ],
         ]));
 
         $httpClient->addResponse(self::jsonResponse([
             'pagelen' => 1,
-            'values'  => [
+            'values' => [
                 ['name' => 'v1.0.1'],
             ],
         ]));
