@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Bitbucket\Api\Workspaces;
 
+use Bitbucket\Api\Workspaces\Projects\PermissionsConfig;
 use Bitbucket\HttpClient\Util\UriBuilder;
 
 /**
@@ -70,6 +71,11 @@ class Projects extends AbstractWorkspacesApi
         $uri = $this->buildProjectsUri($project);
 
         return $this->delete($uri, $params);
+    }
+
+    public function permissionsConfig(string $project): PermissionsConfig
+    {
+        return new PermissionsConfig($this->getClient(), $this->workspace, $project);
     }
 
     /**

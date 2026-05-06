@@ -283,6 +283,144 @@ class ApiUrlTest extends TestCase
         );
     }
 
+    public function testWorkspaceProjectPermissionsConfigGroupsListUri(): void
+    {
+        $this->client->workspaces('my-workspace')
+            ->projects()
+            ->permissionsConfig('PROJ')
+            ->groups()
+            ->list(['pagelen' => 50]);
+
+        $request = $this->httpClient->getLastRequest();
+
+        $this->assertSame('GET', $request->getMethod());
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/workspaces/my-workspace/projects/PROJ/permissions-config/groups?pagelen=50',
+            (string) $request->getUri()
+        );
+    }
+
+    public function testWorkspaceProjectPermissionsConfigGroupsShowUri(): void
+    {
+        $this->client->workspaces('my-workspace')
+            ->projects()
+            ->permissionsConfig('PROJ')
+            ->groups()
+            ->show('developers');
+
+        $request = $this->httpClient->getLastRequest();
+
+        $this->assertSame('GET', $request->getMethod());
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/workspaces/my-workspace/projects/PROJ/permissions-config/groups/developers',
+            (string) $request->getUri()
+        );
+    }
+
+    public function testWorkspaceProjectPermissionsConfigGroupsUpdateUri(): void
+    {
+        $this->client->workspaces('my-workspace')
+            ->projects()
+            ->permissionsConfig('PROJ')
+            ->groups()
+            ->update('developers', ['permission' => 'create-repo']);
+
+        $request = $this->httpClient->getLastRequest();
+
+        $this->assertSame('PUT', $request->getMethod());
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/workspaces/my-workspace/projects/PROJ/permissions-config/groups/developers',
+            (string) $request->getUri()
+        );
+        $this->assertSame('{"permission":"create-repo"}', (string) $request->getBody());
+    }
+
+    public function testWorkspaceProjectPermissionsConfigGroupsRemoveUri(): void
+    {
+        $this->client->workspaces('my-workspace')
+            ->projects()
+            ->permissionsConfig('PROJ')
+            ->groups()
+            ->remove('developers');
+
+        $request = $this->httpClient->getLastRequest();
+
+        $this->assertSame('DELETE', $request->getMethod());
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/workspaces/my-workspace/projects/PROJ/permissions-config/groups/developers',
+            (string) $request->getUri()
+        );
+    }
+
+    public function testWorkspaceProjectPermissionsConfigUsersListUri(): void
+    {
+        $this->client->workspaces('my-workspace')
+            ->projects()
+            ->permissionsConfig('PROJ')
+            ->users()
+            ->list(['pagelen' => 50]);
+
+        $request = $this->httpClient->getLastRequest();
+
+        $this->assertSame('GET', $request->getMethod());
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/workspaces/my-workspace/projects/PROJ/permissions-config/users?pagelen=50',
+            (string) $request->getUri()
+        );
+    }
+
+    public function testWorkspaceProjectPermissionsConfigUsersShowUri(): void
+    {
+        $this->client->workspaces('my-workspace')
+            ->projects()
+            ->permissionsConfig('PROJ')
+            ->users()
+            ->show('{abc-123}');
+
+        $request = $this->httpClient->getLastRequest();
+
+        $this->assertSame('GET', $request->getMethod());
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/workspaces/my-workspace/projects/PROJ/permissions-config/users/%7Babc-123%7D',
+            (string) $request->getUri()
+        );
+    }
+
+    public function testWorkspaceProjectPermissionsConfigUsersUpdateUri(): void
+    {
+        $this->client->workspaces('my-workspace')
+            ->projects()
+            ->permissionsConfig('PROJ')
+            ->users()
+            ->update('{abc-123}', ['permission' => 'admin']);
+
+        $request = $this->httpClient->getLastRequest();
+
+        $this->assertSame('PUT', $request->getMethod());
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/workspaces/my-workspace/projects/PROJ/permissions-config/users/%7Babc-123%7D',
+            (string) $request->getUri()
+        );
+        $this->assertSame('{"permission":"admin"}', (string) $request->getBody());
+    }
+
+    public function testWorkspaceProjectPermissionsConfigUsersRemoveUri(): void
+    {
+        $this->client->workspaces('my-workspace')
+            ->projects()
+            ->permissionsConfig('PROJ')
+            ->users()
+            ->remove('{abc-123}');
+
+        $request = $this->httpClient->getLastRequest();
+
+        $this->assertSame('DELETE', $request->getMethod());
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/workspaces/my-workspace/projects/PROJ/permissions-config/users/%7Babc-123%7D',
+            (string) $request->getUri()
+        );
+    }
+
     public function testWorkspaceEffectiveBranchingModelShowUri(): void
     {
         $this->client->repositories()
