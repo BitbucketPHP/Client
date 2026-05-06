@@ -145,6 +145,18 @@ $tags = $paginator->fetchAll($tagsClient, 'list', [['q' => 'name ~ "v1"', 'sort'
 
 Bitbucket includes those query parameters in the `next` pagination URL, so subsequent pages preserve them automatically.
 
+To list files from a specific branch or commit, use the source API with `ResultPager`. Directory listings include both `commit_file` and `commit_directory` entries, so filter the returned values by `type` if you only need files:
+
+```php
+$paginator = new Bitbucket\ResultPager($client);
+
+$srcClient = $client->repositories()
+    ->workspaces('abc')
+    ->src('xyz');
+
+$entries = $paginator->fetchAll($srcClient, 'show', ['demo', '/', ['max_depth' => 10]]);
+```
+
 
 ### Migrating Deprecated Bitbucket Endpoints
 

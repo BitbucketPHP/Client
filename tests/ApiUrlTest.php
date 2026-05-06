@@ -38,6 +38,71 @@ class ApiUrlTest extends TestCase
         );
     }
 
+    public function testWorkspaceSrcShowRootDirectoryUri(): void
+    {
+        $this->client->repositories()
+            ->workspaces('my-workspace')
+            ->src('my-project')
+            ->show('main', '/');
+
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/repositories/my-workspace/my-project/src/main/',
+            (string) $this->httpClient->getLastRequest()->getUri()
+        );
+    }
+
+    public function testWorkspaceSrcShowEmptyRootDirectoryUri(): void
+    {
+        $this->client->repositories()
+            ->workspaces('my-workspace')
+            ->src('my-project')
+            ->show('main', '');
+
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/repositories/my-workspace/my-project/src/main/',
+            (string) $this->httpClient->getLastRequest()->getUri()
+        );
+    }
+
+    public function testWorkspaceSrcShowRootDirectoryUriWithMaxDepth(): void
+    {
+        $this->client->repositories()
+            ->workspaces('my-workspace')
+            ->src('my-project')
+            ->show('main', '/', ['max_depth' => 10]);
+
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/repositories/my-workspace/my-project/src/main/?max_depth=10',
+            (string) $this->httpClient->getLastRequest()->getUri()
+        );
+    }
+
+    public function testWorkspaceSrcShowDirectoryUri(): void
+    {
+        $this->client->repositories()
+            ->workspaces('my-workspace')
+            ->src('my-project')
+            ->show('main', 'docs/');
+
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/repositories/my-workspace/my-project/src/main/docs/',
+            (string) $this->httpClient->getLastRequest()->getUri()
+        );
+    }
+
+    public function testWorkspaceSrcShowDirectoryUriWithSlashInBranchName(): void
+    {
+        $this->client->repositories()
+            ->workspaces('my-workspace')
+            ->src('my-project')
+            ->show('feature/demo', '/');
+
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/repositories/my-workspace/my-project/src/feature%2Fdemo/',
+            (string) $this->httpClient->getLastRequest()->getUri()
+        );
+    }
+
     #[DataProvider('dataProvider')]
     public function testWorkspaceSrcDownloadUri(string $fileName): void
     {
