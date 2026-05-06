@@ -283,6 +283,38 @@ class ApiUrlTest extends TestCase
         );
     }
 
+    public function testWorkspaceEffectiveBranchingModelShowUri(): void
+    {
+        $this->client->repositories()
+            ->workspaces('my-workspace')
+            ->effectiveBranchingModel('my-project')
+            ->show();
+
+        $request = $this->httpClient->getLastRequest();
+
+        $this->assertSame('GET', $request->getMethod());
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/repositories/my-workspace/my-project/effective-branching-model',
+            (string) $request->getUri()
+        );
+    }
+
+    public function testWorkspaceEffectiveBranchingModelShowUriWithFields(): void
+    {
+        $this->client->repositories()
+            ->workspaces('my-workspace')
+            ->effectiveBranchingModel('my-project')
+            ->show(['fields' => 'development,production,branch_types']);
+
+        $request = $this->httpClient->getLastRequest();
+
+        $this->assertSame('GET', $request->getMethod());
+        $this->assertSame(
+            'https://api.bitbucket.org/2.0/repositories/my-workspace/my-project/effective-branching-model?fields=development%2Cproduction%2Cbranch_types',
+            (string) $request->getUri()
+        );
+    }
+
     public static function dataProvider(): array
     {
         return [
