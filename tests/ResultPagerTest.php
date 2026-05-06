@@ -135,7 +135,7 @@ class ResultPagerTest extends TestCase
             'list'
         );
 
-        self::assertSame([['name' => 'v1.0.0']], $pager->fetchPrevious());
+        self::assertSame(['pagelen' => 1, 'values' => [['name' => 'v1.0.0']]], $pager->fetchPrevious());
 
         $requests = $httpClient->getRequests();
 
