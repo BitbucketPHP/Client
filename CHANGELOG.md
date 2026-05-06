@@ -4,27 +4,27 @@ CHANGE LOG
 
 ## V5.1 (UPCOMING)
 
-* Add PHP 8.5 support
-* Fixed the current user workspaces endpoint
-* Added the current user workspaces API
-* Added the workspace pull requests endpoint for a selected user
-* Added repository effective branching model API
-* Added repository pipelines config subresources
-* Added repository permissions config APIs
+* Added PHP 8.5 support
+* Added current user workspaces API
 * Added project permissions config APIs
-* Fixed result pager pagination when using partial response fields
-* Fixed result pager previous-page navigation
+* Added repository effective branching model API
+* Added repository permissions config APIs
+* Added repository pipelines config subresources
+* Added workspace pull requests endpoint for selected users
+* Fixed current user workspaces endpoint
+* Fixed ResultPager pagination when using partial response fields
+* Fixed ResultPager previous-page navigation
 * Fixed source directory listings for specific revisions
 * Documented Bitbucket API migration paths
-* Deprecated current user workspaces pass-through methods
-* Deprecated the top-level pull requests pass-through method
-* Deprecated repository listing pass-through methods
-* Deprecated the global snippets listing pass-through method
-* Deprecated snippet watchers listing methods
-* Deprecated workspace code search
 * Deprecated addon linker methods
-* Deprecated native issue tracker methods
 * Deprecated current user team permissions
+* Deprecated current user workspaces pass-through methods
+* Deprecated global snippets listing method
+* Deprecated native issue tracker methods
+* Deprecated repository listing pass-through methods
+* Deprecated snippet watchers listing methods
+* Deprecated top-level pull requests pass-through method
+* Deprecated workspace code search
 
 
 ## V5.0 (23/02/2025)
