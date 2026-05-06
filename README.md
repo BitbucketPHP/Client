@@ -130,6 +130,21 @@ $branchesClient = $client->repositories()
 $branches = $paginator->fetchAll($branchesClient, 'list');
 ```
 
+Filtering and sorting parameters can be passed through the third argument to `fetchAll()`:
+
+```php
+$paginator = new Bitbucket\ResultPager($client);
+
+$tagsClient = $client->repositories()
+    ->workspaces('my-workspace')
+    ->refs('my-repo')
+    ->tags();
+
+$tags = $paginator->fetchAll($tagsClient, 'list', [['q' => 'name ~ "v1"', 'sort' => '-name']]);
+```
+
+Bitbucket includes those query parameters in the `next` pagination URL, so subsequent pages preserve them automatically.
+
 
 ### Migrating Deprecated Bitbucket Endpoints
 
