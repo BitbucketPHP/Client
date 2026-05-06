@@ -128,7 +128,7 @@ final class ResultPager implements ResultPagerInterface
      */
     public function hasPrevious(): bool
     {
-        return isset($this->pagination['prev']);
+        return isset($this->pagination['previous']);
     }
 
     /**
@@ -138,7 +138,7 @@ final class ResultPager implements ResultPagerInterface
      */
     public function fetchPrevious(): array
     {
-        return $this->get('prev');
+        return $this->get('previous');
     }
 
     /**
