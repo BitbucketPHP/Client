@@ -80,9 +80,20 @@ class Src extends AbstractWorkspacesApi
      */
     public function show(string $commit, string $filepath, array $params = []): array
     {
-        $uri = $this->buildSrcUri($commit, ...\explode('/', $filepath));
+        $isDirectory = '' === $filepath || \str_ends_with($filepath, '/');
+        $filepath = \trim($filepath, '/');
 
-        if (!isset($params['format'])) {
+        if ('' === $filepath) {
+            $uri = UriBuilder::appendSeparator($this->buildSrcUri($commit));
+        } else {
+            $uri = $this->buildSrcUri($commit, ...\explode('/', $filepath));
+
+            if ($isDirectory) {
+                $uri = UriBuilder::appendSeparator($uri);
+            }
+        }
+
+        if (!$isDirectory && !isset($params['format'])) {
             $params['format'] = 'meta';
         }
 
