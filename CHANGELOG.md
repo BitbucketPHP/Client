@@ -9,6 +9,7 @@ CHANGE LOG
 * Added the current user workspaces API
 * Added the workspace pull requests endpoint for a selected user
 * Added repository pipelines config subresources
+* Fixed result pager pagination when using partial response fields
 * Documented Bitbucket API migration paths
 * Deprecated current user workspaces pass-through methods
 * Deprecated the top-level pull requests pass-through method

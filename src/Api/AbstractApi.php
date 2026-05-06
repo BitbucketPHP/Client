@@ -33,6 +33,13 @@ abstract class AbstractApi
      */
     private const URI_PREFIX = '/2.0/';
 
+    /**
+     * The pagination fields.
+     *
+     * @var string[]
+     */
+    private const PAGINATION_FIELDS = ['size', 'page', 'pagelen', 'next', 'previous'];
+
     private readonly Client $client;
 
     private ?int $perPage;
@@ -60,8 +67,14 @@ abstract class AbstractApi
      */
     protected function getAsResponse(string $uri, array $params = [], array $headers = []): ResponseInterface
     {
-        if (null !== $this->perPage && !isset($params['pagelen'])) {
-            $params['pagelen'] = $this->perPage;
+        if (null !== $this->perPage) {
+            if (!isset($params['pagelen'])) {
+                $params['pagelen'] = $this->perPage;
+            }
+
+            if (isset($params['fields']) && \is_string($params['fields']) && '' !== \trim($params['fields'])) {
+                $params['fields'] = self::withPaginationFields($params['fields']);
+            }
         }
 
         return $this->client->getHttpClient()->get(self::prepareUri($uri, $params), $headers);
@@ -183,6 +196,59 @@ abstract class AbstractApi
     private static function prepareUri(string $uri, array $query = []): string
     {
         return \sprintf('%s%s%s', self::URI_PREFIX, $uri, QueryStringBuilder::build($query));
+    }
+
+    /**
+     * Add the pagination fields to the given fields parameter.
+     */
+    private static function withPaginationFields(string $fields): string
+    {
+        $parts = \array_values(\array_filter(
+            \array_map('trim', \explode(',', $fields)),
+            static function (string $field): bool {
+                return '' !== $field;
+            }
+        ));
+
+        if ([] === $parts) {
+            return $fields;
+        }
+
+        $prefix = self::usesAdditiveFields($parts) ? '+' : '';
+
+        foreach (self::PAGINATION_FIELDS as $field) {
+            if (!self::containsIncludedField($parts, $field)) {
+                $parts[] = $prefix.$field;
+            }
+        }
+
+        return \implode(',', $parts);
+    }
+
+    /**
+     * @param string[] $fields
+     */
+    private static function usesAdditiveFields(array $fields): bool
+    {
+        if (\in_array('-*', $fields, true)) {
+            return true;
+        }
+
+        foreach ($fields as $field) {
+            if (!\str_starts_with($field, '+') && !\str_starts_with($field, '-')) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * @param string[] $fields
+     */
+    private static function containsIncludedField(array $fields, string $field): bool
+    {
+        return \in_array($field, $fields, true) || \in_array("+{$field}", $fields, true);
     }
 
     /**
