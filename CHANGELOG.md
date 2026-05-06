@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V5.1 (UPCOMING)
+## V5.1 (06/05/2026)
 
 * Added PHP 8.5 support
 * Added sensitive parameter annotations for authentication tokens and passwords
