@@ -44,7 +44,7 @@ We are decoupled from any HTTP messaging client by using [PSR-7](https://www.php
 
 ## Usage
 
-The main point of entry is the `Bitbucket\Client` class. Simply create a new instance of that, authenticate, and you're good to go! As of time of writing (Tuesday 29th June 2020), every endpoint (excluding issue export and import, and various deprecated endpoints) available on the Bitbucket API 2.0 is also available through this PHP client. We'd recommend looking through the [Bitbucket documentation](https://developer.atlassian.com/cloud/bitbucket/rest/intro/), and also the [source code](https://github.com/BitbucketPHP/Client/tree/5.1/src) to get a full picture of what is available to use.
+The main point of entry is the `Bitbucket\Client` class. Simply create a new instance of that, authenticate, and you're good to go! This client exposes Bitbucket API 2.0 endpoints through fluent resource classes. We'd recommend looking through the [Bitbucket documentation](https://developer.atlassian.com/cloud/bitbucket/rest/intro/), and also the [source code](https://github.com/BitbucketPHP/Client/tree/5.1/src) to get a full picture of what is available to use.
 
 ### Authentication
 
@@ -63,25 +63,25 @@ $client->authenticate(
 );
 ```
 
-#### HTTP Password
+#### HTTP Basic
 
-It is possible to login using a username and password combination. This method is not recommended for production use, however you may find it useful never the less:
+It is possible to authenticate using HTTP Basic credentials. For [Bitbucket API tokens](https://support.atlassian.com/bitbucket-cloud/docs/api-tokens/), use your Atlassian account email as the username and the API token as the password:
 
 ```php
 $client = new Bitbucket\Client();
 
 $client->authenticate(
     Bitbucket\Client::AUTH_HTTP_PASSWORD,
-    'your-username-here',
-    'your-password-here'
+    'your-email@example.com',
+    'your-api-token-here'
 );
 ```
 
-> If you have two-factor authentication enabled on your account, then you must use an [application password](https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/).
+> Bitbucket API tokens are the long-term replacement for [app passwords](https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/), which Bitbucket has deprecated. Do not use your Atlassian account password here.
 
 #### JSON Web Token
 
-Finally, we support logging in using JSON web tokens (JWTs). This method is exclusively required by some of Bitbucket's API endpoints, such as the addons API. Generate your JWT, perahps using [lcobucci/jwt](https://github.com/lcobucci/jwt/tree/4.3.0), then provide it as below:
+Finally, we support logging in using JSON web tokens (JWTs). This method is required by some Bitbucket API endpoints, such as the addons API. Generate your JWT, perhaps using [lcobucci/jwt](https://github.com/lcobucci/jwt), then provide it as below:
 
 
 ```php
@@ -151,10 +151,10 @@ To list files from a specific branch or commit, use the source API with `ResultP
 $paginator = new Bitbucket\ResultPager($client);
 
 $srcClient = $client->repositories()
-    ->workspaces('abc')
-    ->src('xyz');
+    ->workspaces('my-workspace')
+    ->src('my-repo');
 
-$entries = $paginator->fetchAll($srcClient, 'show', ['demo', '/', ['max_depth' => 10]]);
+$entries = $paginator->fetchAll($srcClient, 'show', ['main', '/', ['max_depth' => 10]]);
 ```
 
 
