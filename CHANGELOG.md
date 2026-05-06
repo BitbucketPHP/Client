@@ -11,7 +11,6 @@ CHANGE LOG
 * Added repository pipelines config subresources
 * Fixed result pager pagination when using partial response fields
 * Fixed result pager previous-page navigation
-* Fixed User-Agent version
 * Documented Bitbucket API migration paths
 * Deprecated current user workspaces pass-through methods
 * Deprecated the top-level pull requests pass-through method
