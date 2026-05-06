@@ -32,7 +32,7 @@ final class Authentication implements Plugin
 {
     private readonly string $header;
 
-    public function __construct(string $method, string $token, ?string $password = null)
+    public function __construct(string $method, #[\SensitiveParameter] string $token, #[\SensitiveParameter] ?string $password = null)
     {
         $this->header = self::buildAuthorizationHeader($method, $token, $password);
     }
@@ -57,7 +57,7 @@ final class Authentication implements Plugin
      *
      * @throws \Bitbucket\Exception\RuntimeException
      */
-    private static function buildAuthorizationHeader(string $method, string $token, ?string $password = null): string
+    private static function buildAuthorizationHeader(string $method, #[\SensitiveParameter] string $token, #[\SensitiveParameter] ?string $password = null): string
     {
         switch ($method) {
             case Client::AUTH_HTTP_PASSWORD:

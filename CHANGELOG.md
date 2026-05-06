@@ -5,6 +5,7 @@ CHANGE LOG
 ## V5.1 (UPCOMING)
 
 * Added PHP 8.5 support
+* Added sensitive parameter annotations for authentication tokens and passwords
 * Added current user workspaces API
 * Added project permissions config APIs
 * Added repository effective branching model API
