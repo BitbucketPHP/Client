@@ -14,7 +14,9 @@ declare(strict_types=1);
 namespace Bitbucket\Tests;
 
 use Bitbucket\Client;
+use Bitbucket\HttpClient\Builder;
 use Http\Client\Common\HttpMethodsClientInterface;
+use Http\Mock\Client as MockClient;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -28,5 +30,15 @@ final class ClientTest extends TestCase
 
         self::assertInstanceOf(Client::class, $client);
         self::assertInstanceOf(HttpMethodsClientInterface::class, $client->getHttpClient());
+    }
+
+    public function testDefaultUserAgentHeaderMatchesClientVersion(): void
+    {
+        $httpClient = new MockClient();
+        $client = new Client(new Builder($httpClient));
+
+        $client->currentUser()->show();
+
+        self::assertSame('bitbucket-php-api-client/5.1', $httpClient->getLastRequest()->getHeaderLine('User-Agent'));
     }
 }
