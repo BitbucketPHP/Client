@@ -32,6 +32,7 @@ use Bitbucket\Api\Repositories\Workspaces\Issues;
 use Bitbucket\Api\Repositories\Workspaces\MergeBases;
 use Bitbucket\Api\Repositories\Workspaces\Milestones;
 use Bitbucket\Api\Repositories\Workspaces\Patches;
+use Bitbucket\Api\Repositories\Workspaces\PermissionsConfig;
 use Bitbucket\Api\Repositories\Workspaces\Pipelines;
 use Bitbucket\Api\Repositories\Workspaces\PipelinesConfig;
 use Bitbucket\Api\Repositories\Workspaces\Properties;
@@ -201,6 +202,11 @@ class Workspaces extends AbstractRepositoriesApi
     public function patches(string $repo): Patches
     {
         return new Patches($this->getClient(), $this->workspace, $repo);
+    }
+
+    public function permissionsConfig(string $repo): PermissionsConfig
+    {
+        return new PermissionsConfig($this->getClient(), $this->workspace, $repo);
     }
 
     public function pipelines(string $repo): Pipelines
