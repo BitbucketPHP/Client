@@ -76,7 +76,7 @@ class Client
      *
      * @var string
      */
-    private const USER_AGENT = 'bitbucket-php-api-client/5.0';
+    private const USER_AGENT = 'bitbucket-php-api-client/5.1';
 
     private readonly Builder $httpClientBuilder;
     private readonly History $responseHistory;
