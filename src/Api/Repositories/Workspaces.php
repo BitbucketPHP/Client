@@ -24,6 +24,7 @@ use Bitbucket\Api\Repositories\Workspaces\Deployments;
 use Bitbucket\Api\Repositories\Workspaces\Diffs;
 use Bitbucket\Api\Repositories\Workspaces\DiffStat;
 use Bitbucket\Api\Repositories\Workspaces\Downloads;
+use Bitbucket\Api\Repositories\Workspaces\EffectiveBranchingModel;
 use Bitbucket\Api\Repositories\Workspaces\Environments;
 use Bitbucket\Api\Repositories\Workspaces\FileHistory;
 use Bitbucket\Api\Repositories\Workspaces\Forks;
@@ -103,6 +104,11 @@ class Workspaces extends AbstractRepositoriesApi
     public function branchingModel(string $repo): BranchingModel
     {
         return new BranchingModel($this->getClient(), $this->workspace, $repo);
+    }
+
+    public function effectiveBranchingModel(string $repo): EffectiveBranchingModel
+    {
+        return new EffectiveBranchingModel($this->getClient(), $this->workspace, $repo);
     }
 
     public function branchRestrictions(string $repo): BranchRestrictions

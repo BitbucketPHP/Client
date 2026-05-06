@@ -8,6 +8,7 @@ CHANGE LOG
 * Fixed the current user workspaces endpoint
 * Added the current user workspaces API
 * Added the workspace pull requests endpoint for a selected user
+* Added repository effective branching model API
 * Added repository pipelines config subresources
 * Added repository permissions config APIs
 * Fixed result pager pagination when using partial response fields
