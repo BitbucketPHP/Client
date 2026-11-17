@@ -162,13 +162,27 @@ final class ResultPager implements ResultPagerInterface
             return [];
         }
 
-        $result = $this->client->getHttpClient()->get($pagination);
+        $result = $this->client->getHttpClient()->get(self::getPathAndQuery($pagination));
 
         $content = ResponseMediator::getContent($result);
 
         $this->postFetch();
 
         return $content;
+    }
+
+    private static function getPathAndQuery(string $url): string
+    {
+        $path = \parse_url($url, \PHP_URL_PATH);
+        $query = \parse_url($url, \PHP_URL_QUERY);
+        $pathAndQuery = $path.(\is_string($query) ? '?'.$query : '');
+
+        // some paths cannot be requested without their host
+        if (!\is_string($path) || \parse_url($pathAndQuery, \PHP_URL_PATH) !== $path) {
+            return $url;
+        }
+
+        return $pathAndQuery;
     }
 
     private static function bindPerPage(AbstractApi $api, int $perPage): AbstractApi
