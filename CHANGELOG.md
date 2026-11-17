@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V5.1.1 (UPCOMING)
+
+* Fixed authentication being sent to origins other than the base URL (GHSA-jp92-97q7-5p29)
+* Stopped authenticating requests redirected from an `http` base URL to `https`
+
+
 ## V5.1 (06/05/2026)
 
 * Added PHP 8.5 support
