@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V5.1.1 (UPCOMING)
+## V5.1.1 (17/11/2026)
 
 * Fixed authentication being sent to origins other than the base URL (GHSA-jp92-97q7-5p29)
 * Stopped authenticating requests redirected from an `http` base URL to `https`
