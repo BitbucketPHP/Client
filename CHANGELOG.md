@@ -6,6 +6,7 @@ CHANGE LOG
 
 * Fixed authentication being sent to origins other than the base URL (GHSA-jp92-97q7-5p29)
 * Stopped authenticating requests redirected from an `http` base URL to `https`
+* Updated ResultPager to request pagination links from the base URL
 
 
 ## V5.1 (06/05/2026)

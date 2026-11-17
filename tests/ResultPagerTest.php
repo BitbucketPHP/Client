@@ -84,6 +84,113 @@ class ResultPagerTest extends TestCase
         self::assertSame('values.name', $query['fields']);
     }
 
+    public function testFetchNextRequestsNextPageFromBaseUrl(): void
+    {
+        $httpClient = new MockClient();
+
+        $httpClient->addResponse(self::jsonResponse([
+            'pagelen' => 1,
+            'next' => 'https://api.bitbucket.org/2.0/repositories/my-workspace/my-repo/refs/tags?page=2&q=name%20~%20%22v1%22',
+            'values' => [
+                ['name' => 'v1.0.0'],
+            ],
+        ]));
+
+        $httpClient->addResponse(self::jsonResponse([
+            'pagelen' => 1,
+            'values' => [
+                ['name' => 'v1.0.1'],
+            ],
+        ]));
+
+        $client = new Client(new Builder($httpClient));
+        $client->setUrl('http://bitbucket.example.com:8080');
+        $pager = new ResultPager($client, 1);
+
+        $pager->fetch(
+            $client->repositories()->workspaces('my-workspace')->refs('my-repo')->tags(),
+            'list'
+        );
+
+        self::assertSame(['pagelen' => 1, 'values' => [['name' => 'v1.0.1']]], $pager->fetchNext());
+
+        $requests = $httpClient->getRequests();
+
+        self::assertSame('http://bitbucket.example.com:8080/2.0/repositories/my-workspace/my-repo/refs/tags?page=2&q=name%20~%20%22v1%22', (string) $requests[1]->getUri());
+    }
+
+    public function testFetchNextRequestsNextPageWithColonAndDigitsInPathAsGiven(): void
+    {
+        $next = 'https://api.bitbucket.org/2.0/repositories/my-workspace/my-repo/refs/tags:80/?page=2';
+        $httpClient = new MockClient();
+
+        $httpClient->addResponse(self::jsonResponse([
+            'pagelen' => 1,
+            'next' => $next,
+            'values' => [
+                ['name' => 'v1.0.0'],
+            ],
+        ]));
+
+        $httpClient->addResponse(self::jsonResponse([
+            'pagelen' => 1,
+            'values' => [
+                ['name' => 'v1.0.1'],
+            ],
+        ]));
+
+        $client = new Client(new Builder($httpClient));
+        $client->setUrl('http://bitbucket.example.com:8080');
+        $pager = new ResultPager($client, 1);
+
+        $pager->fetch(
+            $client->repositories()->workspaces('my-workspace')->refs('my-repo')->tags(),
+            'list'
+        );
+
+        $pager->fetchNext();
+
+        $requests = $httpClient->getRequests();
+
+        self::assertSame($next, (string) $requests[1]->getUri());
+    }
+
+    public function testFetchNextRequestsNextPageWithDoubleSlashPathAsGiven(): void
+    {
+        $next = 'https://api.bitbucket.org//2.0/repositories/my-workspace/my-repo/refs/tags?page=2';
+        $httpClient = new MockClient();
+
+        $httpClient->addResponse(self::jsonResponse([
+            'pagelen' => 1,
+            'next' => $next,
+            'values' => [
+                ['name' => 'v1.0.0'],
+            ],
+        ]));
+
+        $httpClient->addResponse(self::jsonResponse([
+            'pagelen' => 1,
+            'values' => [
+                ['name' => 'v1.0.1'],
+            ],
+        ]));
+
+        $client = new Client(new Builder($httpClient));
+        $client->setUrl('http://bitbucket.example.com:8080');
+        $pager = new ResultPager($client, 1);
+
+        $pager->fetch(
+            $client->repositories()->workspaces('my-workspace')->refs('my-repo')->tags(),
+            'list'
+        );
+
+        $pager->fetchNext();
+
+        $requests = $httpClient->getRequests();
+
+        self::assertSame($next, (string) $requests[1]->getUri());
+    }
+
     public function testHasPreviousUsesPreviousPaginationField(): void
     {
         $httpClient = new MockClient();
