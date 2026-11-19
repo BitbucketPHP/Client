@@ -41,4 +41,14 @@ class Commits extends AbstractWorkspacesApi
 
         return $this->get($uri, $params);
     }
+
+    /**
+     * @throws \Http\Client\Exception
+     */
+    public function fileConflicts(string $commitSpec, array $params = []): array
+    {
+        $uri = UriBuilder::build('repositories', $this->workspace, $this->repo, 'file-conflicts', $commitSpec);
+
+        return $this->get($uri, $params);
+    }
 }
